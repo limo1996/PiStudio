@@ -9,17 +9,17 @@ using System.Xml.Serialization;
 using Windows.Storage;
 using Windows.UI;
 
-/*
-TODO:
-From supported types of images to 2 dimensional byte array
-*/
+
 namespace ImageProcessing
 {
     public class AppSettings
     {
         private AppSettings()
         {
-           
+            SupportedImageTypes.Add(".jpg");
+            SupportedImageTypes.Add(".png");
+            SupportedImageTypes.Add(".jpeg");
+            SupportedImageTypes.Add(".gif");
         }
 
         private static AppSettings Create()

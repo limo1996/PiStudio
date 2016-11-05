@@ -50,8 +50,8 @@ namespace ImageProcessing.Front_End
                 picker.FileTypeFilter.Add(item);
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             var file = await picker.PickSingleFileAsync();
-            AppResources.Instance.LoadedImage = file;
-            this.Frame.Navigate(typeof(BrightnessPage));
+            AppResources.Instance.InitializeImageEditor(file);
+            this.Frame.Navigate(typeof(FiltersPage));
         }
 
         private void MenuButton2_Click(object sender, RoutedEventArgs e)

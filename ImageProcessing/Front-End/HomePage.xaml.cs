@@ -37,8 +37,7 @@ namespace ImageProcessing.Front_End
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
 
-            var file = AppResources.Instance.LoadedImage;
-            ImageEditor editor = new ImageEditor(file);
+            ImageEditor editor = AppResources.Instance.Editor;
             var image = await editor.ApplyFilterAsync(AppResources.Instance.Filters.First((i) => i.Name == "Sharpen"));
 
             PRing.IsActive = false;

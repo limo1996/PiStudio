@@ -15,18 +15,18 @@
                     <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" />
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                        <Button x:Name="HomePageButton" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
                     Width="50" Height="50" Background="Transparent"/>
                         <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
+                        <Button x:Name="FiltersPageButton" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
                         Width="50" Height="50" Background="Transparent"/>
                         <TextBlock Text="Button 2" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
-                        Width="50" Height="50" Background="Transparent"/>
+                        <Button x:Name="BrightenessButton" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
+                        Width="50" Height="50" Background="Transparent" Click="NavigationButton_Click"/>
                         <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
@@ -51,11 +51,12 @@
                                    SizeChanged="ImageContent_SizeChanged"/>
                             <Rectangle Fill="White" Name="BackgroundColor" Canvas.ZIndex="10" Opacity="0"
                                        VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"/>
-                            <Button Name="SaveBtn" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                                       HorizontalAlignment="Center"
+                                       Margin="0, 15, 0, 0"/>
+                        </Grid>
+                        <Button Name="SaveBtn" VerticalAlignment="Top" HorizontalAlignment="Right" 
                                     Content="&#xe105;" FontFamily="Segoe UI Symbol" FontSize="20" Canvas.ZIndex="10000"
                                     Background="Transparent" Foreground="Black" Click="SaveBtn_Click"/>
-                        </Grid>
                     </Grid>
                     <Grid Grid.Row="1" Name="LowerPanel">
                         <Grid.ColumnDefinitions>

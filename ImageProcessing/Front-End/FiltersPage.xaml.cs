@@ -38,17 +38,10 @@ namespace ImageProcessing.Front_End
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
 
-            var file = AppResources.Instance.LoadedImage;
-            ImageEditor editor = new ImageEditor(file);
+            ImageEditor editor = AppResources.Instance.Editor;
 
-            BitmapImage image = new BitmapImage();
-
-            using (var stream = await file.OpenAsync(FileAccessMode.Read))
-            {
-                await image.SetSourceAsync(stream);
-            }
-
-            ImageContent.Source = image;
+            var filter = AppResources.Instance.Filters.FirstOrDefault(i => i.Name == "None");
+            ImageContent.Source = await editor.ApplyFilterAsync(filter); ;
 
             await LoadItems(editor);
             PRing.IsActive = false;

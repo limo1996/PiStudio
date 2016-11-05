@@ -1,0 +1,1 @@
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\ImageProcessing.csproj;x64

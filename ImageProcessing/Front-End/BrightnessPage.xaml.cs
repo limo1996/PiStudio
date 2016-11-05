@@ -65,7 +65,7 @@ namespace ImageProcessing.Front_End
         {
             base.OnNavigatedTo(e);
 
-            var file = AppResources.Instance.LoadedImage;
+            /*var file = AppResources.Instance.LoadedImage;
             BitmapImage image = new BitmapImage();
 
             using (var stream = await file.OpenAsync(FileAccessMode.Read))
@@ -73,7 +73,7 @@ namespace ImageProcessing.Front_End
                 await image.SetSourceAsync(stream);
             }
 
-            ImageContent.Source = image;
+            ImageContent.Source = image;*/
         }
 
         private void BrightnessSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -98,8 +98,19 @@ namespace ImageProcessing.Front_End
 
         private async void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            ImageEditor editor = new ImageEditor(AppResources.Instance.LoadedImage);
+            ImageEditor editor = AppResources.Instance.Editor;
             ImageContent.Source = await editor.ApplyBrightnessAsync((int)BrightnessSlider.Value);
+        }
+
+        private void NavigationButton_Click(object sender, RoutedEventArgs e)
+        {
+            Type typeOfPage = typeof(HomePage);
+            if (sender == BrightenessButton)
+                typeOfPage = typeof(BrightnessPage);
+            else if (sender == FiltersPageButton)
+                typeOfPage = typeof(FiltersPage);
+            var navigator = new PageNavigator(this.Frame, typeOfPage);
+            navigator.NavigateTo(null);
         }
     }
 }

@@ -107,6 +107,7 @@
     <Compile Include="Back-End\ImageEditor.cs" />
     <Compile Include="Back-End\NavigationParameter.cs" />
     <Compile Include="Back-End\FilterItem.cs" />
+    <Compile Include="Back-End\PageNavigatorcs.cs" />
     <Compile Include="Front-End\BrightnessPage.xaml.cs">
       <DependentUpon>BrightnessPage.xaml</DependentUpon>
     </Compile>

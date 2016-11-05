@@ -26,9 +26,13 @@ namespace ImageProcessing
             Init_filters();
         }
 
-        public StorageFile LoadedImage { get; set; }
+        public void InitializeImageEditor(StorageFile file)
+        {
+            m_editor = new ImageEditor(file);
+        }
 
-        public StorageFile WorkingImage { get; set; }
+        private ImageEditor m_editor = null;
+        public ImageEditor Editor { get { return m_editor; } }
 
         private List<Filter> m_filters;
         public List<Filter> Filters { get { return m_filters; } }

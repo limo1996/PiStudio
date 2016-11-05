@@ -16,9 +16,16 @@ namespace ImageProcessing.Back_End
     public class ImageEditor
     {
         private StorageFile m_imageToProcess = null;
-        private byte[] m_imageInBytes = null;
+        private byte[] m_workingImageInBytes = null;
+        private byte[] m_unsavedImageInBytes = null;
+
         private uint m_imageWidth;
         private uint m_imageHeight;
+
+        private uint m_pixelWidth;
+        private double m_dpiX;
+        private double m_dpiY;
+
         private Task m_initTask = null;
         private BitmapPixelFormat m_pixelFormat;
 
@@ -28,22 +35,39 @@ namespace ImageProcessing.Back_End
             m_initTask = Initialize();
         }
 
+        public bool IsUnsavedChanges
+        {
+            get
+            {
+                if (m_workingImageInBytes == null || m_unsavedImageInBytes == null)
+                    return false;
+                if (m_unsavedImageInBytes.Length != m_workingImageInBytes.Length)
+                    return false;
+                for (int i = 0; i < m_workingImageInBytes.Length; i++)
+                    if (m_workingImageInBytes[i] != m_unsavedImageInBytes[i])
+                        return true;
+                return false;
+            }
+        }
+
         public async Task<WriteableBitmap> ApplyFilterAsync(Filter filter)
         {
             await m_initTask;
 
-            byte[] tmpPixels = this.ApplyConvolutionMatrixFilter(this.m_imageInBytes, (int)this.m_imageWidth,
-                (int)this.m_imageHeight, filter.Matrix, ConvertBitmapPixelFormat(this.m_pixelFormat), true);
+            byte[] tmpPixels = this.ApplyConvolutionMatrixFilter(this.m_workingImageInBytes, (int)this.m_imageWidth,
+                (int)this.m_imageHeight, filter.Matrix, (byte)m_pixelWidth, true);
 
             ImageConverter converter = new ImageConverter();
             byte[] resultPixels = converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);
+            m_unsavedImageInBytes = resultPixels;
 
             return await CreateBitmapFromByteArrayAsync(resultPixels);
         }
 
-        public async Task<BitmapImage> RotateAsync()
+        public async Task<WriteableBitmap> RotateAsync()
         {
             await m_initTask;
+
 
             throw new NotImplementedException();
         }
@@ -53,24 +77,24 @@ namespace ImageProcessing.Back_End
             await m_initTask;
             ImageConverter converter = new ImageConverter();
             ushort[] hslBytes = null;
-            var tmp2 = converter.ConvertFromHSLToRGBA(converter.ConvertFromRGBAtoHSL(m_imageInBytes)); ;
+            var tmp2 = converter.ConvertFromHSLToRGBA(converter.ConvertFromRGBAtoHSL(m_workingImageInBytes)); ;
 
             int max = 0;
-            for(int i = 0; i < m_imageInBytes.Length; i++)
+            for (int i = 0; i < m_workingImageInBytes.Length; i++)
             {
-                int tmp33 = Math.Abs(tmp2[i] - m_imageInBytes[i]);
+                int tmp33 = Math.Abs(tmp2[i] - m_workingImageInBytes[i]);
                 if (tmp33 > 1)
                     max = tmp33;
-                    
+
             }
             System.Diagnostics.Debug.WriteLine(max);
 
             /*await Task.Run(() =>
             {
-                hslBytes = converter.ConvertFromRGBAtoHSL(m_imageInBytes);
-                for (int i = 0; i < hslBytes.Length; i+=4)
+                hslBytes = converter.ConvertFromRGBAtoHSL(m_workingImageInBytes);
+                for (int i = 0; i < hslBytes.Length; i += 4)
                 {
-                    int tmp = hslBytes[i + 2] + brightness/400;
+                    int tmp = hslBytes[i + 2] + brightness / 400;
                     tmp = tmp < 0 ? 0 : tmp;
                     tmp = tmp > 100 ? 100 : tmp;
                     hslBytes[i + 2] = (ushort)tmp;
@@ -80,6 +104,15 @@ namespace ImageProcessing.Back_End
             return await CreateBitmapFromByteArrayAsync(tmp2);
         }
 
+        public void SaveChanges()
+        {
+
+        }
+
+        /// <summary>
+        /// Saves working image in a file with folder picker.
+        /// </summary>
+        /// <returns></returns>
         public async Task SaveWithFolderPickerAsync()
         {
             await m_initTask;
@@ -90,13 +123,26 @@ namespace ImageProcessing.Back_End
             picker.FileTypeChoices.Add("Images", AppSettings.Instance.SupportedImageTypes);
             picker.SuggestedFileName = m_imageToProcess.Name;
             StorageFile file = await picker.PickSaveFileAsync();
+
+            string fileType = GetFileType(file.Name);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
-                byte[] bytes = m_imageInBytes;
-                await fileStream.WriteAsync(bytes.AsBuffer());
+                byte[] bytes = m_workingImageInBytes;
+                await WriteBytesToStream(bytes, fileStream, fileType);
             }
         }
 
+        //FIXME: not always work
+        private string GetFileType(string filename)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Saves working image in a file with specified filename in a folder where original image is located.
+        /// </summary>
+        /// <param name="filename">Name of the new file.</param>
+        /// <returns></returns>
         public async Task SaveAsync(string filename)
         {
             await m_initTask;
@@ -105,7 +151,7 @@ namespace ImageProcessing.Back_End
             StorageFile file = await folder.CreateFileAsync(filename);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
-                byte[] bytes = m_imageInBytes;
+                byte[] bytes = m_workingImageInBytes;
                 await fileStream.WriteAsync(bytes.AsBuffer());
             }
         }
@@ -127,9 +173,12 @@ namespace ImageProcessing.Back_End
                                                                         ExifOrientationMode.IgnoreExifOrientation,
                                                                         ColorManagementMode.DoNotColorManage);
                 imageBytes = pixelData.DetachPixelData();
-                m_imageInBytes = imageBytes;
+                m_workingImageInBytes = imageBytes;
                 m_imageHeight = decoder.PixelHeight;
                 m_imageWidth = decoder.PixelWidth;
+                m_dpiX = decoder.DpiX;
+                m_dpiX = decoder.DpiY;
+                m_pixelWidth = ConvertBitmapPixelFormat(m_pixelFormat);
 
             }
         }
@@ -214,64 +263,48 @@ namespace ImageProcessing.Back_End
             return newImageBytes;
         }
 
-        public async Task<StorageFile> WriteableBitmapToStorageFile(WriteableBitmap WB, FileFormat fileFormat)
+        private async Task WriteBytesToStream(byte[] imageBytes, IRandomAccessStream stream, string fileFormat)
         {
-            string FileName = "MyFile.";
+            fileFormat.TrimEnd('.');
+            string FileName = "MyFile." + fileFormat;
+
+            var WB = await CreateBitmapFromByteArrayAsync(imageBytes);
             Guid BitmapEncoderGuid = BitmapEncoder.JpegEncoderId;
             switch (fileFormat)
             {
-                case FileFormat.Jpeg:
-                    FileName += "jpeg";
+                case "jpeg":
                     BitmapEncoderGuid = BitmapEncoder.JpegEncoderId;
                     break;
 
-                case FileFormat.Png:
-                    FileName += "png";
+                case "png":
                     BitmapEncoderGuid = BitmapEncoder.PngEncoderId;
                     break;
 
-                case FileFormat.Bmp:
-                    FileName += "bmp";
+                case "bmp":
                     BitmapEncoderGuid = BitmapEncoder.BmpEncoderId;
                     break;
 
-                case FileFormat.Tiff:
-                    FileName += "tiff";
+                case "tiff":
                     BitmapEncoderGuid = BitmapEncoder.TiffEncoderId;
                     break;
 
-                case FileFormat.Gif:
-                    FileName += "gif";
+                case "gif":
                     BitmapEncoderGuid = BitmapEncoder.GifEncoderId;
                     break;
             }
 
-            var file = await Windows.Storage.ApplicationData.Current.TemporaryFolder.CreateFileAsync(FileName, CreationCollisionOption.GenerateUniqueName);
-            using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.ReadWrite))
-            {
-                BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoderGuid, stream);
-                Stream pixelStream = WB.PixelBuffer.AsStream();
-                byte[] pixels = new byte[pixelStream.Length];
-                await pixelStream.ReadAsync(pixels, 0, pixels.Length);
+            BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoderGuid, stream);
+            Stream pixelStream = WB.PixelBuffer.AsStream();
+            byte[] pixels = new byte[pixelStream.Length];
+            await pixelStream.ReadAsync(pixels, 0, pixels.Length);
 
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
-                                    (uint)WB.PixelWidth,
-                                    (uint)WB.PixelHeight,
-                                    96.0,
-                                    96.0,
-                                    pixels);
-                await encoder.FlushAsync();
-            }
-            return file;
+            encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Ignore,
+                                (uint)WB.PixelWidth,
+                                (uint)WB.PixelHeight,
+                                m_dpiX,
+                                m_dpiY,
+                                pixels);
+            await encoder.FlushAsync();
         }
-    }
-
-    public enum FileFormat
-    {
-        Jpeg,
-        Png,
-        Bmp,
-        Tiff,
-        Gif
     }
 }
