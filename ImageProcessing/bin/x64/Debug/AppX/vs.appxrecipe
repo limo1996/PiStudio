@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-05T18:32:50.226</Modified>
+      <Modified>2016-12-21T20:18:20.705</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\bin\x64\Debug\ImageProcessing.exe">
       <PackagePath>entrypoint\ImageProcessing.exe</PackagePath>
-      <Modified>2016-11-05T18:32:48.825</Modified>
+      <Modified>2016-12-21T20:18:18.284</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -521,11 +521,11 @@
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-05T15:49:57.876</Modified>
+      <Modified>2016-12-21T20:18:20.266</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\bin\x64\Debug\Core\ImageProcessing.exe">
       <PackagePath>ImageProcessing.exe</PackagePath>
-      <Modified>2016-11-05T18:32:50.222</Modified>
+      <Modified>2016-12-21T20:18:20.696</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
