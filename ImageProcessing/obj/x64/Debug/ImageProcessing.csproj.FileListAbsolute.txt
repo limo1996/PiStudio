@@ -218,3 +218,8 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\obj\x64\Debu
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\obj\x64\Debug\qualifiers.txt.intermediate
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\bin\x64\Debug\SpeechIntegrator.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\bin\x64\Debug\SpeechIntegrator.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\bin\x64\Debug\SpeechIntegrator.pri
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\obj\x64\Debug\ImageProcessing.csprojResolveAssemblyReference.cache
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\ImageProcessing\obj\x64\Debug\ImageProcessing.csproj.GenerateResource.Cache

@@ -30,10 +30,10 @@ namespace Resco.InAppSpeechRecognition.RecognitionAndAction
 		/// Creates new instance of <see cref="SpeechNavigator"/>.
 		/// </summary>
 		/// <param name="filepath">Path to the folder where are voice commands, and where will be compiled GRXML file stored.</param>
-		private SpeechNavigator(string filepath)
+		public SpeechNavigator(string filepath)
 		{
-			m_constrainedRecognizer = new SpeechRecognizer();
-			m_freeSpeechRecognizer = new SpeechRecognizer();
+			//m_constrainedRecognizer = new SpeechRecognizer();
+			//m_freeSpeechRecognizer = new SpeechRecognizer();
 			m_location = filepath;
 		}
 

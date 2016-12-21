@@ -1,0 +1,17 @@
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\bin\Debug\SpeechIntegrator.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\bin\Debug\SpeechIntegrator.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\bin\Debug\SpeechIntegrator.pri
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\SpeechIntegrator.csprojResolveAssemblyReference.cache
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\SpeechIntegrator.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\SpeechIntegrator.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\priconfig.xml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\priconfig.xml.intermediate
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\layout.resfiles
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\layout.resfiles.intermediate
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\resources.resfiles
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\resources.resfiles.intermediate
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\pri.resfiles
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\pri.resfiles.intermediate
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\qualifiers.txt
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator\obj\Debug\MultipleQualifiersPerDimensionFound.txt

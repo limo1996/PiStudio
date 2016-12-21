@@ -176,6 +176,12 @@
   <ItemGroup>
     <Folder Include="MenuIcons\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpeechIntegrator\SpeechIntegrator.csproj">
+      <Project>{4b45b770-665b-432a-8541-bb754fa217ca}</Project>
+      <Name>SpeechIntegrator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
