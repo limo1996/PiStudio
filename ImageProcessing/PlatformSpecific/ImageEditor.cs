@@ -1,18 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using Windows.Graphics.Imaging;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
-using Windows.UI.Xaml.Media.Imaging;
 using PiStudio.Shared.Data;
 using PCLStorage;
 using System.Runtime.InteropServices.WindowsRuntime;
 
-namespace PiStudio.Shared
+namespace PiStudio.Win10
 {
-    public class ImageEditor
+	public class ImageEditor : IImageEditor
     {
         private IFile m_imageToProcess = null;
         private byte[] m_workingImageInBytes = null;
@@ -153,18 +148,6 @@ namespace PiStudio.Shared
             }
         }
 
-        private byte ConvertBitmapPixelFormat(PixelFormat format)
-        {
-            if (format == PixelFormat.Bgra8 || format == PixelFormat.Rgba8)
-                return 4;
-            if (format == PixelFormat.Gray16)
-                return 2;
-            if (format == PixelFormat.Gray8)
-                return 1;
-            if (format == PixelFormat.Rgba16)
-                return 8;
-            return 1;
-        }
 
         private async Task<WriteableBitmap> CreateBitmapFromByteArrayAsync(byte[] imagePixels)
         {
