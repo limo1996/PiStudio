@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiStudio.Win10", "ImageProcessing\PiStudio.Win10.csproj", "{8CDBA7F2-DF29-4134-942B-B2308A568E50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiStudio.Win10", "PiStudio.Win10\PiStudio.Win10.csproj", "{8CDBA7F2-DF29-4134-942B-B2308A568E50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeechIntegrator.Win10", "SpeechIntegrator\SpeechIntegrator.Win10.csproj", "{4B45B770-665B-432A-8541-BB754FA217CA}"
 EndProject
