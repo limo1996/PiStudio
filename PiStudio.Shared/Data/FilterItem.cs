@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace ImageProcessing
+namespace PiStudio.Shared.Data
 {
     public class FilterItem
     {

@@ -9,7 +9,7 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 
-namespace PiStuio.Win10
+namespace PiStudio.Win10
 {
     public class WinBitmapDecoder : IBitmapDecoder
     {

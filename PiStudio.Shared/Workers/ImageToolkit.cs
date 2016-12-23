@@ -73,23 +73,40 @@ namespace PiStudio.Shared
 		}
 
 		//TODO: Test
-		public static byte[,] Rotate(byte[,] imageBytes)
+		public static byte[] Rotate(byte[] imageBytes, uint imageWidth, uint imageHeight, byte bytePerPixel)
 		{
-			var xlength = imageBytes.GetLength(1);
-			byte[,] returned = new byte[xlength, imageBytes.GetLength(0)];
-			for (int i = 0; i < imageBytes.GetLength(0); i++)
+			byte[] returned = new byte[imageWidth * imageHeight * bytePerPixel];
+			for (int i = 0; i < imageHeight; i++)
 			{
-				for (int j = 0; j < xlength; j++)
+				for (int j = 0; j < imageWidth * bytePerPixel; j+=bytePerPixel)
 				{
-					returned[j, xlength - 1 - i] = imageBytes[i, j];
+                    for(int k =0; k < bytePerPixel; k++)
+					    returned[(j * imageWidth) + imageHeight - 1 - i + k] = imageBytes[(i * imageWidth) + j + k];
 				}
 			}
 			return returned;
 		}
+
+        public static byte[] ApplyBrightness(byte[] imageBytes, byte bytePerPixel, int brightness)
+        {
+            ImageConverter converter = new ImageConverter();
+            ushort[] hslBytes = null;
+            var tmp2 = converter.ConvertFromHSLToRGBA(converter.ConvertFromRGBAtoHSL(imageBytes)); ;
+
+            int max = 0;
+            for (int i = 0; i < imageBytes.Length; i++)
+            {
+                int tmp33 = Math.Abs(tmp2[i] - imageBytes[i]);
+                if (tmp33 > 1)
+                    max = tmp33;
+
+            }
+            return null;
+        }
 	}
 }
 
-//1 2 3      7 4 1
+//111 2 3      7 4 111
 //4 5 6  =>  8 5 2
 //7 8 9		 9 6 3
 

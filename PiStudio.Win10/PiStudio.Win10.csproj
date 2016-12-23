@@ -100,13 +100,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Back-End\AppResources.cs" />
-    <Compile Include="Back-End\AppSettings.cs" />
-    <Compile Include="Back-End\Filter.cs" />
-    <Compile Include="Back-End\ImageConverter.cs" />
-    <Compile Include="Back-End\ImageEditor.cs" />
     <Compile Include="Back-End\NavigationParameter.cs" />
-    <Compile Include="Back-End\FilterItem.cs" />
     <Compile Include="Back-End\PageNavigatorcs.cs" />
     <Compile Include="Front-End\BrightnessPage.xaml.cs">
       <DependentUpon>BrightnessPage.xaml</DependentUpon>
@@ -180,6 +174,10 @@
     <Folder Include="MenuIcons\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PiStudio.Shared\PiStudio.Shared.csproj">
+      <Project>{72796188-456f-4ccf-9923-813b5ed2df29}</Project>
+      <Name>PiStudio.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpeechIntegrator.Win10\SpeechIntegrator.Win10.csproj">
       <Project>{4b45b770-665b-432a-8541-bb754fa217ca}</Project>
       <Name>SpeechIntegrator.Win10</Name>

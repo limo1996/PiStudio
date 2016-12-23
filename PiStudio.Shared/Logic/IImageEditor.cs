@@ -7,13 +7,15 @@ namespace PiStudio.Shared
 {
 	public interface IImageEditor
 	{
-		bool IsUnsavedChanges { get; set; }
-		Task<IEditableBitmap> ApplyFilterAsync(Filter filter);
-		Task<IEditableBitmap> RotateAsync();
-		Task<IEditableBitmap> ApplyBrightnessAsync();
-		void SaveChanges();
-		Task SaveAsync(string filepath);
-		Task<IEditableBitmap> CreateBitmapFromByteArrayAsync(byte[] imagePixels);
-		Task WriteBytesToStream(byte[] imageBytes, Stream stream, string fileFormat, IBitmapEncoder encoder);
-	}
+		bool IsUnsavedChanges { get; }
+        uint PixelWidth { get; }
+        uint PixelHeight { get; }
+        byte PixelSize { get; }
+        string MimeType { get; }
+        Task SaveAsync(string filepath);
+		void SaveChanges(); 
+		IBitmapDecoder Decoder { get; set; }
+        IBitmapEncoder Encoder { get; set; }
+        Task WriteBytesToEncoder(byte[] imageBytes, uint pixelWidth, uint pixelHeight, IBitmapEncoder encoder);
+    }
 }
