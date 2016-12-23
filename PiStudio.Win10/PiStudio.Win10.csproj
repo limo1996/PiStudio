@@ -180,7 +180,7 @@
     <Folder Include="MenuIcons\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpeechIntegrator\SpeechIntegrator.Win10.csproj">
+    <ProjectReference Include="..\SpeechIntegrator.Win10\SpeechIntegrator.Win10.csproj">
       <Project>{4b45b770-665b-432a-8541-bb754fa217ca}</Project>
       <Name>SpeechIntegrator.Win10</Name>
     </ProjectReference>
