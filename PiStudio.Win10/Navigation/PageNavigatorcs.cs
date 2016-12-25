@@ -1,12 +1,13 @@
 ﻿using PiStudio.Shared;
 using PiStudio.Shared.Data;
+using PiStudio.Win10.UI;
 using System;
 using System.Threading.Tasks;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
-namespace PiStudio.Win10.UI
+namespace PiStudio.Win10.Navigation
 {
     public class PageNavigator
     {

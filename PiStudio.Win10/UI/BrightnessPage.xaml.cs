@@ -1,5 +1,5 @@
-﻿using ImageProcessing.Back_End;
-using PiStudio.Shared;
+﻿using PiStudio.Shared;
+using PiStudio.Win10.Navigation;
 using System;
 using Windows.UI;
 using Windows.UI.Xaml;
