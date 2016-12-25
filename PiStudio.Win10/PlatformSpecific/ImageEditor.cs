@@ -94,4 +94,12 @@ namespace PiStudio.Win10
             return bitmap;
         }
     }
+
+    public static class AppResourcesEx
+    {
+        public static async Task InitializeImageEditor(this AppResources app, StorageFile file)
+        {
+            app.Editor = new ImageEditor((file).Path,await WinBitmapDecoder.CreateAsync(await file.OpenStreamForReadAsync()));
+        }
+    }
 }

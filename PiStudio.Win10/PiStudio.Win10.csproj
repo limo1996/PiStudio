@@ -100,22 +100,22 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Back-End\NavigationParameter.cs" />
-    <Compile Include="Back-End\PageNavigatorcs.cs" />
-    <Compile Include="Front-End\BrightnessPage.xaml.cs">
+    <Compile Include="Navigation\NavigationParameter.cs" />
+    <Compile Include="Navigation\PageNavigatorcs.cs" />
+    <Compile Include="UI\BrightnessPage.xaml.cs">
       <DependentUpon>BrightnessPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Front-End\FiltersPage.xaml.cs">
+    <Compile Include="UI\FiltersPage.xaml.cs">
       <DependentUpon>FiltersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Front-End\GetStarted.xaml.cs">
+    <Compile Include="UI\GetStarted.xaml.cs">
       <DependentUpon>GetStarted.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Front-End\HomePage.xaml.cs">
+    <Compile Include="UI\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Front-End\Rater.cs" />
-    <Compile Include="Front-End\WelcomePage.xaml.cs">
+    <Compile Include="Controls\Rater.cs" />
+    <Compile Include="UI\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlatformSpecific\WinBitmapDecoder.cs" />
@@ -145,23 +145,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Front-End\BrightnessPage.xaml">
+    <Page Include="UI\BrightnessPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Front-End\FiltersPage.xaml">
+    <Page Include="UI\FiltersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Front-End\GetStarted.xaml">
+    <Page Include="UI\GetStarted.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Front-End\HomePage.xaml">
+    <Page Include="UI\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Front-End\WelcomePage.xaml">
+    <Page Include="UI\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

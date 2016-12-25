@@ -40,6 +40,8 @@ namespace PiStudio.Shared.Data
         {
             get
             {
+                if (m_instance == null)
+                    m_instance = new AppSettings();
                 return m_instance;
             }
         }

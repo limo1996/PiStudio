@@ -111,7 +111,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />
     </RootType>
-    <RootType FullName="ImageProcessing.Front_End.BrightnessPage" />
+    <RootType FullName="PiStudio.Win10.UI.BrightnessPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="Name" />
       <RootProperty Name="IsItemClickEnabled" />
@@ -155,7 +155,7 @@
       <RootProperty Name="Rating" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="ImageProcessing.Front_End.FiltersPage" />
+    <RootType FullName="PiStudio.Win10.UI.FiltersPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
       <RootProperty Name="CornerRadius" />
       <RootProperty Name="Background" />
@@ -165,9 +165,9 @@
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
     </RootType>
-    <RootType FullName="ImageProcessing.Front_End.GetStarted" />
-    <RootType FullName="ImageProcessing.Front_End.HomePage" />
-    <RootType FullName="ImageProcessing.Front_End.WelcomePage" />
+    <RootType FullName="PiStudio.Win10.UI.GetStarted" />
+    <RootType FullName="PiStudio.Win10.UI.HomePage" />
+    <RootType FullName="PiStudio.Win10.UI.WelcomePage" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Polygon">
       <RootProperty Name="Points" />
       <RootProperty Name="Fill" />

@@ -77,7 +77,7 @@ namespace PiStudio.Shared
                (int)this.m_imageHeight, filter.Matrix, (byte)m_bytePerPixel, true);
 
             ImageConverter converter = new ImageConverter();
-            byte[] resultPixels = converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);
+            byte[] resultPixels = tmpPixels;//converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);
             m_unsavedImageInBytes = resultPixels;
             return resultPixels;
         }

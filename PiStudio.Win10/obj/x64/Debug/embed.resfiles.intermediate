@@ -1,7 +1,7 @@
 App.xbf
-Front-End\BrightnessPage.xbf
-Front-End\FiltersPage.xbf
-Front-End\GetStarted.xbf
-Front-End\HomePage.xbf
-Front-End\WelcomePage.xbf
 RatingControl.xbf
+UI\BrightnessPage.xbf
+UI\FiltersPage.xbf
+UI\GetStarted.xbf
+UI\HomePage.xbf
+UI\WelcomePage.xbf

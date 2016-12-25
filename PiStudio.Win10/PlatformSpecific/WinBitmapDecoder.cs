@@ -14,12 +14,20 @@ namespace PiStudio.Win10
     public class WinBitmapDecoder : IBitmapDecoder
     {
         private Windows.Graphics.Imaging.BitmapDecoder decoder;
+        private byte[] m_pixelData;
 
         private WinBitmapDecoder() { }
 
         private async Task InitializeAsync(IRandomAccessStream stream)
         {
             decoder = await Windows.Graphics.Imaging.BitmapDecoder.CreateAsync(stream);
+            BitmapTransform transform = new BitmapTransform();
+            PixelDataProvider provider = await decoder.GetPixelDataAsync(decoder.BitmapPixelFormat,
+                                                                   BitmapAlphaMode.Straight,
+                                                                   transform,
+                                                                   ExifOrientationMode.IgnoreExifOrientation,
+                                                                   ColorManagementMode.DoNotColorManage);
+            m_pixelData = provider.DetachPixelData();
         }
         public PixelFormat PixelFormat
         {
@@ -70,13 +78,7 @@ namespace PiStudio.Win10
 
         public async Task<byte[]> GetPixelDataAsync()
         {
-            BitmapTransform transform = new BitmapTransform();
-            PixelDataProvider provider = await decoder.GetPixelDataAsync(BitmapPixelFormat.Unknown,
-                                                                   BitmapAlphaMode.Straight,
-                                                                   transform,
-                                                                   ExifOrientationMode.IgnoreExifOrientation,
-                                                                   ColorManagementMode.DoNotColorManage);
-            return provider.DetachPixelData();
+            return m_pixelData;
         }
     }
 }

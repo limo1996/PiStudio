@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Windows.Storage;
 
 using PiStudio.Shared.Data;
 
@@ -23,13 +22,8 @@ namespace PiStudio.Shared
             Init_filters();
         }
 
-        public void InitializeImageEditor(StorageFile file)
-        {
-            m_editor = new ImageEditor(file);
-        }
-
-        private ImageEditor m_editor = null;
-        public ImageEditor Editor { get { return m_editor; } }
+        private IImageEditor m_editor = null;
+        public IImageEditor Editor { get { return m_editor; } set { m_editor = value; } }
 
         private List<Filter> m_filters;
         public List<Filter> Filters { get { return m_filters; } }
