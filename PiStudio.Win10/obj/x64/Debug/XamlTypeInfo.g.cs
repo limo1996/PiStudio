@@ -136,7 +136,7 @@ namespace ImageProcessing.PiStudio_Win10_XamlTypeInfo
             _typeNameTable[0] = "PiStudio.Win10.UI.BrightnessPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "PiStudio.Win10.UI.Rater";
+            _typeNameTable[3] = "PiStudio.Win10.UI.Controls.Rater";
             _typeNameTable[4] = "Windows.UI.Xaml.Controls.Grid";
             _typeNameTable[5] = "Windows.UI.Xaml.Controls.Panel";
             _typeNameTable[6] = "Windows.UI.Xaml.Media.Brush";
@@ -152,7 +152,7 @@ namespace ImageProcessing.PiStudio_Win10_XamlTypeInfo
             _typeTable[0] = typeof(global::PiStudio.Win10.UI.BrightnessPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::PiStudio.Win10.UI.Rater);
+            _typeTable[3] = typeof(global::PiStudio.Win10.UI.Controls.Rater);
             _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Grid);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Panel);
             _typeTable[6] = typeof(global::Windows.UI.Xaml.Media.Brush);
@@ -198,7 +198,7 @@ namespace ImageProcessing.PiStudio_Win10_XamlTypeInfo
         }
 
         private object Activate_0_BrightnessPage() { return new global::PiStudio.Win10.UI.BrightnessPage(); }
-        private object Activate_3_Rater() { return new global::PiStudio.Win10.UI.Rater(); }
+        private object Activate_3_Rater() { return new global::PiStudio.Win10.UI.Controls.Rater(); }
         private object Activate_9_FiltersPage() { return new global::PiStudio.Win10.UI.FiltersPage(); }
         private object Activate_10_GetStarted() { return new global::PiStudio.Win10.UI.GetStarted(); }
         private object Activate_11_HomePage() { return new global::PiStudio.Win10.UI.HomePage(); }
@@ -230,7 +230,7 @@ namespace ImageProcessing.PiStudio_Win10_XamlTypeInfo
                 xamlType = new global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  PiStudio.Win10.UI.Rater
+            case 3:   //  PiStudio.Win10.UI.Controls.Rater
                 userType = new global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Grid"));
                 userType.Activator = Activate_3_Rater;
                 userType.AddMemberName("BorderBrush");
@@ -303,47 +303,47 @@ namespace ImageProcessing.PiStudio_Win10_XamlTypeInfo
 
         private object get_0_Rater_BorderBrush(object instance)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.BorderBrush;
         }
         private void set_0_Rater_BorderBrush(object instance, object Value)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.BorderBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
         private object get_1_Rater_Rating(object instance)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.Rating;
         }
         private void set_1_Rater_Rating(object instance, object Value)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.Rating = (global::System.Int32)Value;
         }
         private object get_2_Rater_Fill(object instance)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.Fill;
         }
         private void set_2_Rater_Fill(object instance, object Value)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.Fill = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
         private object get_3_Rater_SelectedFill(object instance)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.SelectedFill;
         }
         private void set_3_Rater_SelectedFill(object instance, object Value)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.SelectedFill = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
         private object get_4_Rater_Rated(object instance)
         {
-            var that = (global::PiStudio.Win10.UI.Rater)instance;
+            var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.Rated;
         }
 
@@ -354,34 +354,34 @@ namespace ImageProcessing.PiStudio_Win10_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "PiStudio.Win10.UI.Rater.BorderBrush":
-                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Rater");
+            case "PiStudio.Win10.UI.Controls.Rater.BorderBrush":
+                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BorderBrush", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_0_Rater_BorderBrush;
                 xamlMember.Setter = set_0_Rater_BorderBrush;
                 break;
-            case "PiStudio.Win10.UI.Rater.Rating":
-                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Rater");
+            case "PiStudio.Win10.UI.Controls.Rater.Rating":
+                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Rating", "Int32");
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_1_Rater_Rating;
                 xamlMember.Setter = set_1_Rater_Rating;
                 break;
-            case "PiStudio.Win10.UI.Rater.Fill":
-                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Rater");
+            case "PiStudio.Win10.UI.Controls.Rater.Fill":
+                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Fill", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.Getter = get_2_Rater_Fill;
                 xamlMember.Setter = set_2_Rater_Fill;
                 break;
-            case "PiStudio.Win10.UI.Rater.SelectedFill":
-                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Rater");
+            case "PiStudio.Win10.UI.Controls.Rater.SelectedFill":
+                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "SelectedFill", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.Getter = get_3_Rater_SelectedFill;
                 xamlMember.Setter = set_3_Rater_SelectedFill;
                 break;
-            case "PiStudio.Win10.UI.Rater.Rated":
-                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Rater");
+            case "PiStudio.Win10.UI.Controls.Rater.Rated":
+                userType = (global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::ImageProcessing.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Rated", "Boolean");
                 xamlMember.Getter = get_4_Rater_Rated;
                 xamlMember.SetIsReadOnly();

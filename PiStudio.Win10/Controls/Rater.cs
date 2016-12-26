@@ -6,7 +6,7 @@ using Windows.UI;
 using System;
 using Windows.UI.Xaml;
 
-namespace PiStudio.Win10.UI
+namespace PiStudio.Win10.UI.Controls
 {
     public class Rater : Grid
     {

@@ -14,10 +14,9 @@ namespace PiStudio.Win10.Navigation
         private Frame m_frame;
         private Type m_page;
         private object m_args;
-        public PageNavigator(Frame frame, Type page)
+        public PageNavigator(Frame frame)
         {
             m_frame = frame;
-            m_page = page;
         }
 
         public async void GetStartedButtonClick()
@@ -32,20 +31,21 @@ namespace PiStudio.Win10.Navigation
             m_frame.Navigate(typeof(BrightnessPage));
         }
 
-        public async void NavigateTo(object args)
+        public async void NavigateTo(Type pageType, NavigationParameter args)
         {
+            m_page = pageType;
             if (!AppResources.Instance.Editor.IsUnsavedChanges)
             {
                 m_args = args;
-                await CreateAndDisplayDialog();
+                await CreateAndDisplayChangesDialog();
             }
             else
                 m_frame.Navigate(m_page, args);
         }
 
-        private async Task CreateAndDisplayDialog()
+        private async Task CreateAndDisplayChangesDialog()
         {
-            MessageDialog dialog = new MessageDialog("Do you want to change the unsaved changes?");
+            MessageDialog dialog = new MessageDialog("Do you want to save the unsaved changes?");
             dialog.Title = "PiStudio";
             dialog.Options = MessageDialogOptions.AcceptUserInputAfterDelay;
             var save = new UICommand("Save", new UICommandInvokedHandler(SaveAndContinue), 0);

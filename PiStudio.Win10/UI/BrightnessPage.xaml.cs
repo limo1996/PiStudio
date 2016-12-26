@@ -99,8 +99,8 @@ namespace PiStudio.Win10.UI
                 typeOfPage = typeof(BrightnessPage);
             else if (sender == FiltersPageButton)
                 typeOfPage = typeof(FiltersPage);
-            var navigator = new PageNavigator(this.Frame, typeOfPage);
-            navigator.NavigateTo(null);
+            var navigator = new PageNavigator(this.Frame);
+            navigator.NavigateTo(typeOfPage, null);
         }
     }
 }

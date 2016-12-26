@@ -150,7 +150,7 @@
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
-    <RootType FullName="PiStudio.Win10.UI.Rater">
+    <RootType FullName="PiStudio.Win10.UI.Controls.Rater">
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Rating" />
     </RootType>

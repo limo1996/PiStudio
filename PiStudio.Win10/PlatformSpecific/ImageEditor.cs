@@ -7,6 +7,7 @@ using Windows.Graphics.Imaging;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage;
+using Windows.Storage.Streams;
 
 namespace PiStudio.Win10
 {
@@ -18,6 +19,11 @@ namespace PiStudio.Win10
         public ImageEditor(string filepath, IBitmapDecoder decoder) : base(filepath)
         {
             m_initTask = Initialize(filepath, decoder);
+        }
+
+        public ImageEditor(StorageFile file, IBitmapDecoder decoder) : base(file.Path)
+        {
+            m_initTask = Initialize(file, decoder);
         }
 
         public async Task<WriteableBitmap> ApplyFilterAsync(Filter filter)
@@ -65,22 +71,37 @@ namespace PiStudio.Win10
             this.m_imageToProcess = await StorageFile.GetFileFromPathAsync(filepath);
             byte[] imageBytes = null;
 
-            using (var fileStream = await m_imageToProcess.OpenAsync(FileAccessMode.ReadWrite))
+            using (var fileStream = await m_imageToProcess.OpenAsync(FileAccessMode.Read))
             {
-                m_pixelFormat = (PixelFormat)decoder.PixelFormat;
-                BitmapTransform transform = new BitmapTransform();
-                imageBytes = await decoder.GetPixelDataAsync();
-
-                m_workingImageInBytes = imageBytes;
-                m_imageHeight = decoder.PixelHeight;
-                m_imageWidth = decoder.PixelWidth;
-                m_dpiX = decoder.DpiX;
-                m_dpiX = decoder.DpiY;
-                m_bytePerPixel = ImageToolkit.ConvertBitmapPixelFormat(m_pixelFormat);
-
+                imageBytes = await LoadFromStream(decoder, fileStream);
             }
         }
 
+        private async Task Initialize(StorageFile file, IBitmapDecoder decoder)
+        {
+            m_imageToProcess = file;
+            byte[] imageBytes = null;
+            using (var fileStream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                imageBytes = await LoadFromStream(decoder, fileStream);
+            }
+        }
+
+        private async Task<byte[]> LoadFromStream(IBitmapDecoder decoder, IRandomAccessStream fileStream)
+        {
+            m_pixelFormat = (PixelFormat)decoder.PixelFormat;
+            BitmapTransform transform = new BitmapTransform();
+            var imageBytes = await decoder.GetPixelDataAsync();
+
+            m_workingImageInBytes = imageBytes;
+            m_imageHeight = decoder.PixelHeight;
+            m_imageWidth = decoder.PixelWidth;
+            m_dpiX = decoder.DpiX;
+            m_dpiX = decoder.DpiY;
+            m_bytePerPixel = ImageToolkit.ConvertBitmapPixelFormat(m_pixelFormat);
+
+            return imageBytes;
+        }
 
         private async Task<WriteableBitmap> CreateBitmapFromByteArrayAsync(byte[] imagePixels)
         {
@@ -92,14 +113,6 @@ namespace PiStudio.Win10
             }
 
             return bitmap;
-        }
-    }
-
-    public static class AppResourcesEx
-    {
-        public static async Task InitializeImageEditor(this AppResources app, StorageFile file)
-        {
-            app.Editor = new ImageEditor((file).Path,await WinBitmapDecoder.CreateAsync(await file.OpenStreamForReadAsync()));
         }
     }
 }

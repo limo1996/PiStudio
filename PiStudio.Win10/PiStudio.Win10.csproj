@@ -100,8 +100,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Toolbox.cs" />
     <Compile Include="Navigation\NavigationParameter.cs" />
-    <Compile Include="Navigation\PageNavigatorcs.cs" />
+    <Compile Include="Navigation\PageNavigator.cs" />
+    <Compile Include="PlatformSpecific\AppResourcesEx.cs" />
     <Compile Include="UI\BrightnessPage.xaml.cs">
       <DependentUpon>BrightnessPage.xaml</DependentUpon>
     </Compile>
