@@ -28,6 +28,8 @@ namespace PiStudio.Shared
         private List<Filter> m_filters;
         public List<Filter> Filters { get { return m_filters; } }
 
+        public object File { get; set; }
+
         private void Init_filters()
         {
             m_filters = new List<Filter>();

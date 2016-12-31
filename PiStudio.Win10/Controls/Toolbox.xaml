@@ -1,0 +1,150 @@
+﻿<UserControl
+    x:Class="PiStudio.Win10.UI.Controls.Toolbox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiStudio.Win10.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="300">
+
+    <Grid CornerRadius="10" Background="Transparent" BorderThickness="0" BorderBrush="Black" Height="50" Width="300" x:Name="MainGrid" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Background="#AA000000" Grid.ColumnSpan="5" x:Name="Shadow" CornerRadius="9" Canvas.ZIndex="2"/>
+        <Grid Grid.Column="0">
+            <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="SizeButton" Click="SizeButton_Click">
+                <Grid Width="80" Height="38">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="4*" />
+                        </Grid.RowDefinitions>
+                        <Rectangle Height="1" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="0"/>
+                        <Rectangle Height="2" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="1"/>
+                        <Rectangle Height="4" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="2"/>
+                        <Rectangle Height="6" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="3"/>
+                    </Grid>
+                    <TextBlock FontSize="12" Text="Size" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="30,0,29,1" Height="14" Grid.RowSpan="2"/>
+                    <Polygon Points="0,0 8,0 4,4" HorizontalAlignment="Center" Fill="Black" Grid.Row="2"/>
+                </Grid>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" Background="Black" x:Name="Separator1"></Grid>
+        <Grid Grid.Column="2">
+            <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="ColorButton" Click="ColorButton_Click">
+                <Grid Width="80" Height="38">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" BorderThickness="0,1,0,4" BorderBrush="Transparent" x:Name="ColorPreview">
+                        <Grid.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="Yellow" Offset="0.0" x:Name="GradientStop1"/>
+                                <GradientStop Color="Red" Offset="0.25" x:Name="GradientStop2"/>
+                                <GradientStop Color="Blue" Offset="0.75" x:Name="GradientStop3"/>
+                                <GradientStop Color="LimeGreen" Offset="1.0" x:Name="GradientStop4"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                    </Grid>
+                    <TextBlock Grid.Row="1" FontSize="13" Text="Color" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="24,-6,25,3" Grid.RowSpan="2"/>
+                    <Polygon Points="0,0 10,0 5,5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Fill="Black" Grid.Row="2"/>
+                </Grid>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="3" Background="Black" x:Name="Separator2"></Grid>
+        <Grid Grid.Column="4">
+            <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="CleanButton" Click="ClearButton_Click">
+                <Grid Width="80" Height="38">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Rectangle Stroke="#009ee1" StrokeThickness="1" StrokeDashArray="5 4" Height="20" VerticalAlignment="Top" />
+                        <Polygon Points="0,5 5,5 7,0 9,5 14,5 10,9 12,14 7,11 2,14 4,9" Fill="#009ee1" Margin="2,2"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1" FontSize="13" Text="Clear" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="26,-6,24,3" Grid.RowSpan="2"/>
+                </Grid>
+            </Button>
+        </Grid>
+        <Popup x:Name="SizePopup" Margin="0,48">
+            <Border BorderBrush="Gray" BorderThickness="1" Width="100" Background="White" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="LineSizes">
+                    <Button Height="20" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Sizes_Click">
+                        <Rectangle Height="1" Width="190" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black"/>
+                    </Button>
+                    <Button Height="20" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Sizes_Click">
+                        <Rectangle Height="3" Width="190" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black"/>
+                    </Button>
+                    <Button Height="20" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Sizes_Click">
+                        <Rectangle Height="5" Width="190" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black"/>
+                    </Button>
+                    <Button Height="20" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Sizes_Click">
+                        <Rectangle Height="8" Width="190" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black"/>
+                    </Button>
+                    <Button Height="20" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Sizes_Click">
+                        <Rectangle Height="12" Width="190" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Black"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Popup>
+        <Popup x:Name="ColorPopup" Margin="100,48">
+            <Border BorderBrush="Black" BorderThickness="0" Width="100" Height="100" CornerRadius="0" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" x:Name="ColorPalette">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="Green" Click="ColorSelector_Click" x:Name="GreenBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="0" Grid.Column="2" BorderThickness="1" BorderBrush="Black" Background="YellowGreen" Click="ColorSelector_Click" x:Name="YellowGreenBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="0" Grid.Column="4" BorderThickness="1" BorderBrush="Black" Background="Blue" Click="ColorSelector_Click" x:Name="BlueBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="0" Grid.Column="6" BorderThickness="1" BorderBrush="Black" Background="BlueViolet" Click="ColorSelector_Click" x:Name="BlueVioletBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="2" Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="Yellow" Click="ColorSelector_Click" x:Name="YellowBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="2" Grid.Column="2" BorderThickness="1" BorderBrush="Black" Background="Purple" Click="ColorSelector_Click" x:Name="PurpleBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="2" Grid.Column="4" BorderThickness="1" BorderBrush="Black" Background="Red" Click="ColorSelector_Click" x:Name="RedBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="2" Grid.Column="6" BorderThickness="1" BorderBrush="Black" Background="RosyBrown" Click="ColorSelector_Click" x:Name="RosyBrownBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="4" Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="Black" Click="ColorSelector_Click" x:Name="BlackBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="4" Grid.Column="2" BorderThickness="1" BorderBrush="Black" Background="Gray" Click="ColorSelector_Click" x:Name="GrayBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="4" Grid.Column="4" BorderThickness="1" BorderBrush="Black" Background="Salmon" Click="ColorSelector_Click" x:Name="SalmonBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="4" Grid.Column="6" BorderThickness="1" BorderBrush="Black" Background="Azure" Click="ColorSelector_Click" x:Name="AzureBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="6" Grid.Column="0" BorderThickness="1" BorderBrush="Black" Background="Aquamarine" Click="ColorSelector_Click" x:Name="AquamarineBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="6" Grid.Column="2" BorderThickness="1" BorderBrush="Black" Background="White" Click="ColorSelector_Click" x:Name="WhiteBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="6" Grid.Column="4" BorderThickness="1" BorderBrush="Black" Background="Magenta" Click="ColorSelector_Click" x:Name="MagentaBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Grid.Row="6" Grid.Column="6" BorderThickness="1" BorderBrush="Black" Background="Brown" Click="ColorSelector_Click" x:Name="BrownBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </Border>
+        </Popup>
+    </Grid>
+</UserControl>

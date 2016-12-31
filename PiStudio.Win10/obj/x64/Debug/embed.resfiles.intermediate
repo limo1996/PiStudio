@@ -1,6 +1,8 @@
 App.xbf
-RatingControl.xbf
+Controls\PiCanvas.xbf
+Controls\Toolbox.xbf
 UI\BrightnessPage.xbf
+UI\DrawingPage.xbf
 UI\FiltersPage.xbf
 UI\GetStarted.xbf
 UI\HomePage.xbf

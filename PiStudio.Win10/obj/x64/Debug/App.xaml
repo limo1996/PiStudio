@@ -5,5 +5,10 @@
     xmlns:local="using:ImageProcessing"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <ResourceDictionary>
+            
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
 

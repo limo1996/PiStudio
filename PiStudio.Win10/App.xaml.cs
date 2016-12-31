@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PiStudio.Win10.UI.Pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -77,6 +78,9 @@ namespace PiStudio.Win10.UI
                 // parameter
                 rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
             }
+
+            Application.Current.Resources["ColorToBrushConverter"] = new Data.ColorToBrushConverter();
+
             // Ensure the current window is active
             Window.Current.Activate();
         }

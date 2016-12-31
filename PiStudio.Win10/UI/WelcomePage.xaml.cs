@@ -8,10 +8,12 @@ using System.Text;
 using System.Runtime.InteropServices.WindowsRuntime;
 using PiStudio.Shared.Data;
 using PiStudio.Shared;
+using PiStudio.Win10.Data;
+using Windows.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace PiStudio.Win10.UI
+namespace PiStudio.Win10.UI.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -22,22 +24,13 @@ namespace PiStudio.Win10.UI
         {
             this.InitializeComponent();
             var path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+            ApplicationTheme = new Theme() { PanelBackground = Colors.Red, PanelForeground = Colors.Black };
         }
 
-        private void MenuButton1_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(HomePage));
-        }
-
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.MainMenu.IsPaneOpen = !MainMenu.IsPaneOpen;
-        }
+        public Theme ApplicationTheme { get; set; }
 
         private async void LoadImageButton_Click(object sender, RoutedEventArgs e)
         {
-            /*AppSettings.Instance.SupportedImageTypes.Add(".jpg");
-            AppSettings.Instance.SupportedImageTypes.Add(".png");*/
             FileOpenPicker picker = new FileOpenPicker();
             picker.CommitButtonText = "Select";
             foreach (var item in AppSettings.Instance.SupportedImageTypes)
@@ -45,45 +38,8 @@ namespace PiStudio.Win10.UI
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             var file = await picker.PickSingleFileAsync();
             await AppResources.Instance.InitializeImageEditor(file);
-            this.Frame.Navigate(typeof(FiltersPage));
-        }
-
-        private void MenuButton2_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(FiltersPage));
-        }
-
-
-        private async Task<StorageFile> getFile()
-        {
-            const string content = @"
-<VoiceCommands xmlns=""http://schemas.microsoft.com/voicecommands/1.2"">
-
-	<!--CommandSet for English-->
-	<CommandSet xml:lang=""en-us"" Name=""CRMCommandsSetEnUs"">
-		<CommandPrefix>  </CommandPrefix>
-		<Example>Show my active accounts</Example>
-
-		<!--Shows view on current entity-->
-		<Command Name=""showView"">
-			<Example>Show my active accounts</Example>
-			<ListenFor>Show [me] {viewName} </ListenFor>
-			<ListenFor>Open {viewName} </ListenFor>
-			<Navigate/>
-		</Command>
-		<PhraseList Label=""viewName"">
-			<Item>Views</Item>
-			<Item>Accounts</Item>
-		</PhraseList>
-	</CommandSet>
-</VoiceCommands>";
-
-            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("commands.xml", CreationCollisionOption.GenerateUniqueName);
-            using (var stream = await file.OpenAsync(FileAccessMode.ReadWrite))
-            {
-                await stream.WriteAsync(Encoding.UTF8.GetBytes(content).AsBuffer());
-            }
-            return file;
+            AppResources.Instance.File = file;
+            this.Frame.Navigate(typeof(DrawingPage));
         }
     }
 }

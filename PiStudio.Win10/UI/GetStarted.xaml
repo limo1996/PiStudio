@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="PiStudio.Win10.UI.GetStarted"
+    x:Class="PiStudio.Win10.UI.Pages.GetStarted"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ImageProcessing.Front_End"

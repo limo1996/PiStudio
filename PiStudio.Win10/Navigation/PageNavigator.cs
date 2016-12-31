@@ -1,6 +1,7 @@
 ﻿using PiStudio.Shared;
 using PiStudio.Shared.Data;
 using PiStudio.Win10.UI;
+using PiStudio.Win10.UI.Pages;
 using System;
 using System.Threading.Tasks;
 using Windows.Storage.Pickers;
