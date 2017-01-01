@@ -1,9 +1,10 @@
 App.xbf
+Controls\MenuItem.xbf
 Controls\PiCanvas.xbf
 Controls\Toolbox.xbf
-UI\BrightnessPage.xbf
-UI\DrawingPage.xbf
-UI\FiltersPage.xbf
-UI\GetStarted.xbf
-UI\HomePage.xbf
-UI\WelcomePage.xbf
+UI\Pages\BrightnessPage.xbf
+UI\Pages\DrawingPage.xbf
+UI\Pages\FiltersPage.xbf
+UI\Pages\HomePage.xbf
+UI\Pages\SettingsPage.xbf
+UI\Pages\WelcomePage.xbf

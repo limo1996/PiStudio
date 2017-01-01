@@ -32,7 +32,7 @@ namespace PiStudio.Shared
 
         public IBitmapEncoder Encoder { get; set; }
 
-        public bool IsUnsavedChanges
+        public bool IsUnsavedChange
         {
             get
             {

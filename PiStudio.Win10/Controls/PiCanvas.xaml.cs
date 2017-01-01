@@ -10,14 +10,16 @@ using Windows.UI.Xaml.Input;
 using PiStudio.Win10.Data;
 using Windows.Foundation;
 using Windows.UI.Xaml.Shapes;
+using PiStudio.Shared;
 
 namespace PiStudio.Win10.UI.Controls
 {
-    public sealed partial class PiCanvas : UserControl
+    public sealed partial class PiCanvas : UserControl, ISaveable
     {
         private List<SVGCurve> m_curves;
         private SVGCurve m_actualCurve;
-        uint m_pen;
+        private uint m_pen;
+        private bool m_isUnsavedChange = false;
 
         public PiCanvas()
         {
@@ -31,7 +33,7 @@ namespace PiStudio.Win10.UI.Controls
 
             m_canvas.PointerPressed += M_canvas_PointerPressed;
             m_canvas.PointerReleased += M_canvas_PointerReleased;
-            //m_canvas.PointerExited += M_canvas_PointerReleased;
+            m_canvas.PointerExited += M_canvas_PointerReleased;
             m_canvas.PointerMoved += M_canvas_PointerMoved;
 
             m_canvas.SizeChanged += (o, e) => OnSizeChanged();
@@ -40,7 +42,14 @@ namespace PiStudio.Win10.UI.Controls
         public Color BrushColor { get; set; }
         public uint BrushThickness { get; set; }
         public bool IsEmpty { get { return m_curves.Count == 0; } }
-        public bool IsDirty { get; private set; }
+
+        public bool IsUnsavedChange
+        {
+            get
+            {
+                return m_isUnsavedChange;
+            }
+        }
 
         public event EventHandler<PiCanvasContentChangedEventArgs> ContentChanged;
 
@@ -118,7 +127,7 @@ namespace PiStudio.Win10.UI.Controls
 
         private void OnContentChanged(PiCanvasContentChangedEventArgs args)
         {
-            IsDirty = true;
+            m_isUnsavedChange = true;
             ContentChanged?.Invoke(this, args);
         }
 
@@ -147,6 +156,17 @@ namespace PiStudio.Win10.UI.Controls
                 ReloadCurves();
                 OnContentChanged(new PiCanvasContentChangedEventArgs() { Curve = curve, Type = ContentChangedType.Removed });
             }
+        }
+
+        public Task SaveAsync(string filepath)
+        {
+            m_isUnsavedChange = false;
+            throw new NotImplementedException();
+        }
+
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 }

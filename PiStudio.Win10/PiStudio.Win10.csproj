@@ -100,6 +100,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MenuItem.xaml.cs">
+      <DependentUpon>MenuItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PiCanvas.xaml.cs">
       <DependentUpon>PiCanvas.xaml</DependentUpon>
     </Compile>
@@ -107,29 +110,29 @@
     <Compile Include="Controls\Toolbox.xaml.cs">
       <DependentUpon>Toolbox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\NavigationParameter.cs" />
     <Compile Include="Navigation\PageNavigator.cs" />
     <Compile Include="PlatformSpecific\AppResourcesEx.cs" />
     <Compile Include="PlatformSpecific\Data\ColorToBrushConverter.cs" />
     <Compile Include="PlatformSpecific\Data\PiCanvasContentChangedEventArgs.cs" />
     <Compile Include="PlatformSpecific\Data\SVGPath.cs" />
     <Compile Include="PlatformSpecific\Data\Theme.cs" />
-    <Compile Include="UI\BrightnessPage.xaml.cs">
+    <Compile Include="PlatformSpecific\WinAppResources.cs" />
+    <Compile Include="UI\Pages\BrightnessPage.xaml.cs">
       <DependentUpon>BrightnessPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\DrawingPage.xaml.cs">
+    <Compile Include="UI\Pages\DrawingPage.xaml.cs">
       <DependentUpon>DrawingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\FiltersPage.xaml.cs">
+    <Compile Include="UI\Pages\FiltersPage.xaml.cs">
       <DependentUpon>FiltersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\GetStarted.xaml.cs">
-      <DependentUpon>GetStarted.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\HomePage.xaml.cs">
+    <Compile Include="UI\Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\WelcomePage.xaml.cs">
+    <Compile Include="UI\Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlatformSpecific\WinBitmapDecoder.cs" />
@@ -159,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PiCanvas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,33 +174,34 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\BrightnessPage.xaml">
+    <Page Include="UI\Pages\BrightnessPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\DrawingPage.xaml">
+    <Page Include="UI\Pages\DrawingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\FiltersPage.xaml">
+    <Page Include="UI\Pages\FiltersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\GetStarted.xaml">
+    <Page Include="UI\Pages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\HomePage.xaml">
+    <Page Include="UI\Pages\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\WelcomePage.xaml">
+    <Page Include="UI\Pages\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MenuIcons\" />
+    <Folder Include="UI\Styles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PiStudio.Shared\PiStudio.Shared.csproj">

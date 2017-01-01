@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="PiStudio.Win10.UI.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiStudio.Win10.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{x:Bind Path=ApplicationTheme.Background, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
+        <SplitView Name="MainMenu" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="50"
+                   OpenPaneLength="150">
+            <SplitView.Pane>
+                <Grid Background="{x:Bind Path=ApplicationTheme.PanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                            x:Name="ItemsWrapper">
+                    <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                            Width="50" Height="50" Click="Hamburger_Click" VerticalAlignment="Top"
+                            Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                            Background="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                    <local:MenuItem x:Name="HomeItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                    Symbol="Home" Text="Home" Height="50" Margin="0,50" VerticalAlignment="Top"/>
+                    <local:MenuItem x:Name="FilterItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                    Symbol="Filter" Text="Filters" Height="50" Margin="0,100" VerticalAlignment="Top"/>
+                    <local:MenuItem x:Name="BrightnessItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                    Symbol="OutlineStar" Text="Brightness" Height="50" Margin="0, 150" VerticalAlignment="Top"/>
+                    <local:MenuItem x:Name="DrawItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                    Symbol="Edit" Text="Draw" Height="50" Margin="0,200" VerticalAlignment="Top"/>
+                    <local:MenuItem x:Name="SaveItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                    Symbol="Save" Text="Save" Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                    <local:MenuItem x:Name="SpeakItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                    Symbol="Microphone" Text="Speak" IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
+
+                    <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
+                    <local:MenuItem x:Name="SettingsItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                    Symbol="Setting" Text="Settings" IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom" IsSelected="True"/>
+
+                </Grid>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>

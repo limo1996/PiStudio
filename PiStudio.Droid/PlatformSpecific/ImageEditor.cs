@@ -12,7 +12,7 @@ namespace PiStudio.Droid
 		{
 		}
 
-		public bool IsUnsavedChanges
+		public bool IsUnsavedChange
 		{
 			get
 			{

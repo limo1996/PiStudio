@@ -8,7 +8,7 @@ namespace PiStudio.Win10
 {
     public static class AppResourcesEx
     {
-        public static async Task InitializeImageEditor(this AppResources app, StorageFile file)
+        public static async Task InitializeImageEditor(this AppResourcesBase app, StorageFile file)
         {
             IBitmapDecoder decoder = await WinBitmapDecoder.CreateAsync(await file.OpenStreamForReadAsync());
             app.Editor = new ImageEditor(file, decoder);

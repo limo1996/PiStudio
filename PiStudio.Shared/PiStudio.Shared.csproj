@@ -36,9 +36,12 @@
   <ItemGroup>
     <Compile Include="Data\Filter.cs" />
     <Compile Include="Data\FilterItem.cs" />
+    <Compile Include="Data\NavigationParameter.cs" />
     <Compile Include="Data\PixelFormat.cs" />
     <Compile Include="General\AppResources.cs" />
     <Compile Include="Data\AppSettings.cs" />
+    <Compile Include="Logic\IPageNavigator.cs" />
+    <Compile Include="Logic\ISaveable.cs" />
     <Compile Include="Workers\BaseImageEditor.cs" />
     <Compile Include="Workers\ImageConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

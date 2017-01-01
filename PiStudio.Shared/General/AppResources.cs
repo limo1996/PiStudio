@@ -4,20 +4,11 @@ using PiStudio.Shared.Data;
 
 namespace PiStudio.Shared
 {
-    public class AppResources
+    public abstract class AppResourcesBase
     {
-        private static AppResources m_instance = null;
-        public static AppResources Instance
-        {
-            get
-            {
-                if (m_instance == null)
-                    m_instance = new AppResources();
-                return m_instance;
-            }
-        }
+        private static AppResourcesBase m_instance = null;
 
-        private AppResources()
+        public AppResourcesBase()
         {
             Init_filters();
         }
@@ -27,8 +18,6 @@ namespace PiStudio.Shared
 
         private List<Filter> m_filters;
         public List<Filter> Filters { get { return m_filters; } }
-
-        public object File { get; set; }
 
         private void Init_filters()
         {

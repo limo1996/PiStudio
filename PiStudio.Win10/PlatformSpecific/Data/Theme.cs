@@ -9,6 +9,7 @@ namespace PiStudio.Win10.Data
         private Color m_panelBackground;
         private Color m_borders;
         private Color m_panelForeground;
+        private Color m_panelItemFocused;
 
         public Color Foreground
         {
@@ -76,6 +77,19 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        public Color PanelItemFocused
+        {
+            get
+            {
+                return m_panelItemFocused;
+            }
+            set
+            {
+                m_panelItemFocused = value;
+                OnPropertyChanged("PanelItemFocused");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
@@ -89,6 +103,8 @@ namespace PiStudio.Win10.Data
             theme.Foreground = this.Foreground;
             theme.Borders = this.Borders;
             theme.PanelBackground = this.PanelBackground;
+            theme.PanelItemFocused = this.PanelItemFocused;
+            theme.PanelForeground = this.PanelForeground;
         }
     }
 }

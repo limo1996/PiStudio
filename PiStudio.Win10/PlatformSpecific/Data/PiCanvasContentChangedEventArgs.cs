@@ -1,6 +1,8 @@
-﻿namespace PiStudio.Win10.Data
+﻿using System;
+
+namespace PiStudio.Win10.Data
 {
-    public class PiCanvasContentChangedEventArgs
+    public class PiCanvasContentChangedEventArgs : EventArgs
     {
         public ContentChangedType Type { get; set; }
         public SVGCurve Curve { get; set; }

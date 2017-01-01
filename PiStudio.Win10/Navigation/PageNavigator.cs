@@ -1,12 +1,13 @@
 ﻿using PiStudio.Shared;
 using PiStudio.Shared.Data;
-using PiStudio.Win10.UI;
 using PiStudio.Win10.UI.Pages;
 using System;
 using System.Threading.Tasks;
+using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace PiStudio.Win10.Navigation
 {
@@ -15,12 +16,14 @@ namespace PiStudio.Win10.Navigation
         private Frame m_frame;
         private Type m_page;
         private object m_args;
-        public PageNavigator(Frame frame)
+        private ISaveable m_editor;
+        public PageNavigator(Frame frame, ISaveable editor)
         {
             m_frame = frame;
+            m_editor = editor;
         }
 
-        public async void GetStartedButtonClick()
+        public async Task GetStartedButtonClick()
         {
             FileOpenPicker picker = new FileOpenPicker();
             picker.CommitButtonText = "Select";
@@ -28,14 +31,18 @@ namespace PiStudio.Win10.Navigation
                 picker.FileTypeFilter.Add(item);
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             var file = await picker.PickSingleFileAsync();
-            await AppResources.Instance.InitializeImageEditor(file);
-            m_frame.Navigate(typeof(BrightnessPage));
+
+            await WinAppResources.Instance.InitializeImageEditor(file);
+            WinAppResources.Instance.WorkingImage = await CreateWriteableBitmapFromFileAsync(file);
+            WinAppResources.Instance.LoadedFile = file;
+
+            m_frame.Navigate(typeof(HomePage));
         }
 
         public async void NavigateTo(Type pageType, NavigationParameter args)
         {
             m_page = pageType;
-            if (!AppResources.Instance.Editor.IsUnsavedChanges)
+            if (!m_editor.IsUnsavedChange)
             {
                 m_args = args;
                 await CreateAndDisplayChangesDialog();
@@ -59,13 +66,24 @@ namespace PiStudio.Win10.Navigation
 
         private void SaveAndContinue(IUICommand command)
         {
-            AppResources.Instance.Editor.SaveChanges();
+            m_editor.SaveChanges();
             m_frame.Navigate(m_page, m_args);
         }
 
         private void DismissAndContinue(IUICommand command)
         {
             m_frame.Navigate(m_page, m_args);
+        }
+
+        private async Task<WriteableBitmap> CreateWriteableBitmapFromFileAsync(StorageFile file)
+        {
+            WriteableBitmap bitmap;
+            using (var stream = await file.OpenReadAsync())
+            {
+                bitmap = new WriteableBitmap(1,1);
+                await bitmap.SetSourceAsync(stream);
+            }
+            return bitmap;
         }
     }
 }
