@@ -21,6 +21,10 @@ namespace PiStudio.Win10.UI.Pages
             WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
             this.InitializeComponent();
             WinAppResources.Instance.InitializePage();
+            ToolBox.BrushThicknessChanged += (o, e) => DrawingCanvas.BrushThickness = (uint)e;
+            ToolBox.BrushColorChanged += (o, e) => DrawingCanvas.BrushColor = e;
+            ToolBox.ClearClicked += (o, e) => DrawingCanvas.Clear();
+            DrawingCanvas.BrushThickness = 1;
         }
 
         public Theme ApplicationTheme { get; set; }

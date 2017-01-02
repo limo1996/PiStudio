@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PiStudio.Win10.Data;
+using System;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -87,6 +88,9 @@ namespace PiStudio.Win10.UI.Controls
         #endregion
 
         #region Properties
+
+        public Theme ApplicationTheme { get; set; }
+
         public new double BorderThickness
         {
             get { return (double)GetValue(BorderThicknessProperty); }

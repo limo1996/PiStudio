@@ -38,8 +38,19 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
-                    <local:PiCanvas x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Red"/>
-                    <Image x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Height="50" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Row="0"
+                          Background="{x:Bind Path=ApplicationTheme.Background, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
+                        <local:Toolbox IsShadowEnabled="False" HorizontalAlignment="Right" x:Name="ToolBox"
+                                       ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <local:PiCanvas x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />
+                        <Image x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
+                    </Grid>
                 </Grid>
             </SplitView.Content>
         </SplitView>

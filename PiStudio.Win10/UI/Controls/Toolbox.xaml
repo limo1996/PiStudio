@@ -9,7 +9,7 @@
     d:DesignHeight="50"
     d:DesignWidth="300">
 
-    <Grid CornerRadius="10" Background="Transparent" BorderThickness="0" BorderBrush="Black" Height="50" Width="300" x:Name="MainGrid" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
+    <Grid CornerRadius="0" Background="Transparent" BorderThickness="0" BorderBrush="Black" Height="50" Width="300" x:Name="MainGrid" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2" />
@@ -17,7 +17,7 @@
             <ColumnDefinition Width="2" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid Background="#AA000000" Grid.ColumnSpan="5" x:Name="Shadow" CornerRadius="9" Canvas.ZIndex="2"/>
+        <Grid Background="#AA000000" Grid.ColumnSpan="5" x:Name="Shadow" CornerRadius="0" Canvas.ZIndex="2"/>
         <Grid Grid.Column="0">
             <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="SizeButton" Click="SizeButton_Click">
                 <Grid Width="80" Height="38">
@@ -33,13 +33,19 @@
                             <RowDefinition Height="3*" />
                             <RowDefinition Height="4*" />
                         </Grid.RowDefinitions>
-                        <Rectangle Height="1" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="0"/>
-                        <Rectangle Height="2" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="1"/>
-                        <Rectangle Height="4" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="2"/>
-                        <Rectangle Height="6" HorizontalAlignment="Stretch" Fill="Black" VerticalAlignment="Center" Grid.Row="3"/>
+                        <Rectangle Height="1" HorizontalAlignment="Stretch" Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                                   VerticalAlignment="Center" Grid.Row="0"/>
+                        <Rectangle Height="2" HorizontalAlignment="Stretch" Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                   VerticalAlignment="Center" Grid.Row="1"/>
+                        <Rectangle Height="4" HorizontalAlignment="Stretch" Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                   VerticalAlignment="Center" Grid.Row="2"/>
+                        <Rectangle Height="6" HorizontalAlignment="Stretch" Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                   VerticalAlignment="Center" Grid.Row="3"/>
                     </Grid>
-                    <TextBlock FontSize="12" Text="Size" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="30,0,29,1" Height="14" Grid.RowSpan="2"/>
-                    <Polygon Points="0,0 8,0 4,4" HorizontalAlignment="Center" Fill="Black" Grid.Row="2"/>
+                    <TextBlock FontSize="12" Text="Size" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="30,0,29,1" Height="14" Grid.RowSpan="2"
+                               Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                    <Polygon Points="0,0 8,0 4,4" HorizontalAlignment="Center" 
+                             Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Grid.Row="2"/>
                 </Grid>
             </Button>
         </Grid>
@@ -52,7 +58,8 @@
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" BorderThickness="0,1,0,4" BorderBrush="Transparent" x:Name="ColorPreview">
+                    <Grid Grid.Row="0" BorderThickness="1" Margin="0,0,0,3"
+                          BorderBrush="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" x:Name="ColorPreview">
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="Yellow" Offset="0.0" x:Name="GradientStop1"/>
@@ -62,8 +69,10 @@
                             </LinearGradientBrush>
                         </Grid.Background>
                     </Grid>
-                    <TextBlock Grid.Row="1" FontSize="13" Text="Color" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="24,-6,25,3" Grid.RowSpan="2"/>
-                    <Polygon Points="0,0 10,0 5,5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Fill="Black" Grid.Row="2"/>
+                    <TextBlock Grid.Row="1" FontSize="13" Text="Color" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="24,-6,25,3" Grid.RowSpan="2"
+                               Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                    <Polygon Points="0,0 10,0 5,5" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                             Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Grid.Row="2"/>
                 </Grid>
             </Button>
         </Grid>
@@ -78,10 +87,12 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
-                        <Rectangle Stroke="#009ee1" StrokeThickness="1" StrokeDashArray="5 4" Height="20" VerticalAlignment="Top" />
-                        <Polygon Points="0,5 5,5 7,0 9,5 14,5 10,9 12,14 7,11 2,14 4,9" Fill="#009ee1" Margin="2,2"/>
+                        <Rectangle Stroke="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" StrokeThickness="1" StrokeDashArray="5 4" Height="20" VerticalAlignment="Top" />
+                        <Polygon Points="0,5 5,5 7,0 9,5 14,5 10,9 12,14 7,11 2,14 4,9" Margin="2,2"
+                                 Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                     </Grid>
-                    <TextBlock Grid.Row="1" FontSize="13" Text="Clear" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="26,-6,24,3" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Row="1" FontSize="13" Text="Clear" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="26,-6,24,3" Grid.RowSpan="2"
+                               Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                 </Grid>
             </Button>
         </Grid>

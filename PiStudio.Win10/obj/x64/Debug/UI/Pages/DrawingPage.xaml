@@ -38,8 +38,19 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
-                    <local:PiCanvas x:ConnectionId='13' x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Red"/>
-                    <Image x:ConnectionId='14' x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid x:ConnectionId='13' Height="50" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Row="0"
+                                                                                                                                               >
+                        <local:Toolbox x:ConnectionId='16' IsShadowEnabled="False" HorizontalAlignment="Right" x:Name="ToolBox"
+                                                                                                     />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <local:PiCanvas x:ConnectionId='14' x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />
+                        <Image x:ConnectionId='15' x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
+                    </Grid>
                 </Grid>
             </SplitView.Content>
         </SplitView>

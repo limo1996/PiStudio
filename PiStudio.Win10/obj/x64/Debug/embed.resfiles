@@ -1,7 +1,7 @@
 App.xbf
-Controls\MenuItem.xbf
-Controls\PiCanvas.xbf
-Controls\Toolbox.xbf
+UI\Controls\MenuItem.xbf
+UI\Controls\PiCanvas.xbf
+UI\Controls\Toolbox.xbf
 UI\Pages\BrightnessPage.xbf
 UI\Pages\DrawingPage.xbf
 UI\Pages\FiltersPage.xbf

@@ -100,14 +100,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MenuItem.xaml.cs">
+    <Compile Include="UI\Controls\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PiCanvas.xaml.cs">
+    <Compile Include="UI\Controls\PiCanvas.xaml.cs">
       <DependentUpon>PiCanvas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Rater.cs" />
-    <Compile Include="Controls\Toolbox.xaml.cs">
+    <Compile Include="UI\Controls\Rater.cs" />
+    <Compile Include="UI\Controls\Toolbox.xaml.cs">
       <DependentUpon>Toolbox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation\PageNavigator.cs" />
@@ -162,15 +162,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\MenuItem.xaml">
+    <Page Include="UI\Controls\MenuItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\PiCanvas.xaml">
+    <Page Include="UI\Controls\PiCanvas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Toolbox.xaml">
+    <Page Include="UI\Controls\Toolbox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

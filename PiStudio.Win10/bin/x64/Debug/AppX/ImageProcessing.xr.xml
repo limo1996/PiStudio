@@ -174,8 +174,8 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Polygon">
       <RootProperty Name="Points" />
-      <RootProperty Name="Fill" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Fill" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
     </RootType>
@@ -188,7 +188,11 @@
       <RootProperty Name="Color" />
       <RootProperty Name="Offset" />
     </RootType>
-    <RootType FullName="PiStudio.Win10.UI.Controls.Toolbox" />
+    <RootType FullName="PiStudio.Win10.UI.Controls.Toolbox">
+      <RootProperty Name="IsShadowEnabled" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="ApplicationTheme" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
     </RootType>

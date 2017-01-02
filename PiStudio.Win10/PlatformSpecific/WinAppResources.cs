@@ -24,7 +24,7 @@ namespace PiStudio.Win10
                 PanelItemFocused = Colors.Red,
                 PanelForeground = Colors.White,
                 Background = Colors.Black,
-                Foreground = Colors.Red,
+                Foreground = Colors.White,
                 Borders = Colors.Black
             };
 
