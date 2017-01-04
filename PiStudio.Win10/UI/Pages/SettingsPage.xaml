@@ -38,6 +38,58 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <local:PiBar Grid.Row="0" PlaceholderText="Search" Text="Settings" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Grid Width="8" />
+                        <TextBlock Text="General" FontSize="16" Margin="10" x:Name="General" Tapped="SettingsSection_Clicked"
+                                   PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited" FontWeight="SemiBold"
+                                   Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                        <TextBlock Text="Theme" FontSize="16" Margin="10" x:Name="Theme" Tapped="SettingsSection_Clicked"
+                                   PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited"
+                                   Foreground="{x:Bind Path=ApplicationTheme.ClickableForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                        <TextBlock Text="About" FontSize="16" Margin="10" x:Name="About" Tapped="SettingsSection_Clicked"
+                                   PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited"
+                                   Foreground="{x:Bind Path=ApplicationTheme.ClickableForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                    </StackPanel>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="0" />
+                            <ColumnDefinition Width="0" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <StackPanel Orientation="Vertical" Background="Transparent" Margin="15, 0">
+                                <TextBlock Text="Options" FontFamily="Segoe UI" FontSize="24" Margin="0,5,0,10"
+                                           Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
+                                <TextBlock Text="Choose language" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,5"
+                                           Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
+                                <ComboBox Background="Transparent" FontFamily="Segoe UI" FontSize="16"
+                                          Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                          BorderBrush="{x:Bind Path=ApplicationTheme.Borders, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                                          Width="200" BorderThickness="2" >
+                                    <ComboBox.Items>
+                                        <ComboBoxItem Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                                                      Content="English" IsSelected="True"/>
+                                        <ComboBoxItem Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                                                      Content="Slovak" />
+                                        <ComboBoxItem Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                                                      Content="German" />
+                                    </ComboBox.Items>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            
+                        </Grid>
+                    </Grid>
                 </Grid>
             </SplitView.Content>
         </SplitView>

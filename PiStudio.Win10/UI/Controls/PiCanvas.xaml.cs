@@ -120,7 +120,7 @@ namespace PiStudio.Win10.UI.Controls
             m_canvas.Children.Clear();
             foreach (var curve in m_curves)
             {
-                for (int i = 0; i < curve.Data.Count; i += 2)
+                for (int i = 0; i + 1 < curve.Data.Count; i++)
                     AddLine(curve.Data[i], curve.Data[i + 1], curve.Color, curve.Thickness);
             }
         }

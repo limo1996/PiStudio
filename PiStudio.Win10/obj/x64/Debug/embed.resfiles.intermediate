@@ -1,5 +1,6 @@
 App.xbf
 UI\Controls\MenuItem.xbf
+UI\Controls\PiBar.xbf
 UI\Controls\PiCanvas.xbf
 UI\Controls\Toolbox.xbf
 UI\Pages\BrightnessPage.xbf

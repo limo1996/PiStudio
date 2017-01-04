@@ -21,11 +21,13 @@ namespace PiStudio.Win10
             ApplicationTheme = new Theme()
             {
                 PanelBackground = Color.FromArgb(200, 0, 0, 0),
-                PanelItemFocused = Colors.Red,
+                PanelItemFocused = Color.FromArgb(255, 209, 52, 56),
                 PanelForeground = Colors.White,
                 Background = Colors.Black,
                 Foreground = Colors.White,
-                Borders = Colors.Black
+                Borders = Color.FromArgb(255, 31, 31, 31),
+                ClickableForeground = Color.FromArgb(255, 122, 122, 122),
+                UpperPanelBackground = Color.FromArgb(255, 31, 31, 31)
             };
 
             MinimumPageSize = new Size(300, 400);

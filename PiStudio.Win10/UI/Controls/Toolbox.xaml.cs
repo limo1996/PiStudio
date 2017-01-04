@@ -79,12 +79,22 @@ namespace PiStudio.Win10.UI.Controls
             MainGrid.BorderThickness = new Thickness(0);
             m_focused = false;
         }
+
+        private void UndoButton_Click(object sender, RoutedEventArgs e)
+        {
+            ColorPopup.IsOpen = false;
+            SizePopup.IsOpen = false;
+            var fn = UndoClicked;
+            if (fn != null)
+                fn(this, EventArgs.Empty);
+        }
         #endregion
 
         #region Events
         public event EventHandler<Color> BrushColorChanged;
         public event EventHandler<double> BrushThicknessChanged;
         public event EventHandler ClearClicked;
+        public event EventHandler UndoClicked;
         #endregion
 
         #region Properties
@@ -294,6 +304,5 @@ namespace PiStudio.Win10.UI.Controls
             }
         }
         #endregion
-
     }
 }

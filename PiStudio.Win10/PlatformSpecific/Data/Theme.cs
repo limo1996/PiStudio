@@ -10,6 +10,8 @@ namespace PiStudio.Win10.Data
         private Color m_borders;
         private Color m_panelForeground;
         private Color m_panelItemFocused;
+        private Color m_clickableForeground;
+        private Color m_upperPanelBackground;
 
         public Color Foreground
         {
@@ -90,6 +92,32 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        public Color ClickableForeground
+        {
+            get
+            {
+                return m_clickableForeground;
+            }
+            set
+            {
+                m_clickableForeground = value;
+                OnPropertyChanged("ClickableForeground");
+            }
+        }
+
+        public Color UpperPanelBackground
+        {
+            get
+            {
+                return m_upperPanelBackground;
+            }
+            set
+            {
+                m_upperPanelBackground = value;
+                OnPropertyChanged("UpperPanelBackground");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
@@ -105,6 +133,8 @@ namespace PiStudio.Win10.Data
             theme.PanelBackground = this.PanelBackground;
             theme.PanelItemFocused = this.PanelItemFocused;
             theme.PanelForeground = this.PanelForeground;
+            theme.ClickableForeground = this.ClickableForeground;
+            theme.UpperPanelBackground = this.UpperPanelBackground;
         }
     }
 }

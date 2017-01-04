@@ -7,8 +7,8 @@
     <ProjectGuid>{8CDBA7F2-DF29-4134-942B-B2308A568E50}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ImageProcessing</RootNamespace>
-    <AssemblyName>ImageProcessing</AssemblyName>
+    <RootNamespace>PiStudio.Win10</RootNamespace>
+    <AssemblyName>PiStudio</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
@@ -52,6 +52,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -100,8 +101,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlatformSpecific\Data\SearchOption.cs" />
     <Compile Include="UI\Controls\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\PiBar.xaml.cs">
+      <DependentUpon>PiBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\PiCanvas.xaml.cs">
       <DependentUpon>PiCanvas.xaml</DependentUpon>
@@ -158,11 +163,15 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="App.xaml">
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Controls\MenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\PiBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,10 +207,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Styles\AutoSuggestBoxTextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MenuIcons\" />
-    <Folder Include="UI\Styles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PiStudio.Shared\PiStudio.Shared.csproj">

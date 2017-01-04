@@ -1,3 +1,0 @@
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\PiStudio.Shared.csproj;neutral
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\PiStudio.Win10.csproj;x64
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\SpeechIntegrator.Win10.csproj;neutral

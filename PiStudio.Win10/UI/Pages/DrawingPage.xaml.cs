@@ -24,6 +24,7 @@ namespace PiStudio.Win10.UI.Pages
             ToolBox.BrushThicknessChanged += (o, e) => DrawingCanvas.BrushThickness = (uint)e;
             ToolBox.BrushColorChanged += (o, e) => DrawingCanvas.BrushColor = e;
             ToolBox.ClearClicked += (o, e) => DrawingCanvas.Clear();
+            ToolBox.UndoClicked += (o, e) => DrawingCanvas.Undo();
             DrawingCanvas.BrushThickness = 1;
         }
 

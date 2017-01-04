@@ -7,17 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="50"
-    d:DesignWidth="300">
+    d:DesignWidth="360">
 
-    <Grid CornerRadius="0" Background="Transparent" BorderThickness="0" BorderBrush="Black" Height="50" Width="300" x:Name="MainGrid" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
+    <Grid CornerRadius="0" Background="Transparent" BorderThickness="0" BorderBrush="Black" Height="50" Width="360" x:Name="MainGrid" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="60" />
         </Grid.ColumnDefinitions>
-        <Grid Background="#AA000000" Grid.ColumnSpan="5" x:Name="Shadow" CornerRadius="0" Canvas.ZIndex="2"/>
+        <Grid Background="#AA000000" Grid.ColumnSpan="7" x:Name="Shadow" CornerRadius="0" Canvas.ZIndex="2"/>
         <Grid Grid.Column="0">
             <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="SizeButton" Click="SizeButton_Click">
                 <Grid Width="80" Height="38">
@@ -49,7 +51,7 @@
                 </Grid>
             </Button>
         </Grid>
-        <Grid Grid.Column="1" Background="Black" x:Name="Separator1"></Grid>
+        <Grid Grid.Column="1" Background="{x:Bind Path=ApplicationTheme.PanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" x:Name="Separator1"></Grid>
         <Grid Grid.Column="2">
             <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="ColorButton" Click="ColorButton_Click">
                 <Grid Width="80" Height="38">
@@ -76,7 +78,7 @@
                 </Grid>
             </Button>
         </Grid>
-        <Grid Grid.Column="3" Background="Black" x:Name="Separator2"></Grid>
+        <Grid Grid.Column="3" Background="{x:Bind Path=ApplicationTheme.PanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" x:Name="Separator2"></Grid>
         <Grid Grid.Column="4">
             <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="CleanButton" Click="ClearButton_Click">
                 <Grid Width="80" Height="38">
@@ -93,6 +95,26 @@
                     </Grid>
                     <TextBlock Grid.Row="1" FontSize="13" Text="Clear" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="26,-6,24,3" Grid.RowSpan="2"
                                Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                </Grid>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="5" ></Grid>
+        <Grid Grid.Column="6">
+            <Button BorderBrush="Transparent" BorderThickness="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="UndoButton" Click="UndoButton_Click">
+                <Grid Width="40" Height="38">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <SymbolIcon Symbol="Undo" Margin="0,0,0,3"
+                                    Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                                    Canvas.ZIndex="1"/>
+                    </Grid>
+                    <TextBlock Grid.Row="1" FontSize="13" Text="Undo" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,3" Grid.RowSpan="2"
+                               Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                               Canvas.ZIndex="2"/>
                 </Grid>
             </Button>
         </Grid>

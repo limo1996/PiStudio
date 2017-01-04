@@ -12,7 +12,33 @@ namespace PiStudio.Droid
 		{
 		}
 
-		public bool IsUnsavedChange
+        public IBitmapDecoder Decoder
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IBitmapEncoder Encoder
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool IsUnsavedChange
 		{
 			get
 			{
@@ -25,25 +51,37 @@ namespace PiStudio.Droid
 			}
 		}
 
-		public Task<IEditableBitmap> ApplyBrightnessAsync()
-		{
-			throw new NotImplementedException();
-		}
+        public string MimeType
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-		public Task<IEditableBitmap> ApplyFilterAsync(Filter filter)
-		{
-			throw new NotImplementedException();
-		}
+        public uint PixelHeight
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-		public Task<IEditableBitmap> CreateBitmapFromByteArrayAsync(byte[] imagePixels)
-		{
-			throw new NotImplementedException();
-		}
+        public byte PixelSize
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
-		public Task<IEditableBitmap> RotateAsync()
-		{
-			throw new NotImplementedException();
-		}
+        public uint PixelWidth
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
 		public Task SaveAsync(string filepath)
 		{
@@ -55,7 +93,12 @@ namespace PiStudio.Droid
 			throw new NotImplementedException();
 		}
 
-		public Task WriteBytesToStream(byte[] imageBytes, Stream stream, string fileFormat, IBitmapEncoder encoder)
+        public Task WriteBytesToEncoder(byte[] imageBytes, uint pixelWidth, uint pixelHeight, IBitmapEncoder encoder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task WriteBytesToStream(byte[] imageBytes, Stream stream, string fileFormat, IBitmapEncoder encoder)
 		{
 			throw new NotImplementedException();
 		}

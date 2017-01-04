@@ -6,3 +6,6 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Debug\PC
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Debug\PCLStorage.Abstractions.xml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Debug\PiStudio.Shared.dll
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Debug\PiStudio.Shared.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Debug\PiStudio.Shared.csprojResolveAssemblyReference.cache
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Debug\PiStudio.Shared.dll.mdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll.mdb
