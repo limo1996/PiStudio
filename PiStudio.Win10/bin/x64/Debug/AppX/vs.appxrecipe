@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>41C6C40693B55AC488590C6DE5EC6C37EAA96EEC32896D05D4BC83FFEEDAE246</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>3CC78907196F2FD8FFA246A1D50837C62E19ECB1752CAD3646A7DFD7BAA807BF</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>73888b56-348a-4ad5-98f4-bbe11ba42cd5_1.0.0.0_x64__wpx2rdvgzqs5a</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>73888b56-348a-4ad5-98f4-bbe11ba42cd5_wpx2rdvgzqs5a!App</RegisteredUserModeAppID>
     <RegisteredPackageID>73888b56-348a-4ad5-98f4-bbe11ba42cd5</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-01-04T13:46:30.463</Modified>
+      <Modified>2017-01-04T14:34:58.868</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\ImageProcessing.exe">
-      <PackagePath>entrypoint\ImageProcessing.exe</PackagePath>
-      <Modified>2017-01-04T13:46:29.029</Modified>
+    <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.exe">
+      <PackagePath>entrypoint\PiStudio.exe</PackagePath>
+      <Modified>2017-01-04T14:34:57.816</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -470,11 +470,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll">
       <PackagePath>PiStudio.Shared.dll</PackagePath>
-      <Modified>2017-01-04T13:08:33.797</Modified>
+      <Modified>2017-01-04T14:02:20.561</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.dll">
       <PackagePath>SpeechIntegrator.dll</PackagePath>
-      <Modified>2017-01-04T13:08:34.191</Modified>
+      <Modified>2017-01-04T14:02:20.587</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
@@ -522,9 +522,9 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-09-29T22:50:55.093</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\ImageProcessing.xr.xml">
-      <PackagePath>ImageProcessing.xr.xml</PackagePath>
-      <Modified>2017-01-04T13:31:46.826</Modified>
+    <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.xr.xml">
+      <PackagePath>PiStudio.xr.xml</PackagePath>
+      <Modified>2017-01-04T14:28:54.874</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -533,11 +533,11 @@
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-01-04T13:46:30.272</Modified>
+      <Modified>2017-01-04T14:34:58.694</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\ImageProcessing.exe">
-      <PackagePath>ImageProcessing.exe</PackagePath>
-      <Modified>2017-01-04T13:46:30.454</Modified>
+    <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe">
+      <PackagePath>PiStudio.exe</PackagePath>
+      <Modified>2017-01-04T14:34:58.865</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

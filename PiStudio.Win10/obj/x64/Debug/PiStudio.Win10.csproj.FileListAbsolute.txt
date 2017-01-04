@@ -277,13 +277,9 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Pages\HomePage.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Pages\SettingsPage.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Pages\WelcomePage.xbf
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\ImageProcessing.xr.xml
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\ImageProcessing.exe
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\ImageProcessing.pdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\resources.pri
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\AppxManifest.xml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\AppxManifest.xml
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\ImageProcessing.exe
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.Win10.build.appxrecipe
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Microsoft.ApplicationInsights.dll
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Microsoft.ApplicationInsights.PersistenceChannel.dll
@@ -398,8 +394,6 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.Shared.pdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\SpeechIntegrator.pdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\SpeechIntegrator.pri
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\ImageProcessing.exe
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\ImageProcessing.pdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\ResourceHandlingTask.state
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\FxResources.Microsoft.CSharp.SR.resw
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\FxResources.Microsoft.VisualBasic.SR.resw
@@ -474,3 +468,10 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Controls\PiBar.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\AutoSuggestBoxTextBoxStyle.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\AutoSuggestBoxTextBoxStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\AutoSuggestBoxTextBoxStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.xr.xml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.exe
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\PiStudio.exe
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\PiStudio.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe

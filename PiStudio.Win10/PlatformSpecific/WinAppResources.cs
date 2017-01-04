@@ -51,7 +51,6 @@ namespace PiStudio.Win10
         public void InitializePage()
         {
             ApplicationView.GetForCurrentView().SetPreferredMinSize(Instance.MinimumPageSize);
-            ApplicationView.GetForCurrentView().Title = "PiStudio";
 #if !MOBILE
             // PC customization
             if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationView"))
