@@ -25,7 +25,7 @@ namespace PiStudio.Win10.UI.Controls
             ApplicationTheme = new Theme();
             this.InitializeComponent();
         }
-
+        #region Properties
         public Theme ApplicationTheme { get; set; }
 
         public string Text
@@ -65,6 +65,31 @@ namespace PiStudio.Win10.UI.Controls
         private void ShowOptions_Click(object sender, RoutedEventArgs e)
         {
             SpeakOptions.IsOpen = !SpeakOptions.IsOpen;
+        }
+        #endregion
+
+        #region Events
+        public event EventHandler<Data.SearchOption> ItemSelected;
+        #endregion
+
+        private void SuggestBoxPresenter_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+
+        }
+
+        private void SuggestBoxPresenter_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+
+        }
+
+        private void SuggestBoxPresenter_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+
+        }
+
+        private void ListBoxPresenter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

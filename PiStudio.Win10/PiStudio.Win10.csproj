@@ -102,6 +102,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlatformSpecific\Data\SearchOption.cs" />
+    <Compile Include="PlatformSpecific\SearchQueries.cs" />
     <Compile Include="UI\Controls\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>

@@ -13,14 +13,16 @@
     <Grid Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
           Height="{x:Bind Path=Height}" Width="{x:Bind Path=Width}">
         <TextBlock Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                                   Text="{x:Bind Path=Text, Mode=OneWay}" HorizontalAlignment="Left" FontWeight="SemiBold" VerticalAlignment="Center" FontSize="18" Margin="15"/>
+                   Text="{x:Bind Path=Text, Mode=OneWay}" HorizontalAlignment="Left" FontWeight="SemiBold" VerticalAlignment="Center" 
+                   FontSize="18" Margin="15,0"/>
         <AutoSuggestBox Width="220" Height="40" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Margin="0,0,8,0"
                         Background="{x:Bind Path=ApplicationTheme.Background, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                         Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                         PlaceholderText="{x:Bind Path=PlaceholderText}" x:Name="SuggestBoxPresenter"
                         BorderBrush="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
                         Style="{StaticResource PiAutoSuggestBoxStyle}" ItemsSource="{x:Bind Path=ItemsSource, Mode=OneWay}"
-                        >
+                        TextChanged="SuggestBoxPresenter_TextChanged" QuerySubmitted="SuggestBoxPresenter_QuerySubmitted"
+                        SuggestionChosen="SuggestBoxPresenter_SuggestionChosen">
             <AutoSuggestBox.QueryIcon>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE094;" FontSize="22"/>
             </AutoSuggestBox.QueryIcon>
@@ -35,7 +37,7 @@
                         <TextBlock Foreground="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                                    Text="{x:Bind Path=Text}" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
                         <SymbolIcon Symbol="{x:Bind Path=Symbol, Mode=OneWay}" Grid.Column="2"
-                                        Foreground="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
+                                    Foreground="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                     </Grid>
                 </DataTemplate>
             </AutoSuggestBox.ItemTemplate>
@@ -45,20 +47,21 @@
                 Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                 Click="ShowOptions_Click"  x:Name="ShowOptions">
         </Button>
-       <Popup x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,280,0" VerticalAlignment="Center">
+       <Popup x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,290,0" VerticalAlignment="Center">
                <ListBox Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                     MaxHeight="300" Width="200" Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                     x:Name="ListBoxPresenter" ItemsSource="{x:Bind Path=ItemsSource, Mode=OneWay}">
+                        MaxHeight="300" Width="210" Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                        x:Name="ListBoxPresenter" ItemsSource="{x:Bind Path=ItemsSource, Mode=OneWay}"
+                        SelectionChanged="ListBoxPresenter_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate x:DataType="r:SearchOption">
                         <Grid Height="30">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="170" />
+                                <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                                   Text="{x:Bind Path=Text}" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
+                                       Text="{x:Bind Path=Text}" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
                             <SymbolIcon Symbol="{x:Bind Path=Symbol, Mode=OneWay}" Grid.Column="2"
                                         Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                         </Grid>

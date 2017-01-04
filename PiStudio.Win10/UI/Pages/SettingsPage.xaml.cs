@@ -46,6 +46,19 @@ namespace PiStudio.Win10.UI.Pages
                 Text = "Text3"
             });
 
+            options.Add(new SearchOption()
+            {
+                ApplicationTheme = ApplicationTheme,
+                Symbol = Symbol.Microphone,
+                Text = "Text4"
+            });
+
+            options.Add(new SearchOption()
+            {
+                ApplicationTheme = ApplicationTheme,
+                Symbol = Symbol.Microphone,
+                Text = "Text5"
+            });
             Bar.ItemsSource = options;
         }
 
