@@ -47,12 +47,12 @@
                 Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                 Click="ShowOptions_Click"  x:Name="ShowOptions">
         </Button>
-       <Popup x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,290,0" VerticalAlignment="Center">
-               <ListBox Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+        <Popup x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,290,0" VerticalAlignment="Center">
+               <ListView Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                         MaxHeight="300" Width="210" Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                         x:Name="ListBoxPresenter" ItemsSource="{x:Bind Path=ItemsSource, Mode=OneWay}"
                         SelectionChanged="ListBoxPresenter_SelectionChanged">
-                <ListBox.ItemTemplate>
+                <ListView.ItemTemplate>
                     <DataTemplate x:DataType="r:SearchOption">
                         <Grid Height="30">
                             <Grid.ColumnDefinitions>
@@ -66,8 +66,8 @@
                                         Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                         </Grid>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ListView.ItemTemplate>
+            </ListView>
         </Popup>
     </Grid>
 </UserControl>

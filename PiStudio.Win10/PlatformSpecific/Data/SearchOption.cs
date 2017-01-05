@@ -54,5 +54,10 @@ namespace PiStudio.Win10.Data
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public override string ToString()
+        {
+            return m_text;
+        }
     }
 }

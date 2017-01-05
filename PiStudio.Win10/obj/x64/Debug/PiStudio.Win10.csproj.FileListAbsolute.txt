@@ -475,3 +475,12 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\PiStudio.exe
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\PiStudio.pdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiToggleSwitchStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiToggleSwitchStyle.xaml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiToggleSwitchStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiComboBoxStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiComboBoxStyle.xaml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiComboBoxStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiCheckBoxStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiCheckBoxStyle.xaml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiCheckBoxStyle.xbf

@@ -54,10 +54,13 @@ namespace PiStudio.Win10.UI.Pages
             FilterGridView.ItemsSource = items;
             foreach (var filter in WinAppResources.Instance.Filters)
             {
-                var item = new FilterItem();
-                item.Text = filter.Name;
-                item.Source = await editor.ApplyFilterAsync(filter);
-                items.Add(item);
+                if (filter.IsEnabled == true)
+                {
+                    var item = new FilterItem();
+                    item.Text = filter.Filter.Name;
+                    item.Source = await editor.ApplyFilterAsync(filter.Filter);
+                    items.Add(item);
+                }
             }
 
             FilterGridView.ItemClick += (o, ee) =>

@@ -46,20 +46,6 @@ namespace PiStudio.Shared.Data
             }
         }
 
-        public uint Color1
-        {
-            get;
-            set;
-        }
-
-        public uint Color2
-        {
-            get;
-            set;
-        }
-        public static readonly int MinWindowHeight = 600;
-        public static readonly int MinWindowWidth = 500;
-
         private List<string> m_supportedImageTypes = new List<string>();
         public IList<string> SupportedImageTypes
         {

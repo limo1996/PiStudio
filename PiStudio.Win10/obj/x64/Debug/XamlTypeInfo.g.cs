@@ -132,7 +132,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[26];
+            _typeNameTable = new string[27];
             _typeNameTable[0] = "PiStudio.Win10.UI.Controls.MenuItem";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "PiStudio.Win10.Data.Theme";
@@ -158,9 +158,10 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             _typeNameTable[22] = "PiStudio.Win10.UI.Pages.FiltersPage";
             _typeNameTable[23] = "PiStudio.Win10.UI.Pages.HomePage";
             _typeNameTable[24] = "PiStudio.Win10.UI.Pages.SettingsPage";
-            _typeNameTable[25] = "PiStudio.Win10.UI.Pages.WelcomePage";
+            _typeNameTable[25] = "PiStudio.Shared.Data.AppSettings";
+            _typeNameTable[26] = "PiStudio.Win10.UI.Pages.WelcomePage";
 
-            _typeTable = new global::System.Type[26];
+            _typeTable = new global::System.Type[27];
             _typeTable[0] = typeof(global::PiStudio.Win10.UI.Controls.MenuItem);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::PiStudio.Win10.Data.Theme);
@@ -186,7 +187,8 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             _typeTable[22] = typeof(global::PiStudio.Win10.UI.Pages.FiltersPage);
             _typeTable[23] = typeof(global::PiStudio.Win10.UI.Pages.HomePage);
             _typeTable[24] = typeof(global::PiStudio.Win10.UI.Pages.SettingsPage);
-            _typeTable[25] = typeof(global::PiStudio.Win10.UI.Pages.WelcomePage);
+            _typeTable[25] = typeof(global::PiStudio.Shared.Data.AppSettings);
+            _typeTable[26] = typeof(global::PiStudio.Win10.UI.Pages.WelcomePage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -232,7 +234,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
         private object Activate_22_FiltersPage() { return new global::PiStudio.Win10.UI.Pages.FiltersPage(); }
         private object Activate_23_HomePage() { return new global::PiStudio.Win10.UI.Pages.HomePage(); }
         private object Activate_24_SettingsPage() { return new global::PiStudio.Win10.UI.Pages.SettingsPage(); }
-        private object Activate_25_WelcomePage() { return new global::PiStudio.Win10.UI.Pages.WelcomePage(); }
+        private object Activate_26_WelcomePage() { return new global::PiStudio.Win10.UI.Pages.WelcomePage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -407,13 +409,20 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_24_SettingsPage;
                 userType.AddMemberName("ApplicationTheme");
+                userType.AddMemberName("Settings");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 25:   //  PiStudio.Win10.UI.Pages.WelcomePage
+            case 25:   //  PiStudio.Shared.Data.AppSettings
+                userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 26:   //  PiStudio.Win10.UI.Pages.WelcomePage
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_25_WelcomePage;
+                userType.Activator = Activate_26_WelcomePage;
                 userType.AddMemberName("ApplicationTheme");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -718,12 +727,22 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_31_WelcomePage_ApplicationTheme(object instance)
+        private object get_31_SettingsPage_Settings(object instance)
+        {
+            var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
+            return that.Settings;
+        }
+        private void set_31_SettingsPage_Settings(object instance, object Value)
+        {
+            var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
+            that.Settings = (global::PiStudio.Shared.Data.AppSettings)Value;
+        }
+        private object get_32_WelcomePage_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.WelcomePage)instance;
             return that.ApplicationTheme;
         }
-        private void set_31_WelcomePage_ApplicationTheme(object instance, object Value)
+        private void set_32_WelcomePage_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.WelcomePage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
@@ -937,11 +956,17 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 xamlMember.Getter = get_30_SettingsPage_ApplicationTheme;
                 xamlMember.Setter = set_30_SettingsPage_ApplicationTheme;
                 break;
+            case "PiStudio.Win10.UI.Pages.SettingsPage.Settings":
+                userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.SettingsPage");
+                xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Settings", "PiStudio.Shared.Data.AppSettings");
+                xamlMember.Getter = get_31_SettingsPage_Settings;
+                xamlMember.Setter = set_31_SettingsPage_Settings;
+                break;
             case "PiStudio.Win10.UI.Pages.WelcomePage.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.WelcomePage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_31_WelcomePage_ApplicationTheme;
-                xamlMember.Setter = set_31_WelcomePage_ApplicationTheme;
+                xamlMember.Getter = get_32_WelcomePage_ApplicationTheme;
+                xamlMember.Setter = set_32_WelcomePage_ApplicationTheme;
                 break;
             }
             return xamlMember;

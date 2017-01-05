@@ -9,6 +9,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="UI/Styles/AutoSuggestBoxTextBoxStyle.xaml"/>
+                <ResourceDictionary Source="UI/Styles/PiToggleSwitchStyle.xaml"/>
+                <ResourceDictionary Source="UI/Styles/PiComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="UI/Styles/PiCheckBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

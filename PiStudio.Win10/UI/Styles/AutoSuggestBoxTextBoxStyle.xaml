@@ -221,40 +221,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="PiAutoSuggestBoxStyle" TargetType="AutoSuggestBox">
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="TextBoxStyle" Value="{StaticResource AutoSuggestBoxTextBoxStyle}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="AutoSuggestBox">
-                    <Grid>
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="Orientation">
-                                <VisualState x:Name="Landscape"/>
-                                <VisualState x:Name="Portrait"/>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                        <TextBox x:Name="TextBox" ScrollViewer.BringIntoViewOnFocusChange="False" DesiredCandidateWindowAlignment="BottomEdge" Header="{TemplateBinding Header}" Margin="0" PlaceholderText="{TemplateBinding PlaceholderText}" Style="{TemplateBinding TextBoxStyle}" Width="{TemplateBinding Width}" 
-                                     Canvas.ZIndex="0" FontSize="18" VerticalAlignment="Center"/>
-                        <Popup x:Name="SuggestionsPopup">
-                            <Border x:Name="SuggestionsContainer">
-                                <Border.RenderTransform>
-                                    <TranslateTransform x:Name="UpwardTransform"/>
-                                </Border.RenderTransform>
-                                <ListView x:Name="SuggestionsList" BorderBrush="{ThemeResource SystemControlForegroundBaseMediumLowBrush}" BorderThickness="{ThemeResource AutoSuggestListBorderThemeThickness}" DisplayMemberPath="{TemplateBinding DisplayMemberPath}" IsItemClickEnabled="True" ItemTemplate="{TemplateBinding ItemTemplate}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}" ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}" MaxHeight="{ThemeResource AutoSuggestListMaxHeight}" Margin="{ThemeResource AutoSuggestListMargin}">
-                                    <ListView.Background>
-                                        <SolidColorBrush Color="{StaticResource SystemChromeMediumLowColor}"/>
-                                    </ListView.Background>
-                                    <ListView.ItemContainerTransitions>
-                                        <TransitionCollection/>
-                                    </ListView.ItemContainerTransitions>
-                                </ListView>
-                            </Border>
-                        </Popup>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
 </ResourceDictionary>

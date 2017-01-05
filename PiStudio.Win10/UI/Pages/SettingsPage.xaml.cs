@@ -19,6 +19,7 @@ namespace PiStudio.Win10.UI.Pages
     {
         public SettingsPage()
         {
+            Settings = AppSettings.Instance;
             ApplicationTheme = new Theme();
             WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
             this.InitializeComponent();
@@ -60,9 +61,11 @@ namespace PiStudio.Win10.UI.Pages
                 Text = "Text5"
             });
             Bar.ItemsSource = options;
+            FiltersBox.ItemsSource = WinAppResources.Instance.Filters;
         }
 
         public Theme ApplicationTheme { get; set; }
+        public AppSettings Settings { get; set; }
 
         private void Hamburger_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -125,6 +128,16 @@ namespace PiStudio.Win10.UI.Pages
 
             ((TextBlock)sender).Foreground = new SolidColorBrush(ApplicationTheme.Foreground);
             ((TextBlock)sender).FontWeight = FontWeights.SemiBold;
+
+            foreach (var column in MainGrid.ColumnDefinitions)
+                column.Width = new Windows.UI.Xaml.GridLength(0);
+
+            if (sender == General)
+                MainGrid.ColumnDefinitions[0].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
+            else if (sender == Theme)
+                MainGrid.ColumnDefinitions[1].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
+            else
+                MainGrid.ColumnDefinitions[2].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
         }
 
         private void TextBlock_Entered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
@@ -136,6 +149,11 @@ namespace PiStudio.Win10.UI.Pages
         {
             if(((TextBlock)sender).FontWeight.Weight != FontWeights.SemiBold.Weight)
                 ((TextBlock)sender).Foreground = new SolidColorBrush(ApplicationTheme.ClickableForeground);
+        }
+
+        private void General_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+
         }
     }
 }

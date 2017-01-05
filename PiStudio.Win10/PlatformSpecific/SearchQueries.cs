@@ -28,9 +28,10 @@ namespace PiStudio.Win10
             }
         }
 
-        IEnumerable<SearchOption> Search(string query)
+        public IEnumerable<SearchOption> Search(string query)
         {
-            //TODO
+            return m_options.Where(item => item.Text.IndexOf(query, StringComparison.CurrentCultureIgnoreCase) > -1)
+                .OrderByDescending(c => c.Text.StartsWith(query, StringComparison.CurrentCultureIgnoreCase));
         }
     }
 }
