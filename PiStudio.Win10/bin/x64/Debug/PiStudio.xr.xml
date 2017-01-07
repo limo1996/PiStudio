@@ -86,7 +86,6 @@
       <RootProperty Name="Name" />
       <RootProperty Name="Padding" />
       <RootProperty Name="FontStyle" />
-      <RootProperty Name="Width" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="CharacterSpacing" />
       <RootEvent Name="Tapped" />
@@ -306,6 +305,8 @@
       <RootProperty Name="SelectionMode" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="VerticalContentAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="ItemsPanel" />
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="ItemTemplate" />
@@ -379,6 +380,8 @@
       <RootProperty Name="Style" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Foreground" />
+      <RootProperty Name="IsOn" />
+      <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Background" />

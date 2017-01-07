@@ -47,13 +47,13 @@
                     <local:PiBar x:ConnectionId='13' Grid.Row="0" PlaceholderText="Search" Text="Settings"                                                                x:Name="Bar"/>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                         <Grid Width="8" />
-                        <TextBlock x:ConnectionId='38' Text="General" FontSize="16" Margin="10" x:Name="General"                                 
+                        <TextBlock x:ConnectionId='34' Text="General" FontSize="16" Margin="10" x:Name="General"                                 
                                                                                                        FontWeight="SemiBold"
                                                                                                                                                         />
-                        <TextBlock x:ConnectionId='39' Text="Theme" FontSize="16" Margin="10" x:Name="Theme"                                 
+                        <TextBlock x:ConnectionId='35' Text="Theme" FontSize="16" Margin="10" x:Name="Theme"                                 
                                                                                                       
                                                                                                                                                                  />
-                        <TextBlock x:ConnectionId='40' Text="About" FontSize="16" Margin="10" x:Name="About"                                 
+                        <TextBlock x:ConnectionId='36' Text="About" FontSize="16" Margin="10" x:Name="About"                                 
                                                                                                       
                                                                                                                                                                  />
                     </StackPanel>
@@ -65,11 +65,11 @@
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
                             <StackPanel Orientation="Vertical" Background="Transparent" Margin="15, 0">
-                                <TextBlock x:ConnectionId='27' Text="Options" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock x:ConnectionId='23' Text="Options" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                                                                                                                                                  />
-                                <TextBlock x:ConnectionId='28' Text="Choose language" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
+                                <TextBlock x:ConnectionId='24' Text="Choose language" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
                                                                                                                                                                  />
-                                <ComboBox x:ConnectionId='29' Background="Transparent" FontFamily="Segoe UI" FontSize="16"
+                                <ComboBox x:ConnectionId='25' Background="Transparent" FontFamily="Segoe UI" FontSize="16"
                                                                                                                                                                
                                                                                                                                                                            
                                           Width="200" BorderThickness="2" x:Name="LanguagesBox" Style="{StaticResource PiComboBoxStyle}">
@@ -79,29 +79,29 @@
                                         <ComboBoxItem Content="German" />
                                     </ComboBox.Items>
                                 </ComboBox>
-                                <TextBlock x:ConnectionId='30' Text="Auto save before moving to another effect " Margin="0, 20" FontFamily="Segoe UI" FontSize="16" 
+                                <TextBlock x:ConnectionId='26' Text="Auto save before moving to another effect " Margin="0, 20" FontFamily="Segoe UI" FontSize="16" 
                                                                                                                                                                  />
-                                <ToggleSwitch x:ConnectionId='31' x:Name="AutoSaveSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, -20" 
+                                <ToggleSwitch x:ConnectionId='27' x:Name="AutoSaveSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, -20" 
                                                                                                                                                                    />
-                                <Grid x:ConnectionId='32' Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
+                                <Grid x:ConnectionId='28' Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
                                                                                                                                                                       />
 
-                                <TextBlock x:ConnectionId='33' Text="Filter" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock x:ConnectionId='29' Text="Filter" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                                                                                                                                                  />
-                                <TextBlock x:ConnectionId='34' Text="Choose filters" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
+                                <TextBlock x:ConnectionId='30' Text="Choose filters" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
                                                                                                                                                                  />
-                                <ComboBox x:ConnectionId='35' Background="Transparent" FontFamily="Segoe UI" FontSize="16" x:Name="FiltersBox"
+                                <ComboBox x:ConnectionId='31' Background="Transparent" FontFamily="Segoe UI" FontSize="16" x:Name="FiltersBox"
                                                                                                                                                                
                                                                                                                                                                            
                                           Width="200" BorderThickness="2" Style="{StaticResource PiComboBoxStyle}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate                              >
-                                            <CheckBox x:ConnectionId='37'                                                                                     
+                                            <CheckBox x:ConnectionId='33'                                                                                     
                                                        Style="{StaticResource PiCheckBoxStyle}" />
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                <TextBlock x:ConnectionId='36' Text="*Note: Selecting too much filters lead to longer loading time." FontFamily="Segoe UI" FontSize="8" Margin="0,5,0,0"
+                                <TextBlock x:ConnectionId='32' Text="*Note: Selecting too much filters lead to longer loading time." FontFamily="Segoe UI" FontSize="8" Margin="0,5,0,0"
                                                                                                                                                                  />
 
                             </StackPanel>
@@ -113,53 +113,13 @@
                                 <TextBlock x:ConnectionId='19' Text="Enable dark theme" FontFamily="Segoe UI" FontSize="16" 
                                                                                                                                                                  />
                                 <ToggleSwitch x:ConnectionId='20' x:Name="EnableDarkSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, 5" 
-                                                                                                                                                                   />
+                                                                                                                                                                   
+                                                                                                                                       />
 
                                 <Grid x:ConnectionId='21' Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
                                                                                                                                                                       />
                                 <TextBlock x:ConnectionId='22' Text="Custom" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
                                                                                                                                                                  />
-
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:ConnectionId='26' Width="200" Text="Foreground" 
-                                                                                                                                                                    />
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:ConnectionId='25' Width="200" Text="Background" 
-                                                                                                                                                                    />
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:ConnectionId='24' Width="200" Text="Panel background" 
-                                                                                                                                                                    />
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:ConnectionId='23' Width="200" Text="Panel foreground" 
-                                                                                                                                                                    />
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="2">

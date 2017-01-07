@@ -20,6 +20,7 @@ namespace PiStudio.Shared.Data
             SupportedImageTypes.Add(".png");
             SupportedImageTypes.Add(".jpeg");
             SupportedImageTypes.Add(".gif");
+            IsDarkTheme = false;
         }
 
         public static async Task<AppSettings> Create()
@@ -53,5 +54,7 @@ namespace PiStudio.Shared.Data
         }
 
         public bool FirstLaunch { get; set; }
+        public bool IsDarkTheme { get; set; }
+        public bool IsCustomTheme { get; set; }
     }
 }

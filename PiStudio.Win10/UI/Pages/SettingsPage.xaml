@@ -113,53 +113,13 @@
                                 <TextBlock Text="Enable dark theme" FontFamily="Segoe UI" FontSize="16" 
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                                 <ToggleSwitch x:Name="EnableDarkSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, 5" 
-                                              Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                                              Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                              Toggled="EnableDarkSwitch_Toggled" IsOn="{x:Bind Path=Settings.IsDarkTheme, Mode=TwoWay}"/>
 
                                 <Grid Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
                                       Background="{x:Bind Mode=OneWay, Path=ApplicationTheme.UpperPanelBackground, Converter={StaticResource ColorToBrushConverter}}" />
                                 <TextBlock Text="Custom" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
-
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Width="200" Text="Foreground" 
-                                               Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Width="200" Text="Background" 
-                                               Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Width="200" Text="Panel background" 
-                                               Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Width="200" Text="Panel foreground" 
-                                               Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Background="Blue" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Red" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="Gray" Height="18" Width="18" Margin="1,1,1,1"/>
-                                        <Button Background="White" Height="18" Width="18" Margin="1,1,1,1"/>
-                                    </StackPanel>
-                                </StackPanel>
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="2">

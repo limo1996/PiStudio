@@ -155,5 +155,15 @@ namespace PiStudio.Win10.UI.Pages
         {
 
         }
+
+        private void EnableDarkSwitch_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            WinAppResources.Instance.SetTheme(EnableDarkSwitch.IsOn);
+            WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
+            ItemsWrapper.Background = new SolidColorBrush(ApplicationTheme.PanelBackground);
+            if(AppSettings.Instance.IsDarkTheme != EnableDarkSwitch.IsOn)
+                SettingsSection_Clicked(Theme, null);
+            AppSettings.Instance.IsDarkTheme = EnableDarkSwitch.IsOn;
+        }
     }
 }

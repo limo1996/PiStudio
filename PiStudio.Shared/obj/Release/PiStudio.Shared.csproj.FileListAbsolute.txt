@@ -1,0 +1,9 @@
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Release\PiStudio.Shared.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Release\PiStudio.Shared.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Release\PCLStorage.Abstractions.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Release\PCLStorage.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Release\PCLStorage.xml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Release\PCLStorage.Abstractions.xml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Release\PiStudio.Shared.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Release\PiStudio.Shared.pdb
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Release\PiStudio.Shared.csprojResolveAssemblyReference.cache

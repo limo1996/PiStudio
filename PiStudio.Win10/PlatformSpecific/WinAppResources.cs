@@ -16,19 +16,33 @@ namespace PiStudio.Win10
 {
     public class WinAppResources : AppResourcesBase
     {
+        private Theme m_darkTheme = new Theme()
+        {
+            PanelBackground = Color.FromArgb(200, 0, 0, 0),
+            PanelItemFocused = Color.FromArgb(255, 209, 52, 56),
+            PanelForeground = Colors.White,
+            Background = Colors.Black,
+            Foreground = Colors.White,
+            Borders = Color.FromArgb(255, 31, 31, 31),
+            ClickableForeground = Color.FromArgb(255, 122, 122, 122),
+            UpperPanelBackground = Color.FromArgb(255, 31, 31, 31)
+        };
+
+        private Theme m_lightTheme = new Theme()
+        {
+            Foreground = Colors.Black,
+            Background = Colors.White,
+            PanelForeground = Colors.Black,
+            PanelBackground = Color.FromArgb(255, 173, 173, 180),
+            PanelItemFocused = Color.FromArgb(255, 209, 52, 56),
+            Borders = Color.FromArgb(255, 31, 31, 31),
+            ClickableForeground = Color.FromArgb(255, 122, 122, 122),
+            UpperPanelBackground = Color.FromArgb(255, 242, 242, 242)
+        };
+
         private WinAppResources() : base()
         {
-            ApplicationTheme = new Theme()
-            {
-                PanelBackground = Color.FromArgb(200, 0, 0, 0),
-                PanelItemFocused = Color.FromArgb(255, 209, 52, 56),
-                PanelForeground = Colors.White,
-                Background = Colors.Black,
-                Foreground = Colors.White,
-                Borders = Color.FromArgb(255, 31, 31, 31),
-                ClickableForeground = Color.FromArgb(255, 122, 122, 122),
-                UpperPanelBackground = Color.FromArgb(255, 31, 31, 31)
-            };
+            ApplicationTheme = m_lightTheme;
 
             MinimumPageSize = new Size(300, 400);
         }
@@ -48,6 +62,15 @@ namespace PiStudio.Win10
         public WriteableBitmap WorkingImage { get; set; }
         public Theme ApplicationTheme { get; set; }
         public Size MinimumPageSize { get; private set; }
+
+        public void SetTheme(bool isDarkTheme)
+        {
+            if (isDarkTheme)
+                ApplicationTheme = m_darkTheme;
+            else
+                ApplicationTheme = m_lightTheme;
+        }
+
         public void InitializePage()
         {
             ApplicationView.GetForCurrentView().SetPreferredMinSize(Instance.MinimumPageSize);

@@ -37,6 +37,8 @@
     <Compile Include="Data\Filter.cs" />
     <Compile Include="Data\FilterItem.cs" />
     <Compile Include="Data\FilterSettings.cs" />
+    <Compile Include="Data\Language.cs" />
+    <Compile Include="Data\LanguageInitializer.cs" />
     <Compile Include="Data\NavigationParameter.cs" />
     <Compile Include="Data\PixelFormat.cs" />
     <Compile Include="General\AppResources.cs" />

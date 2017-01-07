@@ -22,6 +22,7 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\and
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\android\assets\System.ServiceModel.Internals.dll
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\android\assets\PCLStorage.Abstractions.dll
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\android\assets\System.IO.dll
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Debug\android\assets\System.Xml.XmlSerializer.dll

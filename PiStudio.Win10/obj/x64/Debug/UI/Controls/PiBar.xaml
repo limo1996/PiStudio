@@ -12,7 +12,7 @@
 
     <Grid x:ConnectionId='2'                                                                                                                                 
                                                                    >
-        <TextBlock x:ConnectionId='3'                                                                                                                           
+        <TextBlock x:ConnectionId='3'                                                                                                                      
                                                           HorizontalAlignment="Left" FontWeight="SemiBold" VerticalAlignment="Center" 
                    FontSize="18" Margin="15,0"/>
         <AutoSuggestBox x:ConnectionId='4' Width="220" Height="40" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Margin="0,0,8,0"
@@ -44,7 +44,7 @@
         </AutoSuggestBox>
         <Button x:ConnectionId='5' FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,240,0"
                 FontFamily="Segoe MDL2 Assets" Content="&#xE169;" Height="50" Width="50" Background="Transparent"
-                                                                                                                                          
+                                                                                                                                     
                                            x:Name="ShowOptions">
         </Button>
         <Popup x:ConnectionId='6' x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,290,0" VerticalAlignment="Center">
@@ -60,10 +60,10 @@
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:ConnectionId='9'                                                                                                                           
+                            <TextBlock x:ConnectionId='9'                                                                                                                      
                                                                  Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
                             <SymbolIcon x:ConnectionId='10'                                            Grid.Column="2"
-                                                                                                                                                                   />
+                                                                                                                                                              />
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

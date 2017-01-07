@@ -1,0 +1,3 @@
+"/t:Resco.InAppSpeechRecognition.Commands.VoiceCommands,SpeechIntegrator,xml"
+"/t:Resco.InAppSpeechRecognition.Srgs.Grammar,SpeechIntegrator,xml"
+"/t:PiStudio.Shared.Data.AppSettings,PiStudio.Shared,xml"

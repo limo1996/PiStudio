@@ -112,6 +112,7 @@ class MonoPackageManager_Resources {
 		"System.Reflection.Extensions.dll",
 		"System.Resources.ResourceManager.dll",
 		"System.Threading.Tasks.dll",
+		"System.ObjectModel.dll",
 		"PCLStorage.Abstractions.dll",
 		"System.IO.dll",
 		"System.Xml.XmlSerializer.dll",

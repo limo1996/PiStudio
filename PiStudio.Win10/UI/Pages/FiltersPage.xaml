@@ -59,7 +59,9 @@
                               SelectionMode="Single"
                               VerticalAlignment="Stretch"
                               VerticalContentAlignment="Stretch"
-                              Grid.Row="1">
+                              HorizontalAlignment="Center"
+                              Grid.Row="1"
+                              Margin="10,0,10,0">
 
                         <GridView.ItemsPanel>
                             <ItemsPanelTemplate>

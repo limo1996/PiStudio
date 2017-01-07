@@ -1,0 +1,15 @@
+App.xbf
+UI\Controls\MenuItem.xbf
+UI\Controls\PiBar.xbf
+UI\Controls\PiCanvas.xbf
+UI\Controls\Toolbox.xbf
+UI\Pages\BrightnessPage.xbf
+UI\Pages\DrawingPage.xbf
+UI\Pages\FiltersPage.xbf
+UI\Pages\HomePage.xbf
+UI\Pages\SettingsPage.xbf
+UI\Pages\WelcomePage.xbf
+UI\Styles\AutoSuggestBoxTextBoxStyle.xbf
+UI\Styles\PiComboBoxStyle.xbf
+UI\Styles\PiCheckBoxStyle.xbf
+UI\Styles\PiToggleSwitchStyle.xbf

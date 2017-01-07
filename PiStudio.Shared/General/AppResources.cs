@@ -19,6 +19,12 @@ namespace PiStudio.Shared
         private List<FilterSettings> m_filters;
         public List<FilterSettings> Filters { get { return m_filters; } }
 
+        public LanguagePack ApplicationLanguage { get; private set; }
+        public void SetLanguage(Language lang)
+        {
+            ApplicationLanguage = LanguageInitializer.Initialize(lang);
+        }
+
         private void Init_filters()
         {
             m_filters = new List<FilterSettings>();
