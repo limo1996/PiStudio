@@ -22,7 +22,7 @@
                 <TextBlock x:ConnectionId='3' Name="SloganText" 
                                    FontSize="50"
                                    Foreground="#FFF12346"
-                                   Text="Edit, draw and share your photos" 
+                                                                                              
                                    Grid.Row="1"
                                    VerticalAlignment="Bottom"
                                    HorizontalAlignment="Center"
@@ -31,7 +31,7 @@
                 <TextBlock x:ConnectionId='4' Name="LoadImageText"
                                    FontSize="30"
                                    Foreground="White"
-                                   Text="Start by uploading image"
+                                                                                             
                                    HorizontalAlignment="Center"
                                    Grid.Row="2"
                                    VerticalAlignment="Bottom"
@@ -53,9 +53,9 @@
                                 Width="200"
                                 Height="70">
                             <Border.Child>
-                                <TextBlock Foreground="White"
+                                <TextBlock x:ConnectionId='6' Foreground="White"
                                                    FontSize="50"
-                                                   Text="LOAD"
+                                                                                                             
                                                    CharacterSpacing="10"
                                                    HorizontalAlignment="Center"
                                                    VerticalAlignment="Center"/>

@@ -18,21 +18,21 @@
                             Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                             Background="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                     <local:MenuItem x:Name="HomeItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Home" Text="Home" Height="50" Margin="0,50" VerticalAlignment="Top"/>
+                                    Symbol="Home" Text="{x:Bind Path=LanguagePack.MenuItem1, Mode=OneWay}" Height="50" Margin="0,50" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="FilterItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Filter" Text="Filters" Height="50" Margin="0,100" VerticalAlignment="Top"/>
+                                    Symbol="Filter" Text="{x:Bind Path=LanguagePack.MenuItem2, Mode=OneWay}" Height="50" Margin="0,100" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="BrightnessItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="OutlineStar" IsSelected="True" Text="Brightness" Height="50" Margin="0, 150" VerticalAlignment="Top"/>
+                                    Symbol="OutlineStar" IsSelected="True" Text="{x:Bind Path=LanguagePack.MenuItem3, Mode=OneWay}" Height="50" Margin="0, 150" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="DrawItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Edit" Text="Draw" Height="50" Margin="0,200" VerticalAlignment="Top"/>
+                                    Symbol="Edit" Text="{x:Bind Path=LanguagePack.MenuItem4, Mode=OneWay}" Height="50" Margin="0,200" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="SaveItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Save" Text="Save" Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
                     <local:MenuItem x:Name="SpeakItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Microphone" Text="Speak" IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
+                                    Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
 
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:Name="SettingsItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Setting" Text="Settings" IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
+                                    Symbol="Setting" Text="{x:Bind Path=LanguagePack.Settings, Mode=OneWay}" IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
 
                 </Grid>
             </SplitView.Pane>
@@ -66,8 +66,9 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Text="Brightness" HorizontalAlignment="Right" 
-                                 VerticalAlignment="Center" Grid.Row="1" FontSize="40" 
+                        <TextBlock Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                                   Text="{x:Bind Path=LanguagePack.Brightness, Mode=OneWay}" HorizontalAlignment="Right" 
+                                   VerticalAlignment="Center" Grid.Row="1" FontSize="40" 
                                    FontFamily="Segoe UI" FontWeight="Light"
                                    Padding="0,0,30,0" Name="BrightnessText"/>
                         <Slider x:Name="BrightnessSlider" HorizontalAlignment="Center" Grid.Row="1" 

@@ -82,7 +82,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="FontFamily" />
-      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Name" />
       <RootProperty Name="Padding" />
       <RootProperty Name="FontStyle" />
@@ -125,9 +125,9 @@
       <RootProperty Name="QueryIcon" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="TextBoxStyle" />
+      <RootEvent Name="SuggestionChosen" />
       <RootEvent Name="TextChanged" />
       <RootEvent Name="QuerySubmitted" />
-      <RootEvent Name="SuggestionChosen" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="FontSize" />
@@ -258,6 +258,7 @@
       <RootProperty Name="IsShadowEnabled" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="ApplicationTheme" />
+      <RootProperty Name="LanguagePack" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
@@ -394,6 +395,7 @@
       <RootProperty Name="Style" />
       <RootProperty Name="Items" />
       <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="IsChecked" />
@@ -402,7 +404,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
       <RootProperty Name="Content" />
-      <RootProperty Name="IsSelected" />
     </RootType>
     <RootType FullName="PiStudio.Win10.UI.Pages.SettingsPage" />
     <RootType FullName="PiStudio.Win10.UI.Pages.WelcomePage" />

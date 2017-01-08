@@ -1,4 +1,5 @@
-﻿using PiStudio.Win10.Data;
+﻿using PiStudio.Shared.Data;
+using PiStudio.Win10.Data;
 using System;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -100,6 +101,7 @@ namespace PiStudio.Win10.UI.Controls
         #region Properties
 
         public Theme ApplicationTheme { get; set; }
+        public LanguagePack LanguagePack { get; set; }
 
         public new double BorderThickness
         {

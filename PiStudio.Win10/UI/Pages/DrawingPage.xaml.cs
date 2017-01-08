@@ -18,7 +18,9 @@ namespace PiStudio.Win10.UI.Pages
         public DrawingPage()
         {
             ApplicationTheme = new Theme();
+            LanguagePack = new LanguagePack();
             WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
+            WinAppResources.Instance.ApplicationLanguage.CopyTo(LanguagePack);
             this.InitializeComponent();
             WinAppResources.Instance.InitializePage();
             ToolBox.BrushThicknessChanged += (o, e) => DrawingCanvas.BrushThickness = (uint)e;
@@ -29,6 +31,8 @@ namespace PiStudio.Win10.UI.Pages
         }
 
         public Theme ApplicationTheme { get; set; }
+        public LanguagePack LanguagePack { get; set; }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);

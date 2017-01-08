@@ -352,7 +352,7 @@ namespace PiStudio.Shared.Data
             }
         }
 
-        public string Brighteness
+        public string Brightness
         {
             get
             {
@@ -474,6 +474,42 @@ namespace PiStudio.Shared.Data
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
+
+        public void CopyTo(LanguagePack pack)
+        {
+            pack.Language = this.Language;
+            pack.AboutSource = this.AboutSource;
+            pack.AboutVersion = this.AboutVersion;
+            pack.Brightness = this.Brightness;
+            pack.DrawingClear = this.DrawingClear;
+            pack.DrawingColor = this.DrawingColor;
+            pack.DrawingSize = this.DrawingSize;
+            pack.DrawingUndo = this.DrawingUndo;
+            pack.FilterNone = this.FilterNone;
+            pack.IntroButton = this.IntroButton;
+            pack.IntroTitle1 = this.IntroTitle1;
+            pack.IntroTitle2 = this.IntroTitle2;
+            pack.MenuItem1 = this.MenuItem1;
+            pack.MenuItem2 = this.MenuItem2;
+            pack.MenuItem3 = this.MenuItem3;
+            pack.MenuItem4 = this.MenuItem4;
+            pack.MenuItem5 = this.MenuItem5;
+            pack.MenuItem6 = this.MenuItem6;
+            pack.PlaceholderSearch = this.PlaceholderSearch;
+            pack.Settings = this.Settings;
+            pack.SettingsAutoSave = this.SettingsAutoSave;
+            pack.SettingsChooseFilter = this.SettingsChooseFilter;
+            pack.SettingsChooseLang = this.SettingsChooseLang;
+            pack.SettingsFilters = this.SettingsFilters;
+            pack.SettingsItem1 = this.SettingsItem1;
+            pack.SettingsItem2 = this.SettingsItem2;
+            pack.SettingsItem3 = this.SettingsItem3;
+            pack.SettingsNote = this.SettingsNote;
+            pack.SettingsOptions = this.SettingsOptions;
+            pack.ThemeCustom = this.ThemeCustom;
+            pack.ThemeEnableDark = this.ThemeEnableDark;
+            pack.ThemePredefined = this.ThemePredefined;
+        }
     }
 
     /// <summary>
@@ -481,7 +517,7 @@ namespace PiStudio.Shared.Data
     /// </summary>
     public enum Language
     {
-        Slovak,
+        Slovensky,
         English,
         German
     }

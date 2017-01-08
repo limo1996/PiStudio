@@ -16,12 +16,15 @@ namespace PiStudio.Win10.UI.Pages
         public HomePage()
         {
             ApplicationTheme = new Theme();
+            LanguagePack = new LanguagePack();
             WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
+            WinAppResources.Instance.ApplicationLanguage.CopyTo(LanguagePack);
             this.InitializeComponent();
             WinAppResources.Instance.InitializePage();
         }
 
         public Theme ApplicationTheme { get; set; }
+        public LanguagePack LanguagePack { get; set; }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

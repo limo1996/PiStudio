@@ -30,6 +30,7 @@ namespace PiStudio.Win10.UI.Controls
         #region Properties
         public Theme ApplicationTheme { get; set; }
 
+
         public string Text
         {
             get { return (string)GetValue(TextProperty); }

@@ -12,7 +12,7 @@ namespace PiStudio.Shared.Data
         {
             switch(lang)
             {
-                case Language.Slovak: return InitializeSlovak();
+                case Language.Slovensky: return InitializeSlovak();
                 case Language.English: return InitializeEnglish();
                 case Language.German: return InitializeGerman();
                 default: throw new NotImplementedException(string.Format("Language {0} is not yet translated!", lang.ToString()));
@@ -25,7 +25,7 @@ namespace PiStudio.Shared.Data
             {
                 AboutSource = "Source Code",
                 AboutVersion = "Version 1.1.0.0",
-                Brighteness = "Brighteness",
+                Brightness = "Brighteness",
                 DrawingClear = "Clear",
                 DrawingColor = "Color",
                 DrawingSize = "Size",
@@ -65,7 +65,7 @@ namespace PiStudio.Shared.Data
             {
                 AboutSource = "Zdrojový kód",
                 AboutVersion = "Verzia 1.1.0.0",
-                Brighteness = "Jas",
+                Brightness = "Jas",
                 DrawingClear = "Vyčisti",
                 DrawingColor = "Farba",
                 DrawingSize = "Veľkosť",
@@ -74,7 +74,7 @@ namespace PiStudio.Shared.Data
                 IntroButton = "Načítaj",
                 IntroTitle1 = "Upravuj, pokresli a zdieľaj svoje fotky",
                 IntroTitle2 = "Začni načítaním obrázka",
-                Language = Language.Slovak,
+                Language = Language.Slovensky,
                 MenuItem1 = "Domov",
                 MenuItem2 = "Filtre",
                 MenuItem3 = "Jas",

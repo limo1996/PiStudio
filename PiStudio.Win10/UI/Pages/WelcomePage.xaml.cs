@@ -15,13 +15,16 @@ namespace PiStudio.Win10.UI.Pages
         public WelcomePage()
         {
             ApplicationTheme = new Theme();
+            LanguagePack = new LanguagePack();
             this.InitializeComponent();
 
             WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
+            WinAppResources.Instance.ApplicationLanguage.CopyTo(LanguagePack);
             WinAppResources.Instance.InitializePage();
         }
 
         public Theme ApplicationTheme { get; set; }
+        public LanguagePack LanguagePack { get; set; }
 
         private async void LoadImageButton_Click(object sender, RoutedEventArgs e)
         {

@@ -81,6 +81,7 @@ namespace PiStudio.Win10.UI
             }
 
             Application.Current.Resources["ColorToBrushConverter"] = new Data.ColorToBrushConverter();
+            Application.Current.Resources["LanguageToBoolConverter"] = new Data.LanguageToBoolConverter();
 
             // Ensure the current window is active
             Window.Current.Activate();

@@ -21,8 +21,8 @@
                         PlaceholderText="{x:Bind Path=PlaceholderText}" x:Name="SuggestBoxPresenter"
                         BorderBrush="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
                         Style="{StaticResource PiAutoSuggestBoxStyle}" ItemsSource="{x:Bind Path=ItemsSource, Mode=OneWay}"
-                        TextChanged="SuggestBoxPresenter_TextChanged" QuerySubmitted="SuggestBoxPresenter_QuerySubmitted"
-                        SuggestionChosen="SuggestBoxPresenter_SuggestionChosen">
+                        SuggestionChosen="SuggestBoxPresenter_SuggestionChosen" TextChanged="SuggestBoxPresenter_TextChanged"
+                        QuerySubmitted="SuggestBoxPresenter_QuerySubmitted">
             <AutoSuggestBox.QueryIcon>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE094;" FontSize="22"/>
             </AutoSuggestBox.QueryIcon>

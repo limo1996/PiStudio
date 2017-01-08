@@ -21,8 +21,8 @@
                                                                         x:Name="SuggestBoxPresenter"
                                                                                                                                                      
                         Style="{StaticResource PiAutoSuggestBoxStyle}"                                                     
-                                                                                                                         
-                                                                               >
+                                                                                                                             
+                                                                           >
             <AutoSuggestBox.QueryIcon>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE094;" FontSize="22"/>
             </AutoSuggestBox.QueryIcon>

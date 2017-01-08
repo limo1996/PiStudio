@@ -44,8 +44,9 @@
                         <Rectangle x:ConnectionId='54' Height="6" HorizontalAlignment="Stretch"                                                                                                                     
                                    VerticalAlignment="Center" Grid.Row="3"/>
                     </Grid>
-                    <TextBlock x:ConnectionId='49' FontSize="12" Text="Size" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="30,0,29,1" Height="14" Grid.RowSpan="2"
-                                                                                                                                                         />
+                    <TextBlock x:ConnectionId='49' FontSize="12"                                                            VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="3,0,0,0" Grid.RowSpan="2"
+                                                                                                                                                         
+                               Width="77"/>
                     <Polygon x:ConnectionId='50' Points="0,0 8,0 4,4" HorizontalAlignment="Center" 
                                                                                                                                                   Grid.Row="2"/>
                 </Grid>
@@ -71,7 +72,7 @@
                             </LinearGradientBrush>
                         </Grid.Background>
                     </Grid>
-                    <TextBlock x:ConnectionId='42' Grid.Row="1" FontSize="13" Text="Color" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="24,-6,25,3" Grid.RowSpan="2"
+                    <TextBlock x:ConnectionId='42' Grid.Row="1" FontSize="13"                                                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="24,-6,25,3" Grid.RowSpan="2"
                                                                                                                                                          />
                     <Polygon x:ConnectionId='43' Points="0,0 10,0 5,5" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                                                                                                                                                   Grid.Row="2"/>
@@ -93,8 +94,8 @@
                         <Polygon x:ConnectionId='39' Points="0,5 5,5 7,0 9,5 14,5 10,9 12,14 7,11 2,14 4,9" Margin="2,2"
                                                                                                                                                       />
                     </Grid>
-                    <TextBlock x:ConnectionId='37' Grid.Row="1" FontSize="13" Text="Clear" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="26,-6,24,3" Grid.RowSpan="2"
-                                                                                                                                                         />
+                    <TextBlock x:ConnectionId='37' FontSize="13"                                                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10,0,11,3" Grid.RowSpan="3"
+                                                                                                                                                          Width="Auto"/>
                 </Grid>
             </Button>
         </Grid>
@@ -112,7 +113,7 @@
                                                                                                                                                                
                                     Canvas.ZIndex="1"/>
                     </Grid>
-                    <TextBlock x:ConnectionId='34' Grid.Row="1" FontSize="13" Text="Undo" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,3" Grid.RowSpan="2"
+                    <TextBlock x:ConnectionId='34' Grid.Row="1" FontSize="13"                                                            VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,3" Grid.RowSpan="2"
                                                                                                                                                          
                                Canvas.ZIndex="2"/>
                 </Grid>

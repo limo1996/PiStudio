@@ -23,7 +23,7 @@ namespace PiStudio.Win10
             }
             set
             {
-                if(m_options != null && m_options.Count() > 0)
+                if(value != null && value.Count() > 0)
                     m_options = value;
             }
         }

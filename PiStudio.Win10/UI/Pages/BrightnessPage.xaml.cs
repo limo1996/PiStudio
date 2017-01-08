@@ -23,7 +23,9 @@ namespace PiStudio.Win10.UI.Pages
         public BrightnessPage()
         {
             ApplicationTheme = new Theme();
+            LanguagePack = new LanguagePack();
             WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
+            WinAppResources.Instance.ApplicationLanguage.CopyTo(LanguagePack);
             this.InitializeComponent();
             BrightnessSlider.ValueChanged += BrightnessSlider_ValueChanged;
             this.SizeChanged += BrightnessPage_SizeChanged;
@@ -31,6 +33,7 @@ namespace PiStudio.Win10.UI.Pages
         }
 
         public Theme ApplicationTheme { get; set; }
+        public LanguagePack LanguagePack { get; set; }
 
         private void BrightnessPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {

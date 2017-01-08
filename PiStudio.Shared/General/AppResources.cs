@@ -10,6 +10,7 @@ namespace PiStudio.Shared
 
         public AppResourcesBase()
         {
+            SetLanguage(Language.English);
             Init_filters();
         }
 
@@ -20,15 +21,18 @@ namespace PiStudio.Shared
         public List<FilterSettings> Filters { get { return m_filters; } }
 
         public LanguagePack ApplicationLanguage { get; private set; }
-        public void SetLanguage(Language lang)
+        public LanguagePack SetLanguage(Language lang)
         {
             ApplicationLanguage = LanguageInitializer.Initialize(lang);
+            if(m_filters != null)
+                m_filters[0].FilterName = ApplicationLanguage.FilterNone;
+            return ApplicationLanguage;
         }
 
         private void Init_filters()
         {
             m_filters = new List<FilterSettings>();
-            m_filters.Add(new FilterSettings(new Filter("None", new double[,] { { 0, 0, 0 },
+            m_filters.Add(new FilterSettings(new Filter(ApplicationLanguage.FilterNone, new double[,] { { 0, 0, 0 },
                                                              { 0, 1, 0 },
                                                              { 0, 0, 0 } }), true));
 

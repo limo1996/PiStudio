@@ -21,7 +21,9 @@ namespace PiStudio.Win10.UI.Pages
         {
             Settings = AppSettings.Instance;
             ApplicationTheme = new Theme();
+            LanguagePack = new LanguagePack();
             WinAppResources.Instance.ApplicationTheme.CopyTo(ApplicationTheme);
+            WinAppResources.Instance.ApplicationLanguage.CopyTo(LanguagePack);
             this.InitializeComponent();
             WinAppResources.Instance.InitializePage();
 
@@ -62,10 +64,23 @@ namespace PiStudio.Win10.UI.Pages
             });
             Bar.ItemsSource = options;
             FiltersBox.ItemsSource = WinAppResources.Instance.Filters;
+
+            if (LanguagesBox.SelectedIndex != -1)
+                return;
+
+            int j = 0;
+            foreach(var i in LanguagesBox.Items)
+            {
+                var item = (ComboBoxItem)i;
+                if (item.Content.ToString() == WinAppResources.Instance.ApplicationLanguage.Language.ToString())
+                    LanguagesBox.SelectedIndex = j;
+                j++;
+            }
         }
 
         public Theme ApplicationTheme { get; set; }
         public AppSettings Settings { get; set; }
+        public LanguagePack LanguagePack { get; set; }
 
         private void Hamburger_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -164,6 +179,32 @@ namespace PiStudio.Win10.UI.Pages
             if(AppSettings.Instance.IsDarkTheme != EnableDarkSwitch.IsOn)
                 SettingsSection_Clicked(Theme, null);
             AppSettings.Instance.IsDarkTheme = EnableDarkSwitch.IsOn;
+        }
+
+        private void LanguagesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PiStudio.Shared.Data.Language lang;
+            switch(LanguagesBox.SelectedIndex)
+            {
+                case 0: lang = Shared.Data.Language.English;
+                    break;
+                case 1: lang = Shared.Data.Language.Slovensky;
+                    break;
+                default: lang = Shared.Data.Language.German;
+                    break;
+            }
+            if (lang == WinAppResources.Instance.ApplicationLanguage.Language)
+                return;
+            WinAppResources.Instance.SetLanguage(lang).CopyTo(LanguagePack);
+            Bar.PlaceholderText = LanguagePack.PlaceholderSearch;
+            Bar.Text = LanguagePack.Settings;
+            HomeItem.Text = LanguagePack.MenuItem1;
+            FilterItem.Text = LanguagePack.MenuItem2;
+            BrightnessItem.Text = LanguagePack.MenuItem3;
+            DrawItem.Text = LanguagePack.MenuItem4;
+            SaveItem.Text = LanguagePack.MenuItem5;
+            SpeakItem.Text = LanguagePack.MenuItem6;
+            SettingsItem.Text = LanguagePack.Settings;
         }
     }
 }

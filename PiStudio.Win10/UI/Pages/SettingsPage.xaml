@@ -19,21 +19,21 @@
                             Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                             Background="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                     <local:MenuItem x:Name="HomeItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Home" Text="Home" Height="50" Margin="0,50" VerticalAlignment="Top"/>
+                                    Symbol="Home" Text="{x:Bind Path=LanguagePack.MenuItem1, Mode=OneWay}" Height="50" Margin="0,50" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="FilterItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Filter" Text="Filters" Height="50" Margin="0,100" VerticalAlignment="Top"/>
+                                    Symbol="Filter" Text="{x:Bind Path=LanguagePack.MenuItem2, Mode=OneWay}" Height="50" Margin="0,100" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="BrightnessItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="OutlineStar" Text="Brightness" Height="50" Margin="0, 150" VerticalAlignment="Top"/>
+                                    Symbol="OutlineStar" Text="{x:Bind Path=LanguagePack.MenuItem3, Mode=OneWay}" Height="50" Margin="0, 150" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="DrawItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Edit" Text="Draw" Height="50" Margin="0,200" VerticalAlignment="Top"/>
+                                    Symbol="Edit" Text="{x:Bind Path=LanguagePack.MenuItem4, Mode=OneWay}" Height="50" Margin="0,200" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="SaveItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Save" Text="Save" Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
                     <local:MenuItem x:Name="SpeakItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Microphone" Text="Speak" IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
+                                    Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
 
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:Name="SettingsItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Setting" Text="Settings" IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom" IsSelected="True"/>
+                                    Symbol="Setting" IsSelected="True" Text="{x:Bind Path=LanguagePack.Settings, Mode=OneWay}" IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
 
                 </Grid>
             </SplitView.Pane>
@@ -44,16 +44,17 @@
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <local:PiBar Grid.Row="0" PlaceholderText="Search" Text="Settings" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar"/>
+                    <local:PiBar Grid.Row="0" PlaceholderText="{x:Bind Path=LanguagePack.PlaceholderSearch, Mode=OneWay}" Text="{x:Bind Path=LanguagePack.Settings}" 
+                                 ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar"/>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                         <Grid Width="8" />
-                        <TextBlock Text="General" FontSize="16" Margin="10" x:Name="General" Tapped="SettingsSection_Clicked"
+                        <TextBlock Text="{x:Bind Path=LanguagePack.SettingsItem1, Mode=OneWay}" FontSize="16" Margin="10" x:Name="General" Tapped="SettingsSection_Clicked"
                                    PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited" FontWeight="SemiBold"
                                    Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
-                        <TextBlock Text="Theme" FontSize="16" Margin="10" x:Name="Theme" Tapped="SettingsSection_Clicked"
+                        <TextBlock Text="{x:Bind Path=LanguagePack.SettingsItem2, Mode=OneWay}" FontSize="16" Margin="10" x:Name="Theme" Tapped="SettingsSection_Clicked"
                                    PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited"
                                    Foreground="{x:Bind Path=ApplicationTheme.ClickableForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
-                        <TextBlock Text="About" FontSize="16" Margin="10" x:Name="About" Tapped="SettingsSection_Clicked"
+                        <TextBlock Text="{x:Bind Path=LanguagePack.SettingsItem3, Mode=OneWay}" FontSize="16" Margin="10" x:Name="About" Tapped="SettingsSection_Clicked"
                                    PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited"
                                    Foreground="{x:Bind Path=ApplicationTheme.ClickableForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                     </StackPanel>
@@ -65,30 +66,31 @@
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
                             <StackPanel Orientation="Vertical" Background="Transparent" Margin="15, 0">
-                                <TextBlock Text="Options" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.SettingsOptions, Mode=OneWay}" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
-                                <TextBlock Text="Choose language" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.SettingsChooseLang, Mode=OneWay}" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                                 <ComboBox Background="Transparent" FontFamily="Segoe UI" FontSize="16"
                                           Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                                           BorderBrush="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
-                                          Width="200" BorderThickness="2" x:Name="LanguagesBox" Style="{StaticResource PiComboBoxStyle}">
+                                          Width="200" BorderThickness="2" x:Name="LanguagesBox" Style="{StaticResource PiComboBoxStyle}"
+                                          SelectionChanged="LanguagesBox_SelectionChanged">
                                     <ComboBox.Items>
-                                        <ComboBoxItem Content="English" IsSelected="True"/>
-                                        <ComboBoxItem Content="Slovak" />
+                                        <ComboBoxItem Content="English" />
+                                        <ComboBoxItem Content="Slovensky" />
                                         <ComboBoxItem Content="German" />
                                     </ComboBox.Items>
                                 </ComboBox>
-                                <TextBlock Text="Auto save before moving to another effect " Margin="0, 20" FontFamily="Segoe UI" FontSize="16" 
+                                <TextBlock Text="{x:Bind Path=LanguagePack.SettingsAutoSave, Mode=OneWay}" Margin="0, 20" FontFamily="Segoe UI" FontSize="16" 
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                                 <ToggleSwitch x:Name="AutoSaveSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, -20" 
                                               Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                                 <Grid Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
                                       Background="{x:Bind Mode=OneWay, Path=ApplicationTheme.UpperPanelBackground, Converter={StaticResource ColorToBrushConverter}}" />
 
-                                <TextBlock Text="Filter" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.SettingsFilters, Mode=OneWay}" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
-                                <TextBlock Text="Choose filters" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.SettingsChooseFilter, Mode=OneWay}" FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                                 <ComboBox Background="Transparent" FontFamily="Segoe UI" FontSize="16" x:Name="FiltersBox"
                                           Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
@@ -101,16 +103,16 @@
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                <TextBlock Text="*Note: Selecting too much filters lead to longer loading time." FontFamily="Segoe UI" FontSize="8" Margin="0,5,0,0"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.SettingsNote, Mode=OneWay}" FontFamily="Segoe UI" FontSize="8" Margin="0,5,0,0"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
 
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="1">
                             <StackPanel Orientation="Vertical" Margin="15,0,0,0">
-                                <TextBlock Text="Predefined" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.ThemePredefined, Mode=OneWay}" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
-                                <TextBlock Text="Enable dark theme" FontFamily="Segoe UI" FontSize="16" 
+                                <TextBlock Text="{x:Bind Path=LanguagePack.ThemeEnableDark, Mode=OneWay}" FontFamily="Segoe UI" FontSize="16" 
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                                 <ToggleSwitch x:Name="EnableDarkSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, 5" 
                                               Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
@@ -118,7 +120,7 @@
 
                                 <Grid Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
                                       Background="{x:Bind Mode=OneWay, Path=ApplicationTheme.UpperPanelBackground, Converter={StaticResource ColorToBrushConverter}}" />
-                                <TextBlock Text="Custom" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.ThemeCustom, Mode=OneWay}" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                             </StackPanel>
                         </Grid>
@@ -128,9 +130,9 @@
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                                 <TextBlock Text="Jakub Lichman" FontFamily="Segoe UI" FontSize="14" Margin="0,15,0,5"
                                            Foreground="#FF676767" />
-                                <TextBlock Text="Version 1.1.0.0" FontFamily="Segoe UI" FontSize="14" Margin="0,0,0,16"
+                                <TextBlock Text="{x:Bind Path=LanguagePack.AboutVersion, Mode=OneWay}" FontFamily="Segoe UI" FontSize="14" Margin="0,0,0,16"
                                            Foreground="#FF676767" />
-                                <HyperlinkButton Content="Source Code" NavigateUri="https://github.com/limo1996/Bachelor-Thesis" 
+                                <HyperlinkButton Content="{x:Bind Path=LanguagePack.AboutSource, Mode=OneWay}" NavigateUri="https://github.com/limo1996/Bachelor-Thesis" 
                                                  Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                                 <HyperlinkButton Content="LinkedIn" NavigateUri="https://sk.linkedin.com/in/jakub-lichman-123278100" 
                                                  Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
