@@ -10,6 +10,8 @@ using PiStudio.Win10.Data;
 using PiStudio.Win10.UI.Controls;
 using PiStudio.Win10.Navigation;
 using System;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,6 +22,7 @@ namespace PiStudio.Win10.UI.Pages
     /// </summary>
     public sealed partial class FiltersPage : Page
     {
+        private ImageEditor m_editor;
         public FiltersPage()
         {
             ApplicationTheme = new Theme();
@@ -36,18 +39,14 @@ namespace PiStudio.Win10.UI.Pages
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => PRing.IsActive = true);
+            PRing.IsActive = true;
 
-            ImageEditor editor = (ImageEditor)WinAppResources.Instance.Editor;
+            ImageEditor editor = m_editor =(ImageEditor)WinAppResources.Instance.Editor;
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
-
-            
 
             await LoadItems(editor);
 
-           
-
-            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => PRing.IsActive = false);
+            PRing.IsActive = false;
         }
 
         private async Task LoadItems(ImageEditor editor)
@@ -78,18 +77,10 @@ namespace PiStudio.Win10.UI.Pages
             MainMenu.IsPaneOpen = !MainMenu.IsPaneOpen;
         }
 
-        private void MenuItem_Click(object sender, System.EventArgs e)
+        private async void MenuItem_Click(object sender, System.EventArgs e)
         {
             var tmp = sender as MenuItem;
-            if (tmp != null && !tmp.IsSelectionEnabled)
-                return;
-            foreach (var item in ItemsWrapper.Children)
-            {
-                var menuItem = item as MenuItem;
-                if (menuItem != null && menuItem != sender)
-                    menuItem.IsSelected = false;
-            }
-
+            
             NavigationParameter parameter = new NavigationParameter()
             {
                 PrevPage = EnumPage.HomePage,
@@ -108,7 +99,8 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SaveItem)
             {
                 //save and continue
-
+                m_editor.SaveChanges();
+                await Saver.SaveTemp(m_editor);
                 return;
             }
             else if(tmp == SpeakItem)
@@ -118,7 +110,28 @@ namespace PiStudio.Win10.UI.Pages
                 return;
             }
             PageNavigator navigator = new PageNavigator(this.Frame, WinAppResources.Instance.Editor);
-            navigator.NavigateTo(pageType, parameter);
+            var result = await navigator.NavigateTo(pageType, parameter);
+            if (tmp != null && !result)
+                return;
+            foreach (var item in ItemsWrapper.Children)
+            {
+                var menuItem = item as MenuItem;
+                if (menuItem != null && menuItem != sender)
+                    menuItem.IsSelected = false;
+                else
+                    menuItem.IsSelected = true;
+            }
+        }
+
+        private async void FilterGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = (FilterItem)e.AddedItems[0];
+            var img = (WriteableBitmap)item.Source;
+            using (Stream pixelStream = img.PixelBuffer.AsStream())
+            {
+                byte[] pixels = new byte[pixelStream.Length];
+                await pixelStream.ReadAsync(pixels, 0, pixels.Length);
+            }
         }
     }
 }

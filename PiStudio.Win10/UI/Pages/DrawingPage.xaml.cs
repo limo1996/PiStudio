@@ -93,8 +93,8 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, WinAppResources.Instance.Editor);
-            navigator.NavigateTo(pageType, parameter);
+            PageNavigator navigator = new PageNavigator(this.Frame, DrawingCanvas);
+            await navigator.NavigateTo(pageType, parameter);
         }
     }
 }

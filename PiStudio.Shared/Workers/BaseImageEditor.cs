@@ -97,7 +97,7 @@ namespace PiStudio.Shared
 
         public async Task WriteBytesToEncoder(byte[] imageBytes, uint imageWidth, uint imageHeight, IBitmapEncoder encoder)
         {
-            await encoder.SetPixelDataAsync(PixelFormat.Bgra8, true,
+            encoder.SetPixelData(PixelFormat.Bgra8, true,
                                 imageWidth,
                                 imageHeight,
                                 m_dpiX,

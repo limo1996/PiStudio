@@ -12,6 +12,7 @@ namespace PiStudio.Shared
         {
             SetLanguage(Language.English);
             Init_filters();
+            TmpImageName = "tmp.jpeg";
         }
 
         private IImageEditor m_editor = null;
@@ -28,6 +29,10 @@ namespace PiStudio.Shared
                 m_filters[0].FilterName = ApplicationLanguage.FilterNone;
             return ApplicationLanguage;
         }
+
+
+        public string LoadedFile { get; set; }
+        public string TmpImageName { get; set; }
 
         private void Init_filters()
         {

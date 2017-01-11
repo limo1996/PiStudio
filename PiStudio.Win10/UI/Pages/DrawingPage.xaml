@@ -26,7 +26,8 @@
                     <local:MenuItem x:Name="DrawItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
                                     Symbol="Edit" IsSelected="True" Text="{x:Bind Path=LanguagePack.MenuItem4, Mode=OneWay}" Height="50" Margin="0,200" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="SaveItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250" VerticalAlignment="Top" 
+                                    IsSelectionEnabled="True"/>
                     <local:MenuItem x:Name="SpeakItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
                                     Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
 

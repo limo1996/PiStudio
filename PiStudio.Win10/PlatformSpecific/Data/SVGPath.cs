@@ -9,7 +9,7 @@ namespace PiStudio.Win10.Data
     {
         private List<Point> m_data = new List<Point>();
         public List<Point> Data { get { return m_data; } }
-        public uint Thickness { get; set; }
+        public float Thickness { get; set; }
         public Color Color { get; set; }
     }
 }

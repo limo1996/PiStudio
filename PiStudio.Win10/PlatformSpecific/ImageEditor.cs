@@ -55,10 +55,17 @@ namespace PiStudio.Win10
         public override async Task Save(Stream stream)
         {
             await m_initTask;
+            using (var rstream = new InMemoryRandomAccessStream())
+            {
+                var encoder = await WinBitmapEncoder.CreateAsync(rstream.AsStream(), this.MimeType);
+                await this.WriteBytesToEncoder(this.m_workingImageInBytes, PixelWidth, PixelHeight, encoder);
+                await rstream.AsStream().CopyToAsync(stream);
+            }
+        }
 
-            var encoder = await WinBitmapEncoder.CreateAsync(stream, this.MimeType);
-            await encoder.SetPixelDataAsync(this.m_pixelFormat, false, this.PixelWidth, this.PixelHeight, this.m_dpiX, this.m_dpiY, m_workingImageInBytes);
-            await encoder.FlushAsync();
+        public void SetSource(byte[] imageBytes)
+        {
+            m_unsavedImageInBytes = imageBytes;
         }
 
         private async Task Initialize(string filepath, IBitmapDecoder decoder)
@@ -88,11 +95,11 @@ namespace PiStudio.Win10
             BitmapTransform transform = new BitmapTransform();
             var imageBytes = await decoder.GetPixelDataAsync();
 
-            m_workingImageInBytes = imageBytes;
+            m_workingImageInBytes = m_unsavedImageInBytes = imageBytes;
             m_imageHeight = decoder.PixelHeight;
             m_imageWidth = decoder.PixelWidth;
             m_dpiX = decoder.DpiX;
-            m_dpiX = decoder.DpiY;
+            m_dpiY = decoder.DpiY;
             m_bytePerPixel = ImageToolkit.ConvertBitmapPixelFormat(m_pixelFormat);
 
             return imageBytes;

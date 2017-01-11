@@ -57,9 +57,6 @@ namespace PiStudio.Win10
                 return m_instance;
             }
         }
-
-        public string LoadedFile { get; set; }
-        public string TmpImageName { get; set; }
         
         public async Task<WriteableBitmap> GetWorkingImage()
         {

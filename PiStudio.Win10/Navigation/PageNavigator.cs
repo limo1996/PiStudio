@@ -26,54 +26,65 @@ namespace PiStudio.Win10.Navigation
         public async Task GetStartedButtonClick()
         {
             FileOpenPicker picker = new FileOpenPicker();
-            WinAppResources.Instance.TmpImageName = "tmp";
             picker.CommitButtonText = "Select";
             foreach (var item in AppSettings.Instance.SupportedImageTypes)
                 picker.FileTypeFilter.Add(item);
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             var file = await picker.PickSingleFileAsync();
 
-            await WinAppResources.Instance.InitializeImageEditor(file);
+            await WinAppResources.Instance.InitializeImageEditorAsync(file);
             await Saver.SaveTemp(WinAppResources.Instance.Editor);
             WinAppResources.Instance.LoadedFile = file.Path;
 
             m_frame.Navigate(typeof(HomePage));
         }
 
-        public async void NavigateTo(Type pageType, NavigationParameter args)
+        public async Task<bool> NavigateTo(Type pageType, NavigationParameter args)
         {
             m_page = pageType;
-            if (!m_editor.IsUnsavedChange)
+            if (m_editor.IsUnsavedChange)
             {
                 m_args = args;
-                await CreateAndDisplayChangesDialog();
+                return await CreateAndDisplayChangesDialog();
             }
             else
+            {
                 m_frame.Navigate(m_page, args);
+                return true;
+            }
         }
 
-        private async Task CreateAndDisplayChangesDialog()
+        private async Task<bool> CreateAndDisplayChangesDialog()
         {
             MessageDialog dialog = new MessageDialog("Do you want to save the unsaved changes?");
             dialog.Title = "PiStudio";
             dialog.Options = MessageDialogOptions.AcceptUserInputAfterDelay;
             var save = new UICommand("Save", new UICommandInvokedHandler(SaveAndContinue), 0);
             var dismiss = new UICommand("Dismiss", new UICommandInvokedHandler(DismissAndContinue), 1);
-            var cancel = new UICommand("Cancel", null, 2);
-            dialog.DefaultCommandIndex = 0;
+            var cancel = new UICommand("Cancel", null, 2); 
 
+            dialog.Commands.Add(save);
+            dialog.Commands.Add(dismiss);
+            dialog.Commands.Add(cancel);
+
+            dialog.DefaultCommandIndex = 2;
             await dialog.ShowAsync();
+            return m_result;
         }
 
-        private void SaveAndContinue(IUICommand command)
+        private bool m_result = false;
+
+        private async void SaveAndContinue(IUICommand command)
         {
-            m_editor.SaveChanges();
+            await Saver.SaveTemp(m_editor);
+            m_result = true;
             m_frame.Navigate(m_page, m_args);
         }
 
         private void DismissAndContinue(IUICommand command)
         {
             m_frame.Navigate(m_page, m_args);
+            m_result = true;
         }
 
         private async Task<WriteableBitmap> CreateWriteableBitmapFromFileAsync(StorageFile file)

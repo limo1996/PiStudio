@@ -14,6 +14,7 @@ using PiStudio.Shared;
 using Windows.Storage;
 using System.IO;
 using PiStudio.Win10;
+using Windows.UI.Xaml;
 
 namespace PiStudio.Win10.UI.Controls
 {
@@ -39,7 +40,7 @@ namespace PiStudio.Win10.UI.Controls
             m_canvas.PointerExited += M_canvas_PointerReleased;
             m_canvas.PointerMoved += M_canvas_PointerMoved;
 
-            m_canvas.SizeChanged += (o, e) => OnSizeChanged();
+            m_canvas.SizeChanged += (o, e) => OnSizeChanged(e);
         }
 
         public Color BrushColor { get; set; }
@@ -99,7 +100,7 @@ namespace PiStudio.Win10.UI.Controls
         }
         #endregion
 
-        private void AddLine(Point p1, Point p2, Color brushColor, uint brushThickness)
+        private void AddLine(Point p1, Point p2, Color brushColor, float brushThickness)
         {
             Line line = new Line()
             {
@@ -134,13 +135,21 @@ namespace PiStudio.Win10.UI.Controls
             ContentChanged?.Invoke(this, args);
         }
 
-        private void OnSizeChanged()
+        private void OnSizeChanged(SizeChangedEventArgs e)
         {
-            var finalSize = new Size(this.ActualWidth, this.ActualHeight);
-            if (finalSize.IsEmpty)
-                return;
+            var translateX = e.NewSize.Width / e.PreviousSize.Width;
+            var translateY = e.NewSize.Height / e.PreviousSize.Height;
 
-            m_canvas.Clip = new RectangleGeometry() { Rect = new Rect(0, 0, finalSize.Width, finalSize.Height) };
+            foreach(var curve in m_curves)
+            {
+                for(int i = 0; i < curve.Data.Count; i++)
+                {
+                    Point p = new Point(curve.Data[i].X * translateX, curve.Data[i].Y * translateY);
+                    curve.Data[i] = p;
+                }
+                curve.Thickness = (float)(curve.Thickness * translateX);
+            }
+            ReloadCurves();
         }
 
         public void Clear()
@@ -163,11 +172,12 @@ namespace PiStudio.Win10.UI.Controls
 
         public void SaveChanges()
         {
-            throw new NotImplementedException();
+            m_isUnsavedChange = false;
         }
 
         public async Task Save(Stream stream)
         {
+            m_isUnsavedChange = false;
             await SVGSaver.Save(stream.AsRandomAccessStream(), this.m_curves, this.Width, this.Height);
         }
     }

@@ -94,7 +94,6 @@ namespace PiStudio.Win10.UI.Controls
 
         private void OnTapped(object sender, TappedRoutedEventArgs e)
         {
-            IsSelected = true;
             Click?.Invoke(this, EventArgs.Empty);
         }
 

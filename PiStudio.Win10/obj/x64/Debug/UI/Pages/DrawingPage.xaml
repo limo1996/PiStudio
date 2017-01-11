@@ -26,7 +26,8 @@
                     <local:MenuItem x:ConnectionId='9' x:Name="DrawItem"                                                                                       
                                     Symbol="Edit" IsSelected="True"                                                          Height="50" Margin="0,200" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='10' x:Name="SaveItem"                                                                                       
-                                    Symbol="Save"                                                          Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                                    Symbol="Save"                                                          Height="50" Margin="0,250" VerticalAlignment="Top" 
+                                    IsSelectionEnabled="True"/>
                     <local:MenuItem x:ConnectionId='11' x:Name="SpeakItem"                                                                                       
                                     Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
 
