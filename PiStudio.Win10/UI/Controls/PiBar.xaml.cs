@@ -111,7 +111,8 @@ namespace PiStudio.Win10.UI.Controls
 
         private void SuggestBoxPresenter_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
-            OnItemSelected((Data.SearchOption)args.SelectedItem);
+            SpeakOptions.IsOpen = false;
+            SuggestBoxPresenter.Text = string.Format("{0}", ((Data.SearchOption)args.SelectedItem).Text);
         }
 
         private void ListBoxPresenter_SelectionChanged(object sender, SelectionChangedEventArgs e)

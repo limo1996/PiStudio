@@ -52,18 +52,13 @@ namespace PiStudio.Win10
         /// </summary>
         /// <param name="filename">Name of the new file.</param>
         /// <returns></returns>
-        public override async Task SaveAsync(string filepath)
+        public override async Task Save(Stream stream)
         {
             await m_initTask;
 
-            string folderPath = m_imageToProcess.Path.Substring(0, m_imageToProcess.Path.LastIndexOf(@"\"));
-            StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(folderPath);
-            StorageFile file = await folder.CreateFileAsync(filepath.Substring(filepath.LastIndexOf('.')), CreationCollisionOption.GenerateUniqueName);
-            using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
-            {
-                byte[] bytes = m_workingImageInBytes;
-                await fileStream.WriteAsync(bytes.AsBuffer());
-            }
+            var encoder = await WinBitmapEncoder.CreateAsync(stream, this.MimeType);
+            await encoder.SetPixelDataAsync(this.m_pixelFormat, false, this.PixelWidth, this.PixelHeight, this.m_dpiX, this.m_dpiY, m_workingImageInBytes);
+            await encoder.FlushAsync();
         }
 
         private async Task Initialize(string filepath, IBitmapDecoder decoder)

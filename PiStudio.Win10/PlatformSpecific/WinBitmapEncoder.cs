@@ -23,7 +23,7 @@ namespace PiStudio.Win10
 
             
         }
-        public async Task SetPixelData(PixelFormat format, bool ignoreAlphaMode, uint pixelWidth, uint pixelHeight, double dpiX, double dpiY, byte[] pixels)
+        public async Task SetPixelDataAsync(PixelFormat format, bool ignoreAlphaMode, uint pixelWidth, uint pixelHeight, double dpiX, double dpiY, byte[] pixels)
         {
             WriteableBitmap bitmap = new WriteableBitmap((int)pixelWidth, (int)pixelHeight);
 
@@ -52,10 +52,6 @@ namespace PiStudio.Win10
             Guid BitmapEncoderGuid = BitmapEncoder.JpegEncoderId;
             switch (fileFormat)
             {
-                case "jpeg":
-                    BitmapEncoderGuid = BitmapEncoder.JpegEncoderId;
-                    break;
-
                 case "png":
                     BitmapEncoderGuid = BitmapEncoder.PngEncoderId;
                     break;
@@ -70,6 +66,11 @@ namespace PiStudio.Win10
 
                 case "gif":
                     BitmapEncoderGuid = BitmapEncoder.GifEncoderId;
+                    break;
+                case "jpeg":
+                case "jpg":
+                default:
+                    BitmapEncoderGuid = BitmapEncoder.JpegEncoderId;
                     break;
             }
             await encoder.Initialize(BitmapEncoderGuid, stream.AsRandomAccessStream());

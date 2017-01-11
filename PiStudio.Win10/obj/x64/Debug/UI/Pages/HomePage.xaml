@@ -38,8 +38,18 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid>
-                    <Image x:ConnectionId='13' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" />
-                    <ProgressRing x:ConnectionId='14' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <local:PiBar x:ConnectionId='13' Grid.Row="0"                                                                                                                         
+                                                                                                x:Name="Bar"/>
+
+                    <Grid Grid.Row="1">
+                        <Image x:ConnectionId='14' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" />
+                        <ProgressRing x:ConnectionId='15' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"/>
+                    </Grid>
                 </Grid>
             </SplitView.Content>
         </SplitView>

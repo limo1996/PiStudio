@@ -39,7 +39,7 @@ namespace PiStudio.Win10.UI.Pages
             Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => PRing.IsActive = true);
 
             ImageEditor editor = (ImageEditor)WinAppResources.Instance.Editor;
-            ImageContent.Source = WinAppResources.Instance.WorkingImage;
+            ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
             
 

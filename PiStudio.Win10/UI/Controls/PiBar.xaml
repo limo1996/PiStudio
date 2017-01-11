@@ -34,10 +34,10 @@
                             <ColumnDefinition Width="10" />
                             <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Foreground="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                        <TextBlock Foreground="#FF1F1F1F"
                                    Text="{x:Bind Path=Text}" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
                         <SymbolIcon Symbol="{x:Bind Path=Symbol, Mode=OneWay}" Grid.Column="2"
-                                    Foreground="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
+                                    Foreground="#FF1F1F1F" />
                     </Grid>
                 </DataTemplate>
             </AutoSuggestBox.ItemTemplate>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PiStudio.Shared.Data;
+using System.IO;
 
 namespace PiStudio.Shared
 {
@@ -96,7 +97,7 @@ namespace PiStudio.Shared
 
         public async Task WriteBytesToEncoder(byte[] imageBytes, uint imageWidth, uint imageHeight, IBitmapEncoder encoder)
         {
-            await encoder.SetPixelData(PixelFormat.Bgra8, true,
+            await encoder.SetPixelDataAsync(PixelFormat.Bgra8, true,
                                 imageWidth,
                                 imageHeight,
                                 m_dpiX,
@@ -105,6 +106,6 @@ namespace PiStudio.Shared
             await encoder.FlushAsync();
         }
 
-        public abstract Task SaveAsync(string filepath);
+        public abstract Task Save(Stream stream);
     }
 }

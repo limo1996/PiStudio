@@ -39,42 +39,43 @@
             <SplitView.Content>
                 <Grid x:ConnectionId='13' Name="GridContent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="4*">
-                        </RowDefinition>
-                        <RowDefinition Height="*">
-                        </RowDefinition>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
+                    <local:PiBar x:ConnectionId='14' Grid.Row="0"                                                                                                                         
+                                                                                                x:Name="Bar"/>
                     <Grid Background="Transparent"
-                          Grid.Row="0">
-                        <ProgressRing x:ConnectionId='18' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                          Grid.Row="1">
+                        <ProgressRing x:ConnectionId='19' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" />
-                        <Grid x:ConnectionId='19' Name="Wrapper">
-                            <Image x:ConnectionId='20' Margin="10,30,10,15" Name="ImageContent" Stretch="Uniform" Canvas.ZIndex="5"
+                        <Grid x:ConnectionId='20' Name="Wrapper">
+                            <Image x:ConnectionId='21' Margin="10,30,10,15" Name="ImageContent" Stretch="Uniform" Canvas.ZIndex="5"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                                                          />
-                            <Rectangle x:ConnectionId='21' Fill="White" Name="BackgroundColor" Canvas.ZIndex="10" Opacity="0"
+                            <Rectangle x:ConnectionId='22' Fill="White" Name="BackgroundColor" Canvas.ZIndex="10" Opacity="0"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Margin="0, 15, 0, 0"/>
                         </Grid>
                     </Grid>
-                    <Grid x:ConnectionId='14' Grid.Row="1" Name="LowerPanel">
+                    <Grid x:ConnectionId='15' Grid.Row="2" Name="LowerPanel">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:ConnectionId='15'                                                                                                                       
+                        <TextBlock x:ConnectionId='16'                                                                                                                       
                                                                                              HorizontalAlignment="Right" 
                                    VerticalAlignment="Center" Grid.Row="1" FontSize="40" 
                                    FontFamily="Segoe UI" FontWeight="Light"
                                    Padding="0,0,30,0" Name="BrightnessText"/>
-                        <Slider x:ConnectionId='16' x:Name="BrightnessSlider" HorizontalAlignment="Center" Grid.Row="1" 
+                        <Slider x:ConnectionId='17' x:Name="BrightnessSlider" HorizontalAlignment="Center" Grid.Row="1" 
                                 VerticalAlignment="Center" Width="400" Minimum="-100" Maximum="100" Value="0"
                                 Grid.Column="1"                                                                                                                      />
-                        <TextBlock x:ConnectionId='17' Name="SliderValue" VerticalAlignment="Center" HorizontalAlignment="Left"
+                        <TextBlock x:ConnectionId='18' Name="SliderValue" VerticalAlignment="Center" HorizontalAlignment="Left"
                                    Padding="30,0,0,0" Text="0" FontFamily="Segoe UI" FontWeight="Light"
                                    FontSize="40" Grid.Column="2"                                                                                                                      />
                     </Grid>

@@ -39,13 +39,13 @@
             <SplitView.Content>
                 <Grid Name="GridContent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="4*">
-                        </RowDefinition>
-                        <RowDefinition Height="*">
-                        </RowDefinition>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
+                    <local:PiBar Grid.Row="0" PlaceholderText="{x:Bind Path=LanguagePack.PlaceholderSearch, Mode=OneWay}" Text="{x:Bind Path=LanguagePack.MenuItem2}" 
+                                 ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar"/>
+                    <Grid Grid.Row="1">
                         <ProgressRing Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" />
                         <Image Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
@@ -60,7 +60,7 @@
                               VerticalAlignment="Stretch"
                               VerticalContentAlignment="Stretch"
                               HorizontalAlignment="Center"
-                              Grid.Row="1"
+                              Grid.Row="2"
                               Margin="10,0,10,0">
 
                         <GridView.ItemsPanel>

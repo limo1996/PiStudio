@@ -8,7 +8,6 @@ namespace PiStudio.Shared
         uint PixelHeight { get; }
         byte PixelSize { get; }
         string MimeType { get; }
-        Task SaveAsync(string filepath);
 		IBitmapDecoder Decoder { get; set; }
         IBitmapEncoder Encoder { get; set; }
         Task WriteBytesToEncoder(byte[] imageBytes, uint pixelWidth, uint pixelHeight, IBitmapEncoder encoder);

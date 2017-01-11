@@ -11,6 +11,9 @@ using PiStudio.Win10.Data;
 using Windows.Foundation;
 using Windows.UI.Xaml.Shapes;
 using PiStudio.Shared;
+using Windows.Storage;
+using System.IO;
+using PiStudio.Win10;
 
 namespace PiStudio.Win10.UI.Controls
 {
@@ -158,15 +161,14 @@ namespace PiStudio.Win10.UI.Controls
             }
         }
 
-        public Task SaveAsync(string filepath)
-        {
-            m_isUnsavedChange = false;
-            throw new NotImplementedException();
-        }
-
         public void SaveChanges()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task Save(Stream stream)
+        {
+            await SVGSaver.Save(stream.AsRandomAccessStream(), this.m_curves, this.Width, this.Height);
         }
     }
 }

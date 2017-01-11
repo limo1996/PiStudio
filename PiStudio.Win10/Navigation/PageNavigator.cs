@@ -26,6 +26,7 @@ namespace PiStudio.Win10.Navigation
         public async Task GetStartedButtonClick()
         {
             FileOpenPicker picker = new FileOpenPicker();
+            WinAppResources.Instance.TmpImageName = "tmp";
             picker.CommitButtonText = "Select";
             foreach (var item in AppSettings.Instance.SupportedImageTypes)
                 picker.FileTypeFilter.Add(item);
@@ -33,8 +34,8 @@ namespace PiStudio.Win10.Navigation
             var file = await picker.PickSingleFileAsync();
 
             await WinAppResources.Instance.InitializeImageEditor(file);
-            WinAppResources.Instance.WorkingImage = await CreateWriteableBitmapFromFileAsync(file);
-            WinAppResources.Instance.LoadedFile = file;
+            await Saver.SaveTemp(WinAppResources.Instance.Editor);
+            WinAppResources.Instance.LoadedFile = file.Path;
 
             m_frame.Navigate(typeof(HomePage));
         }

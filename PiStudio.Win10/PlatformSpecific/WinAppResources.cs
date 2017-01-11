@@ -58,8 +58,18 @@ namespace PiStudio.Win10
             }
         }
 
-        public StorageFile LoadedFile { get; set; }
-        public WriteableBitmap WorkingImage { get; set; }
+        public string LoadedFile { get; set; }
+        public string TmpImageName { get; set; }
+        
+        public async Task<WriteableBitmap> GetWorkingImage()
+        {
+            var file = await Saver.GetTempFile();
+            using (var stream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                return await BitmapFactory.New(1, 1).FromStream(stream);
+            }
+        }
+
         public Theme ApplicationTheme { get; set; }
         public Size MinimumPageSize { get; private set; }
 

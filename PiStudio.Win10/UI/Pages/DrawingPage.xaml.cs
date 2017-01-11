@@ -3,6 +3,7 @@ using PiStudio.Win10.Data;
 using PiStudio.Win10.Navigation;
 using PiStudio.Win10.UI.Controls;
 using System;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -33,7 +34,7 @@ namespace PiStudio.Win10.UI.Pages
         public Theme ApplicationTheme { get; set; }
         public LanguagePack LanguagePack { get; set; }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
@@ -43,7 +44,7 @@ namespace PiStudio.Win10.UI.Pages
                 DrawingCanvas.Height = args.NewSize.Height;
             };
 
-            var image = WinAppResources.Instance.WorkingImage;
+            var image = await WinAppResources.Instance.GetWorkingImage();
             ImgPresenter.Source = image;
         }
 
@@ -52,7 +53,7 @@ namespace PiStudio.Win10.UI.Pages
             MainMenu.IsPaneOpen = !MainMenu.IsPaneOpen;
         }
 
-        private void MenuItem_Click(object sender, System.EventArgs e)
+        private async void MenuItem_Click(object sender, System.EventArgs e)
         {
             var tmp = sender as MenuItem;
             if (tmp != null && !tmp.IsSelectionEnabled)
@@ -82,6 +83,7 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SaveItem)
             {
                 //save and continue
+                await Saver.SaveTemp(DrawingCanvas);
 
                 return;
             }

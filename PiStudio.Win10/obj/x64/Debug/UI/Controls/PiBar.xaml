@@ -34,10 +34,10 @@
                             <ColumnDefinition Width="10" />
                             <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:ConnectionId='12'                                                                                                                                
+                        <TextBlock x:ConnectionId='12' Foreground="#FF1F1F1F"
                                                              Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
                         <SymbolIcon x:ConnectionId='13'                                            Grid.Column="2"
-                                                                                                                                                                    />
+                                    Foreground="#FF1F1F1F" />
                     </Grid>
                 </DataTemplate>
             </AutoSuggestBox.ItemTemplate>

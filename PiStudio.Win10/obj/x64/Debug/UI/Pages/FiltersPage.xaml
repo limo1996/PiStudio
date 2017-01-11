@@ -39,18 +39,18 @@
             <SplitView.Content>
                 <Grid x:ConnectionId='13' Name="GridContent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="4*">
-                        </RowDefinition>
-                        <RowDefinition Height="*">
-                        </RowDefinition>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <ProgressRing x:ConnectionId='15' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    <local:PiBar x:ConnectionId='14' Grid.Row="0"                                                                                                                         
+                                                                                                x:Name="Bar"/>
+                    <Grid Grid.Row="1">
+                        <ProgressRing x:ConnectionId='16' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" />
-                        <Image x:ConnectionId='16' Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
+                        <Image x:ConnectionId='17' Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
                     </Grid>
-                    <GridView x:ConnectionId='14' Name="FilterGridView" 
+                    <GridView x:ConnectionId='15' Name="FilterGridView" 
                               IsItemClickEnabled="True"
                               IsSwipeEnabled="True"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -60,7 +60,7 @@
                               VerticalAlignment="Stretch"
                               VerticalContentAlignment="Stretch"
                               HorizontalAlignment="Center"
-                              Grid.Row="1"
+                              Grid.Row="2"
                               Margin="10,0,10,0">
 
                         <GridView.ItemsPanel>

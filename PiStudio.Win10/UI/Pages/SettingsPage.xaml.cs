@@ -179,6 +179,7 @@ namespace PiStudio.Win10.UI.Pages
             if(AppSettings.Instance.IsDarkTheme != EnableDarkSwitch.IsOn)
                 SettingsSection_Clicked(Theme, null);
             AppSettings.Instance.IsDarkTheme = EnableDarkSwitch.IsOn;
+           // Bar.Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.Foreground);
         }
 
         private void LanguagesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

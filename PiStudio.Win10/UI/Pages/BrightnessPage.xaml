@@ -39,14 +39,15 @@
             <SplitView.Content>
                 <Grid Name="GridContent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="4*">
-                        </RowDefinition>
-                        <RowDefinition Height="*">
-                        </RowDefinition>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
+                    <local:PiBar Grid.Row="0" PlaceholderText="{x:Bind Path=LanguagePack.PlaceholderSearch, Mode=OneWay}" Text="{x:Bind Path=LanguagePack.MenuItem3}" 
+                                 ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar"/>
                     <Grid Background="Transparent"
-                          Grid.Row="0">
+                          Grid.Row="1">
                         <ProgressRing Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" />
                         <Grid Name="Wrapper">
@@ -60,7 +61,7 @@
                                        Margin="0, 15, 0, 0"/>
                         </Grid>
                     </Grid>
-                    <Grid Grid.Row="1" Name="LowerPanel">
+                    <Grid Grid.Row="2" Name="LowerPanel">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>

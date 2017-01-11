@@ -103,7 +103,9 @@
     </Compile>
     <Compile Include="PlatformSpecific\Data\LanguageToBoolConverter.cs" />
     <Compile Include="PlatformSpecific\Data\SearchOption.cs" />
+    <Compile Include="PlatformSpecific\Saver.cs" />
     <Compile Include="PlatformSpecific\SearchQueries.cs" />
+    <Compile Include="PlatformSpecific\SVGSaver.cs" />
     <Compile Include="UI\Controls\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>

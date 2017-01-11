@@ -26,12 +26,12 @@ namespace PiStudio.Win10.UI.Pages
         public Theme ApplicationTheme { get; set; }
         public LanguagePack LanguagePack { get; set; }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
 
-            var image = WinAppResources.Instance.WorkingImage;
+            var image = await WinAppResources.Instance.GetWorkingImage();
 
             PRing.IsActive = false;
             ImageContent.Source = image;
