@@ -116,7 +116,9 @@ namespace PiStudio.Win10.UI.Pages
             foreach (var item in ItemsWrapper.Children)
             {
                 var menuItem = item as MenuItem;
-                if (menuItem != null && menuItem != sender)
+                if (menuItem == null)
+                    continue;
+                if(menuItem != sender)
                     menuItem.IsSelected = false;
                 else
                     menuItem.IsSelected = true;
@@ -131,6 +133,7 @@ namespace PiStudio.Win10.UI.Pages
             {
                 byte[] pixels = new byte[pixelStream.Length];
                 await pixelStream.ReadAsync(pixels, 0, pixels.Length);
+                m_editor.SetSource(pixels);
             }
         }
     }

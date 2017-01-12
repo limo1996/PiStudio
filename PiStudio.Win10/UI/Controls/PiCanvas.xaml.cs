@@ -157,6 +157,7 @@ namespace PiStudio.Win10.UI.Controls
             m_curves.Clear();
             ReloadCurves();
             OnContentChanged(new PiCanvasContentChangedEventArgs() { Type = ContentChangedType.Cleared });
+            m_isUnsavedChange = false;
         }
 
         public void Undo()
@@ -168,6 +169,8 @@ namespace PiStudio.Win10.UI.Controls
                 ReloadCurves();
                 OnContentChanged(new PiCanvasContentChangedEventArgs() { Curve = curve, Type = ContentChangedType.Removed });
             }
+            if (m_curves.Count == 0)
+                m_isUnsavedChange = false;
         }
 
         public void SaveChanges()
@@ -179,6 +182,12 @@ namespace PiStudio.Win10.UI.Controls
         {
             m_isUnsavedChange = false;
             await SVGSaver.Save(stream.AsRandomAccessStream(), this.m_curves, this.Width, this.Height);
+        }
+
+        public void Dismiss()
+        {
+            Clear();
+            m_isUnsavedChange = false;
         }
     }
 }

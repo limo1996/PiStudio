@@ -58,12 +58,6 @@ namespace PiStudio.Win10.UI.Pages
             var tmp = sender as MenuItem;
             if (tmp != null && !tmp.IsSelectionEnabled)
                 return;
-            foreach (var item in ItemsWrapper.Children)
-            {
-                var menuItem = item as MenuItem;
-                if (menuItem != null && menuItem != sender)
-                    menuItem.IsSelected = false;
-            }
 
             NavigationParameter parameter = new NavigationParameter()
             {
@@ -83,8 +77,12 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SaveItem)
             {
                 //save and continue
+                Progress.IsActive = true;
                 await Saver.SaveTemp(DrawingCanvas);
-
+                var image = await WinAppResources.Instance.GetWorkingImage();
+                ImgPresenter.Source = image;
+                DrawingCanvas.Clear();
+                Progress.IsActive = false;
                 return;
             }
             else if (tmp == SpeakItem)

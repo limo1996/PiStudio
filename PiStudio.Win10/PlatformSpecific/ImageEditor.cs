@@ -55,17 +55,15 @@ namespace PiStudio.Win10
         public override async Task Save(Stream stream)
         {
             await m_initTask;
+            IsUnsavedChange = false;
             using (var rstream = new InMemoryRandomAccessStream())
             {
                 var encoder = await WinBitmapEncoder.CreateAsync(rstream.AsStream(), this.MimeType);
                 await this.WriteBytesToEncoder(this.m_workingImageInBytes, PixelWidth, PixelHeight, encoder);
+                stream.Seek(0, SeekOrigin.Begin);
+                stream.SetLength((long)rstream.Size);
                 await rstream.AsStream().CopyToAsync(stream);
             }
-        }
-
-        public void SetSource(byte[] imageBytes)
-        {
-            m_unsavedImageInBytes = imageBytes;
         }
 
         private async Task Initialize(string filepath, IBitmapDecoder decoder)

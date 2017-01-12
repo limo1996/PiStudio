@@ -26,6 +26,7 @@ namespace PiStudio.Shared
         {
             int index = filepath.LastIndexOf('.');
             MimeType = filepath.Substring(index + 1);
+            IsUnsavedChange = false;
         }
 
 
@@ -33,20 +34,7 @@ namespace PiStudio.Shared
 
         public IBitmapEncoder Encoder { get; set; }
 
-        public bool IsUnsavedChange
-        {
-            get
-            {
-                if (m_unsavedImageInBytes == null && m_workingImageInBytes != null)
-                    return true;
-                if (m_unsavedImageInBytes.Length != m_workingImageInBytes.Length)
-                    return true;
-                for (int i = 0; i < m_workingImageInBytes.Length; i++)
-                    if (m_workingImageInBytes[i] != m_unsavedImageInBytes[i])
-                        return true;
-                return false;
-            }
-        }
+        public bool IsUnsavedChange { get; protected set; }
 
         public uint PixelWidth
         {
@@ -69,6 +57,7 @@ namespace PiStudio.Shared
         {
             var brightnessBytes = ImageToolkit.ApplyBrightness(m_workingImageInBytes, m_bytePerPixel, brightness);
             m_unsavedImageInBytes = brightnessBytes;
+            IsUnsavedChange = true;
             return brightnessBytes;
         }
 
@@ -80,6 +69,7 @@ namespace PiStudio.Shared
             ImageConverter converter = new ImageConverter();
             byte[] resultPixels = tmpPixels;//converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);
             m_unsavedImageInBytes = resultPixels;
+            IsUnsavedChange = false;
             return resultPixels;
         }
 
@@ -87,17 +77,27 @@ namespace PiStudio.Shared
         {
             var rotatedBytes = ImageToolkit.Rotate(m_workingImageInBytes, m_imageWidth, m_imageHeight, m_bytePerPixel);
             m_unsavedImageInBytes = rotatedBytes;
+            IsUnsavedChange = true;
             return rotatedBytes;
+        }
+
+        public void SetSource(byte[] imageBytes)
+        {
+            if (imageBytes.Length != m_workingImageInBytes.Length)
+                return;
+            m_unsavedImageInBytes = imageBytes;
+            IsUnsavedChange = true;
         }
 
         public void SaveChanges()
         {
             m_unsavedImageInBytes.CopyTo(m_workingImageInBytes, 0);
+            IsUnsavedChange = false;
         }
 
         public async Task WriteBytesToEncoder(byte[] imageBytes, uint imageWidth, uint imageHeight, IBitmapEncoder encoder)
         {
-            encoder.SetPixelData(PixelFormat.Bgra8, true,
+            encoder.SetPixelData(m_pixelFormat, false,
                                 imageWidth,
                                 imageHeight,
                                 m_dpiX,
@@ -107,5 +107,11 @@ namespace PiStudio.Shared
         }
 
         public abstract Task Save(Stream stream);
+
+        public void Dismiss()
+        {
+            m_workingImageInBytes.CopyTo(m_unsavedImageInBytes, 0);
+            IsUnsavedChange = false;
+        }
     }
 }

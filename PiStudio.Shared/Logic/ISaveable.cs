@@ -12,5 +12,6 @@ namespace PiStudio.Shared
         bool IsUnsavedChange { get; }
         void SaveChanges();
         Task Save(Stream stream);
+        void Dismiss();
     }
 }

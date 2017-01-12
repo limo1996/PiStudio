@@ -18,15 +18,13 @@ namespace PiStudio.Win10
 {
     public static class Saver
     {
-        public static async Task<WriteableBitmap> SaveToFile(StorageFile file, ISaveable obj)
+        public static async Task SaveToFile(StorageFile file, ISaveable obj)
         {
-            WriteableBitmap img = null;
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
-                img = await SaveToStream(fileStream, obj, file.Name);
+                await SaveToStream(fileStream, obj, file.Name);
             }
             await InitEditor(file, obj);
-            return img;
         }
 
         private static async Task InitEditor(StorageFile file, ISaveable obj)
@@ -46,32 +44,28 @@ namespace PiStudio.Win10
                 return await ApplicationData.Current.LocalFolder.CreateFileAsync(WinAppResources.Instance.TmpImageName);
         }
 
-        public static async Task<WriteableBitmap> SaveTemp(ISaveable obj)
+        public static async Task SaveTemp(ISaveable obj)
         {
             var file = await GetTempFile();
-            WriteableBitmap img = null;
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
-                img = await SaveToStream(fileStream, obj, file.Name);
+                await SaveToStream(fileStream, obj, file.Name);
             }
             await InitEditor(file, obj);
-            return img;
         }
 
 
-        private static async Task<WriteableBitmap> SaveToStream(IRandomAccessStream fileStream, ISaveable obj, string fileName)
+        private static async Task SaveToStream(IRandomAccessStream fileStream, ISaveable obj, string fileName)
         {
-            var originalImage = new WriteableBitmap(1, 1);
-
             using (var stream = fileStream.CloneStream())
             {
                 stream.Seek(0);
                 await obj.Save(stream.AsStream());
                 stream.Seek(0);
-                await originalImage.SetSourceAsync(stream);
+                stream.AsStream().CopyTo(fileStream.AsStream());
             }
 
-            using (var rstream = new InMemoryRandomAccessStream())
+            /*using (var rstream = new InMemoryRandomAccessStream())
             {
                 //IRandomAccessStream rstream = output.AsRandomAccessStream();//await savefile.OpenAsync(FileAccessMode.ReadWrite);
                 string suffix = null;
@@ -94,7 +88,7 @@ namespace PiStudio.Win10
                 fileStream.Seek(0);
                 await rstream.AsStream().CopyToAsync(fileStream.AsStream());
             }
-            return originalImage;
+            return originalImage;*/
         }
     }
 }

@@ -26,7 +26,7 @@ namespace PiStudio.Win10
             byte[] pixels = null;
             double imgWidth = 0, imgHeight = 0;
             var decoder = await BitmapDecoder.CreateAsync(stream);
-            stream.Seek(0);
+            stream.Seek(0);//decoder.DecoderInformation.
             pixels = (await decoder.GetPixelDataAsync()).DetachPixelData();
             imgWidth = decoder.PixelWidth;
             imgHeight = decoder.PixelHeight;
@@ -53,7 +53,7 @@ namespace PiStudio.Win10
             pixels = TransformPixelsBack(buffer);
 
             var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
-            encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Straight, (uint)imgWidth, (uint)imgHeight, 96.0, 96.0, pixels);
+            encoder.SetPixelData(decoder.BitmapPixelFormat, decoder.BitmapAlphaMode, (uint)imgWidth, (uint)imgHeight, decoder.DpiX, decoder.DpiY, pixels);
             await encoder.FlushAsync();
         }
 

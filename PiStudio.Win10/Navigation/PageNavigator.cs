@@ -76,6 +76,7 @@ namespace PiStudio.Win10.Navigation
 
         private async void SaveAndContinue(IUICommand command)
         {
+            m_editor.SaveChanges();
             await Saver.SaveTemp(m_editor);
             m_result = true;
             m_frame.Navigate(m_page, m_args);
@@ -83,6 +84,7 @@ namespace PiStudio.Win10.Navigation
 
         private void DismissAndContinue(IUICommand command)
         {
+            m_editor.Dismiss();
             m_frame.Navigate(m_page, m_args);
             m_result = true;
         }
