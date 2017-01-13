@@ -8,6 +8,10 @@ using System.IO;
 
 namespace PiStudio.Shared
 {
+    /// <summary>
+    /// Represents base class for every image editor that want to process the image.
+    /// Platform independent.
+    /// </summary>
     public abstract class BaseImageEditor : IImageEditor
     {
         protected byte[] m_workingImageInBytes = null;
@@ -29,30 +33,43 @@ namespace PiStudio.Shared
             IsUnsavedChange = false;
         }
 
-
-        public IBitmapDecoder Decoder { get; set; }
-
-        public IBitmapEncoder Encoder { get; set; }
-
+        /// <summary>
+        /// Gets whether object has some unsaved changes
+        /// </summary>
         public bool IsUnsavedChange { get; protected set; }
 
+        /// <summary>
+        /// Image resolution in X axis
+        /// </summary>
         public uint PixelWidth
         {
             get { return m_imageWidth; }
         }
 
+        /// <summary>
+        /// Image resolution in Y axis
+        /// </summary>
         public uint PixelHeight
         {
             get { return m_imageHeight; }
         }
 
+        /// <summary>
+        /// Image suffix. I.e. 'jpg'
+        /// </summary>
         public string MimeType { get; private set; }
 
+        /// <summary>
+        /// How many bytes are per one pixel
+        /// </summary>
         public byte PixelSize
         {
             get { return m_bytePerPixel; }
         }
 
+        /// <summary>
+        /// Changes brightness of the image.
+        /// </summary>
         protected byte[] ApplyBrightness(int brightness)
         {
             var brightnessBytes = ImageToolkit.ApplyBrightness(m_workingImageInBytes, m_bytePerPixel, brightness);
@@ -61,6 +78,9 @@ namespace PiStudio.Shared
             return brightnessBytes;
         }
 
+        /// <summary>
+        /// Applies kernel matrix on pixel data.
+        /// </summary>
         protected byte[] ApplyFilter(Filter filter)
         {
             byte[] tmpPixels = ImageToolkit.ApplyConvolutionMatrixFilter(this.m_workingImageInBytes, (int)this.m_imageWidth,
@@ -73,6 +93,9 @@ namespace PiStudio.Shared
             return resultPixels;
         }
 
+        /// <summary>
+        /// Rotates given pixel data to the right.
+        /// </summary>
         protected byte[] Rotate()
         {
             var rotatedBytes = ImageToolkit.Rotate(m_workingImageInBytes, m_imageWidth, m_imageHeight, m_bytePerPixel);
@@ -81,6 +104,9 @@ namespace PiStudio.Shared
             return rotatedBytes;
         }
 
+        /// <summary>
+        /// Sets the raw image data
+        /// </summary>
         public void SetSource(byte[] imageBytes)
         {
             if (imageBytes.Length != m_workingImageInBytes.Length)
@@ -89,25 +115,39 @@ namespace PiStudio.Shared
             IsUnsavedChange = true;
         }
 
+        /// <summary>
+        /// Saves inner unsaved changes
+        /// </summary>
         public void SaveChanges()
         {
             m_unsavedImageInBytes.CopyTo(m_workingImageInBytes, 0);
             IsUnsavedChange = false;
         }
 
-        public async Task WriteBytesToEncoder(byte[] imageBytes, uint imageWidth, uint imageHeight, IBitmapEncoder encoder)
+        /// <summary>
+        /// Writes objects inner data into <see cref="IBitmapEncoder"/>
+        /// </summary>
+        /// <param name="encoder">encoder</param>
+        public async Task WriteBytesToEncoder(IBitmapEncoder encoder)
         {
             encoder.SetPixelData(m_pixelFormat, false,
-                                imageWidth,
-                                imageHeight,
-                                m_dpiX,
-                                m_dpiY,
-                                imageBytes);
+                                 m_imageWidth,
+                                 m_imageHeight,
+                                 m_dpiX,
+                                 m_dpiY,
+                                 m_workingImageInBytes);
             await encoder.FlushAsync();
         }
 
+        /// <summary>
+        /// Save content into given stream
+        /// </summary>
+        /// <param name="stream"></param>
         public abstract Task Save(Stream stream);
 
+        /// <summary>
+        /// Dismiss unsaved changes.
+        /// </summary>
         public void Dismiss()
         {
             m_workingImageInBytes.CopyTo(m_unsavedImageInBytes, 0);

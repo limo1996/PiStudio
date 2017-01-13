@@ -5,6 +5,18 @@ namespace PiStudio.Shared
 {
 	public static class ImageToolkit
 	{
+        /// <summary>
+        /// Applies kernel matrix on pixel data.
+        /// </summary>
+        /// <param name="imageBytes">Raw pixel data.</param>
+        /// <param name="imageWidth">Image resolution in X axis.</param>
+        /// <param name="imageHeight">Image resolution in Y axis.</param>
+        /// <param name="kernelMatrix">Kernel matrix that will be applied on image pixels.</param>
+        /// <param name="bytePerPixel">Size of the one pixel.</param>
+        /// <param name="isAlpha">Specifies whether image bytes have alpha color. Alpha pixel is considered to be the last pixel.</param>
+        /// <param name="factor">Number which will be used in multiplication each pixel (except alpha) with it. </param>
+        /// <param name="bias">Number that will be added to each pixel except aplha pixel.</param>
+        /// <returns></returns>
 		public static byte[] ApplyConvolutionMatrixFilter(byte[] imageBytes, int imageWidth, int imageHeight, double[,] kernelMatrix, 
 		                                                  byte bytePerPixel, bool isAlpha, double factor = 1, double bias = 0)
 		{
@@ -59,7 +71,7 @@ namespace PiStudio.Shared
 			return newImageBytes;
 		}
 
-		public static byte ConvertBitmapPixelFormat(PixelFormat format)
+		private static byte ConvertBitmapPixelFormat(PixelFormat format)
 		{
 			if (format == PixelFormat.Bgra8 || format == PixelFormat.Rgba8)
 				return 4;
@@ -72,8 +84,14 @@ namespace PiStudio.Shared
 			return 1;
 		}
 
-		//TODO: Test
-		public static byte[] Rotate(byte[] imageBytes, uint imageWidth, uint imageHeight, byte bytePerPixel)
+        /// <summary>
+        /// Rotates given pixel data to the right.
+        /// </summary>
+        /// <param name="imageBytes">Raw pixel data.</param>
+        /// <param name="imageWidth">Image resolution in X axis.</param>
+        /// <param name="imageHeight">Image resolution in Y axis.</param>
+        /// <param name="bytePerPixel">Size of the one pixel.</param>
+        public static byte[] Rotate(byte[] imageBytes, uint imageWidth, uint imageHeight, byte bytePerPixel)
 		{
 			byte[] returned = new byte[imageWidth * imageHeight * bytePerPixel];
 			for (int i = 0; i < imageHeight; i++)
@@ -87,6 +105,13 @@ namespace PiStudio.Shared
 			return returned;
 		}
 
+        /// <summary>
+        /// Changes brightness of the image.
+        /// </summary>
+        /// <param name="imageBytes"></param>
+        /// <param name="bytePerPixel"></param>
+        /// <param name="brightness"></param>
+        /// <returns></returns>
         public static byte[] ApplyBrightness(byte[] imageBytes, byte bytePerPixel, int brightness)
         {
             ImageConverter converter = new ImageConverter();

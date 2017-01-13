@@ -4,12 +4,16 @@ using PiStudio.Win10.Data;
 using PiStudio.Win10.Navigation;
 using PiStudio.Win10.UI.Controls;
 using System;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Storage.Streams;
+using System.IO;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,6 +24,7 @@ namespace PiStudio.Win10.UI.Pages
     /// </summary>
     public sealed partial class BrightnessPage : Page
     {
+        private ImageEditor m_editor;
         public BrightnessPage()
         {
             ApplicationTheme = new Theme();
@@ -62,19 +67,18 @@ namespace PiStudio.Win10.UI.Pages
             }
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            /*var file = AppResources.Instance.LoadedImage;
-            BitmapImage image = new BitmapImage();
-
+            var file = await Saver.GetTempFile();
             using (var stream = await file.OpenAsync(FileAccessMode.Read))
             {
-                await image.SetSourceAsync(stream);
+                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
+                m_editor = new ImageEditor(decoder, file.Path);
             }
-
-            ImageContent.Source = image;*/
+           
+           
         }
 
         private void BrightnessSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -102,7 +106,7 @@ namespace PiStudio.Win10.UI.Pages
             MainMenu.IsPaneOpen = !MainMenu.IsPaneOpen;
         }
 
-        private void MenuItem_Click(object sender, System.EventArgs e)
+        private async void MenuItem_Click(object sender, System.EventArgs e)
         {
             var tmp = sender as MenuItem;
             if (tmp != null && !tmp.IsSelectionEnabled)
@@ -141,10 +145,8 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, WinAppResources.Instance.Editor);
-            navigator.NavigateTo(pageType, parameter);
+            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
+            await navigator.NavigateTo(pageType, parameter);
         }
-
-
     }
 }

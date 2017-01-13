@@ -3,8 +3,10 @@ using Windows.UI.Xaml.Navigation;
 using PiStudio.Win10.Data;
 using PiStudio.Win10.UI.Controls;
 using PiStudio.Shared.Data;
-using System;
 using PiStudio.Win10.Navigation;
+using System;
+using System.IO;
+using Windows.Storage;
 
 namespace PiStudio.Win10.UI.Pages
 {
@@ -23,6 +25,8 @@ namespace PiStudio.Win10.UI.Pages
             WinAppResources.Instance.InitializePage();
         }
 
+        private ImageEditor m_editor;
+
         public Theme ApplicationTheme { get; set; }
         public LanguagePack LanguagePack { get; set; }
 
@@ -33,6 +37,13 @@ namespace PiStudio.Win10.UI.Pages
 
             var image = await WinAppResources.Instance.GetWorkingImage();
 
+            var file = await Saver.GetTempFile();
+            using (var stream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
+                m_editor = new ImageEditor(decoder, file.Path);
+            }
+
             PRing.IsActive = false;
             ImageContent.Source = image;
         }
@@ -42,7 +53,7 @@ namespace PiStudio.Win10.UI.Pages
             MainMenu.IsPaneOpen = !MainMenu.IsPaneOpen;
         }
 
-        private void MenuItem_Click(object sender, System.EventArgs e)
+        private async void MenuItem_Click(object sender, System.EventArgs e)
         {
             var tmp = sender as MenuItem;
             if (tmp != null && !tmp.IsSelectionEnabled)
@@ -81,8 +92,8 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, WinAppResources.Instance.Editor);
-            navigator.NavigateTo(pageType, parameter);
+            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
+            await navigator.NavigateTo(pageType, parameter);
         }
     }
 }

@@ -14,16 +14,10 @@ namespace PiStudio.Win10
     public sealed class ImageEditor : BaseImageEditor
     {
         private Task m_initTask = null;
-        private StorageFile m_imageToProcess;
 
-        public ImageEditor(string filepath, IBitmapDecoder decoder) : base(filepath)
+        public ImageEditor(IBitmapDecoder decoder, string filePath) : base(filePath)
         {
-            m_initTask = Initialize(filepath, decoder);
-        }
-
-        public ImageEditor(StorageFile file, IBitmapDecoder decoder) : base(file.Path)
-        {
-            m_initTask = Initialize(file, decoder);
+            m_initTask = LoadFromStream(decoder);
         }
 
         public async Task<WriteableBitmap> ApplyFilterAsync(Filter filter)
@@ -66,28 +60,7 @@ namespace PiStudio.Win10
             }
         }
 
-        private async Task Initialize(string filepath, IBitmapDecoder decoder)
-        {
-            this.m_imageToProcess = await StorageFile.GetFileFromPathAsync(filepath);
-            byte[] imageBytes = null;
-
-            using (var fileStream = await m_imageToProcess.OpenAsync(FileAccessMode.Read))
-            {
-                imageBytes = await LoadFromStream(decoder, fileStream);
-            }
-        }
-
-        private async Task Initialize(StorageFile file, IBitmapDecoder decoder)
-        {
-            m_imageToProcess = file;
-            byte[] imageBytes = null;
-            using (var fileStream = await file.OpenAsync(FileAccessMode.Read))
-            {
-                imageBytes = await LoadFromStream(decoder, fileStream);
-            }
-        }
-
-        private async Task<byte[]> LoadFromStream(IBitmapDecoder decoder, IRandomAccessStream fileStream)
+        private async Task<byte[]> LoadFromStream(IBitmapDecoder decoder)
         {
             m_pixelFormat = (PixelFormat)decoder.PixelFormat;
             BitmapTransform transform = new BitmapTransform();

@@ -1,4 +1,5 @@
 ﻿using PiStudio.Shared.Data;
+using PiStudio.Shared;
 using PiStudio.Win10.Data;
 using PiStudio.Win10.Navigation;
 using PiStudio.Win10.UI.Controls;
@@ -87,7 +88,7 @@ namespace PiStudio.Win10.UI.Pages
             MainMenu.IsPaneOpen = !MainMenu.IsPaneOpen;
         }
 
-        private void MenuItem_Click(object sender, System.EventArgs e)
+        private async void MenuItem_Click(object sender, System.EventArgs e)
         {
             var tmp = sender as MenuItem;
             if (tmp != null && !tmp.IsSelectionEnabled)
@@ -126,8 +127,8 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, WinAppResources.Instance.Editor);
-            navigator.NavigateTo(pageType, parameter);
+            PageNavigator navigator = new PageNavigator(this.Frame, null);
+            await navigator.NavigateTo(pageType, parameter);
         }
 
         private void SettingsSection_Clicked(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)

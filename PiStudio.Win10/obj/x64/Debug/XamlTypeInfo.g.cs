@@ -159,7 +159,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             _typeNameTable[23] = "PiStudio.Win10.UI.Pages.FiltersPage";
             _typeNameTable[24] = "PiStudio.Win10.UI.Pages.HomePage";
             _typeNameTable[25] = "PiStudio.Win10.UI.Pages.SettingsPage";
-            _typeNameTable[26] = "PiStudio.Shared.Data.AppSettings";
+            _typeNameTable[26] = "PiStudio.Shared.AppSettings";
             _typeNameTable[27] = "PiStudio.Win10.UI.Pages.WelcomePage";
 
             _typeTable = new global::System.Type[28];
@@ -189,7 +189,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             _typeTable[23] = typeof(global::PiStudio.Win10.UI.Pages.FiltersPage);
             _typeTable[24] = typeof(global::PiStudio.Win10.UI.Pages.HomePage);
             _typeTable[25] = typeof(global::PiStudio.Win10.UI.Pages.SettingsPage);
-            _typeTable[26] = typeof(global::PiStudio.Shared.Data.AppSettings);
+            _typeTable[26] = typeof(global::PiStudio.Shared.AppSettings);
             _typeTable[27] = typeof(global::PiStudio.Win10.UI.Pages.WelcomePage);
         }
 
@@ -429,7 +429,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 26:   //  PiStudio.Shared.Data.AppSettings
+            case 26:   //  PiStudio.Shared.AppSettings
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
@@ -801,7 +801,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
         private void set_36_SettingsPage_Settings(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
-            that.Settings = (global::PiStudio.Shared.Data.AppSettings)Value;
+            that.Settings = (global::PiStudio.Shared.AppSettings)Value;
         }
         private object get_37_SettingsPage_LanguagePack(object instance)
         {
@@ -1074,7 +1074,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 break;
             case "PiStudio.Win10.UI.Pages.SettingsPage.Settings":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.SettingsPage");
-                xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Settings", "PiStudio.Shared.Data.AppSettings");
+                xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Settings", "PiStudio.Shared.AppSettings");
                 xamlMember.Getter = get_36_SettingsPage_Settings;
                 xamlMember.Setter = set_36_SettingsPage_Settings;
                 break;

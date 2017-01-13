@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
-
 using PiStudio.Shared.Data;
 
 namespace PiStudio.Shared
 {
+    /// <summary>
+    /// Base abstract class for application resources on different platforms.
+    /// </summary>
     public abstract class AppResourcesBase
     {
         private static AppResourcesBase m_instance = null;
@@ -15,13 +17,22 @@ namespace PiStudio.Shared
             TmpImageName = "tmp.png";
         }
 
-        private IImageEditor m_editor = null;
-        public IImageEditor Editor { get { return m_editor; } set { m_editor = value; } }
-
-        private List<FilterSettings> m_filters;
+        /// <summary>
+        /// List of all filters available in the application
+        /// </summary>
         public List<FilterSettings> Filters { get { return m_filters; } }
+        private List<FilterSettings> m_filters;
 
+        /// <summary>
+        /// Currently used language
+        /// </summary>
         public LanguagePack ApplicationLanguage { get; private set; }
+
+        /// <summary>
+        /// Sets the application language 
+        /// </summary>
+        /// <param name="lang"><see cref="Language"/> that will be set</param>
+        /// <returns>LanguagePack in given language</returns>
         public LanguagePack SetLanguage(Language lang)
         {
             ApplicationLanguage = LanguageInitializer.Initialize(lang);
@@ -30,10 +41,17 @@ namespace PiStudio.Shared
             return ApplicationLanguage;
         }
 
-
+        /// <summary>
+        /// Path to loaded image
+        /// </summary>
         public string LoadedFile { get; set; }
+
+        /// <summary>
+        /// Name of the tmp image stored in local application data
+        /// </summary>
         public string TmpImageName { get; set; }
 
+        //initialize filters
         private void Init_filters()
         {
             m_filters = new List<FilterSettings>();

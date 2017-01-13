@@ -775,7 +775,7 @@ namespace PiStudio.Win10.UI.Pages
                     XamlBindingSetters.Set_Windows_UI_Xaml_Controls_TextBlock_Text(this.obj20, obj, null);
                 }
             }
-            private void Update_Settings(global::PiStudio.Shared.Data.AppSettings obj, int phase)
+            private void Update_Settings(global::PiStudio.Shared.AppSettings obj, int phase)
             {
                 if (obj != null)
                 {

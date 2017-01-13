@@ -2,6 +2,7 @@
 using PiStudio.Shared.Data;
 using PiStudio.Win10.UI.Pages;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -11,7 +12,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace PiStudio.Win10.Navigation
 {
-    public class PageNavigator
+    public class PageNavigator : IPageNavigator
     {
         private Frame m_frame;
         private Type m_page;
@@ -31,9 +32,14 @@ namespace PiStudio.Win10.Navigation
                 picker.FileTypeFilter.Add(item);
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             var file = await picker.PickSingleFileAsync();
-
-            await WinAppResources.Instance.InitializeImageEditorAsync(file);
-            await Saver.SaveTemp(WinAppResources.Instance.Editor);
+            
+            using (var stream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
+                m_editor = new ImageEditor(decoder, file.Path);
+            }
+            
+            await Saver.SaveTemp(m_editor);
             WinAppResources.Instance.LoadedFile = file.Path;
 
             m_frame.Navigate(typeof(HomePage));
@@ -42,7 +48,7 @@ namespace PiStudio.Win10.Navigation
         public async Task<bool> NavigateTo(Type pageType, NavigationParameter args)
         {
             m_page = pageType;
-            if (m_editor.IsUnsavedChange)
+            if (m_editor != null && m_editor.IsUnsavedChange)
             {
                 m_args = args;
                 return await CreateAndDisplayChangesDialog();

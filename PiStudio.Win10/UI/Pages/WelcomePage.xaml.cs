@@ -28,7 +28,7 @@ namespace PiStudio.Win10.UI.Pages
 
         private async void LoadImageButton_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigator navigator = new PageNavigator(this.Frame, WinAppResources.Instance.Editor);
+            PageNavigator navigator = new PageNavigator(this.Frame, null);
             await navigator.GetStartedButtonClick();
         }
     }

@@ -3,13 +3,11 @@ using PiStudio.Shared.Data;
 
 namespace PiStudio.Shared
 {
+    /// <summary>
+    /// Converter between different pixel formats
+    /// </summary>
     public class ImageConverter
     {
-        public ImageConverter()
-        {
-
-        }
-
         public byte[] ConvertToARGB(byte[] imageBytes, PixelFormat pixelFormat)
         {
             if (pixelFormat == PixelFormat.Rgba8)

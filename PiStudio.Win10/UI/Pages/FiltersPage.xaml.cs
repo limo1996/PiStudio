@@ -12,6 +12,7 @@ using PiStudio.Win10.Navigation;
 using System;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,7 +23,6 @@ namespace PiStudio.Win10.UI.Pages
     /// </summary>
     public sealed partial class FiltersPage : Page
     {
-        private ImageEditor m_editor;
         public FiltersPage()
         {
             ApplicationTheme = new Theme();
@@ -33,6 +33,7 @@ namespace PiStudio.Win10.UI.Pages
             WinAppResources.Instance.InitializePage();
         }
 
+        private ImageEditor m_editor;
         public Theme ApplicationTheme { get; set; }
         public LanguagePack LanguagePack { get; set; }
 
@@ -41,10 +42,16 @@ namespace PiStudio.Win10.UI.Pages
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
 
-            ImageEditor editor = m_editor =(ImageEditor)WinAppResources.Instance.Editor;
+            var file = await Saver.GetTempFile();
+            using (var stream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
+                m_editor = new ImageEditor(decoder, file.Path);
+            }
+
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
-            await LoadItems(editor);
+            await LoadItems(m_editor);
 
             PRing.IsActive = false;
         }
@@ -109,7 +116,7 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, WinAppResources.Instance.Editor);
+            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
             var result = await navigator.NavigateTo(pageType, parameter);
             if (tmp != null && !result)
                 return;

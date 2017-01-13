@@ -24,13 +24,6 @@ namespace PiStudio.Win10
             {
                 await SaveToStream(fileStream, obj, file.Name);
             }
-            await InitEditor(file, obj);
-        }
-
-        private static async Task InitEditor(StorageFile file, ISaveable obj)
-        {
-            if (!(obj is ImageEditor))
-                await WinAppResources.Instance.InitializeImageEditorAsync(file);
         }
 
         public static async Task<StorageFile> GetTempFile()
@@ -51,20 +44,19 @@ namespace PiStudio.Win10
             {
                 await SaveToStream(fileStream, obj, file.Name);
             }
-            await InitEditor(file, obj);
         }
 
 
         private static async Task SaveToStream(IRandomAccessStream fileStream, ISaveable obj, string fileName)
         {
-            using (var stream = fileStream.CloneStream())
+            /*using (var stream = fileStream.CloneStream())
             {
-                stream.Seek(0);
-                await obj.Save(stream.AsStream());
-                stream.Seek(0);
+                stream.Seek(0);*/
+                await obj.Save(fileStream.AsStream());
+            /*    stream.Seek(0);
                 stream.AsStream().CopyTo(fileStream.AsStream());
             }
-
+            */
             /*using (var rstream = new InMemoryRandomAccessStream())
             {
                 //IRandomAccessStream rstream = output.AsRandomAccessStream();//await savefile.OpenAsync(FileAccessMode.ReadWrite);

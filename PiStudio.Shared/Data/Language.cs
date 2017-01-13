@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace PiStudio.Shared.Data
 {
     /// <summary>
-    /// Contains text for whole application in single language
+    /// Contains text for whole application in one language.
     /// </summary>
     public class LanguagePack : INotifyPropertyChanged
     {
@@ -52,6 +47,8 @@ namespace PiStudio.Shared.Data
         private string m_introTitle1;
         private string m_introTitle2;
         private string m_introBtn;
+
+        private string m_applyingFilters;
 
         public Language Language
         {
@@ -469,6 +466,19 @@ namespace PiStudio.Shared.Data
             }
         }
 
+        public string ApplyingFilters
+        {
+            get
+            {
+                return m_applyingFilters;
+            }
+            set
+            {
+                m_applyingFilters = value;
+                OnPropertyChanged("ApplyingFilters");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propName)
         {
@@ -509,6 +519,7 @@ namespace PiStudio.Shared.Data
             pack.ThemeCustom = this.ThemeCustom;
             pack.ThemeEnableDark = this.ThemeEnableDark;
             pack.ThemePredefined = this.ThemePredefined;
+            pack.ApplyingFilters = this.ApplyingFilters;
         }
     }
 

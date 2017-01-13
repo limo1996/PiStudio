@@ -1,13 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PiStudio.Shared.Data
 {
+    /// <summary>
+    /// Creates <see cref="LanguagePack"/>s for application.
+    /// </summary>
     public static class LanguageInitializer
     {
+        /// <summary>
+        /// Initialized <see cref="LanguagePack"/> for language passed as parameter.
+        /// </summary>
+        /// <param name="lang">Language for which will be pack created.</param>
+        /// <returns><see cref="LanguagePack"/> in given language.</returns>
         public static LanguagePack Initialize(Language lang)
         {
             switch(lang)
@@ -19,6 +23,10 @@ namespace PiStudio.Shared.Data
             }
         }
 
+        /// <summary>
+        /// Initialized <see cref="LanguagePack"/> for English.
+        /// </summary>
+        /// <returns></returns>
         private static LanguagePack InitializeEnglish()
         {
             LanguagePack pack = new LanguagePack()
@@ -59,6 +67,10 @@ namespace PiStudio.Shared.Data
             return pack;
         }
 
+        /// <summary>
+        /// Initialized <see cref="LanguagePack"/> for Slovak
+        /// </summary>
+        /// <returns></returns>
         private static LanguagePack InitializeSlovak()
         {
             LanguagePack pack = new LanguagePack()
@@ -99,6 +111,10 @@ namespace PiStudio.Shared.Data
             return pack;
         }
 
+        /// <summary>
+        /// Initialized <see cref="LanguagePack"/> for German.
+        /// </summary>
+        /// <returns></returns>
         private static LanguagePack InitializeGerman()
         {
             return null;

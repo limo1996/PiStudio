@@ -42,7 +42,7 @@
     <Compile Include="Data\NavigationParameter.cs" />
     <Compile Include="Data\PixelFormat.cs" />
     <Compile Include="General\AppResources.cs" />
-    <Compile Include="Data\AppSettings.cs" />
+    <Compile Include="General\AppSettings.cs" />
     <Compile Include="Logic\IPageNavigator.cs" />
     <Compile Include="Logic\ISaveable.cs" />
     <Compile Include="Workers\BaseImageEditor.cs" />
