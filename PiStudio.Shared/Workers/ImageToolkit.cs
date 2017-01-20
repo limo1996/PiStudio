@@ -123,21 +123,20 @@ namespace PiStudio.Shared
         /// <param name="bytePerPixel"></param>
         /// <param name="brightness"></param>
         /// <returns></returns>
-        public static byte[] ApplyBrightness(byte[] imageBytes, byte bytePerPixel, int brightness)
+        public static byte[] ApplyBrightness(byte[] imageBytes, byte bytePerPixel, bool isAplha, int brightness)
         {
-            ImageConverter converter = new ImageConverter();
-            ushort[] hslBytes = null;
-            var tmp2 = converter.ConvertFromHSLToRGBA(converter.ConvertFromRGBAtoHSL(imageBytes)); ;
-
-            int max = 0;
+            byte[] imageBytes2 = new byte[imageBytes.Length];
             for (int i = 0; i < imageBytes.Length; i++)
             {
-                int tmp33 = Math.Abs(tmp2[i] - imageBytes[i]);
-                if (tmp33 > 1)
-                    max = tmp33;
-
+                if ((i + 1) % bytePerPixel != 0 || !isAplha)
+                {
+                    int tmp = imageBytes[i] + brightness;
+                    imageBytes2[i] = (byte)(Math.Min(Math.Max(tmp, 0), 255));
+                }
+                else
+                    imageBytes2[i] = imageBytes[i];
             }
-            return null;
+            return imageBytes2;
         }
 	}
 }

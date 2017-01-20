@@ -44,8 +44,10 @@ namespace PiStudio.Win10.UI.Pages
                 DrawingCanvas.Height = args.NewSize.Height;
             };
 
+            PRing.IsActive = true;
             var image = await WinAppResources.Instance.GetWorkingImage();
             ImgPresenter.Source = image;
+            PRing.IsActive = false;
         }
 
         private void Hamburger_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -61,7 +63,7 @@ namespace PiStudio.Win10.UI.Pages
 
             NavigationParameter parameter = new NavigationParameter()
             {
-                PrevPage = EnumPage.HomePage,
+                PrevPage = EnumPage.DrawingPage,
                 Source = NavigationSource.Click
             };
 

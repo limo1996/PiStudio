@@ -67,12 +67,18 @@ namespace PiStudio.Shared
             get { return m_bytePerPixel; }
         }
 
+        //return whether image contains alpha color
+        private bool IsAlpha()
+        {
+            return !(m_bytePerPixel == 1);
+        }
+
         /// <summary>
         /// Changes brightness of the image.
         /// </summary>
         protected byte[] ApplyBrightness(int brightness)
         {
-            var brightnessBytes = ImageToolkit.ApplyBrightness(m_workingImageInBytes, m_bytePerPixel, brightness);
+            var brightnessBytes = ImageToolkit.ApplyBrightness(m_workingImageInBytes, m_bytePerPixel, IsAlpha(), brightness);
             m_unsavedImageInBytes = brightnessBytes;
             IsUnsavedChange = true;
             return brightnessBytes;
@@ -84,7 +90,7 @@ namespace PiStudio.Shared
         protected byte[] ApplyFilter(Filter filter)
         {
             byte[] tmpPixels = ImageToolkit.ApplyConvolutionMatrixFilter(this.m_workingImageInBytes, (int)this.m_imageWidth,
-               (int)this.m_imageHeight, filter.Matrix, (byte)m_bytePerPixel, true, filter.Factor, filter.Bias);
+               (int)this.m_imageHeight, filter.Matrix, (byte)m_bytePerPixel, IsAlpha(), filter.Factor, filter.Bias);
 
             ImageConverter converter = new ImageConverter();
             byte[] resultPixels = tmpPixels;//converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);

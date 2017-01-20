@@ -49,6 +49,7 @@ namespace PiStudio.Shared.Data
         private string m_introBtn;
 
         private string m_applyingFilters;
+        private string m_NoteBrightness;
 
         public Language Language
         {
@@ -479,6 +480,19 @@ namespace PiStudio.Shared.Data
             }
         }
 
+        public string NoteBrightness
+        {
+            get
+            {
+                return m_NoteBrightness;
+            }
+            set
+            {
+                m_NoteBrightness = value;
+                OnPropertyChanged("NoteBrightness");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propName)
         {
@@ -520,6 +534,7 @@ namespace PiStudio.Shared.Data
             pack.ThemeEnableDark = this.ThemeEnableDark;
             pack.ThemePredefined = this.ThemePredefined;
             pack.ApplyingFilters = this.ApplyingFilters;
+            pack.NoteBrightness = this.NoteBrightness;
         }
     }
 

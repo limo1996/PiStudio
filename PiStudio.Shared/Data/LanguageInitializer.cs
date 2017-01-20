@@ -49,6 +49,7 @@ namespace PiStudio.Shared.Data
                 MenuItem4 = "Draw",
                 MenuItem5 = "Save",
                 MenuItem6 = "Speak",
+                NoteBrightness = "*Values are just oriental. Real effect can be seen after saving",
                 PlaceholderSearch = "Search",
                 Settings = "Settings",
                 SettingsAutoSave = "Auto save before moving to another effect",
@@ -93,6 +94,7 @@ namespace PiStudio.Shared.Data
                 MenuItem4 = "Kreslenie",
                 MenuItem5 = "Ulož",
                 MenuItem6 = "Rozprávaj",
+                NoteBrightness = "*Hodnoty jasu sú len orientačné. Naozajstný efekt bude vidno až po uložení",
                 PlaceholderSearch = "Hľadaj",
                 Settings = "Nastavenia",
                 SettingsAutoSave = "Automatické ukladanie pred opustením stránky",
@@ -117,7 +119,43 @@ namespace PiStudio.Shared.Data
         /// <returns></returns>
         private static LanguagePack InitializeGerman()
         {
-            return null;
+            LanguagePack pack = new LanguagePack()
+            {
+                AboutSource = "Quellcode",
+                AboutVersion = "Version 1.1.0.0",
+                Brightness = "Helligkeit",
+                DrawingClear = "Klar",
+                DrawingColor = "Farbe",
+                DrawingSize = "Größe",
+                DrawingUndo = "Zurück",
+                FilterNone = "Keiner",
+                IntroButton = "Laden",
+                IntroTitle1 = "Bearbeiten,zeichnen und teilen Sie Ihre Fotos",
+                IntroTitle2 = "Beginnen Sie mit dem Hochladen des Bildes",
+                Language = Language.German,
+                MenuItem1 = "Home",
+                MenuItem2 = "Filter",
+                MenuItem3 = "Helligkeit",
+                MenuItem4 = "Zeichnung",
+                MenuItem5 = "Sparen",
+                MenuItem6 = "Sprechen",
+                NoteBrightness = "*Werte sind nur orientalisch.Echter Effekt ist nach dem Speichern zu sehen",
+                PlaceholderSearch = "Suchlauf",
+                Settings = "Rahmen",
+                SettingsAutoSave = "Automatisches Speichern, bevor Sie zu einem anderen Effekt wechseln",
+                SettingsChooseFilter = "Filter auswählen",
+                SettingsChooseLang = "wähle eine Sprache",
+                SettingsFilters = "Filter",
+                SettingsItem1 = "Allgemein",
+                SettingsItem2 = "Thema",
+                SettingsItem3 = "Über app",
+                SettingsNote = "*Hinweis: Die Auswahl zu viel Filter führt zu einer längeren Ladezeit.",
+                SettingsOptions = "Einstellungen",
+                ThemeCustom = "Brauch",
+                ThemeEnableDark = "Aktivieren dunklen Thema",
+                ThemePredefined = "Vordefiniert"
+            };
+            return pack;
         }
     }
 }

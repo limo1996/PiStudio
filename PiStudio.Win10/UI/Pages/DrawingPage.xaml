@@ -45,6 +45,9 @@
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+                    <ProgressRing Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                  Name="PRing" Height="125" Width="125" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  Grid.Row="2" />
                     <Grid Grid.Row="0" Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
                         <TextBlock Margin="15,0" Text="{x:Bind Path=LanguagePack.MenuItem4}"  FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
@@ -54,9 +57,9 @@
                     </Grid>
                     <Grid Height="50" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Row="1"
                           Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
-                        <local:Toolbox IsShadowEnabled="False" HorizontalAlignment="Right" x:Name="ToolBox"
+                        <local:Toolbox IsShadowEnabled="False" HorizontalAlignment="Left" x:Name="ToolBox"
                                        ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}"
-                                       LanguagePack="{x:Bind Path=LanguagePack, Mode=OneWay}"/>
+                                       LanguagePack="{x:Bind Path=LanguagePack, Mode=OneWay}" Margin="5,0,0,0"/>
                     </Grid>
                     <Grid Grid.Row="2" Margin="4">
                         <local:PiCanvas x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />

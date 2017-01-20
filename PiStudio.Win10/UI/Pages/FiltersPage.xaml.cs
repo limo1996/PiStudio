@@ -106,8 +106,10 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SaveItem)
             {
                 //save and continue
+                Progress.IsActive = true;
                 m_editor.SaveChanges();
                 await Saver.SaveTemp(m_editor);
+                Progress.IsActive = false;
                 return;
             }
             else if(tmp == SpeakItem)

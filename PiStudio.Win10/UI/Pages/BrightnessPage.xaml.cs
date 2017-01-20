@@ -46,24 +46,18 @@ namespace PiStudio.Win10.UI.Pages
             if(LowerPanel.ColumnDefinitions.Count == 1 && e.NewSize.Width > 850)
             {
                 LowerPanel.ColumnDefinitions.Clear();
-                LowerPanel.Children.Clear();
                 LowerPanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
                 LowerPanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1,GridUnitType.Auto) });
                 LowerPanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-                Grid.SetColumn(BrightnessText, 0);
-                Grid.SetColumn(BrightnessSlider, 1);
-                Grid.SetColumn(SliderValue, 2);
-                LowerPanel.Children.Add(BrightnessText);
-                LowerPanel.Children.Add(BrightnessSlider);
-                LowerPanel.Children.Add(SliderValue);
+                BrightnessText.Visibility = Visibility.Visible;
+                SliderValue.Visibility = Visibility.Visible;
             }
             else if(LowerPanel.ColumnDefinitions.Count == 3 && e.NewSize.Width < 850)
             {
                 LowerPanel.ColumnDefinitions.Clear();
-                LowerPanel.Children.Clear();
                 LowerPanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-                Grid.SetColumn(BrightnessSlider, 0);
-                LowerPanel.Children.Add(BrightnessSlider);
+                BrightnessText.Visibility = Visibility.Collapsed;
+                SliderValue.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -71,23 +65,24 @@ namespace PiStudio.Win10.UI.Pages
         {
             base.OnNavigatedTo(e);
 
+            PRing.IsActive = true;
             var file = await Saver.GetTempFile();
             using (var stream = await file.OpenAsync(FileAccessMode.Read))
             {
                 var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
                 m_editor = new ImageEditor(decoder, file.Path);
             }
-           
-           
+            ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
+            PRing.IsActive = false;
         }
 
         private void BrightnessSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            if (e.NewValue < 0 && e.OldValue >= 0)
+           if (e.NewValue < 0 && e.OldValue >= 0)
                 BackgroundColor.Fill = new SolidColorBrush(Colors.Black);
             else if (e.NewValue >= 0 && e.OldValue < 0)
                 BackgroundColor.Fill = new SolidColorBrush(Colors.White);
-            double value = Math.Abs(e.NewValue) / 200;
+            double value = Math.Abs(e.NewValue * 1.4) / 200;
             BackgroundColor.Opacity = value;
 
             SliderValue.Text = e.NewValue.ToString();
@@ -111,16 +106,10 @@ namespace PiStudio.Win10.UI.Pages
             var tmp = sender as MenuItem;
             if (tmp != null && !tmp.IsSelectionEnabled)
                 return;
-            foreach (var item in ItemsWrapper.Children)
-            {
-                var menuItem = item as MenuItem;
-                if (menuItem != null && menuItem != sender)
-                    menuItem.IsSelected = false;
-            }
 
             NavigationParameter parameter = new NavigationParameter()
             {
-                PrevPage = EnumPage.HomePage,
+                PrevPage = EnumPage.BrightnessPage,
                 Source = NavigationSource.Click
             };
 
@@ -135,8 +124,15 @@ namespace PiStudio.Win10.UI.Pages
                 pageType = typeof(DrawingPage);
             else if (tmp == SaveItem)
             {
+                Progress.IsActive = true;
                 //save and continue
-
+                await m_editor.ApplyBrightnessAsync((int)BrightnessSlider.Value);
+                m_editor.SaveChanges();
+                await Saver.SaveTemp(m_editor);
+                var image = await WinAppResources.Instance.GetWorkingImage();
+                ImageContent.Source = image;
+                BrightnessSlider.Value = 0;
+                Progress.IsActive = false;
                 return;
             }
             else if (tmp == SpeakItem)

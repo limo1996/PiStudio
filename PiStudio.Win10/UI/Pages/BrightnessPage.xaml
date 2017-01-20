@@ -26,10 +26,11 @@
                     <local:MenuItem x:Name="DrawItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
                                     Symbol="Edit" Text="{x:Bind Path=LanguagePack.MenuItem4, Mode=OneWay}" Height="50" Margin="0,200,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="SaveItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250,0,0" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="SpeakItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
                                     Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" IsSelectionEnabled="False" Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
-
+                    <ProgressRing x:Name="Progress" Width="31" Height="31" Margin="10,260" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                  Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:Name="SettingsItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
                                     Symbol="Setting" Text="{x:Bind Path=LanguagePack.Settings, Mode=OneWay}" IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
@@ -54,7 +55,8 @@
                     <Grid Background="Transparent"
                           Grid.Row="1">
                         <ProgressRing Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                                      Height="125" Width="125" />
+                                      Height="125" Width="125" 
+                                      Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                         <Grid Name="Wrapper">
                             <Image Margin="10,30,10,15" Name="ImageContent" Stretch="Uniform" Canvas.ZIndex="5"
                                    VerticalAlignment="Center"
@@ -77,9 +79,15 @@
                                    VerticalAlignment="Center" Grid.Row="1" FontSize="40" 
                                    FontFamily="Segoe UI" FontWeight="Light"
                                    Padding="0,0,30,0" Name="BrightnessText"/>
-                        <Slider x:Name="BrightnessSlider" HorizontalAlignment="Center" Grid.Row="1" 
+                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0"
+                                    Name="SliderWrapper">
+                            <Slider x:Name="BrightnessSlider" HorizontalAlignment="Center" 
                                 VerticalAlignment="Center" Width="400" Minimum="-100" Maximum="100" Value="0"
-                                Grid.Column="1" Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                            <TextBlock Text="{x:Bind Path=LanguagePack.NoteBrightness, Mode=OneWay}" FontFamily="Segoe UI"
+                                       Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                       FontSize="10" FontWeight="Light" HorizontalAlignment="Center"/>
+                        </StackPanel>
                         <TextBlock Name="SliderValue" VerticalAlignment="Center" HorizontalAlignment="Left"
                                    Padding="30,0,0,0" Text="0" FontFamily="Segoe UI" FontWeight="Light"
                                    FontSize="40" Grid.Column="2" Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>

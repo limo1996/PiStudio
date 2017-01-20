@@ -37,8 +37,12 @@ namespace PiStudio.Win10
         public async Task<WriteableBitmap> ApplyBrightnessAsync(int brightness)
         {
             await m_initTask;
-            var processedBytes = this.ApplyBrightness(brightness);
-            return await CreateBitmapFromByteArrayAsync(processedBytes);
+            await Task.Run(() =>
+            {
+                var processedBytes = this.ApplyBrightness(brightness);
+                m_unsavedImageInBytes = processedBytes;
+            });
+            return await CreateBitmapFromByteArrayAsync(m_unsavedImageInBytes);
         }
 
         /// <summary>
