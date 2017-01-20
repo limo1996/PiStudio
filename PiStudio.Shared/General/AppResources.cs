@@ -57,7 +57,7 @@ namespace PiStudio.Shared
             m_filters = new List<FilterSettings>();
             m_filters.Add(new FilterSettings(new Filter(ApplicationLanguage.FilterNone, new double[,] { { 0, 0, 0 },
                                                              { 0, 1, 0 },
-                                                             { 0, 0, 0 } }), true));
+                                                             { 0, 0, 0 } }, 1, 0), true));
 
             m_filters.Add(new FilterSettings(new Filter("Blur", new double[,] { { 0.0, 0.2,  0.0 },
                                                              { 0.2, 0.2,  0.2 },

@@ -10,11 +10,13 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
-          Height="{x:Bind Path=Height}" Width="{x:Bind Path=Width}">
-        <TextBlock Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                   Text="{x:Bind Path=Text, Mode=OneWay}" HorizontalAlignment="Left" FontWeight="SemiBold" VerticalAlignment="Center" 
-                   FontSize="18" Margin="15,0"/>
+    <StackPanel Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+          Height="{x:Bind Path=Height}" Width="{x:Bind Path=Width}" Orientation="Horizontal">
+        <Button FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Right" 
+                FontFamily="Segoe MDL2 Assets" Content="&#xE169;" Height="50" Width="50" Background="Transparent"
+                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                Click="ShowOptions_Click"  x:Name="ShowOptions">
+        </Button>
         <AutoSuggestBox Width="220" Height="40" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Margin="0,0,8,0"
                         Background="{x:Bind Path=ApplicationTheme.Background, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                         Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
@@ -42,11 +44,6 @@
                 </DataTemplate>
             </AutoSuggestBox.ItemTemplate>
         </AutoSuggestBox>
-        <Button FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,240,0"
-                FontFamily="Segoe MDL2 Assets" Content="&#xE169;" Height="50" Width="50" Background="Transparent"
-                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                Click="ShowOptions_Click"  x:Name="ShowOptions">
-        </Button>
         <Popup x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,290,0" VerticalAlignment="Center">
                <ListView Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                         MaxHeight="300" Width="210" Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
@@ -69,5 +66,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Popup>
-    </Grid>
+    </StackPanel>
 </UserControl>

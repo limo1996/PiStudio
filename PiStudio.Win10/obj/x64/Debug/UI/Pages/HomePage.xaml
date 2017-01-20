@@ -18,17 +18,17 @@
                                                                                                                                                       
                                                                                                                                                        />
                     <local:MenuItem x:ConnectionId='6' x:Name="HomeItem"                                                                                       
-                                    Symbol="Home" IsSelected="True"                                                          Height="50" Margin="0,50" VerticalAlignment="Top"/>
+                                    Symbol="Home" IsSelected="True"                                                          Height="50" Margin="0,50,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='7' x:Name="FilterItem"                                                                                       
-                                    Symbol="Filter"                                                          Height="50" Margin="0,100" VerticalAlignment="Top"/>
+                                    Symbol="Filter"                                                          Height="50" Margin="0,100,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='8' x:Name="BrightnessItem"                                                                                       
-                                    Symbol="OutlineStar"                                                          Height="50" Margin="0, 150" VerticalAlignment="Top"/>
+                                    Symbol="OutlineStar"                                                          Height="50" Margin="0, 150,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='9' x:Name="DrawItem"                                                                                       
-                                    Symbol="Edit"                                                          Height="50" Margin="0,200" VerticalAlignment="Top"/>
+                                    Symbol="Edit"                                                          Height="50" Margin="0,200,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='10' x:Name="SaveItem"                                                                                       
-                                    Symbol="Save"                                                          Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                                    Symbol="Save"                                                          Height="50" Margin="0,250,0,0" VerticalAlignment="Top" IsSelectionEnabled="False"/>
                     <local:MenuItem x:ConnectionId='11' x:Name="SpeakItem"                                                                                       
-                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
+                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
 
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:ConnectionId='12' x:Name="SettingsItem"                                                                                       
@@ -42,13 +42,25 @@
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
-                    <local:PiBar x:ConnectionId='13' Grid.Row="0"                                                                                                                         
-                                                                                                x:Name="Bar"/>
-
+                    <Grid x:ConnectionId='13' Grid.Row="0"                                                                                                                                >
+                        <TextBlock x:ConnectionId='16' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                                                                                                                                                     
+                               HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <Button x:ConnectionId='17' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,285,0" Height="50" Width="50"
+                                Background="Transparent" BorderThickness="0" Name="RotateBtn"                        
+                                FontFamily="Segoe MDL2 Assets" Content="&#xE14A;" FontSize="23"
+                                                                                                                                                     />
+                        <Button x:ConnectionId='18' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,340,0" Height="50" Width="50"
+                                Background="Transparent" BorderThickness="0" Name="AddBtn"                     
+                                FontFamily="Segoe MDL2 Assets" Content="&#xE109;" FontSize="23"
+                                                                                                                                                     />
+                        <local:PiBar x:ConnectionId='19'                                                                             HorizontalAlignment="Right"
+                                                                                               x:Name="Bar" Width="277"/>
+                    </Grid>
                     <Grid Grid.Row="1">
                         <Image x:ConnectionId='14' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" />
-                        <ProgressRing x:ConnectionId='15' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"/>
+                        <ProgressRing x:ConnectionId='15' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"
+                                                                                                                                                                 />
                     </Grid>
                 </Grid>
             </SplitView.Content>

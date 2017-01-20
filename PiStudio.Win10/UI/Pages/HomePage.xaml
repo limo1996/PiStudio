@@ -18,17 +18,17 @@
                             Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                             Background="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                     <local:MenuItem x:Name="HomeItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Home" IsSelected="True" Text="{x:Bind Path=LanguagePack.MenuItem1, Mode=OneWay}" Height="50" Margin="0,50" VerticalAlignment="Top"/>
+                                    Symbol="Home" IsSelected="True" Text="{x:Bind Path=LanguagePack.MenuItem1, Mode=OneWay}" Height="50" Margin="0,50,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="FilterItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Filter" Text="{x:Bind Path=LanguagePack.MenuItem2, Mode=OneWay}" Height="50" Margin="0,100" VerticalAlignment="Top"/>
+                                    Symbol="Filter" Text="{x:Bind Path=LanguagePack.MenuItem2, Mode=OneWay}" Height="50" Margin="0,100,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="BrightnessItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="OutlineStar" Text="{x:Bind Path=LanguagePack.MenuItem3, Mode=OneWay}" Height="50" Margin="0, 150" VerticalAlignment="Top"/>
+                                    Symbol="OutlineStar" Text="{x:Bind Path=LanguagePack.MenuItem3, Mode=OneWay}" Height="50" Margin="0, 150,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="DrawItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Edit" Text="{x:Bind Path=LanguagePack.MenuItem4, Mode=OneWay}" Height="50" Margin="0,200" VerticalAlignment="Top"/>
+                                    Symbol="Edit" Text="{x:Bind Path=LanguagePack.MenuItem4, Mode=OneWay}" Height="50" Margin="0,200,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="SaveItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250" VerticalAlignment="Top" IsSelectionEnabled="False"/>
+                                    Symbol="Save" Text="{x:Bind Path=LanguagePack.MenuItem5, Mode=OneWay}" Height="50" Margin="0,250,0,0" VerticalAlignment="Top" IsSelectionEnabled="False"/>
                     <local:MenuItem x:Name="SpeakItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
+                                    Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" IsSelectionEnabled="False" Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
 
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:Name="SettingsItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
@@ -42,13 +42,25 @@
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-
-                    <local:PiBar Grid.Row="0" PlaceholderText="{x:Bind Path=LanguagePack.PlaceholderSearch, Mode=OneWay}" Text="{x:Bind Path=LanguagePack.MenuItem1}" 
-                                 ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar"/>
-
+                    <Grid Grid.Row="0" Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
+                        <TextBlock Margin="15,0" Text="{x:Bind Path=LanguagePack.MenuItem1}"  FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                               Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+                               HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <Button HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,285,0" Height="50" Width="50"
+                                Background="Transparent" BorderThickness="0" Name="RotateBtn" Click="RotateBtn_Click"
+                                FontFamily="Segoe MDL2 Assets" Content="&#xE14A;" FontSize="23"
+                                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                        <Button HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,340,0" Height="50" Width="50"
+                                Background="Transparent" BorderThickness="0" Name="AddBtn" Click="AddBtn_Click"
+                                FontFamily="Segoe MDL2 Assets" Content="&#xE109;" FontSize="23"
+                                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                        <local:PiBar PlaceholderText="{x:Bind Path=LanguagePack.PlaceholderSearch, Mode=OneWay}" HorizontalAlignment="Right"
+                                ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar" Width="277"/>
+                    </Grid>
                     <Grid Grid.Row="1">
                         <Image Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" />
-                        <ProgressRing HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"/>
+                        <ProgressRing HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"
+                                      Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                     </Grid>
                 </Grid>
             </SplitView.Content>

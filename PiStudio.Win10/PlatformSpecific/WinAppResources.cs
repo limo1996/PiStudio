@@ -44,7 +44,7 @@ namespace PiStudio.Win10
         {
             ApplicationTheme = m_lightTheme;
 
-            MinimumPageSize = new Size(300, 400);
+            MinimumPageSize = new Size(550, 700);
         }
 
         private static WinAppResources m_instance;

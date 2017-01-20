@@ -84,7 +84,7 @@ namespace PiStudio.Shared
         protected byte[] ApplyFilter(Filter filter)
         {
             byte[] tmpPixels = ImageToolkit.ApplyConvolutionMatrixFilter(this.m_workingImageInBytes, (int)this.m_imageWidth,
-               (int)this.m_imageHeight, filter.Matrix, (byte)m_bytePerPixel, true);
+               (int)this.m_imageHeight, filter.Matrix, (byte)m_bytePerPixel, true, filter.Factor, filter.Bias);
 
             ImageConverter converter = new ImageConverter();
             byte[] resultPixels = tmpPixels;//converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);
@@ -99,6 +99,10 @@ namespace PiStudio.Shared
         protected byte[] Rotate()
         {
             var rotatedBytes = ImageToolkit.Rotate(m_workingImageInBytes, m_imageWidth, m_imageHeight, m_bytePerPixel);
+            var tmp = m_imageHeight;
+            m_imageHeight = m_imageWidth;
+            m_imageWidth = tmp;
+
             m_unsavedImageInBytes = rotatedBytes;
             IsUnsavedChange = true;
             return rotatedBytes;

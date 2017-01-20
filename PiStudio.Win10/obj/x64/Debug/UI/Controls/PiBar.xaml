@@ -10,11 +10,13 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid x:ConnectionId='2'                                                                                                                                 
-                                                                   >
-        <TextBlock x:ConnectionId='3'                                                                                                                      
-                                                          HorizontalAlignment="Left" FontWeight="SemiBold" VerticalAlignment="Center" 
-                   FontSize="18" Margin="15,0"/>
+    <StackPanel x:ConnectionId='2'                                                                                                                                 
+                                                                    Orientation="Horizontal">
+        <Button x:ConnectionId='3' FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Right" 
+                FontFamily="Segoe MDL2 Assets" Content="&#xE169;" Height="50" Width="50" Background="Transparent"
+                                                                                                                                     
+                                           x:Name="ShowOptions">
+        </Button>
         <AutoSuggestBox x:ConnectionId='4' Width="220" Height="40" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Margin="0,0,8,0"
                                                                                                                                              
                                                                                                                                                   
@@ -28,47 +30,42 @@
             </AutoSuggestBox.QueryIcon>
             <AutoSuggestBox.ItemTemplate>
                 <DataTemplate                            >
-                    <Grid x:ConnectionId='11'>
+                    <Grid x:ConnectionId='10'>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="160" />
                             <ColumnDefinition Width="10" />
                             <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:ConnectionId='12' Foreground="#FF1F1F1F"
+                        <TextBlock x:ConnectionId='11' Foreground="#FF1F1F1F"
                                                              Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
-                        <SymbolIcon x:ConnectionId='13'                                            Grid.Column="2"
+                        <SymbolIcon x:ConnectionId='12'                                            Grid.Column="2"
                                     Foreground="#FF1F1F1F" />
                     </Grid>
                 </DataTemplate>
             </AutoSuggestBox.ItemTemplate>
         </AutoSuggestBox>
-        <Button x:ConnectionId='5' FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,240,0"
-                FontFamily="Segoe MDL2 Assets" Content="&#xE169;" Height="50" Width="50" Background="Transparent"
-                                                                                                                                     
-                                           x:Name="ShowOptions">
-        </Button>
-        <Popup x:ConnectionId='6' x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,290,0" VerticalAlignment="Center">
-               <ListView x:ConnectionId='7'                                                                                                                                
+        <Popup x:ConnectionId='5' x:Name="SpeakOptions" HorizontalAlignment="Right" Margin="0,45,290,0" VerticalAlignment="Center">
+               <ListView x:ConnectionId='6'                                                                                                                                
                         MaxHeight="300" Width="210"                                                                                                                           
                         x:Name="ListBoxPresenter"                                                     
                                                                             >
                 <ListView.ItemTemplate>
                     <DataTemplate                            >
-                        <Grid x:ConnectionId='8' Height="30">
+                        <Grid x:ConnectionId='7' Height="30">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="10" />
                                 <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:ConnectionId='9'                                                                                                                      
+                            <TextBlock x:ConnectionId='8'                                                                                                                      
                                                                  Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Segoe UI" Margin="5,0"/>
-                            <SymbolIcon x:ConnectionId='10'                                            Grid.Column="2"
+                            <SymbolIcon x:ConnectionId='9'                                            Grid.Column="2"
                                                                                                                                                               />
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Popup>
-    </Grid>
+    </StackPanel>
 </UserControl>
 

@@ -292,7 +292,6 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_7_PiBar;
                 userType.AddMemberName("ApplicationTheme");
-                userType.AddMemberName("Text");
                 userType.AddMemberName("PlaceholderText");
                 userType.AddMemberName("ItemsSource");
                 userType.SetIsLocalType();
@@ -508,327 +507,317 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             var that = (global::PiStudio.Win10.UI.Controls.PiBar)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_6_PiBar_Text(object instance)
-        {
-            var that = (global::PiStudio.Win10.UI.Controls.PiBar)instance;
-            return that.Text;
-        }
-        private void set_6_PiBar_Text(object instance, object Value)
-        {
-            var that = (global::PiStudio.Win10.UI.Controls.PiBar)instance;
-            that.Text = (global::System.String)Value;
-        }
-        private object get_7_PiBar_PlaceholderText(object instance)
+        private object get_6_PiBar_PlaceholderText(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiBar)instance;
             return that.PlaceholderText;
         }
-        private void set_7_PiBar_PlaceholderText(object instance, object Value)
+        private void set_6_PiBar_PlaceholderText(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiBar)instance;
             that.PlaceholderText = (global::System.String)Value;
         }
-        private object get_8_PiBar_ItemsSource(object instance)
+        private object get_7_PiBar_ItemsSource(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiBar)instance;
             return that.ItemsSource;
         }
-        private void set_8_PiBar_ItemsSource(object instance, object Value)
+        private void set_7_PiBar_ItemsSource(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiBar)instance;
             that.ItemsSource = (global::System.Object)Value;
         }
-        private object get_9_PiCanvas_BrushColor(object instance)
+        private object get_8_PiCanvas_BrushColor(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiCanvas)instance;
             return that.BrushColor;
         }
-        private void set_9_PiCanvas_BrushColor(object instance, object Value)
+        private void set_8_PiCanvas_BrushColor(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiCanvas)instance;
             that.BrushColor = (global::Windows.UI.Color)Value;
         }
-        private object get_10_PiCanvas_BrushThickness(object instance)
+        private object get_9_PiCanvas_BrushThickness(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiCanvas)instance;
             return that.BrushThickness;
         }
-        private void set_10_PiCanvas_BrushThickness(object instance, object Value)
+        private void set_9_PiCanvas_BrushThickness(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiCanvas)instance;
             that.BrushThickness = (global::System.UInt32)Value;
         }
-        private object get_11_PiCanvas_IsEmpty(object instance)
+        private object get_10_PiCanvas_IsEmpty(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiCanvas)instance;
             return that.IsEmpty;
         }
-        private object get_12_PiCanvas_IsUnsavedChange(object instance)
+        private object get_11_PiCanvas_IsUnsavedChange(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.PiCanvas)instance;
             return that.IsUnsavedChange;
         }
-        private object get_13_Toolbox_ApplicationTheme(object instance)
+        private object get_12_Toolbox_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.ApplicationTheme;
         }
-        private void set_13_Toolbox_ApplicationTheme(object instance, object Value)
+        private void set_12_Toolbox_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_14_Toolbox_LanguagePack(object instance)
+        private object get_13_Toolbox_LanguagePack(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.LanguagePack;
         }
-        private void set_14_Toolbox_LanguagePack(object instance, object Value)
+        private void set_13_Toolbox_LanguagePack(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.LanguagePack = (global::PiStudio.Shared.Data.LanguagePack)Value;
         }
-        private object get_15_Toolbox_BorderThickness(object instance)
+        private object get_14_Toolbox_BorderThickness(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.BorderThickness;
         }
-        private void set_15_Toolbox_BorderThickness(object instance, object Value)
+        private void set_14_Toolbox_BorderThickness(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.BorderThickness = (global::System.Double)Value;
         }
-        private object get_16_Toolbox_BorderBrush(object instance)
+        private object get_15_Toolbox_BorderBrush(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.BorderBrush;
         }
-        private void set_16_Toolbox_BorderBrush(object instance, object Value)
+        private void set_15_Toolbox_BorderBrush(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.BorderBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_17_Toolbox_PopupBorderBrush(object instance)
+        private object get_16_Toolbox_PopupBorderBrush(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.PopupBorderBrush;
         }
-        private void set_17_Toolbox_PopupBorderBrush(object instance, object Value)
+        private void set_16_Toolbox_PopupBorderBrush(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.PopupBorderBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_18_Toolbox_BrushThickness(object instance)
+        private object get_17_Toolbox_BrushThickness(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.BrushThickness;
         }
-        private void set_18_Toolbox_BrushThickness(object instance, object Value)
+        private void set_17_Toolbox_BrushThickness(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.BrushThickness = (global::System.Double)Value;
         }
-        private object get_19_Toolbox_BrushColor(object instance)
+        private object get_18_Toolbox_BrushColor(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.BrushColor;
         }
-        private void set_19_Toolbox_BrushColor(object instance, object Value)
+        private void set_18_Toolbox_BrushColor(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.BrushColor = (global::Windows.UI.Color)Value;
         }
-        private object get_20_Toolbox_Background(object instance)
+        private object get_19_Toolbox_Background(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.Background;
         }
-        private void set_20_Toolbox_Background(object instance, object Value)
+        private void set_19_Toolbox_Background(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.Background = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_21_Toolbox_IsShadowEnabled(object instance)
+        private object get_20_Toolbox_IsShadowEnabled(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             return that.IsShadowEnabled;
         }
-        private void set_21_Toolbox_IsShadowEnabled(object instance, object Value)
+        private void set_20_Toolbox_IsShadowEnabled(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Toolbox)instance;
             that.IsShadowEnabled = (global::System.Boolean)Value;
         }
-        private object get_22_BrightnessPage_ApplicationTheme(object instance)
+        private object get_21_BrightnessPage_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.BrightnessPage)instance;
             return that.ApplicationTheme;
         }
-        private void set_22_BrightnessPage_ApplicationTheme(object instance, object Value)
+        private void set_21_BrightnessPage_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.BrightnessPage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_23_BrightnessPage_LanguagePack(object instance)
+        private object get_22_BrightnessPage_LanguagePack(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.BrightnessPage)instance;
             return that.LanguagePack;
         }
-        private void set_23_BrightnessPage_LanguagePack(object instance, object Value)
+        private void set_22_BrightnessPage_LanguagePack(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.BrightnessPage)instance;
             that.LanguagePack = (global::PiStudio.Shared.Data.LanguagePack)Value;
         }
-        private object get_24_DrawingPage_ApplicationTheme(object instance)
+        private object get_23_DrawingPage_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.DrawingPage)instance;
             return that.ApplicationTheme;
         }
-        private void set_24_DrawingPage_ApplicationTheme(object instance, object Value)
+        private void set_23_DrawingPage_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.DrawingPage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_25_DrawingPage_LanguagePack(object instance)
+        private object get_24_DrawingPage_LanguagePack(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.DrawingPage)instance;
             return that.LanguagePack;
         }
-        private void set_25_DrawingPage_LanguagePack(object instance, object Value)
+        private void set_24_DrawingPage_LanguagePack(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.DrawingPage)instance;
             that.LanguagePack = (global::PiStudio.Shared.Data.LanguagePack)Value;
         }
-        private object get_26_Rater_BorderBrush(object instance)
+        private object get_25_Rater_BorderBrush(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.BorderBrush;
         }
-        private void set_26_Rater_BorderBrush(object instance, object Value)
+        private void set_25_Rater_BorderBrush(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.BorderBrush = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_27_Rater_Rating(object instance)
+        private object get_26_Rater_Rating(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.Rating;
         }
-        private void set_27_Rater_Rating(object instance, object Value)
+        private void set_26_Rater_Rating(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.Rating = (global::System.Int32)Value;
         }
-        private object get_28_Rater_Fill(object instance)
+        private object get_27_Rater_Fill(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.Fill;
         }
-        private void set_28_Rater_Fill(object instance, object Value)
+        private void set_27_Rater_Fill(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.Fill = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_29_Rater_SelectedFill(object instance)
+        private object get_28_Rater_SelectedFill(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.SelectedFill;
         }
-        private void set_29_Rater_SelectedFill(object instance, object Value)
+        private void set_28_Rater_SelectedFill(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             that.SelectedFill = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
-        private object get_30_Rater_Rated(object instance)
+        private object get_29_Rater_Rated(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Controls.Rater)instance;
             return that.Rated;
         }
-        private object get_31_FiltersPage_ApplicationTheme(object instance)
+        private object get_30_FiltersPage_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.FiltersPage)instance;
             return that.ApplicationTheme;
         }
-        private void set_31_FiltersPage_ApplicationTheme(object instance, object Value)
+        private void set_30_FiltersPage_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.FiltersPage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_32_FiltersPage_LanguagePack(object instance)
+        private object get_31_FiltersPage_LanguagePack(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.FiltersPage)instance;
             return that.LanguagePack;
         }
-        private void set_32_FiltersPage_LanguagePack(object instance, object Value)
+        private void set_31_FiltersPage_LanguagePack(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.FiltersPage)instance;
             that.LanguagePack = (global::PiStudio.Shared.Data.LanguagePack)Value;
         }
-        private object get_33_HomePage_ApplicationTheme(object instance)
+        private object get_32_HomePage_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.HomePage)instance;
             return that.ApplicationTheme;
         }
-        private void set_33_HomePage_ApplicationTheme(object instance, object Value)
+        private void set_32_HomePage_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.HomePage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_34_HomePage_LanguagePack(object instance)
+        private object get_33_HomePage_LanguagePack(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.HomePage)instance;
             return that.LanguagePack;
         }
-        private void set_34_HomePage_LanguagePack(object instance, object Value)
+        private void set_33_HomePage_LanguagePack(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.HomePage)instance;
             that.LanguagePack = (global::PiStudio.Shared.Data.LanguagePack)Value;
         }
-        private object get_35_SettingsPage_ApplicationTheme(object instance)
+        private object get_34_SettingsPage_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
             return that.ApplicationTheme;
         }
-        private void set_35_SettingsPage_ApplicationTheme(object instance, object Value)
+        private void set_34_SettingsPage_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_36_SettingsPage_Settings(object instance)
+        private object get_35_SettingsPage_Settings(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
             return that.Settings;
         }
-        private void set_36_SettingsPage_Settings(object instance, object Value)
+        private void set_35_SettingsPage_Settings(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
             that.Settings = (global::PiStudio.Shared.AppSettings)Value;
         }
-        private object get_37_SettingsPage_LanguagePack(object instance)
+        private object get_36_SettingsPage_LanguagePack(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
             return that.LanguagePack;
         }
-        private void set_37_SettingsPage_LanguagePack(object instance, object Value)
+        private void set_36_SettingsPage_LanguagePack(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.SettingsPage)instance;
             that.LanguagePack = (global::PiStudio.Shared.Data.LanguagePack)Value;
         }
-        private object get_38_WelcomePage_ApplicationTheme(object instance)
+        private object get_37_WelcomePage_ApplicationTheme(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.WelcomePage)instance;
             return that.ApplicationTheme;
         }
-        private void set_38_WelcomePage_ApplicationTheme(object instance, object Value)
+        private void set_37_WelcomePage_ApplicationTheme(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.WelcomePage)instance;
             that.ApplicationTheme = (global::PiStudio.Win10.Data.Theme)Value;
         }
-        private object get_39_WelcomePage_LanguagePack(object instance)
+        private object get_38_WelcomePage_LanguagePack(object instance)
         {
             var that = (global::PiStudio.Win10.UI.Pages.WelcomePage)instance;
             return that.LanguagePack;
         }
-        private void set_39_WelcomePage_LanguagePack(object instance, object Value)
+        private void set_38_WelcomePage_LanguagePack(object instance, object Value)
         {
             var that = (global::PiStudio.Win10.UI.Pages.WelcomePage)instance;
             that.LanguagePack = (global::PiStudio.Shared.Data.LanguagePack)Value;
@@ -881,220 +870,213 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 xamlMember.Getter = get_5_PiBar_ApplicationTheme;
                 xamlMember.Setter = set_5_PiBar_ApplicationTheme;
                 break;
-            case "PiStudio.Win10.UI.Controls.PiBar.Text":
-                userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.PiBar");
-                xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Text", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_PiBar_Text;
-                xamlMember.Setter = set_6_PiBar_Text;
-                break;
             case "PiStudio.Win10.UI.Controls.PiBar.PlaceholderText":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.PiBar");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "PlaceholderText", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_7_PiBar_PlaceholderText;
-                xamlMember.Setter = set_7_PiBar_PlaceholderText;
+                xamlMember.Getter = get_6_PiBar_PlaceholderText;
+                xamlMember.Setter = set_6_PiBar_PlaceholderText;
                 break;
             case "PiStudio.Win10.UI.Controls.PiBar.ItemsSource":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.PiBar");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ItemsSource", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_8_PiBar_ItemsSource;
-                xamlMember.Setter = set_8_PiBar_ItemsSource;
+                xamlMember.Getter = get_7_PiBar_ItemsSource;
+                xamlMember.Setter = set_7_PiBar_ItemsSource;
                 break;
             case "PiStudio.Win10.UI.Controls.PiCanvas.BrushColor":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.PiCanvas");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BrushColor", "Windows.UI.Color");
-                xamlMember.Getter = get_9_PiCanvas_BrushColor;
-                xamlMember.Setter = set_9_PiCanvas_BrushColor;
+                xamlMember.Getter = get_8_PiCanvas_BrushColor;
+                xamlMember.Setter = set_8_PiCanvas_BrushColor;
                 break;
             case "PiStudio.Win10.UI.Controls.PiCanvas.BrushThickness":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.PiCanvas");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BrushThickness", "UInt32");
-                xamlMember.Getter = get_10_PiCanvas_BrushThickness;
-                xamlMember.Setter = set_10_PiCanvas_BrushThickness;
+                xamlMember.Getter = get_9_PiCanvas_BrushThickness;
+                xamlMember.Setter = set_9_PiCanvas_BrushThickness;
                 break;
             case "PiStudio.Win10.UI.Controls.PiCanvas.IsEmpty":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.PiCanvas");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "IsEmpty", "Boolean");
-                xamlMember.Getter = get_11_PiCanvas_IsEmpty;
+                xamlMember.Getter = get_10_PiCanvas_IsEmpty;
                 xamlMember.SetIsReadOnly();
                 break;
             case "PiStudio.Win10.UI.Controls.PiCanvas.IsUnsavedChange":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.PiCanvas");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "IsUnsavedChange", "Boolean");
-                xamlMember.Getter = get_12_PiCanvas_IsUnsavedChange;
+                xamlMember.Getter = get_11_PiCanvas_IsUnsavedChange;
                 xamlMember.SetIsReadOnly();
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_13_Toolbox_ApplicationTheme;
-                xamlMember.Setter = set_13_Toolbox_ApplicationTheme;
+                xamlMember.Getter = get_12_Toolbox_ApplicationTheme;
+                xamlMember.Setter = set_12_Toolbox_ApplicationTheme;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.LanguagePack":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "LanguagePack", "PiStudio.Shared.Data.LanguagePack");
-                xamlMember.Getter = get_14_Toolbox_LanguagePack;
-                xamlMember.Setter = set_14_Toolbox_LanguagePack;
+                xamlMember.Getter = get_13_Toolbox_LanguagePack;
+                xamlMember.Setter = set_13_Toolbox_LanguagePack;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.BorderThickness":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BorderThickness", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_15_Toolbox_BorderThickness;
-                xamlMember.Setter = set_15_Toolbox_BorderThickness;
+                xamlMember.Getter = get_14_Toolbox_BorderThickness;
+                xamlMember.Setter = set_14_Toolbox_BorderThickness;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.BorderBrush":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BorderBrush", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_16_Toolbox_BorderBrush;
-                xamlMember.Setter = set_16_Toolbox_BorderBrush;
+                xamlMember.Getter = get_15_Toolbox_BorderBrush;
+                xamlMember.Setter = set_15_Toolbox_BorderBrush;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.PopupBorderBrush":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "PopupBorderBrush", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_17_Toolbox_PopupBorderBrush;
-                xamlMember.Setter = set_17_Toolbox_PopupBorderBrush;
+                xamlMember.Getter = get_16_Toolbox_PopupBorderBrush;
+                xamlMember.Setter = set_16_Toolbox_PopupBorderBrush;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.BrushThickness":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BrushThickness", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_18_Toolbox_BrushThickness;
-                xamlMember.Setter = set_18_Toolbox_BrushThickness;
+                xamlMember.Getter = get_17_Toolbox_BrushThickness;
+                xamlMember.Setter = set_17_Toolbox_BrushThickness;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.BrushColor":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BrushColor", "Windows.UI.Color");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_19_Toolbox_BrushColor;
-                xamlMember.Setter = set_19_Toolbox_BrushColor;
+                xamlMember.Getter = get_18_Toolbox_BrushColor;
+                xamlMember.Setter = set_18_Toolbox_BrushColor;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.Background":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Background", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_20_Toolbox_Background;
-                xamlMember.Setter = set_20_Toolbox_Background;
+                xamlMember.Getter = get_19_Toolbox_Background;
+                xamlMember.Setter = set_19_Toolbox_Background;
                 break;
             case "PiStudio.Win10.UI.Controls.Toolbox.IsShadowEnabled":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Toolbox");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "IsShadowEnabled", "Boolean");
-                xamlMember.Getter = get_21_Toolbox_IsShadowEnabled;
-                xamlMember.Setter = set_21_Toolbox_IsShadowEnabled;
+                xamlMember.Getter = get_20_Toolbox_IsShadowEnabled;
+                xamlMember.Setter = set_20_Toolbox_IsShadowEnabled;
                 break;
             case "PiStudio.Win10.UI.Pages.BrightnessPage.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.BrightnessPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_22_BrightnessPage_ApplicationTheme;
-                xamlMember.Setter = set_22_BrightnessPage_ApplicationTheme;
+                xamlMember.Getter = get_21_BrightnessPage_ApplicationTheme;
+                xamlMember.Setter = set_21_BrightnessPage_ApplicationTheme;
                 break;
             case "PiStudio.Win10.UI.Pages.BrightnessPage.LanguagePack":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.BrightnessPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "LanguagePack", "PiStudio.Shared.Data.LanguagePack");
-                xamlMember.Getter = get_23_BrightnessPage_LanguagePack;
-                xamlMember.Setter = set_23_BrightnessPage_LanguagePack;
+                xamlMember.Getter = get_22_BrightnessPage_LanguagePack;
+                xamlMember.Setter = set_22_BrightnessPage_LanguagePack;
                 break;
             case "PiStudio.Win10.UI.Pages.DrawingPage.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.DrawingPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_24_DrawingPage_ApplicationTheme;
-                xamlMember.Setter = set_24_DrawingPage_ApplicationTheme;
+                xamlMember.Getter = get_23_DrawingPage_ApplicationTheme;
+                xamlMember.Setter = set_23_DrawingPage_ApplicationTheme;
                 break;
             case "PiStudio.Win10.UI.Pages.DrawingPage.LanguagePack":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.DrawingPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "LanguagePack", "PiStudio.Shared.Data.LanguagePack");
-                xamlMember.Getter = get_25_DrawingPage_LanguagePack;
-                xamlMember.Setter = set_25_DrawingPage_LanguagePack;
+                xamlMember.Getter = get_24_DrawingPage_LanguagePack;
+                xamlMember.Setter = set_24_DrawingPage_LanguagePack;
                 break;
             case "PiStudio.Win10.UI.Controls.Rater.BorderBrush":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "BorderBrush", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_26_Rater_BorderBrush;
-                xamlMember.Setter = set_26_Rater_BorderBrush;
+                xamlMember.Getter = get_25_Rater_BorderBrush;
+                xamlMember.Setter = set_25_Rater_BorderBrush;
                 break;
             case "PiStudio.Win10.UI.Controls.Rater.Rating":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Rating", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_27_Rater_Rating;
-                xamlMember.Setter = set_27_Rater_Rating;
+                xamlMember.Getter = get_26_Rater_Rating;
+                xamlMember.Setter = set_26_Rater_Rating;
                 break;
             case "PiStudio.Win10.UI.Controls.Rater.Fill":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Fill", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.Getter = get_28_Rater_Fill;
-                xamlMember.Setter = set_28_Rater_Fill;
+                xamlMember.Getter = get_27_Rater_Fill;
+                xamlMember.Setter = set_27_Rater_Fill;
                 break;
             case "PiStudio.Win10.UI.Controls.Rater.SelectedFill":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "SelectedFill", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.Getter = get_29_Rater_SelectedFill;
-                xamlMember.Setter = set_29_Rater_SelectedFill;
+                xamlMember.Getter = get_28_Rater_SelectedFill;
+                xamlMember.Setter = set_28_Rater_SelectedFill;
                 break;
             case "PiStudio.Win10.UI.Controls.Rater.Rated":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Controls.Rater");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Rated", "Boolean");
-                xamlMember.Getter = get_30_Rater_Rated;
+                xamlMember.Getter = get_29_Rater_Rated;
                 xamlMember.SetIsReadOnly();
                 break;
             case "PiStudio.Win10.UI.Pages.FiltersPage.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.FiltersPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_31_FiltersPage_ApplicationTheme;
-                xamlMember.Setter = set_31_FiltersPage_ApplicationTheme;
+                xamlMember.Getter = get_30_FiltersPage_ApplicationTheme;
+                xamlMember.Setter = set_30_FiltersPage_ApplicationTheme;
                 break;
             case "PiStudio.Win10.UI.Pages.FiltersPage.LanguagePack":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.FiltersPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "LanguagePack", "PiStudio.Shared.Data.LanguagePack");
-                xamlMember.Getter = get_32_FiltersPage_LanguagePack;
-                xamlMember.Setter = set_32_FiltersPage_LanguagePack;
+                xamlMember.Getter = get_31_FiltersPage_LanguagePack;
+                xamlMember.Setter = set_31_FiltersPage_LanguagePack;
                 break;
             case "PiStudio.Win10.UI.Pages.HomePage.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.HomePage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_33_HomePage_ApplicationTheme;
-                xamlMember.Setter = set_33_HomePage_ApplicationTheme;
+                xamlMember.Getter = get_32_HomePage_ApplicationTheme;
+                xamlMember.Setter = set_32_HomePage_ApplicationTheme;
                 break;
             case "PiStudio.Win10.UI.Pages.HomePage.LanguagePack":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.HomePage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "LanguagePack", "PiStudio.Shared.Data.LanguagePack");
-                xamlMember.Getter = get_34_HomePage_LanguagePack;
-                xamlMember.Setter = set_34_HomePage_LanguagePack;
+                xamlMember.Getter = get_33_HomePage_LanguagePack;
+                xamlMember.Setter = set_33_HomePage_LanguagePack;
                 break;
             case "PiStudio.Win10.UI.Pages.SettingsPage.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.SettingsPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_35_SettingsPage_ApplicationTheme;
-                xamlMember.Setter = set_35_SettingsPage_ApplicationTheme;
+                xamlMember.Getter = get_34_SettingsPage_ApplicationTheme;
+                xamlMember.Setter = set_34_SettingsPage_ApplicationTheme;
                 break;
             case "PiStudio.Win10.UI.Pages.SettingsPage.Settings":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.SettingsPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "Settings", "PiStudio.Shared.AppSettings");
-                xamlMember.Getter = get_36_SettingsPage_Settings;
-                xamlMember.Setter = set_36_SettingsPage_Settings;
+                xamlMember.Getter = get_35_SettingsPage_Settings;
+                xamlMember.Setter = set_35_SettingsPage_Settings;
                 break;
             case "PiStudio.Win10.UI.Pages.SettingsPage.LanguagePack":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.SettingsPage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "LanguagePack", "PiStudio.Shared.Data.LanguagePack");
-                xamlMember.Getter = get_37_SettingsPage_LanguagePack;
-                xamlMember.Setter = set_37_SettingsPage_LanguagePack;
+                xamlMember.Getter = get_36_SettingsPage_LanguagePack;
+                xamlMember.Setter = set_36_SettingsPage_LanguagePack;
                 break;
             case "PiStudio.Win10.UI.Pages.WelcomePage.ApplicationTheme":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.WelcomePage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "ApplicationTheme", "PiStudio.Win10.Data.Theme");
-                xamlMember.Getter = get_38_WelcomePage_ApplicationTheme;
-                xamlMember.Setter = set_38_WelcomePage_ApplicationTheme;
+                xamlMember.Getter = get_37_WelcomePage_ApplicationTheme;
+                xamlMember.Setter = set_37_WelcomePage_ApplicationTheme;
                 break;
             case "PiStudio.Win10.UI.Pages.WelcomePage.LanguagePack":
                 userType = (global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.UI.Pages.WelcomePage");
                 xamlMember = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlMember(this, "LanguagePack", "PiStudio.Shared.Data.LanguagePack");
-                xamlMember.Getter = get_39_WelcomePage_LanguagePack;
-                xamlMember.Setter = set_39_WelcomePage_LanguagePack;
+                xamlMember.Getter = get_38_WelcomePage_LanguagePack;
+                xamlMember.Setter = set_38_WelcomePage_LanguagePack;
                 break;
             }
             return xamlMember;

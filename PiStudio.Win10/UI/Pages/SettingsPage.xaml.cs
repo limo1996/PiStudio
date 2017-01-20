@@ -199,7 +199,6 @@ namespace PiStudio.Win10.UI.Pages
                 return;
             WinAppResources.Instance.SetLanguage(lang).CopyTo(LanguagePack);
             Bar.PlaceholderText = LanguagePack.PlaceholderSearch;
-            Bar.Text = LanguagePack.Settings;
             HomeItem.Text = LanguagePack.MenuItem1;
             FilterItem.Text = LanguagePack.MenuItem2;
             BrightnessItem.Text = LanguagePack.MenuItem3;

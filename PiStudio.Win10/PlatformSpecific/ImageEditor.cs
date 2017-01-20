@@ -53,7 +53,7 @@ namespace PiStudio.Win10
             using (var rstream = new InMemoryRandomAccessStream())
             {
                 var encoder = await WinBitmapEncoder.CreateAsync(rstream.AsStream(), this.MimeType);
-                await this.WriteBytesToEncoder(this.m_workingImageInBytes, PixelWidth, PixelHeight, encoder);
+                await this.WriteBytesToEncoder(encoder);
                 stream.Seek(0, SeekOrigin.Begin);
                 stream.SetLength((long)rstream.Size);
                 await rstream.AsStream().CopyToAsync(stream);

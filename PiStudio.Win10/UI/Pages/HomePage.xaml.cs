@@ -7,6 +7,8 @@ using PiStudio.Win10.Navigation;
 using System;
 using System.IO;
 using Windows.Storage;
+using Windows.Storage.Pickers;
+using PiStudio.Shared;
 
 namespace PiStudio.Win10.UI.Pages
 {
@@ -94,6 +96,36 @@ namespace PiStudio.Win10.UI.Pages
             }
             PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
             await navigator.NavigateTo(pageType, parameter);
+        }
+
+        private async void RotateBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            var res = Shared.ImageToolkit.Rotate(new byte[] { 1,1, 2,2, 3,3, 4,4, 5,5, 6,6}, 2, 3, 2);
+            ImageContent.Source = await m_editor.RotateAsync();
+        }
+
+        private async void AddBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            PRing.IsActive = true;
+            FileOpenPicker picker = new FileOpenPicker();
+            picker.CommitButtonText = "Select";
+            foreach (var item in AppSettings.Instance.SupportedImageTypes)
+                picker.FileTypeFilter.Add(item);
+            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            var file = await picker.PickSingleFileAsync();
+            if (file == null)
+                return;
+            using (var stream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
+                m_editor = new ImageEditor(decoder, file.Path);
+            }
+
+            await Saver.SaveTemp(m_editor);
+            WinAppResources.Instance.LoadedFile = file.Path;
+            ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
+
+            PRing.IsActive = false;
         }
     }
 }

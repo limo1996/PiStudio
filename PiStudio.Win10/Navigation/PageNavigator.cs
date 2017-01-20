@@ -32,7 +32,8 @@ namespace PiStudio.Win10.Navigation
                 picker.FileTypeFilter.Add(item);
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
             var file = await picker.PickSingleFileAsync();
-            
+            if (file == null)
+                return;
             using (var stream = await file.OpenAsync(FileAccessMode.Read))
             {
                 var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());

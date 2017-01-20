@@ -18,18 +18,18 @@
                                                                                                                                                       
                                                                                                                                                        />
                     <local:MenuItem x:ConnectionId='6' x:Name="HomeItem"                                                                                       
-                                    Symbol="Home"                                                          Height="50" Margin="0,50" VerticalAlignment="Top"/>
+                                    Symbol="Home"                                                          Height="50" Margin="0,50,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='7' x:Name="FilterItem"                                                                                       IsSelected="True" 
-                                    Symbol="Filter"                                                          Height="50" Margin="0,100" VerticalAlignment="Top"/>
+                                    Symbol="Filter"                                                          Height="50" Margin="0,100,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='8' x:Name="BrightnessItem"                                                                                       
-                                    Symbol="OutlineStar"                                                          Height="50" Margin="0, 150" VerticalAlignment="Top"/>
+                                    Symbol="OutlineStar"                                                          Height="50" Margin="0, 150,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='9' x:Name="DrawItem"                                                                                       
-                                    Symbol="Edit"                                                          Height="50" Margin="0,200" VerticalAlignment="Top"/>
+                                    Symbol="Edit"                                                          Height="50" Margin="0,200,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='10' x:Name="SaveItem"                                                                                       
-                                    Symbol="Save"                                                          Height="50" Margin="0,250" VerticalAlignment="Top" 
+                                    Symbol="Save"                                                          Height="50" Margin="0,250,0,0" VerticalAlignment="Top" 
                                     IsSelectionEnabled="True"/>
                     <local:MenuItem x:ConnectionId='11' x:Name="SpeakItem"                                                                                       
-                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,300" VerticalAlignment="Top"/>
+                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
 
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:ConnectionId='12' x:Name="SettingsItem"                                                                                       
@@ -44,8 +44,13 @@
                         <RowDefinition Height="4*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <local:PiBar x:ConnectionId='14' Grid.Row="0"                                                                                                                         
-                                                                                                x:Name="Bar"/>
+                    <Grid x:ConnectionId='14' Grid.Row="0"                                                                                                                                >
+                        <TextBlock x:ConnectionId='18' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                                                                                                                                                     
+                               HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                        <local:PiBar x:ConnectionId='19'                                                                             HorizontalAlignment="Right"
+                                                                                                x:Name="Bar" Width="277"/>
+                    </Grid>
                     <Grid Grid.Row="1">
                         <ProgressRing x:ConnectionId='16' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" 

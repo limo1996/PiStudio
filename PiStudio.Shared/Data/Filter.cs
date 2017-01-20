@@ -33,7 +33,7 @@ namespace PiStudio.Shared.Data
             get { return m_factor; }
             set
             {
-                if (m_matrix != null && m_factor > 0)
+                if (value > 0)
                 {
                     m_factor = value;
                 }
@@ -62,6 +62,8 @@ namespace PiStudio.Shared.Data
         /// <param name="matrix">Kernel matrix</param>
         public Filter(string name, double[,] matrix)
         {
+            Factor = 1;
+            Bias = 0;
             m_matrix = matrix;
             Name = name;
         }
@@ -73,10 +75,8 @@ namespace PiStudio.Shared.Data
         /// <param name="matrix">Kernel matrix</param>
         /// <param name="factor"></param>
         /// <param name="bias"></param>
-        public Filter(string name, double[,] matrix, double factor, double bias)
+        public Filter(string name, double[,] matrix, double factor, double bias) : this(name, matrix)
         {
-            m_matrix = matrix;
-            Name = name;
             Bias = bias;
             factor = Factor;
         }

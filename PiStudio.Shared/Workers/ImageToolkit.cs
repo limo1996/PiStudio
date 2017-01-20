@@ -71,7 +71,7 @@ namespace PiStudio.Shared
 			return newImageBytes;
 		}
 
-		private static byte ConvertBitmapPixelFormat(PixelFormat format)
+		public static byte ConvertBitmapPixelFormat(PixelFormat format)
 		{
 			if (format == PixelFormat.Bgra8 || format == PixelFormat.Rgba8)
 				return 4;
@@ -94,14 +94,25 @@ namespace PiStudio.Shared
         public static byte[] Rotate(byte[] imageBytes, uint imageWidth, uint imageHeight, byte bytePerPixel)
 		{
 			byte[] returned = new byte[imageWidth * imageHeight * bytePerPixel];
-			for (int i = 0; i < imageHeight; i++)
+            var i = 0;
+            for (int x = 0; x < imageWidth; ++x)
+            {
+                for (int y = (int)(imageHeight - 1); y >= 0; --y)
+                {
+                    var srcInd = y * imageWidth + x;
+                    for (int k = 0; k < bytePerPixel; k++)
+                        returned[i*bytePerPixel+k] = imageBytes[srcInd*bytePerPixel+k];
+                    i++;
+                }
+            }
+            /*for (int i = 0; i < imageHeight; i++)
 			{
-				for (int j = 0; j < imageWidth * bytePerPixel; j+=bytePerPixel)
+				for (int j = 0; j < imageWidth ; j++)
 				{
                     for(int k =0; k < bytePerPixel; k++)
-					    returned[(j * imageWidth) + imageHeight - 1 - i + k] = imageBytes[(i * imageWidth) + j + k];
+					    returned[((i * imageWidth) + j) * bytePerPixel + k] = imageBytes[((imageHeight - 1 - i) * imageWidth + j) * bytePerPixel + k];
 				}
-			}
+			}*/
 			return returned;
 		}
 
