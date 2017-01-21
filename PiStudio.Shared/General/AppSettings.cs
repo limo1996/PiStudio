@@ -81,6 +81,8 @@ namespace PiStudio.Shared
         /// Language lastly used by application.
         /// </summary>
         public Data.Language AppLanguage { get; set; }
+
+        public bool AutoSave { get; set; }
         /// <summary>
         /// Indicates, whether is dark theme chosen.
         /// </summary>

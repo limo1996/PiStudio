@@ -20,7 +20,7 @@
         <AutoSuggestBox Width="220" Height="40" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Margin="0,0,8,0"
                         Background="{x:Bind Path=ApplicationTheme.Background, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                         Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                        PlaceholderText="{x:Bind Path=PlaceholderText}" x:Name="SuggestBoxPresenter"
+                        PlaceholderText="{x:Bind Path=PlaceholderText, Mode=OneWay}" x:Name="SuggestBoxPresenter"
                         BorderBrush="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
                         Style="{StaticResource PiAutoSuggestBoxStyle}" ItemsSource="{x:Bind Path=ItemsSource, Mode=OneWay}"
                         SuggestionChosen="SuggestBoxPresenter_SuggestionChosen" TextChanged="SuggestBoxPresenter_TextChanged"

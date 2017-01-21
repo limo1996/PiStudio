@@ -180,7 +180,6 @@ namespace PiStudio.Win10.UI.Pages
             if(AppSettings.Instance.IsDarkTheme != EnableDarkSwitch.IsOn)
                 SettingsSection_Clicked(Theme, null);
             AppSettings.Instance.IsDarkTheme = EnableDarkSwitch.IsOn;
-           // Bar.Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.Foreground);
         }
 
         private void LanguagesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -198,14 +197,6 @@ namespace PiStudio.Win10.UI.Pages
             if (lang == WinAppResources.Instance.ApplicationLanguage.Language)
                 return;
             WinAppResources.Instance.SetLanguage(lang).CopyTo(LanguagePack);
-            Bar.PlaceholderText = LanguagePack.PlaceholderSearch;
-            HomeItem.Text = LanguagePack.MenuItem1;
-            FilterItem.Text = LanguagePack.MenuItem2;
-            BrightnessItem.Text = LanguagePack.MenuItem3;
-            DrawItem.Text = LanguagePack.MenuItem4;
-            SaveItem.Text = LanguagePack.MenuItem5;
-            SpeakItem.Text = LanguagePack.MenuItem6;
-            SettingsItem.Text = LanguagePack.Settings;
         }
     }
 }

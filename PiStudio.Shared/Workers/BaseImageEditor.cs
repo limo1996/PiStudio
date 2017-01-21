@@ -104,7 +104,7 @@ namespace PiStudio.Shared
         /// </summary>
         protected byte[] Rotate()
         {
-            var rotatedBytes = ImageToolkit.Rotate(m_workingImageInBytes, m_imageWidth, m_imageHeight, m_bytePerPixel);
+            var rotatedBytes = ImageToolkit.Rotate(m_unsavedImageInBytes, m_imageWidth, m_imageHeight, m_bytePerPixel);
             var tmp = m_imageHeight;
             m_imageHeight = m_imageWidth;
             m_imageWidth = tmp;

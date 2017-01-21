@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-01-20T14:22:35.864</Modified>
+      <Modified>2017-01-21T18:49:23.373</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.exe">
       <PackagePath>entrypoint\PiStudio.exe</PackagePath>
-      <Modified>2017-01-20T14:22:34.407</Modified>
+      <Modified>2017-01-21T18:49:21.175</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -474,7 +474,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll">
       <PackagePath>PiStudio.Shared.dll</PackagePath>
-      <Modified>2017-01-20T14:22:31.442</Modified>
+      <Modified>2017-01-21T18:49:17.212</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.dll">
       <PackagePath>SpeechIntegrator.dll</PackagePath>
@@ -528,7 +528,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.xr.xml">
       <PackagePath>PiStudio.xr.xml</PackagePath>
-      <Modified>2017-01-20T14:10:27.254</Modified>
+      <Modified>2017-01-21T18:44:30.034</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -537,11 +537,11 @@
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-01-20T14:22:35.686</Modified>
+      <Modified>2017-01-21T18:49:23.188</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe">
       <PackagePath>PiStudio.exe</PackagePath>
-      <Modified>2017-01-20T14:22:35.860</Modified>
+      <Modified>2017-01-21T18:49:23.366</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

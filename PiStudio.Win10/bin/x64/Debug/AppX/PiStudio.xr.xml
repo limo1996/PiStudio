@@ -95,8 +95,8 @@
       <RootEvent Name="PointerExited" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
-      <RootProperty Name="Path" />
       <RootProperty Name="Mode" />
+      <RootProperty Name="Path" />
       <RootProperty Name="Converter" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />

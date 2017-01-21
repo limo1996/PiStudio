@@ -45,7 +45,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
-                        <TextBlock Margin="15,0" Text="{x:Bind Path=LanguagePack.Settings}"  FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                        <TextBlock Margin="15,0" Text="{x:Bind Path=LanguagePack.Settings, Mode=OneWay}"  FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
                         <local:PiBar PlaceholderText="{x:Bind Path=LanguagePack.PlaceholderSearch, Mode=OneWay}" HorizontalAlignment="Right"

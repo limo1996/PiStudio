@@ -45,7 +45,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid x:ConnectionId='13' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='38' Margin="15,0"                                             FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                        <TextBlock x:ConnectionId='38' Margin="15,0"                                                          FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
                         <local:PiBar x:ConnectionId='39'                                                                             HorizontalAlignment="Right"

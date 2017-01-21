@@ -14,9 +14,9 @@
         <Grid x:ConnectionId='3' x:Name="FocusedRect" Width="6"                                                                                                                             
               HorizontalAlignment="Left" Visibility="Collapsed" Canvas.ZIndex="2"/>
         <StackPanel x:ConnectionId='4' Orientation="Horizontal" Background="Transparent" Width="150" x:Name="Wrapper">
-            <SymbolIcon x:ConnectionId='5'                          Margin="15,0,0,0"
+            <SymbolIcon x:ConnectionId='5'                                       Margin="15,0,0,0"
                                                                                                                                                           />
-            <TextBlock x:ConnectionId='6' Margin="14,0,0,0"                      FontSize="18" VerticalAlignment="Center" 
+            <TextBlock x:ConnectionId='6' Margin="14,0,0,0"                                   FontSize="18" VerticalAlignment="Center" 
                                                                                                                                                              />
         </StackPanel>
     </Grid>
