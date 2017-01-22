@@ -78,6 +78,10 @@ namespace PiStudio.Win10.UI.Pages
 
         private void BrightnessSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
+            if (e.NewValue == 0)
+                m_editor.IsUnsavedChange = false;
+            else
+                m_editor.IsUnsavedChange = true;
            if (e.NewValue < 0 && e.OldValue >= 0)
                 BackgroundColor.Fill = new SolidColorBrush(Colors.Black);
             else if (e.NewValue >= 0 && e.OldValue < 0)
@@ -107,6 +111,8 @@ namespace PiStudio.Win10.UI.Pages
             if (tmp != null && !tmp.IsSelectionEnabled)
                 return;
 
+            if(m_editor.IsUnsavedChange)
+                await m_editor.ApplyBrightnessAsync((int)BrightnessSlider.Value);
             NavigationParameter parameter = new NavigationParameter()
             {
                 PrevPage = EnumPage.BrightnessPage,
@@ -126,7 +132,6 @@ namespace PiStudio.Win10.UI.Pages
             {
                 Progress.IsActive = true;
                 //save and continue
-                await m_editor.ApplyBrightnessAsync((int)BrightnessSlider.Value);
                 m_editor.SaveChanges();
                 await Saver.SaveTemp(m_editor);
                 var image = await WinAppResources.Instance.GetWorkingImage();

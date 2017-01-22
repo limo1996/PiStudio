@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="UI/Styles/PiToggleSwitchStyle.xaml"/>
                 <ResourceDictionary Source="UI/Styles/PiComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="UI/Styles/PiCheckBoxStyle.xaml"/>
+                <ResourceDictionary Source="UI/Styles/PiSliderStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -63,7 +63,9 @@ namespace PiStudio.Win10
             var file = await Saver.GetTempFile();
             using (var stream = await file.OpenAsync(FileAccessMode.Read))
             {
-                return await BitmapFactory.New(1, 1).FromStream(stream);
+                var bitmap = new WriteableBitmap(1, 1);
+                await bitmap.SetSourceAsync(stream);
+                return bitmap;
             }
         }
 

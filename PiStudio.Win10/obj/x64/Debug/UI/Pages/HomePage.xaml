@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
     <Grid x:ConnectionId='2'                                                                                                                      >
         <SplitView x:ConnectionId='3' Name="MainMenu" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="50"
                    OpenPaneLength="150">
@@ -59,7 +58,11 @@
                                                                                                x:Name="Bar" Width="277"/>
                     </Grid>
                     <Grid Grid.Row="1">
-                        <Image x:ConnectionId='15' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" />
+                        <Image x:ConnectionId='15' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" >
+                            <Image.Projection>
+                                <PlaneProjection />
+                            </Image.Projection>
+                        </Image>
                         <ProgressRing x:ConnectionId='16' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"
                                                                                                                                                                  />
                     </Grid>

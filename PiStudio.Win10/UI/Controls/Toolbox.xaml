@@ -28,7 +28,7 @@
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
+                    <Grid Grid.Row="0" Margin="0,0,0,2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="2*" />
@@ -44,9 +44,8 @@
                         <Rectangle Height="6" HorizontalAlignment="Stretch" Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                                    VerticalAlignment="Center" Grid.Row="3"/>
                     </Grid>
-                    <TextBlock FontSize="12" Text="{x:Bind Path=LanguagePack.DrawingSize, Mode=OneWay}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="3,0,0,0" Grid.RowSpan="2"
-                               Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
-                               Width="77"/>
+                    <TextBlock FontSize="12" Text="{x:Bind Path=LanguagePack.DrawingSize, Mode=OneWay}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1"
+                               Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Margin="0,-2,0,0"/>
                     <Polygon Points="0,0 8,0 4,4" HorizontalAlignment="Center" 
                              Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Grid.Row="2"/>
                 </Grid>
@@ -72,7 +71,7 @@
                             </LinearGradientBrush>
                         </Grid.Background>
                     </Grid>
-                    <TextBlock Grid.Row="1" FontSize="13" Text="{x:Bind Path=LanguagePack.DrawingColor, Mode=OneWay}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="24,-6,25,3" Grid.RowSpan="2"
+                    <TextBlock Grid.Row="1" FontSize="13" Text="{x:Bind Path=LanguagePack.DrawingColor, Mode=OneWay}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,-4,0,4" Grid.RowSpan="2"
                                Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                     <Polygon Points="0,0 10,0 5,5" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                              Fill="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" Grid.Row="2"/>
@@ -113,7 +112,7 @@
                                     Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
                                     Canvas.ZIndex="1"/>
                     </Grid>
-                    <TextBlock Grid.Row="1" FontSize="13" Text="{x:Bind Path=LanguagePack.DrawingUndo, Mode=OneWay}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,3" Grid.RowSpan="2"
+                    <TextBlock Grid.Row="1" FontSize="13" Text="{x:Bind Path=LanguagePack.DrawingUndo, Mode=OneWay}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,-1,0,3" Grid.RowSpan="2"
                                Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
                                Canvas.ZIndex="2"/>
                 </Grid>

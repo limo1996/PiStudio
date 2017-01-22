@@ -9,6 +9,8 @@ using System.IO;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using PiStudio.Shared;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.Foundation;
 
 namespace PiStudio.Win10.UI.Pages
 {
@@ -76,7 +78,7 @@ namespace PiStudio.Win10.UI.Pages
                 pageType = typeof(BrightnessPage);
             else if (tmp == DrawItem)
                 pageType = typeof(DrawingPage);
-            else if(tmp == SaveItem)
+            else if (tmp == SaveItem)
             {
                 //save and continue
                 Progress.IsActive = true;
@@ -85,7 +87,7 @@ namespace PiStudio.Win10.UI.Pages
                 Progress.IsActive = false;
                 return;
             }
-            else if(tmp == SpeakItem)
+            else if (tmp == SpeakItem)
             {
                 //recognize and continue
 
@@ -94,32 +96,44 @@ namespace PiStudio.Win10.UI.Pages
             PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
             await navigator.NavigateTo(pageType, parameter);
         }
-
+        
+        private bool odd = true;
+        private double m_angle = 0.0;
         private async void RotateBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            var res = Shared.ImageToolkit.Rotate(new byte[] { 1,1, 2,2, 3,3, 4,4, 5,5, 6,6}, 2, 3, 2);
-            ImageContent.Source = await m_editor.RotateAsync();
+            Storyboard rotation = new Storyboard();
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.From = m_angle;
+            m_angle -= 90;
+            animation.To = m_angle;
+            if (m_angle == -360)
+                m_angle = 0.0;
+            animation.BeginTime = TimeSpan.FromSeconds(0);
+            animation.Duration = TimeSpan.FromMilliseconds(150);
+            if (odd)
+            {
+                var tmp = ImageContent.ActualHeight;
+                ImageContent.Height = ImageContent.ActualWidth;
+                ImageContent.Width = tmp;
+                odd = false;
+            }
+            else
+            {
+                ImageContent.Height = ImageContent.Width = double.NaN;
+                odd = true;
+            }
+            Storyboard.SetTarget(animation, ImageContent);
+            Storyboard.SetTargetProperty(animation, "(UIElement.Projection).(PlaneProjection.Rotation" + "Z" + ")");
+            rotation.Children.Add(animation);
+            rotation.Begin();
+            await m_editor.RotateAsync();
         }
 
         private async void AddBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             PRing.IsActive = true;
-            FileOpenPicker picker = new FileOpenPicker();
-            picker.CommitButtonText = "Select";
-            foreach (var item in AppSettings.Instance.SupportedImageTypes)
-                picker.FileTypeFilter.Add(item);
-            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            var file = await picker.PickSingleFileAsync();
-            if (file == null)
-                return;
-            using (var stream = await file.OpenAsync(FileAccessMode.Read))
-            {
-                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
-                m_editor = new ImageEditor(decoder, file.Path);
-            }
-
-            await Saver.SaveTemp(m_editor);
-            WinAppResources.Instance.LoadedFile = file.Path;
+            PageNavigator nav = new PageNavigator(null, m_editor);
+            await nav.LoadNewImage();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
             PRing.IsActive = false;

@@ -16,8 +16,7 @@
                     <RowDefinition Height="25*"></RowDefinition>
                     <RowDefinition Height="348*"/>
                     <RowDefinition Height="107*"></RowDefinition>
-                    <RowDefinition Height="107*" MinHeight="90"></RowDefinition>
-                    <RowDefinition Height="53*"></RowDefinition>
+                    <RowDefinition Height="107*" MinHeight="120"></RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBlock x:ConnectionId='3' Name="SloganText" 
                                    FontSize="50"
@@ -38,14 +37,14 @@
                                    TextWrapping="WrapWholeWords" Margin="33,0"/>
 
                 <Button x:ConnectionId='5' FontSize="50"
-                                FontWeight="Normal"
-                                Foreground="#FFD6DBE9"
-                                Background="Transparent"
-                                Name="LoadImageButton"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Grid.Row="3"
-                                                              Margin="45,12,45,12.666">
+                        FontWeight="Normal"
+                        Foreground="#FFD6DBE9"
+                        Background="Transparent"
+                        Name="LoadImageButton"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Grid.Row="3"
+                                                      Margin="45,12,45,12.666">
                     <Button.Content>
                         <Border BorderBrush="#FFF12346"
                                 BorderThickness="3"

@@ -24,6 +24,24 @@ namespace PiStudio.Win10.Navigation
             m_editor = editor;
         }
 
+        public async Task LoadNewImage()
+        {
+            if (m_editor.IsUnsavedChange)
+            {
+                if(!await CreateAndDisplayChangesDialog())
+                    return;
+            }
+            FileOpenPicker picker = new FileOpenPicker();
+            picker.CommitButtonText = "Select";
+            foreach (var item in AppSettings.Instance.SupportedImageTypes)
+                picker.FileTypeFilter.Add(item);
+            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            var file = await picker.PickSingleFileAsync();
+            if (file == null)
+                return;
+            var newFile = await file.CopyAsync(ApplicationData.Current.LocalFolder, WinAppResources.Instance.TmpImageName, NameCollisionOption.ReplaceExisting);
+            WinAppResources.Instance.LoadedFile = file.Path;
+        }
         public async Task GetStartedButtonClick()
         {
             FileOpenPicker picker = new FileOpenPicker();
@@ -86,13 +104,15 @@ namespace PiStudio.Win10.Navigation
             m_editor.SaveChanges();
             await Saver.SaveTemp(m_editor);
             m_result = true;
-            m_frame.Navigate(m_page, m_args);
+            if(m_frame != null)
+                m_frame.Navigate(m_page, m_args);
         }
 
         private void DismissAndContinue(IUICommand command)
         {
             m_editor.Dismiss();
-            m_frame.Navigate(m_page, m_args);
+            if(m_frame != null)
+                m_frame.Navigate(m_page, m_args);
             m_result = true;
         }
 

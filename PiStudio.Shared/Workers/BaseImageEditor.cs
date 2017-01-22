@@ -36,7 +36,7 @@ namespace PiStudio.Shared
         /// <summary>
         /// Gets whether object has some unsaved changes
         /// </summary>
-        public bool IsUnsavedChange { get; protected set; }
+        public bool IsUnsavedChange { get; set; }
 
         /// <summary>
         /// Image resolution in X axis

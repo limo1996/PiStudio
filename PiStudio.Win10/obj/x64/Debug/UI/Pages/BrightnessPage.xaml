@@ -52,8 +52,7 @@
                         <local:PiBar x:ConnectionId='27'                                                                             HorizontalAlignment="Right"
                                                                                                 x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid Background="Transparent"
-                          Grid.Row="1">
+                    <Grid Background="Transparent" Margin="0,40,0,10" Grid.RowSpan="2">
                         <ProgressRing x:ConnectionId='22' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" 
                                                                                                                                                                  />
@@ -83,7 +82,8 @@
                                     Name="SliderWrapper">
                             <Slider x:ConnectionId='20' x:Name="BrightnessSlider" HorizontalAlignment="Center" 
                                 VerticalAlignment="Center" Width="400" Minimum="-100" Maximum="100" Value="0"
-                                                                                                                                                     />
+                                                                                                                                                      
+                                    Style="{StaticResource PiSliderStyle}"/>
                             <TextBlock x:ConnectionId='21'                                                               FontFamily="Segoe UI"
                                                                                                                                                             
                                        FontSize="10" FontWeight="Light" HorizontalAlignment="Center"/>

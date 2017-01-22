@@ -28,7 +28,7 @@
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
+                    <Grid Grid.Row="0" Margin="0,0,0,2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="2*" />
@@ -44,9 +44,8 @@
                         <Rectangle x:ConnectionId='54' Height="6" HorizontalAlignment="Stretch"                                                                                                                     
                                    VerticalAlignment="Center" Grid.Row="3"/>
                     </Grid>
-                    <TextBlock x:ConnectionId='49' FontSize="12"                                                            VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="3,0,0,0" Grid.RowSpan="2"
-                                                                                                                                                         
-                               Width="77"/>
+                    <TextBlock x:ConnectionId='49' FontSize="12"                                                            VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1"
+                                                                                                                                                          Margin="0,-2,0,0"/>
                     <Polygon x:ConnectionId='50' Points="0,0 8,0 4,4" HorizontalAlignment="Center" 
                                                                                                                                                   Grid.Row="2"/>
                 </Grid>
@@ -72,7 +71,7 @@
                             </LinearGradientBrush>
                         </Grid.Background>
                     </Grid>
-                    <TextBlock x:ConnectionId='42' Grid.Row="1" FontSize="13"                                                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="24,-6,25,3" Grid.RowSpan="2"
+                    <TextBlock x:ConnectionId='42' Grid.Row="1" FontSize="13"                                                             VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,-4,0,4" Grid.RowSpan="2"
                                                                                                                                                          />
                     <Polygon x:ConnectionId='43' Points="0,0 10,0 5,5" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                                                                                                                                                   Grid.Row="2"/>
@@ -113,7 +112,7 @@
                                                                                                                                                                
                                     Canvas.ZIndex="1"/>
                     </Grid>
-                    <TextBlock x:ConnectionId='34' Grid.Row="1" FontSize="13"                                                            VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,3" Grid.RowSpan="2"
+                    <TextBlock x:ConnectionId='34' Grid.Row="1" FontSize="13"                                                            VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,-1,0,3" Grid.RowSpan="2"
                                                                                                                                                          
                                Canvas.ZIndex="2"/>
                 </Grid>

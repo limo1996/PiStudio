@@ -49,38 +49,7 @@ namespace PiStudio.Win10
 
         private static async Task SaveToStream(IRandomAccessStream fileStream, ISaveable obj, string fileName)
         {
-            /*using (var stream = fileStream.CloneStream())
-            {
-                stream.Seek(0);*/
                 await obj.Save(fileStream.AsStream());
-            /*    stream.Seek(0);
-                stream.AsStream().CopyTo(fileStream.AsStream());
-            }
-            */
-            /*using (var rstream = new InMemoryRandomAccessStream())
-            {
-                //IRandomAccessStream rstream = output.AsRandomAccessStream();//await savefile.OpenAsync(FileAccessMode.ReadWrite);
-                string suffix = null;
-                int index = fileName.LastIndexOf('.');
-                if (index == -1)
-                    suffix = "jpeg";
-                else
-                    suffix = fileName.Substring(index);
-                WinBitmapEncoder encoder = await WinBitmapEncoder.CreateAsync(rstream.AsStream(), suffix);
-                // Get pixels of the WriteableBitmap object 
-                byte[] pixels = null;
-                using (Stream pixelStream = originalImage.PixelBuffer.AsStream())
-                {
-                    pixels = new byte[pixelStream.Length];
-                    await pixelStream.ReadAsync(pixels, 0, pixels.Length);
-                }
-                // Save the image file with jpg extension 
-                encoder.SetPixelData(PixelFormat.Bgra8, false, (uint)originalImage.PixelWidth, (uint)originalImage.PixelHeight, 96.0, 96.0, pixels);
-                await encoder.FlushAsync();
-                fileStream.Seek(0);
-                await rstream.AsStream().CopyToAsync(fileStream.AsStream());
-            }
-            return originalImage;*/
         }
     }
 }
