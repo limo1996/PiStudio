@@ -2,8 +2,10 @@
 using PiStudio.Win10.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Metadata;
@@ -67,6 +69,19 @@ namespace PiStudio.Win10
                 await bitmap.SetSourceAsync(stream);
                 return bitmap;
             }
+        }
+
+        public async Task<ImageEditor> GetImageEditorAsync()
+        {
+            ImageEditor editor;
+            var file = await Saver.GetTempFile();
+            using (var stream = await file.OpenAsync(FileAccessMode.Read))
+            {
+                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
+                editor = new ImageEditor(decoder, file.Path);
+            }
+            
+            return editor;
         }
 
         public Theme ApplicationTheme { get; set; }

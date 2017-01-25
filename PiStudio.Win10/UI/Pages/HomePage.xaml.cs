@@ -11,6 +11,7 @@ using Windows.Storage.Pickers;
 using PiStudio.Shared;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.Foundation;
+using Windows.UI.Xaml.Media;
 
 namespace PiStudio.Win10.UI.Pages
 {
@@ -40,13 +41,7 @@ namespace PiStudio.Win10.UI.Pages
             PRing.IsActive = true;
 
             var image = await WinAppResources.Instance.GetWorkingImage();
-
-            var file = await Saver.GetTempFile();
-            using (var stream = await file.OpenAsync(FileAccessMode.Read))
-            {
-                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
-                m_editor = new ImageEditor(decoder, file.Path);
-            }
+            m_editor = await WinAppResources.Instance.GetImageEditorAsync();
 
             PRing.IsActive = false;
             ImageContent.Source = image;
@@ -98,18 +93,15 @@ namespace PiStudio.Win10.UI.Pages
         }
         
         private bool odd = true;
-        private double m_angle = 0.0;
-        private async void RotateBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void RotateBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            //var prev = ((Windows.UI.Xaml.Media.PlaneProjection)ImageContent.Projection);
             Storyboard rotation = new Storyboard();
             DoubleAnimation animation = new DoubleAnimation();
-            animation.From = m_angle;
-            m_angle -= 90;
-            animation.To = m_angle;
-            if (m_angle == -360)
-                m_angle = 0.0;
+            animation.From = 0;
+            animation.To = -90;
             animation.BeginTime = TimeSpan.FromSeconds(0);
-            animation.Duration = TimeSpan.FromMilliseconds(150);
+            animation.Duration = TimeSpan.FromMilliseconds(100);
             if (odd)
             {
                 var tmp = ImageContent.ActualHeight;
@@ -126,7 +118,14 @@ namespace PiStudio.Win10.UI.Pages
             Storyboard.SetTargetProperty(animation, "(UIElement.Projection).(PlaneProjection.Rotation" + "Z" + ")");
             rotation.Children.Add(animation);
             rotation.Begin();
-            await m_editor.RotateAsync();
+            var rotationTask = m_editor.RotateAsync();
+            rotation.Completed += async (o, ee) =>
+            {
+                ImageContent.Projection = new Windows.UI.Xaml.Media.PlaneProjection();
+                ImageContent.Source = await rotationTask;
+                ImageContent.Width = ImageContent.Height = double.NaN;
+
+            };
         }
 
         private async void AddBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -134,6 +133,7 @@ namespace PiStudio.Win10.UI.Pages
             PRing.IsActive = true;
             PageNavigator nav = new PageNavigator(null, m_editor);
             await nav.LoadNewImage();
+            m_editor = await WinAppResources.Instance.GetImageEditorAsync();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
             PRing.IsActive = false;

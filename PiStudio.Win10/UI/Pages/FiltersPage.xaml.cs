@@ -42,13 +42,7 @@ namespace PiStudio.Win10.UI.Pages
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
 
-            var file = await Saver.GetTempFile();
-            using (var stream = await file.OpenAsync(FileAccessMode.Read))
-            {
-                var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
-                m_editor = new ImageEditor(decoder, file.Path);
-            }
-
+            m_editor = await WinAppResources.Instance.GetImageEditorAsync();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
             await LoadItems(m_editor);

@@ -13,6 +13,7 @@ using Windows.Graphics.Imaging;
 using PiStudio.Shared.Data;
 using Windows.Storage.Streams;
 using PiStudio.Win10.UI.Controls;
+using System.Threading;
 
 namespace PiStudio.Win10
 {
@@ -26,24 +27,26 @@ namespace PiStudio.Win10
             }
         }
 
+        private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
         public static async Task<StorageFile> GetTempFile()
         {
+            await semaphore.WaitAsync();
             var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(WinAppResources.Instance.TmpImageName);
-            if (item != null)
-            {
-                return (StorageFile)item;
-            }
-            else
-                return await ApplicationData.Current.LocalFolder.CreateFileAsync(WinAppResources.Instance.TmpImageName);
+            if (item == null)
+                item = await ApplicationData.Current.LocalFolder.CreateFileAsync(WinAppResources.Instance.TmpImageName);
+            semaphore.Release();
+            return (StorageFile)item;
         }
 
         public static async Task SaveTemp(ISaveable obj)
         {
             var file = await GetTempFile();
+            await semaphore.WaitAsync();
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
                 await SaveToStream(fileStream, obj, file.Name);
             }
+            semaphore.Release();
         }
 
 

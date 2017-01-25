@@ -43,27 +43,27 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid x:ConnectionId='14' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='17' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                        <TextBlock x:ConnectionId='18' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <Button x:ConnectionId='18' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,275,0" Height="50" Width="50"
+                        <Button x:ConnectionId='19' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,275,0" Height="50" Width="50"
                                 Background="Transparent" BorderThickness="0" Name="RotateBtn"                        
                                 FontFamily="Segoe MDL2 Assets" Content="&#xE14A;" FontSize="23"
                                                                                                                                                      />
-                        <Button x:ConnectionId='19' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,322,0" Height="50" Width="50"
+                        <Button x:ConnectionId='20' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,322,0" Height="50" Width="50"
                                 Background="Transparent" BorderThickness="0" Name="AddBtn"                     
                                 FontFamily="Segoe MDL2 Assets" Content="&#xE109;" FontSize="23"
                                                                                                                                                      />
-                        <local:PiBar x:ConnectionId='20'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='21'                                                                             HorizontalAlignment="Right"
                                                                                                x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <Image x:ConnectionId='15' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" >
+                    <Grid x:ConnectionId='15' Grid.Row="1" Name="ImgWrapper">
+                        <Image x:ConnectionId='16' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" >
                             <Image.Projection>
                                 <PlaneProjection />
                             </Image.Projection>
                         </Image>
-                        <ProgressRing x:ConnectionId='16' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"
+                        <ProgressRing x:ConnectionId='17' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"
                                                                                                                                                                  />
                     </Grid>
                 </Grid>
