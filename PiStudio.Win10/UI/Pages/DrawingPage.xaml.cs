@@ -68,6 +68,8 @@ namespace PiStudio.Win10.UI.Pages
             };
 
             Type pageType = typeof(SettingsPage);
+            PageNavigator navigator = new PageNavigator(this.Frame, DrawingCanvas);
+
             if (tmp == HomeItem)
                 pageType = typeof(HomePage);
             else if (tmp == FilterItem)
@@ -80,7 +82,7 @@ namespace PiStudio.Win10.UI.Pages
             {
                 //save and continue
                 Progress.IsActive = true;
-                await Saver.SaveTemp(DrawingCanvas);
+                await FileServer.SaveTempAsync(DrawingCanvas);
                 var image = await WinAppResources.Instance.GetWorkingImage();
                 ImgPresenter.Source = image;
                 DrawingCanvas.Clear();
@@ -93,7 +95,11 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, DrawingCanvas);
+            else if (tmp == ShareItem)
+            {
+                navigator.Share();
+                return;
+            }
             await navigator.NavigateTo(pageType, parameter);
         }
     }

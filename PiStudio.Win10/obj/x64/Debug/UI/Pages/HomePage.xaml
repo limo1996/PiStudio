@@ -26,13 +26,16 @@
                                     Symbol="Edit"                                                          Height="50" Margin="0,200,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='10' x:Name="SaveItem"                                                                                       
                                     Symbol="Save"                                                          Height="50" Margin="0,250,0,0" VerticalAlignment="Top"/>
-                    <local:MenuItem x:ConnectionId='11' x:Name="SpeakItem"                                                                                       
-                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
+                    <local:MenuItem x:ConnectionId='11' x:Name="ShareItem"                                                                                       
+                                    Symbol="ReShare"                                                          Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
+                    <local:MenuItem x:ConnectionId='12' x:Name="SpeakItem"                                                                                       
+                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,350,0,0" VerticalAlignment="Top"/>
+                    
 
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
-                    <local:MenuItem x:ConnectionId='12' x:Name="SettingsItem"                                                                                       
+                    <local:MenuItem x:ConnectionId='13' x:Name="SettingsItem"                                                                                       
                                     Symbol="Setting"                                                         IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
-                    <ProgressRing x:ConnectionId='13' x:Name="Progress" Width="31" Height="31" Margin="10,260" VerticalAlignment="Top" HorizontalAlignment="Left"
+                    <ProgressRing x:ConnectionId='14' x:Name="Progress" Width="31" Height="31" Margin="10,260" VerticalAlignment="Top" HorizontalAlignment="Left"
                                                                                                                                                               />
                 </Grid>
             </SplitView.Pane>
@@ -42,28 +45,28 @@
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid x:ConnectionId='14' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='18' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                    <Grid x:ConnectionId='15' Grid.Row="0"                                                                                                                                >
+                        <TextBlock x:ConnectionId='19' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <Button x:ConnectionId='19' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,275,0" Height="50" Width="50"
+                        <Button x:ConnectionId='20' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,275,0" Height="50" Width="50"
                                 Background="Transparent" BorderThickness="0" Name="RotateBtn"                        
                                 FontFamily="Segoe MDL2 Assets" Content="&#xE14A;" FontSize="23"
                                                                                                                                                      />
-                        <Button x:ConnectionId='20' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,322,0" Height="50" Width="50"
+                        <Button x:ConnectionId='21' HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,322,0" Height="50" Width="50"
                                 Background="Transparent" BorderThickness="0" Name="AddBtn"                     
                                 FontFamily="Segoe MDL2 Assets" Content="&#xE109;" FontSize="23"
                                                                                                                                                      />
-                        <local:PiBar x:ConnectionId='21'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='22'                                                                             HorizontalAlignment="Right"
                                                                                                x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid x:ConnectionId='15' Grid.Row="1" Name="ImgWrapper">
-                        <Image x:ConnectionId='16' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" >
+                    <Grid x:ConnectionId='16' Grid.Row="1" Name="ImgWrapper">
+                        <Image x:ConnectionId='17' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" >
                             <Image.Projection>
                                 <PlaneProjection />
                             </Image.Projection>
                         </Image>
-                        <ProgressRing x:ConnectionId='17' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"
+                        <ProgressRing x:ConnectionId='18' HorizontalAlignment="Center" VerticalAlignment="Center" Height="125" Width="125" Name="PRing"
                                                                                                                                                                  />
                     </Grid>
                 </Grid>

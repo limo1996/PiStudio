@@ -107,6 +107,8 @@ namespace PiStudio.Win10.UI.Pages
             };
 
             Type pageType = typeof(SettingsPage);
+            PageNavigator navigator = new PageNavigator(this.Frame, null);
+
             if (tmp == HomeItem)
                 pageType = typeof(HomePage);
             else if (tmp == FilterItem)
@@ -127,7 +129,11 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, null);
+            else if (tmp == ShareItem)
+            {
+                navigator.Share();
+                return;
+            }
             await navigator.NavigateTo(pageType, parameter);
         }
 

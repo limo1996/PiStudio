@@ -393,6 +393,7 @@
       <RootProperty Name="Style" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Foreground" />
+      <RootProperty Name="IsEnabled" />
       <RootProperty Name="IsOn" />
       <RootEvent Name="Toggled" />
     </RootType>

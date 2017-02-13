@@ -27,68 +27,70 @@
                                     Symbol="Edit"                                                          Height="50" Margin="0,200,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='10' x:Name="SaveItem"                                                                                       
                                     Symbol="Save"                                                          Height="50" Margin="0,250,0,0" VerticalAlignment="Top"/>
-                    <local:MenuItem x:ConnectionId='11' x:Name="SpeakItem"                                                                                       
-                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
-                    <ProgressRing x:ConnectionId='12' x:Name="Progress" Width="31" Height="31" Margin="10,260" VerticalAlignment="Top" HorizontalAlignment="Left"
+                    <local:MenuItem x:ConnectionId='11' x:Name="ShareItem"                                                                                       
+                                    Symbol="ReShare"                                                          Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
+                    <local:MenuItem x:ConnectionId='12' x:Name="SpeakItem"                                                                                       
+                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,350,0,0" VerticalAlignment="Top"/>
+                    <ProgressRing x:ConnectionId='13' x:Name="Progress" Width="31" Height="31" Margin="10,260" VerticalAlignment="Top" HorizontalAlignment="Left"
                                                                                                                                                               />
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
-                    <local:MenuItem x:ConnectionId='13' x:Name="SettingsItem"                                                                                       
+                    <local:MenuItem x:ConnectionId='14' x:Name="SettingsItem"                                                                                       
                                     Symbol="Setting"                                                         IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
 
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid x:ConnectionId='14' Name="GridContent">
+                <Grid x:ConnectionId='15' Name="GridContent">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="4*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Grid x:ConnectionId='15' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='26' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                    <Grid x:ConnectionId='16' Grid.Row="0"                                                                                                                                >
+                        <TextBlock x:ConnectionId='27' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <local:PiBar x:ConnectionId='27'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='28'                                                                             HorizontalAlignment="Right"
                                                                                                 x:Name="Bar" Width="277"/>
                     </Grid>
                     <Grid Background="Transparent" Margin="0,40,0,10" Grid.RowSpan="2">
-                        <ProgressRing x:ConnectionId='22' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        <ProgressRing x:ConnectionId='23' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" 
                                                                                                                                                                  />
-                        <Grid x:ConnectionId='23' Name="Wrapper">
-                            <Image x:ConnectionId='24' Margin="10,30,10,15" Name="ImageContent" Stretch="Uniform" Canvas.ZIndex="5"
+                        <Grid x:ConnectionId='24' Name="Wrapper">
+                            <Image x:ConnectionId='25' Margin="10,30,10,15" Name="ImageContent" Stretch="Uniform" Canvas.ZIndex="5"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                                                          />
-                            <Rectangle x:ConnectionId='25' Fill="White" Name="BackgroundColor" Canvas.ZIndex="10" Opacity="0"
+                            <Rectangle x:ConnectionId='26' Fill="White" Name="BackgroundColor" Canvas.ZIndex="10" Opacity="0"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
                                        Margin="0, 15, 0, 0"/>
                         </Grid>
                     </Grid>
-                    <Grid x:ConnectionId='16' Grid.Row="2" Name="LowerPanel">
+                    <Grid x:ConnectionId='17' Grid.Row="2" Name="LowerPanel">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:ConnectionId='17'                                                                                                                       
+                        <TextBlock x:ConnectionId='18'                                                                                                                       
                                                                                              HorizontalAlignment="Right" 
                                    VerticalAlignment="Center" Grid.Row="1" FontSize="40" 
                                    FontFamily="Segoe UI" FontWeight="Light"
                                    Padding="0,0,30,0" Name="BrightnessText"/>
-                        <StackPanel x:ConnectionId='18' Grid.Column="1" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0"
+                        <StackPanel x:ConnectionId='19' Grid.Column="1" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0"
                                     Name="SliderWrapper">
-                            <Slider x:ConnectionId='20' x:Name="BrightnessSlider" HorizontalAlignment="Center" 
+                            <Slider x:ConnectionId='21' x:Name="BrightnessSlider" HorizontalAlignment="Center" 
                                 VerticalAlignment="Center" Width="400" Minimum="-100" Maximum="100" Value="0"
                                                                                                                                                       
                                     Style="{StaticResource PiSliderStyle}"/>
-                            <TextBlock x:ConnectionId='21'                                                               FontFamily="Segoe UI"
+                            <TextBlock x:ConnectionId='22'                                                               FontFamily="Segoe UI"
                                                                                                                                                             
                                        FontSize="10" FontWeight="Light" HorizontalAlignment="Center"/>
                         </StackPanel>
-                        <TextBlock x:ConnectionId='19' Name="SliderValue" VerticalAlignment="Center" HorizontalAlignment="Left"
+                        <TextBlock x:ConnectionId='20' Name="SliderValue" VerticalAlignment="Center" HorizontalAlignment="Left"
                                    Padding="30,0,0,0" Text="0" FontFamily="Segoe UI" FontWeight="Light"
                                    FontSize="40" Grid.Column="2"                                                                                                                      />
                     </Grid>

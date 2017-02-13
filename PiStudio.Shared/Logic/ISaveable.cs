@@ -11,7 +11,7 @@ namespace PiStudio.Shared
         /// <summary>
         /// Gets whether object has some unsaved changes
         /// </summary>
-        bool IsUnsavedChange { get; }
+        bool HasUnsavedChange { get; }
 
         /// <summary>
         /// Saves inner unsaved changes

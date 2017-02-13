@@ -107,5 +107,17 @@ namespace PiStudio.Shared
                                                                  { 1, -7,  1 },
                                                                  { 1,  1,  1} }), false));
         }
+
+        /// <summary>
+        /// Copies content into <see cref="AppSettings"/> instance.
+        /// </summary>
+        /// <param name="settings"></param>
+        public abstract void CopyTo(AppSettings settings);
+
+        /// <summary>
+        /// Loads content from <see cref="AppSettings"/> instance.
+        /// </summary>
+        /// <param name="settings"></param>
+        public abstract void LoadFrom(AppSettings settings);
     }
 }

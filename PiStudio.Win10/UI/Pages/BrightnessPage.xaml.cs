@@ -74,9 +74,9 @@ namespace PiStudio.Win10.UI.Pages
         private void BrightnessSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             if (e.NewValue == 0)
-                m_editor.IsUnsavedChange = false;
+                m_editor.HasUnsavedChange = false;
             else
-                m_editor.IsUnsavedChange = true;
+                m_editor.HasUnsavedChange = true;
            if (e.NewValue < 0 && e.OldValue >= 0)
                 BackgroundColor.Fill = new SolidColorBrush(Colors.Black);
             else if (e.NewValue >= 0 && e.OldValue < 0)
@@ -106,7 +106,7 @@ namespace PiStudio.Win10.UI.Pages
             if (tmp != null && !tmp.IsSelectionEnabled)
                 return;
 
-            if(m_editor.IsUnsavedChange)
+            if(m_editor.HasUnsavedChange)
                 await m_editor.ApplyBrightnessAsync((int)BrightnessSlider.Value);
             NavigationParameter parameter = new NavigationParameter()
             {
@@ -115,6 +115,8 @@ namespace PiStudio.Win10.UI.Pages
             };
 
             Type pageType = typeof(SettingsPage);
+            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
+
             if (tmp == HomeItem)
                 pageType = typeof(HomePage);
             else if (tmp == FilterItem)
@@ -128,7 +130,7 @@ namespace PiStudio.Win10.UI.Pages
                 Progress.IsActive = true;
                 //save and continue
                 m_editor.SaveChanges();
-                await Saver.SaveTemp(m_editor);
+                await FileServer.SaveTempAsync(m_editor);
                 var image = await WinAppResources.Instance.GetWorkingImage();
                 ImageContent.Source = image;
                 BrightnessSlider.Value = 0;
@@ -141,7 +143,11 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
+            else if (tmp == ShareItem)
+            {
+                navigator.Share();
+                return;
+            }
             await navigator.NavigateTo(pageType, parameter);
         }
     }

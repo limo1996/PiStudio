@@ -252,6 +252,7 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\PiBar.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\PiCanvas.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\Toolbox.xaml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\BrightnessPage.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\DrawingPage.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\FiltersPage.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\HomePage.xaml
@@ -260,13 +261,14 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\AutoSuggestBoxTextBoxStyle.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiCheckBoxStyle.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiComboBoxStyle.xaml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiSliderStyle.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiToggleSwitchStyle.xaml
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\BrightnessPage.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\App.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\MenuItem.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\PiBar.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\PiCanvas.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\Toolbox.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\BrightnessPage.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\DrawingPage.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\FiltersPage.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\HomePage.xbf
@@ -275,8 +277,8 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\AutoSuggestBoxTextBoxStyle.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiCheckBoxStyle.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiComboBoxStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiSliderStyle.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiToggleSwitchStyle.xbf
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Pages\BrightnessPage.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\XamlSaveStateFile.xml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\ApplicationInsights.config
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\App.xbf
@@ -293,6 +295,7 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\AutoSuggestBoxTextBoxStyle.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiCheckBoxStyle.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiComboBoxStyle.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiSliderStyle.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiToggleSwitchStyle.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.xr.xml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.exe
@@ -484,6 +487,3 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\qualifiers.txt.intermediate
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\ProjectArchitectures.txt
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Styles\PiSliderStyle.xbf
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiSliderStyle.xaml
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Styles\PiSliderStyle.xbf

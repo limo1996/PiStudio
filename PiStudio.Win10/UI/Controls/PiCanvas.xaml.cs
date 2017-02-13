@@ -15,6 +15,7 @@ using Windows.Storage;
 using System.IO;
 using PiStudio.Win10;
 using Windows.UI.Xaml;
+using PiStudio.Shared.Data;
 
 namespace PiStudio.Win10.UI.Controls
 {
@@ -45,9 +46,10 @@ namespace PiStudio.Win10.UI.Controls
 
         public Color BrushColor { get; set; }
         public uint BrushThickness { get; set; }
+        public ShapeType DrawingShape { get; set; }
         public bool IsEmpty { get { return m_curves.Count == 0; } }
 
-        public bool IsUnsavedChange
+        public bool HasUnsavedChange
         {
             get
             {
@@ -93,7 +95,8 @@ namespace PiStudio.Win10.UI.Controls
             m_actualCurve = new SVGCurve()
             {
                 Thickness = BrushThickness,
-                Color = BrushColor
+                Color = BrushColor,
+                ShapeType = this.DrawingShape
             };
             m_actualCurve.Data.Add(e.GetCurrentPoint(m_canvas).Position);
             e.Handled = true;
@@ -117,6 +120,40 @@ namespace PiStudio.Win10.UI.Controls
             };
 
             m_canvas.Children.Add(line);
+        }
+
+        private void AddRect(Point p1, Point p2, Color brushColor, float brushThickness)
+        {
+            Rectangle rect = new Rectangle()
+            {
+                Width = Math.Abs(p1.X - p2.X),
+                Height = Math.Abs(p1.Y - p2.Y),
+                StrokeThickness = brushThickness,
+                Stroke = new SolidColorBrush(brushColor),
+                StrokeLineJoin = PenLineJoin.Round,
+                StrokeStartLineCap = PenLineCap.Round,
+                StrokeEndLineCap = PenLineCap.Round,
+            };
+            Canvas.SetLeft(rect, Math.Min(p1.X, p2.X));
+            Canvas.SetTop(rect, Math.Min(p1.Y, p2.Y));
+
+            m_canvas.Children.Add(rect);
+        }
+
+        private void AddRectBack(Point p1, Point p2, Color brushColor, float brushThickness)
+        {
+            SVGCurve curve = new SVGCurve()
+            {
+                Thickness = brushThickness,
+                Color = brushColor,
+                ShapeType = ShapeType.Rectangle
+            };
+            curve.Data.Add(p1);
+            curve.Data.Add(new Point(p2.X, p1.Y));
+            curve.Data.Add(p2);
+            curve.Data.Add(new Point(p1.X, p2.Y));
+            curve.Data.Add(p1);
+            m_curves.Add(curve);
         }
 
         private void ReloadCurves()

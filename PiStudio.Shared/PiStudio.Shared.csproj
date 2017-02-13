@@ -41,6 +41,7 @@
     <Compile Include="Data\LanguageInitializer.cs" />
     <Compile Include="Data\NavigationParameter.cs" />
     <Compile Include="Data\PixelFormat.cs" />
+    <Compile Include="Data\ShapeType.cs" />
     <Compile Include="General\AppResources.cs" />
     <Compile Include="General\AppSettings.cs" />
     <Compile Include="Logic\IPageNavigator.cs" />

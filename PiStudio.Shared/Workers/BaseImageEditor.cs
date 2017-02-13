@@ -30,13 +30,13 @@ namespace PiStudio.Shared
         {
             int index = filepath.LastIndexOf('.');
             MimeType = filepath.Substring(index + 1);
-            IsUnsavedChange = false;
+            HasUnsavedChange = false;
         }
 
         /// <summary>
         /// Gets whether object has some unsaved changes
         /// </summary>
-        public bool IsUnsavedChange { get; set; }
+        public bool HasUnsavedChange { get; set; }
 
         /// <summary>
         /// Image resolution in X axis
@@ -80,7 +80,7 @@ namespace PiStudio.Shared
         {
             var brightnessBytes = ImageToolkit.ApplyBrightness(m_workingImageInBytes, m_bytePerPixel, IsAlpha(), brightness);
             m_unsavedImageInBytes = brightnessBytes;
-            IsUnsavedChange = true;
+            HasUnsavedChange = true;
             return brightnessBytes;
         }
 
@@ -95,7 +95,7 @@ namespace PiStudio.Shared
             ImageConverter converter = new ImageConverter();
             byte[] resultPixels = tmpPixels;//converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);
             m_unsavedImageInBytes = resultPixels;
-            IsUnsavedChange = false;
+            HasUnsavedChange = false;
             return resultPixels;
         }
 
@@ -110,7 +110,7 @@ namespace PiStudio.Shared
             m_imageWidth = tmp;
 
             m_unsavedImageInBytes = rotatedBytes;
-            IsUnsavedChange = true;
+            HasUnsavedChange = true;
             return rotatedBytes;
         }
 
@@ -122,7 +122,7 @@ namespace PiStudio.Shared
             if (imageBytes.Length != m_workingImageInBytes.Length)
                 return;
             m_unsavedImageInBytes = imageBytes;
-            IsUnsavedChange = true;
+            HasUnsavedChange = true;
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace PiStudio.Shared
         public void SaveChanges()
         {
             m_unsavedImageInBytes.CopyTo(m_workingImageInBytes, 0);
-            IsUnsavedChange = false;
+            HasUnsavedChange = false;
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace PiStudio.Shared
         public void Dismiss()
         {
             m_workingImageInBytes.CopyTo(m_unsavedImageInBytes, 0);
-            IsUnsavedChange = false;
+            HasUnsavedChange = false;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PiStudio.Win10.UI.Pages;
+﻿using PiStudio.Shared;
+using PiStudio.Win10.UI.Pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,7 +43,7 @@ namespace PiStudio.Win10.UI
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
@@ -51,6 +52,8 @@ namespace PiStudio.Win10.UI
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+            await AppSettings.CreateAsync();
+            WinAppResources.Instance.LoadFrom(AppSettings.Instance);
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -104,10 +107,12 @@ namespace PiStudio.Win10.UI
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
+            WinAppResources.Instance.CopyTo(AppSettings.Instance);
+            await AppSettings.SaveAsync();
             deferral.Complete();
         }
     }

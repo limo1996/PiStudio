@@ -16,34 +16,52 @@ namespace PiStudio.Shared
     public class AppSettings
     {
         //name of the settings file. 
-        private const string m_filename = "AppSettings.xml";
+        private static string m_filename = "AppSettings.xml";
 
         /// <summary>
         /// Creates new instance of <see cref="AppSettings"/>
         /// </summary>
         private AppSettings()
         {
+            IsPredefinedTheme = true;
+            SupportedImageTypes.Clear();
             SupportedImageTypes.Add(".jpg");
             SupportedImageTypes.Add(".png");
             SupportedImageTypes.Add(".jpeg");
             SupportedImageTypes.Add(".gif");
-            IsDarkTheme = false;
         }
 
         /// <summary>
         /// Asynchronously creates new instance of <see cref="AppSettings"/> class and loads its content from file named <c>AppSettings.xml</c>
         /// </summary>
         /// <returns></returns>
-        private static async Task<AppSettings> Create()
+        public static async Task CreateAsync()
         {
-            if (await FileSystem.Current.LocalStorage.CheckExistsAsync(m_filename) == ExistenceCheckResult.NotFound)
-                throw new FileNotFoundException("App settings file not found...");
-            IFile file = await FileSystem.Current.LocalStorage.GetFileAsync(m_filename);
+            AppSettings s = new AppSettings();
+            if (await FileSystem.Current.LocalStorage.CheckExistsAsync(m_filename) != ExistenceCheckResult.NotFound)
+            {
+                IFile file = await FileSystem.Current.LocalStorage.GetFileAsync(m_filename);
+                
+                using (var stream = await file.OpenAsync(FileAccess.Read))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
+                    s = (AppSettings)serializer.Deserialize(stream);
+                }
+            }
+            AppSettings.Instance = s;
+        }
 
-            using (var stream = await file.OpenAsync(FileAccess.Read))
+        /// <summary>
+        /// Asynchronously saves <see cref="AppSettings"/> object to app's local storage.
+        /// </summary>
+        public static async Task SaveAsync()
+        {
+            IFile file = await FileSystem.Current.LocalStorage.CreateFileAsync(m_filename, CreationCollisionOption.OpenIfExists);
+            await file.WriteAllTextAsync("");
+            using (var stream = await file.OpenAsync(FileAccess.ReadAndWrite))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
-                return (AppSettings)serializer.Deserialize(stream);
+                serializer.Serialize(stream, AppSettings.Instance);
             }
         }
 
@@ -60,6 +78,7 @@ namespace PiStudio.Shared
                     m_instance = new AppSettings();
                 return m_instance;
             }
+            private set { m_instance = value; }
         }
 
         private List<string> m_supportedImageTypes = new List<string>();
@@ -83,57 +102,58 @@ namespace PiStudio.Shared
         public Data.Language AppLanguage { get; set; }
 
         public bool AutoSave { get; set; }
+
         /// <summary>
-        /// Indicates, whether is dark theme chosen.
+        /// Indicates whether is set one of the predefined themes (dark and light)
         /// </summary>
         public bool IsDarkTheme { get; set; }
 
-        #region Custom Colors
         /// <summary>
-        /// Indicates, whether is custom theme chosen. Just in case that this property is
-        /// set to <c>false</c> property IsDarkTheme should be read.
+        /// Indicates whether is predefined or custom theme
         /// </summary>
-        public bool IsCustomTheme { get; set; }
+        public bool IsPredefinedTheme { get; set; }
+
+        #region Colors
 
         /// <summary>
         /// Color of the application content's (i.e. everything except panels) text, or color of some the controls.
         /// </summary>
-        public int Foreground { get; set; }
+        public uint Foreground { get; set; }
 
         /// <summary>
         /// Color of the application's content's (i.e. everything except panels) background.
         /// </summary>
-        public int Background { get; set; }
+        public uint Background { get; set; }
 
         /// <summary>
         /// Background color of the menu panel.
         /// </summary>
-        public int PanelBackground { get; set; }
+        public uint PanelBackground { get; set; }
 
         /// <summary>
         /// Color of the application's borders.
         /// </summary>
-        public int Borders { get; set; }
+        public uint Borders { get; set; }
 
         /// <summary>
         /// Color of the panels foreground(icons, text, buttons).
         /// </summary>
-        public int PanelForeground { get; set; }
+        public uint PanelForeground { get; set; }
 
         /// <summary>
         /// Main color of the application. Color of the window, menu panel's focused item.
         /// </summary>
-        public int PanelItemFocused { get; set; }
+        public uint PanelItemFocused { get; set; }
 
         /// <summary>
         /// Color when is pointer over an clicable item.
         /// </summary>
-        public int ClickableForeground { get; set; }
+        public uint ClickableForeground { get; set; }
 
         /// <summary>
         /// Color of the upper panel background.
         /// </summary>
-        public int UpperPanelBackground { get; set; }
+        public uint UpperPanelBackground { get; set; }
         #endregion
     }
 }

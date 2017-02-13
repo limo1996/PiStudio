@@ -14,21 +14,22 @@ using PiStudio.Shared.Data;
 using Windows.Storage.Streams;
 using PiStudio.Win10.UI.Controls;
 using System.Threading;
+using Windows.ApplicationModel;
 
 namespace PiStudio.Win10
 {
-    public static class Saver
+    public static class FileServer
     {
-        public static async Task SaveToFile(StorageFile file, ISaveable obj)
+        public static async Task SaveToFileAsync(StorageFile file, ISaveable obj)
         {
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
-                await SaveToStream(fileStream, obj, file.Name);
+                await SaveToStreamAsync(fileStream, obj, file.Name);
             }
         }
 
         private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
-        public static async Task<StorageFile> GetTempFile()
+        public static async Task<StorageFile> GetTempFileAsync()
         {
             await semaphore.WaitAsync();
             var item = await ApplicationData.Current.LocalFolder.TryGetItemAsync(WinAppResources.Instance.TmpImageName);
@@ -38,21 +39,25 @@ namespace PiStudio.Win10
             return (StorageFile)item;
         }
 
-        public static async Task SaveTemp(ISaveable obj)
+        public static async Task SaveTempAsync(ISaveable obj)
         {
-            var file = await GetTempFile();
+            var file = await GetTempFileAsync();
             await semaphore.WaitAsync();
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
-                await SaveToStream(fileStream, obj, file.Name);
+                await SaveToStreamAsync(fileStream, obj, file.Name);
             }
             semaphore.Release();
         }
 
-
-        private static async Task SaveToStream(IRandomAccessStream fileStream, ISaveable obj, string fileName)
+        private static async Task SaveToStreamAsync(IRandomAccessStream fileStream, ISaveable obj, string fileName)
         {
                 await obj.Save(fileStream.AsStream());
+        }
+
+        public static async Task<StorageFile> GetLogoAsync()
+        {
+            return await Package.Current.InstalledLocation.GetFileAsync("Assets\\StoreLogo.png");
         }
     }
 }

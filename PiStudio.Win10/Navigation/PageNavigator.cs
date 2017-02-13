@@ -26,7 +26,7 @@ namespace PiStudio.Win10.Navigation
 
         public async Task LoadNewImage()
         {
-            if (m_editor.IsUnsavedChange)
+            if (m_editor.HasUnsavedChange)
             {
                 if(!await CreateAndDisplayChangesDialog())
                     return;
@@ -58,7 +58,7 @@ namespace PiStudio.Win10.Navigation
                 m_editor = new ImageEditor(decoder, file.Path);
             }
             
-            await Saver.SaveTemp(m_editor);
+            await FileServer.SaveTempAsync(m_editor);
             WinAppResources.Instance.LoadedFile = file.Path;
 
             m_frame.Navigate(typeof(HomePage));
@@ -67,8 +67,16 @@ namespace PiStudio.Win10.Navigation
         public async Task<bool> NavigateTo(Type pageType, NavigationParameter args)
         {
             m_page = pageType;
-            if (m_editor != null && m_editor.IsUnsavedChange)
+            if (m_editor != null && m_editor.HasUnsavedChange)
             {
+                if(AppSettings.Instance.AutoSave)
+                {
+                    m_editor.SaveChanges();
+                    await FileServer.SaveTempAsync(m_editor);
+                    if (m_frame != null)
+                        m_frame.Navigate(m_page, m_args);
+                    return true;
+                }
                 m_args = args;
                 return await CreateAndDisplayChangesDialog();
             }
@@ -78,6 +86,26 @@ namespace PiStudio.Win10.Navigation
                 return true;
             }
         }
+
+        public async void Share()
+        {
+            var tmp = m_frame;
+            m_frame = null;
+            if (m_editor != null && m_editor.HasUnsavedChange)
+            {
+                if (!AppSettings.Instance.AutoSave)
+                    await CreateAndDisplayChangesDialog();
+                else
+                {
+                    m_editor.SaveChanges();
+                    await FileServer.SaveTempAsync(m_editor);
+                }
+            }
+            Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
+            //m_frame = tmp;
+        }
+
+
 
         private async Task<bool> CreateAndDisplayChangesDialog()
         {
@@ -102,7 +130,7 @@ namespace PiStudio.Win10.Navigation
         private async void SaveAndContinue(IUICommand command)
         {
             m_editor.SaveChanges();
-            await Saver.SaveTemp(m_editor);
+            await FileServer.SaveTempAsync(m_editor);
             m_result = true;
             if(m_frame != null)
                 m_frame.Navigate(m_page, m_args);

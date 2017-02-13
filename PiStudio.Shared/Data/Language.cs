@@ -14,9 +14,13 @@ namespace PiStudio.Shared.Data
         private string m_menuItem4;
         private string m_menuItem5;
         private string m_menuItem6;
+        private string m_menuItem7;
 
         private string m_settings;
         private string m_placeholderSearch;
+
+        private string m_shareHeader;
+        private string m_shareDesc;
 
         private string m_settingsItem1;
         private string m_settingsItem2;
@@ -139,6 +143,45 @@ namespace PiStudio.Shared.Data
             {
                 m_menuItem6 = value;
                 OnPropertyChanged("MenuItem6");
+            }
+        }
+
+        public string MenuItem7
+        {
+            get
+            {
+                return m_menuItem7;
+            }
+            set
+            {
+                m_menuItem7 = value;
+                OnPropertyChanged("MenuItem7");
+            }
+        }
+
+        public string ShareHeader
+        {
+            get
+            {
+                return m_shareHeader;
+            }
+            set
+            {
+                m_shareHeader = value;
+                OnPropertyChanged("ShareHeader");
+            }
+        }
+
+        public string ShareDescription
+        {
+            get
+            {
+                return m_shareDesc;
+            }
+            set
+            {
+                m_shareDesc = value;
+                OnPropertyChanged("ShareDescription");
             }
         }
 

@@ -89,6 +89,8 @@ namespace PiStudio.Win10.UI.Pages
             };
 
             Type pageType = typeof(SettingsPage);
+            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
+
             if (tmp == HomeItem)
                 pageType = typeof(HomePage);
             else if (tmp == FilterItem)
@@ -102,7 +104,7 @@ namespace PiStudio.Win10.UI.Pages
                 //save and continue
                 Progress.IsActive = true;
                 m_editor.SaveChanges();
-                await Saver.SaveTemp(m_editor);
+                await FileServer.SaveTempAsync(m_editor);
                 Progress.IsActive = false;
                 return;
             }
@@ -112,7 +114,11 @@ namespace PiStudio.Win10.UI.Pages
 
                 return;
             }
-            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
+            else if (tmp == ShareItem)
+            {
+                navigator.Share();
+                return;
+            }
             var result = await navigator.NavigateTo(pageType, parameter);
             if (tmp != null && !result)
                 return;
