@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-13T20:55:01.018</Modified>
+      <Modified>2017-02-15T16:20:14.635</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\PiStudio.exe">
       <PackagePath>entrypoint\PiStudio.exe</PackagePath>
-      <Modified>2017-02-13T20:54:58.999</Modified>
+      <Modified>2017-02-15T16:20:13.124</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -533,11 +533,11 @@
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-13T20:55:00.816</Modified>
+      <Modified>2017-02-15T16:20:14.438</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe">
       <PackagePath>PiStudio.exe</PackagePath>
-      <Modified>2017-02-13T20:55:01.011</Modified>
+      <Modified>2017-02-15T16:20:14.630</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
