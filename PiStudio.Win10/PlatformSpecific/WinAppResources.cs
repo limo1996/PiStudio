@@ -14,6 +14,9 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace PiStudio.Win10
@@ -87,6 +90,17 @@ namespace PiStudio.Win10
             return editor;
         }
         
+        public void SetImageStretch(Image img)
+        {
+            int width = (int)Window.Current.Bounds.Width - 90,  height = (int)Window.Current.Bounds.Height - 90;
+            var bmp = img.Source as WriteableBitmap;
+            if (bmp == null) return;
+            if (bmp.PixelHeight < height && bmp.PixelWidth < width)
+                img.Stretch = Stretch.None;
+            else
+                img.Stretch = Stretch.Uniform;
+        }
+
         public Theme ApplicationTheme { get; set; }
         public Size MinimumPageSize { get; private set; }
 

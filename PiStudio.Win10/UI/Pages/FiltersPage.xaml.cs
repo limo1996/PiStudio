@@ -46,7 +46,7 @@ namespace PiStudio.Win10.UI.Pages
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
             await LoadItems(m_editor);
-
+            WinAppResources.Instance.SetImageStretch(ImageContent);
             PRing.IsActive = false;
         }
 
@@ -144,6 +144,11 @@ namespace PiStudio.Win10.UI.Pages
                 await pixelStream.ReadAsync(pixels, 0, pixels.Length);
                 m_editor.SetSource(pixels);
             }
+        }
+
+        private void Grid_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
+        {
+            WinAppResources.Instance.SetImageStretch(ImageContent);
         }
     }
 }

@@ -48,6 +48,7 @@
       <RootEvent Name="Tapped" />
       <RootEvent Name="PointerPressed" />
       <RootEvent Name="PointerReleased" />
+      <RootEvent Name="SizeChanged" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
       <RootMethod Name="GetColumnSpan" />

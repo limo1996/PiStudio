@@ -63,7 +63,7 @@
                                        ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}"
                                        LanguagePack="{x:Bind Path=LanguagePack, Mode=OneWay}" Margin="5,0,0,0"/>
                     </Grid>
-                    <Grid Grid.Row="2" Margin="4">
+                    <Grid Grid.Row="2" Margin="4" SizeChanged="Grid_SizeChanged">
                         <local:PiCanvas x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />
                         <Image x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
                     </Grid>

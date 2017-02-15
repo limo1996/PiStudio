@@ -61,7 +61,7 @@ namespace PiStudio.Win10.Navigation
             await FileServer.SaveTempAsync(m_editor);
             WinAppResources.Instance.LoadedFile = file.Path;
 
-            m_frame.Navigate(typeof(HomePage));
+            m_frame.Navigate(typeof(HomePage), m_editor);
         }
 
         public async Task<bool> NavigateTo(Type pageType, NavigationParameter args)

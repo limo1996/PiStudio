@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -114,6 +116,53 @@ namespace PiStudio.Win10.UI
             WinAppResources.Instance.CopyTo(AppSettings.Instance);
             await AppSettings.SaveAsync();
             deferral.Complete();
+        }
+
+        /// <summary>
+        /// Invoked when application was chosen as handler for file activation.
+        /// </summary>
+        /// <param name="args"></param>
+        protected override async void OnFileActivated(FileActivatedEventArgs args)
+        {
+            // TODO: Handle file activation
+            // The number of files received is args.Files.Size
+            // The name of the first file is args.Files[0].Name
+
+            Frame rootFrame = Window.Current.Content as Frame;
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
+            if (rootFrame == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                rootFrame = new Frame();
+
+                rootFrame.NavigationFailed += OnNavigationFailed;
+
+                // Place the frame in the current Window
+                Window.Current.Content = rootFrame;
+            }
+            if (args.Files.Count == 0)
+                rootFrame.Navigate(typeof(WelcomePage));
+            else
+            {
+                var file = args.Files[0] as StorageFile;
+                if (file == null)   //cannot handle folders
+                    rootFrame.Navigate(typeof(WelcomePage));
+                ImageEditor editor;
+                using (var stream = await file.OpenAsync(FileAccessMode.Read))
+                {
+                    var decoder = await WinBitmapDecoder.CreateAsync(stream.AsStream());
+                    editor = new ImageEditor(decoder, file.Path);
+                }
+
+                var t = FileServer.SaveTempAsync(editor);
+                WinAppResources.Instance.LoadedFile = file.Path;
+                //await Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "6"));
+                rootFrame.Navigate(typeof(HomePage), editor);
+            }
+            Window.Current.Activate();
+
+            //await Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "8"));
         }
     }
 }

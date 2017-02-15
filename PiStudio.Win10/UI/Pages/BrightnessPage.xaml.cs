@@ -68,6 +68,7 @@ namespace PiStudio.Win10.UI.Pages
             PRing.IsActive = true;
             m_editor = await WinAppResources.Instance.GetImageEditorAsync();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
+            WinAppResources.Instance.SetImageStretch(ImageContent);
             PRing.IsActive = false;
         }
 
@@ -149,6 +150,11 @@ namespace PiStudio.Win10.UI.Pages
                 return;
             }
             await navigator.NavigateTo(pageType, parameter);
+        }
+
+        private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            WinAppResources.Instance.SetImageStretch(ImageContent);
         }
     }
 }

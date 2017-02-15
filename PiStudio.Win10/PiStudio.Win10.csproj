@@ -120,7 +120,6 @@
       <DependentUpon>Toolbox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation\PageNavigator.cs" />
-    <Compile Include="PlatformSpecific\AppResourcesEx.cs" />
     <Compile Include="PlatformSpecific\Data\ColorToBrushConverter.cs" />
     <Compile Include="PlatformSpecific\Data\PiCanvasContentChangedEventArgs.cs" />
     <Compile Include="PlatformSpecific\Data\SVGPath.cs" />

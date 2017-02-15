@@ -12,6 +12,7 @@ using PiStudio.Shared;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.Foundation;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml;
 
 namespace PiStudio.Win10.UI.Pages
 {
@@ -39,12 +40,17 @@ namespace PiStudio.Win10.UI.Pages
         {
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
+            m_editor = e.Parameter as ImageEditor;
+            await System.Threading.Tasks.Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", (m_editor == null).ToString()));
+            if (m_editor == null)
+                m_editor = await WinAppResources.Instance.GetImageEditorAsync();
+            await System.Threading.Tasks.Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "9"));
+            var image = await m_editor.ApplyBrightnessAsync(0);
 
-            var image = await WinAppResources.Instance.GetWorkingImage();
-            m_editor = await WinAppResources.Instance.GetImageEditorAsync();
-
+            await System.Threading.Tasks.Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "10"));
             PRing.IsActive = false;
             ImageContent.Source = image;
+            WinAppResources.Instance.SetImageStretch(ImageContent);
         }
 
         private void Hamburger_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -142,8 +148,13 @@ namespace PiStudio.Win10.UI.Pages
             await nav.LoadNewImage();
             m_editor = await WinAppResources.Instance.GetImageEditorAsync();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
-
+            WinAppResources.Instance.SetImageStretch(ImageContent);
             PRing.IsActive = false;
+        }
+
+        private void ImgWrapper_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            WinAppResources.Instance.SetImageStretch(ImageContent);
         }
     }
 }

@@ -48,19 +48,19 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid x:ConnectionId='16' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='20' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                        <TextBlock x:ConnectionId='21' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <local:PiBar x:ConnectionId='21'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='22'                                                                             HorizontalAlignment="Right"
                                                                                                 x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid Grid.Row="1">
-                        <ProgressRing x:ConnectionId='18' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    <Grid x:ConnectionId='17' Grid.Row="1"                               >
+                        <ProgressRing x:ConnectionId='19' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" 
                                                                                                                                                                  />
-                        <Image x:ConnectionId='19' Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
+                        <Image x:ConnectionId='20' Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
                     </Grid>
-                    <GridView x:ConnectionId='17' Name="FilterGridView" 
+                    <GridView x:ConnectionId='18' Name="FilterGridView" 
                               IsItemClickEnabled="True"
                               IsSwipeEnabled="True"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"

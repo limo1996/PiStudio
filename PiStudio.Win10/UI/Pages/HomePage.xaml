@@ -60,7 +60,7 @@
                         <local:PiBar PlaceholderText="{x:Bind Path=LanguagePack.PlaceholderSearch, Mode=OneWay}" HorizontalAlignment="Right"
                                 ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid Grid.Row="1" Name="ImgWrapper">
+                    <Grid Grid.Row="1" Name="ImgWrapper" SizeChanged="ImgWrapper_SizeChanged">
                         <Image Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" >
                             <Image.Projection>
                                 <PlaneProjection />

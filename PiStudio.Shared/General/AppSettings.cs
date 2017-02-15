@@ -45,7 +45,8 @@ namespace PiStudio.Shared
                 using (var stream = await file.OpenAsync(FileAccess.Read))
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
-                    s = (AppSettings)serializer.Deserialize(stream);
+                    try { s = (AppSettings)serializer.Deserialize(stream); }
+                    catch { s = new AppSettings(); }
                 }
             }
             AppSettings.Instance = s;

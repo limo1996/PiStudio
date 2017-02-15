@@ -60,7 +60,7 @@
                         <local:PiBar x:ConnectionId='22'                                                                             HorizontalAlignment="Right"
                                                                                                x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid x:ConnectionId='16' Grid.Row="1" Name="ImgWrapper">
+                    <Grid x:ConnectionId='16' Grid.Row="1" Name="ImgWrapper"                                     >
                         <Image x:ConnectionId='17' Margin="20,20,20,20" Stretch="Uniform" Name="ImageContent" >
                             <Image.Projection>
                                 <PlaneProjection />

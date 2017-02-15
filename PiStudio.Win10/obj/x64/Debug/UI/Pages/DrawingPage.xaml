@@ -51,21 +51,21 @@
                                   Name="PRing" Height="125" Width="125" VerticalAlignment="Center" HorizontalAlignment="Center"
                                   Grid.Row="2" />
                     <Grid x:ConnectionId='16' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='21' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                        <TextBlock x:ConnectionId='22' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <local:PiBar x:ConnectionId='22'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='23'                                                                             HorizontalAlignment="Right"
                                                                                                 x:Name="Bar" Width="277"/>
                     </Grid>
                     <Grid x:ConnectionId='17' Height="50" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Row="1"
                                                                                                                                                          >
-                        <local:Toolbox x:ConnectionId='20' IsShadowEnabled="False" HorizontalAlignment="Left" x:Name="ToolBox"
+                        <local:Toolbox x:ConnectionId='21' IsShadowEnabled="False" HorizontalAlignment="Left" x:Name="ToolBox"
                                                                                                      
                                                                                               Margin="5,0,0,0"/>
                     </Grid>
-                    <Grid Grid.Row="2" Margin="4">
-                        <local:PiCanvas x:ConnectionId='18' x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />
-                        <Image x:ConnectionId='19' x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
+                    <Grid x:ConnectionId='18' Grid.Row="2" Margin="4"                               >
+                        <local:PiCanvas x:ConnectionId='19' x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />
+                        <Image x:ConnectionId='20' x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
                     </Grid>
                 </Grid>
             </SplitView.Content>

@@ -47,6 +47,7 @@ namespace PiStudio.Win10.UI.Pages
             PRing.IsActive = true;
             var image = await WinAppResources.Instance.GetWorkingImage();
             ImgPresenter.Source = image;
+            WinAppResources.Instance.SetImageStretch(ImgPresenter);
             PRing.IsActive = false;
         }
 
@@ -101,6 +102,11 @@ namespace PiStudio.Win10.UI.Pages
                 return;
             }
             await navigator.NavigateTo(pageType, parameter);
+        }
+
+        private void Grid_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
+        {
+            WinAppResources.Instance.SetImageStretch(ImgPresenter);
         }
     }
 }
