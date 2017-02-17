@@ -22,7 +22,8 @@ namespace PiStudio.Shared
         /// Save content into given stream
         /// </summary>
         /// <param name="stream"></param>
-        Task Save(Stream stream);
+        /// <param name="suffix">image type</param>
+        Task Save(Stream stream, string suffix);
 
         /// <summary>
         /// Dismiss unsaved changes.

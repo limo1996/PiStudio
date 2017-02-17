@@ -1,6 +1,7 @@
 ﻿using PiStudio.Win10.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,9 @@ namespace PiStudio.Win10
         /// <param name="paths">Lines from canvas</param>
         /// <param name="inkWidth">width of the canvas</param>
         /// <param name="inkHeight">height of the canvas</param>
+        /// <param name="suffix">file type</param>
         /// <returns></returns>
-        public static async Task Save(IRandomAccessStream stream, IList<SVGCurve> paths, double inkWidth, double inkHeight)
+        public static async Task Save(IRandomAccessStream stream, IList<SVGCurve> paths, double inkWidth, double inkHeight, string suffix)
         {
             byte[] pixels = null;
             double imgWidth = 0, imgHeight = 0;
@@ -57,10 +59,13 @@ namespace PiStudio.Win10
             }
 
             pixels = TransformPixelsBack(buffer);
-
-            var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
-            encoder.SetPixelData(decoder.BitmapPixelFormat, decoder.BitmapAlphaMode, (uint)imgWidth, (uint)imgHeight, decoder.DpiX, decoder.DpiY, pixels);
-            await encoder.FlushAsync();
+            using (var rstream = new InMemoryRandomAccessStream())
+            {
+                var encoder = await WinBitmapEncoder.CreateAsync(stream.AsStream(), suffix);
+                encoder.SetPixelData((Shared.Data.PixelFormat)decoder.BitmapPixelFormat, decoder.BitmapAlphaMode == BitmapAlphaMode.Straight, 
+                    (uint)imgWidth, (uint)imgHeight, decoder.DpiX, decoder.DpiY, pixels);
+                await encoder.FlushAsync();
+            }
         }
 
         private static int ConvertColorToInt(Color color)

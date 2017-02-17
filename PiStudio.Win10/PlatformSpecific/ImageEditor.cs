@@ -50,15 +50,16 @@ namespace PiStudio.Win10
         /// <summary>
         /// Saves working image in a file with specified filename in a folder where original image is located.
         /// </summary>
-        /// <param name="filename">Name of the new file.</param>
+        /// <param name="stream"></param>
+        /// <param name="suffix">file type</param>
         /// <returns></returns>
-        public override async Task Save(Stream stream)
+        public override async Task Save(Stream stream, string suffix)
         {
             await m_initTask;
             HasUnsavedChange = false;
             using (var rstream = new InMemoryRandomAccessStream())
             {
-                var encoder = await WinBitmapEncoder.CreateAsync(rstream.AsStream(), this.MimeType);
+                var encoder = await WinBitmapEncoder.CreateAsync(rstream.AsStream(), suffix);
                 await this.WriteBytesToEncoder(encoder);
                 stream.Seek(0, SeekOrigin.Begin);
                 stream.SetLength((long)rstream.Size);

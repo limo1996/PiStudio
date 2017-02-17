@@ -215,10 +215,10 @@ namespace PiStudio.Win10.UI.Controls
             m_isUnsavedChange = false;
         }
 
-        public async Task Save(Stream stream)
+        public async Task Save(Stream stream, string suffix)
         {
             m_isUnsavedChange = false;
-            await SVGSaver.Save(stream.AsRandomAccessStream(), this.m_curves, this.Width, this.Height);
+            await SVGSaver.Save(stream.AsRandomAccessStream(), this.m_curves, this.Width, this.Height, suffix);
         }
 
         public void Dismiss()

@@ -213,7 +213,8 @@ namespace PiStudio.Win10
             picker.CommitButtonText = "Save";//TODO:
             var loadedFile = Instance.LoadedFile;
             picker.SuggestedFileName = loadedFile.Insert(loadedFile.LastIndexOf('.'), "(1)");
-            picker.FileTypeChoices.Add("Images", AppSettings.Instance.SupportedImageTypes);
+            foreach(var item in AppSettings.Instance.SupportedImageTypes)
+                picker.FileTypeChoices.Add(item, new List<string>() { item });
             picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
 
             StorageFile file = await picker.PickSaveFileAsync();

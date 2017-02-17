@@ -64,7 +64,11 @@ namespace PiStudio.Win10
 
         private static async Task SaveToStreamAsync(IRandomAccessStream fileStream, ISaveable obj, string fileName)
         {
-                await obj.Save(fileStream.AsStream());
+            var index = fileName.LastIndexOf(".");
+            var suffix = "jpg";
+            if (index > -1)
+                suffix = fileName.Substring(index);
+            await obj.Save(fileStream.AsStream(), suffix);
         }
 
         public static async Task<StorageFile> GetLogoAsync()

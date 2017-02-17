@@ -82,12 +82,12 @@ namespace PiStudio.Shared
             private set { m_instance = value; }
         }
 
-        private List<string> m_supportedImageTypes = new List<string>();
+        private HashSet<string> m_supportedImageTypes = new HashSet<string>();
 
         /// <summary>
         /// Image types that are supoorted by the application.
         /// </summary>
-        public IList<string> SupportedImageTypes
+        public HashSet<string> SupportedImageTypes
         {
             get { return m_supportedImageTypes; }
         }

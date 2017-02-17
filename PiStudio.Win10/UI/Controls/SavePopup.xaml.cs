@@ -83,6 +83,7 @@ namespace PiStudio.Win10.UI.Controls
             if (finalStorage == null)
                 return;
 
+            PopupBase.IsOpen = false;
             Started?.Invoke(this, EventArgs.Empty);
             // write to file
             if (SaveableObject != null)
@@ -91,7 +92,7 @@ namespace PiStudio.Win10.UI.Controls
                 await FileServer.SaveToFileAsync(finalStorage, SaveableObject);
             }
             Completed?.Invoke(this, EventArgs.Empty);
-            PopupBase.IsOpen = false;
+            
         }
 
         private void OnPointPress(object sender, PointerRoutedEventArgs e)

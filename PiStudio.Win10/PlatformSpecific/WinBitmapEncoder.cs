@@ -35,6 +35,7 @@ namespace PiStudio.Win10
 
         public static async Task<WinBitmapEncoder> CreateAsync(Stream stream, string fileFormat)
         {
+            fileFormat = fileFormat.Replace(".", "");
             WinBitmapEncoder encoder = new WinBitmapEncoder();
             Guid BitmapEncoderGuid = BitmapEncoder.JpegEncoderId;
             switch (fileFormat)

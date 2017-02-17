@@ -47,6 +47,7 @@ namespace PiStudio.Shared.Data
         private string m_drawingUndo;
 
         private string m_filterNone;
+        private string m_saveAs;
 
         private string m_introTitle1;
         private string m_introTitle2;
@@ -471,6 +472,19 @@ namespace PiStudio.Shared.Data
             }
         }
 
+        public string SaveAs
+        {
+            get
+            {
+                return m_saveAs;
+            }
+            set
+            {
+                m_saveAs = value;
+                OnPropertyChanged("SaveAs");
+            }
+        }
+
         public string IntroTitle1
         {
             get
@@ -562,7 +576,9 @@ namespace PiStudio.Shared.Data
             pack.MenuItem4 = this.MenuItem4;
             pack.MenuItem5 = this.MenuItem5;
             pack.MenuItem6 = this.MenuItem6;
+            pack.MenuItem7 = this.MenuItem7;
             pack.PlaceholderSearch = this.PlaceholderSearch;
+            pack.SaveAs = this.SaveAs;
             pack.Settings = this.Settings;
             pack.SettingsAutoSave = this.SettingsAutoSave;
             pack.SettingsChooseFilter = this.SettingsChooseFilter;
@@ -573,6 +589,8 @@ namespace PiStudio.Shared.Data
             pack.SettingsItem3 = this.SettingsItem3;
             pack.SettingsNote = this.SettingsNote;
             pack.SettingsOptions = this.SettingsOptions;
+            pack.ShareDescription = this.ShareDescription;
+            pack.ShareHeader = this.ShareHeader;
             pack.ThemeCustom = this.ThemeCustom;
             pack.ThemeEnableDark = this.ThemeEnableDark;
             pack.ThemePredefined = this.ThemePredefined;

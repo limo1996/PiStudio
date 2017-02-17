@@ -153,7 +153,8 @@ namespace PiStudio.Shared
         /// Save content into given stream
         /// </summary>
         /// <param name="stream"></param>
-        public abstract Task Save(Stream stream);
+        /// <param name="suffix">file type</param>
+        public abstract Task Save(Stream stream, string suffix);
 
         /// <summary>
         /// Dismiss unsaved changes.
