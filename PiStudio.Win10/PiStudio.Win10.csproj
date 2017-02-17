@@ -116,6 +116,9 @@
       <DependentUpon>PiCanvas.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\Rater.cs" />
+    <Compile Include="UI\Controls\SavePopup.xaml.cs">
+      <DependentUpon>SavePopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\Toolbox.xaml.cs">
       <DependentUpon>Toolbox.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Controls\PiCanvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\SavePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

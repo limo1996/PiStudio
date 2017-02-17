@@ -22,13 +22,25 @@ namespace PiStudio.Win10
     {
         public static async Task SaveToFileAsync(StorageFile file, ISaveable obj)
         {
+            await semaphore2.WaitAsync();
+
+            // Prevent updates to the remote version of the file until
+            // we finish making changes and call CompleteUpdatesAsync.
+            CachedFileManager.DeferUpdates(file);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
             {
                 await SaveToStreamAsync(fileStream, obj, file.Name);
             }
+
+            // Let Windows know that we're finished changing the file so
+            // the other app can update the remote version of the file.
+            // Completing updates may require Windows to ask for user input.
+            Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+            semaphore2.Release();
         }
 
         private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
+        private static SemaphoreSlim semaphore2 = new SemaphoreSlim(1,1);
         public static async Task<StorageFile> GetTempFileAsync()
         {
             await semaphore.WaitAsync();

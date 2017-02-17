@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="PiStudio.Win10.UI.Controls.SavePopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PiStudio.Win10"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="80"
+    d:DesignWidth="150">
+    <UserControl.Resources>
+        <Storyboard x:Name="HeightAnimation" Storyboard.TargetName="Body">
+            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.1" From="0" To="100" EnableDependentAnimation="True"/>
+        </Storyboard>
+    </UserControl.Resources>
+    <Popup Height="100" Width="150" Name="PopupBase">
+        <Grid BorderThickness="2" Background="{x:Bind Path=ApplicationTheme.PanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+              BorderBrush="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 
+              Height="100" Width="150" x:Name="Body">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Tapped="OnTapped" PointerEntered="OnPointEnter" PointerExited="OnPointExit" PointerPressed="OnPointPress"
+                  PointerReleased="OnPointReleased" x:Name="Button1">
+                <TextBlock FontSize="18" Margin="5,0,5,0" Text="{x:Bind Path=Text1, Mode=OneWay}" VerticalAlignment="Center"
+                           Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+            </Grid>
+            <Grid Grid.Row="1" Tapped="OnTapped" PointerEntered="OnPointEnter" PointerExited="OnPointExit" PointerPressed="OnPointPress"
+                  PointerReleased="OnPointReleased" x:Name="Button2">
+                <TextBlock FontSize="18" Margin="5,0,5,0" Text="{x:Bind Path=Text2, Mode=OneWay}" VerticalAlignment="Center"
+                           Foreground="{x:Bind Path=ApplicationTheme.PanelForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+            </Grid>
+        </Grid>
+    </Popup>
+</UserControl>

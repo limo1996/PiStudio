@@ -50,6 +50,11 @@ namespace PiStudio.Win10.UI.Pages
             await System.Threading.Tasks.Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "10"));
             PRing.IsActive = false;
             ImageContent.Source = image;
+
+            SavePop.SaveableObject = m_editor;
+            SavePop.Started += (o1, args1) => Progress.IsActive = true;
+            SavePop.Completed += (o2, args2) => Progress.IsActive = false;
+
             WinAppResources.Instance.SetImageStretch(ImageContent);
         }
 
@@ -83,11 +88,8 @@ namespace PiStudio.Win10.UI.Pages
                 pageType = typeof(DrawingPage);
             else if (tmp == SaveItem)
             {
-                //save and continue
-                Progress.IsActive = true;
-                m_editor.SaveChanges();
-                await FileServer.SaveTempAsync(m_editor);
-                Progress.IsActive = false;
+                SavePop.IsOpen = !SavePop.IsOpen;
+
                 return;
             }
             else if (tmp == SpeakItem)

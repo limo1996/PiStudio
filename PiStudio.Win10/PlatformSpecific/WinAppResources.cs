@@ -11,6 +11,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Metadata;
 using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -25,7 +26,7 @@ namespace PiStudio.Win10
     {
         private Theme m_darkTheme = new Theme()
         {
-            PanelBackground = Color.FromArgb(200, 0, 0, 0),
+            PanelBackground = Color.FromArgb(210, 0, 0, 0),
             PanelItemFocused = Color.FromArgb(255, 209, 52, 56),
             PanelForeground = Colors.White,
             Background = Colors.Black,
@@ -40,7 +41,7 @@ namespace PiStudio.Win10
             Foreground = Colors.Black,
             Background = Colors.White,
             PanelForeground = Colors.Black,
-            PanelBackground = Color.FromArgb(255, 173, 173, 180),
+            PanelBackground = Color.FromArgb(220, 173, 173, 180),
             PanelItemFocused = Color.FromArgb(255, 209, 52, 56),
             Borders = Color.FromArgb(255, 31, 31, 31),
             ClickableForeground = Color.FromArgb(255, 122, 122, 122),
@@ -53,7 +54,12 @@ namespace PiStudio.Win10
 
             RegisterForSharing();
             MinimumPageSize = new Size(550, 700);
+            FinalStorage = null;
         }
+
+        public Theme ApplicationTheme { get; set; }
+        public Size MinimumPageSize { get; private set; }
+        public StorageFile FinalStorage { get; set; }
 
         private static WinAppResources m_instance;
         public static WinAppResources Instance
@@ -100,9 +106,6 @@ namespace PiStudio.Win10
             else
                 img.Stretch = Stretch.Uniform;
         }
-
-        public Theme ApplicationTheme { get; set; }
-        public Size MinimumPageSize { get; private set; }
 
         public void SetTheme(bool isDarkTheme)
         {
@@ -199,6 +202,22 @@ namespace PiStudio.Win10
                 this.ApplicationTheme.PanelItemFocused = UintToColor(settings.PanelItemFocused);
                 this.ApplicationTheme.UpperPanelBackground = UintToColor(settings.UpperPanelBackground);
             }
+        }
+
+        /// <summary>
+        /// Picks file where will be final image saved and saves it into FinalStorage property
+        /// </summary>
+        public async Task PickFinalStorage()
+        {
+            var picker = new FileSavePicker();
+            picker.CommitButtonText = "Save";//TODO:
+            var loadedFile = Instance.LoadedFile;
+            picker.SuggestedFileName = loadedFile.Insert(loadedFile.LastIndexOf('.'), "(1)");
+            picker.FileTypeChoices.Add("Images", AppSettings.Instance.SupportedImageTypes);
+            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+
+            StorageFile file = await picker.PickSaveFileAsync();
+            Instance.FinalStorage = file;
         }
 
         private void RegisterForSharing()
