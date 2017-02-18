@@ -239,31 +239,7 @@ namespace PiStudio.Win10.UI.Controls
         private void BrushColorValueChanged(DependencyPropertyChangedEventArgs e)
         {
             Color color = (Color)e.NewValue;
-            ColorPreview.Background = new SolidColorBrush(color);
-            bool matched = false;
-            foreach (var item in ColorPalette.Children)
-            {
-                Button btn = (Button)item;
-                if (((SolidColorBrush)btn.Background).Color == color)
-                {
-                    btn.BorderThickness = new Thickness(2);
-                    btn.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 00, 158, 225));
-                    matched = true;
-                }
-                else
-                {
-                    btn.BorderThickness = new Thickness(1);
-                    btn.BorderBrush = BorderBrush;
-                }
-            }
-
-            if (!matched)
-            {
-                var btn = (Button)ColorPalette.Children[0];
-                btn.BorderThickness = new Thickness(2);
-                color = Color.FromArgb(255, 00, 158, 225);
-                btn.BorderBrush = new SolidColorBrush(color);
-            }
+            ColorPicker.Color = color;
             var fn = BrushColorChanged;
             if (fn != null)
                 fn(this, color);
@@ -304,6 +280,13 @@ namespace PiStudio.Win10.UI.Controls
                     MainGrid.BorderThickness = new Thickness(m_borderThickness);
                 }
             }
+        }
+
+        private void ColorPicker_ColorChanged(object sender, Color color)
+        {
+            var fn = BrushColorChanged;
+            if (fn != null)
+                fn(this, color);
         }
         #endregion
     }

@@ -75,9 +75,7 @@ namespace PiStudio.Win10.UI.Controls
         private async void OnTapped(object sender, TappedRoutedEventArgs e)
         {
             if (sender == Button2 || WinAppResources.Instance.FinalStorage == null)
-            {
-                await WinAppResources.Instance.PickFinalStorage();
-            }
+                await Navigation.PageNavigator.PickFinalStorage();
 
             var finalStorage = WinAppResources.Instance.FinalStorage;
             if (finalStorage == null)
@@ -88,6 +86,8 @@ namespace PiStudio.Win10.UI.Controls
             // write to file
             if (SaveableObject != null)
             {
+                if (SaveableObject is PiCanvas)
+                    await FileServer.SaveToFileAsync(finalStorage, await WinAppResources.Instance.GetImageEditorAsync());
                 SaveableObject.SaveChanges();
                 await FileServer.SaveToFileAsync(finalStorage, SaveableObject);
             }

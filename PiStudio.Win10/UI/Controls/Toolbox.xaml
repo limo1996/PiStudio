@@ -5,6 +5,7 @@
     xmlns:local="using:PiStudio.Win10.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:picker="using:Coding4Fun.Toolkit.Controls"
     mc:Ignorable="d"
     d:DesignHeight="50"
     d:DesignWidth="360">
@@ -139,9 +140,10 @@
                 </StackPanel>
             </Border>
         </Popup>
-        <Popup x:Name="ColorPopup" Margin="100,48">
-            <Border BorderBrush="Black" BorderThickness="0" Width="100" Height="100" CornerRadius="0" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited">
-                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" x:Name="ColorPalette">
+        <Popup x:Name="ColorPopup" Margin="20,48">
+            <Border BorderBrush="Black" BorderThickness="1" Width="260" Height="260" CornerRadius="0" PointerEntered="MainGrid_PointerEntered" PointerExited="MainGrid_PointerExited"
+                    Background="#D0000000">
+                <!--<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" x:Name="ColorPalette">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="1" />
@@ -176,7 +178,9 @@
                     <Button Grid.Row="6" Grid.Column="2" BorderThickness="1" BorderBrush="Black" Background="White" Click="ColorSelector_Click" x:Name="WhiteBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     <Button Grid.Row="6" Grid.Column="4" BorderThickness="1" BorderBrush="Black" Background="Magenta" Click="ColorSelector_Click" x:Name="MagentaBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     <Button Grid.Row="6" Grid.Column="6" BorderThickness="1" BorderBrush="Black" Background="Brown" Click="ColorSelector_Click" x:Name="BrownBtn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                </Grid>
+                </Grid>-->
+                <picker:ColorPicker x:Name="ColorPicker" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ColorChanged="ColorPicker_ColorChanged" 
+                                    Margin="7"/>
             </Border>
         </Popup>
     </Grid>

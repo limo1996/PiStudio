@@ -48,6 +48,11 @@ namespace PiStudio.Win10.UI.Pages
             var image = await WinAppResources.Instance.GetWorkingImage();
             ImgPresenter.Source = image;
             WinAppResources.Instance.SetImageStretch(ImgPresenter);
+
+            SavePop.SaveableObject = DrawingCanvas;
+            SavePop.Started += (o1, args1) => Progress.IsActive = true;
+            SavePop.Completed += (o2, args2) => Progress.IsActive = false;
+
             PRing.IsActive = false;
         }
 
@@ -81,13 +86,8 @@ namespace PiStudio.Win10.UI.Pages
                 pageType = typeof(DrawingPage);
             else if (tmp == SaveItem)
             {
-                //save and continue
-                Progress.IsActive = true;
-                await FileServer.SaveTempAsync(DrawingCanvas);
-                var image = await WinAppResources.Instance.GetWorkingImage();
-                ImgPresenter.Source = image;
-                DrawingCanvas.Clear();
-                Progress.IsActive = false;
+                SavePop.IsOpen = !SavePop.IsOpen;
+
                 return;
             }
             else if (tmp == SpeakItem)

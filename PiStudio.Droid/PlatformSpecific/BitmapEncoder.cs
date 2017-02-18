@@ -20,5 +20,10 @@ namespace PiStudio.Droid
 		{
 			throw new NotImplementedException();
 		}
-	}
+
+        void IBitmapEncoder.SetPixelData(PixelFormat format, bool ignoreAlphaMode, uint pixelWidth, uint pixelHeight, double dpiX, double dpiY, byte[] pixels)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

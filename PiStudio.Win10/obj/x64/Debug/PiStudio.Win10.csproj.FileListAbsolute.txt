@@ -492,3 +492,7 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\SavePopup.xaml
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\UI\Controls\SavePopup.xbf
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\UI\Controls\SavePopup.xbf
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Coding4Fun.Toolkit.Controls.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\bin\x64\Debug\Coding4Fun.Toolkit.dll
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\Coding4Fun.Toolkit.Controls.pri.xml
+C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Win10\obj\x64\Debug\Coding4Fun.Toolkit.pri.xml

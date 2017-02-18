@@ -37,30 +37,31 @@
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:ConnectionId='14' x:Name="SettingsItem"                                                                                       
                                     Symbol="Setting"                                                         IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
-
+                    <local:SavePopup x:ConnectionId='15' x:Name="SavePop" Margin="0,300,0,0" VerticalAlignment="Top"                                                                
+                                     Text1="Save" Text2="Save As" IsOpen="False"/>
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid x:ConnectionId='15' Name="GridContent">
+                <Grid x:ConnectionId='16' Name="GridContent">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="4*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid x:ConnectionId='16' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='21' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                    <Grid x:ConnectionId='17' Grid.Row="0"                                                                                                                                >
+                        <TextBlock x:ConnectionId='22' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <local:PiBar x:ConnectionId='22'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='23'                                                                             HorizontalAlignment="Right"
                                                                                                 x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid x:ConnectionId='17' Grid.Row="1"                               >
-                        <ProgressRing x:ConnectionId='19' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    <Grid x:ConnectionId='18' Grid.Row="1"                               >
+                        <ProgressRing x:ConnectionId='20' Name="PRing" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                       Height="125" Width="125" 
                                                                                                                                                                  />
-                        <Image x:ConnectionId='20' Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
+                        <Image x:ConnectionId='21' Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
                     </Grid>
-                    <GridView x:ConnectionId='18' Name="FilterGridView" 
+                    <GridView x:ConnectionId='19' Name="FilterGridView" 
                               IsItemClickEnabled="True"
                               IsSwipeEnabled="True"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"

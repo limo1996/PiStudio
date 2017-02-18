@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="Coding4Fun.Toolkit.Controls" version="1.0" primary="true">
+		<Qualifiers/>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="Coding4Fun.Toolkit.Controls">
+				<NamedResource name="Coding4Fun.Toolkit.Controls.xr.xml" uri="ms-resource://Coding4Fun.Toolkit.Controls/Files/Coding4Fun.Toolkit.Controls/Coding4Fun.Toolkit.Controls.xr.xml">
+					<Candidate type="Path">
+						<Value>Coding4Fun.Toolkit.Controls\Coding4Fun.Toolkit.Controls.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xbf" uri="ms-resource://Coding4Fun.Toolkit.Controls/Files/Coding4Fun.Toolkit.Controls/Themes/Generic.xbf">
+						<Candidate type="Path">
+							<Value>Coding4Fun.Toolkit.Controls\Themes\Generic.xbf</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

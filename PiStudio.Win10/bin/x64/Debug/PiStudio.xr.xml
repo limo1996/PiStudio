@@ -37,8 +37,8 @@
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="CornerRadius" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
       <RootProperty Name="Resources" />
       <RootProperty Name="MinHeight" />
@@ -242,8 +242,8 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="CornerRadius" />
-      <RootProperty Name="Child" />
       <RootProperty Name="Background" />
+      <RootProperty Name="Child" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="Name" />
@@ -252,6 +252,12 @@
       <RootProperty Name="RenderTransform" />
       <RootEvent Name="PointerEntered" />
       <RootEvent Name="PointerExited" />
+    </RootType>
+    <RootType FullName="Coding4Fun.Toolkit.Controls.ColorPicker">
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="ColorChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="Height" />

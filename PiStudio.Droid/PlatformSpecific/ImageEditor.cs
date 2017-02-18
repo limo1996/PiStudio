@@ -83,7 +83,17 @@ namespace PiStudio.Droid
             }
         }
 
-		public Task SaveAsync(string filepath)
+        public void Dismiss()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Save(Stream stream, string suffix)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SaveAsync(string filepath)
 		{
 			throw new NotImplementedException();
 		}
@@ -92,6 +102,11 @@ namespace PiStudio.Droid
 		{
 			throw new NotImplementedException();
 		}
+
+        public Task WriteBytesToEncoder(IBitmapEncoder encoder)
+        {
+            throw new NotImplementedException();
+        }
 
         public Task WriteBytesToEncoder(byte[] imageBytes, uint pixelWidth, uint pixelHeight, IBitmapEncoder encoder)
         {

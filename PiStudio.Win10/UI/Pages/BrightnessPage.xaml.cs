@@ -69,6 +69,11 @@ namespace PiStudio.Win10.UI.Pages
             m_editor = await WinAppResources.Instance.GetImageEditorAsync();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
             WinAppResources.Instance.SetImageStretch(ImageContent);
+
+            SavePop.SaveableObject = m_editor;
+            SavePop.Started += (o1, args1) => Progress.IsActive = true;
+            SavePop.Completed += (o2, args2) => Progress.IsActive = false;
+
             PRing.IsActive = false;
         }
 
@@ -128,14 +133,8 @@ namespace PiStudio.Win10.UI.Pages
                 pageType = typeof(DrawingPage);
             else if (tmp == SaveItem)
             {
-                Progress.IsActive = true;
-                //save and continue
-                m_editor.SaveChanges();
-                await FileServer.SaveTempAsync(m_editor);
-                var image = await WinAppResources.Instance.GetWorkingImage();
-                ImageContent.Source = image;
-                BrightnessSlider.Value = 0;
-                Progress.IsActive = false;
+                SavePop.IsOpen = !SavePop.IsOpen;
+
                 return;
             }
             else if (tmp == SpeakItem)

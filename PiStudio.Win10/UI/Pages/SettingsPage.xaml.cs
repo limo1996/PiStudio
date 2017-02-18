@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Windows.UI.Text;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -79,6 +80,15 @@ namespace PiStudio.Win10.UI.Pages
             }
         }
 
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            SavePop.SaveableObject = await WinAppResources.Instance.GetImageEditorAsync(); 
+            SavePop.Started += (o1, args1) => Progress.IsActive = true;
+            SavePop.Completed += (o2, args2) => Progress.IsActive = false;
+        }
+
         public Theme ApplicationTheme { get; set; }
         public AppSettings Settings { get; set; }
         public LanguagePack LanguagePack { get; set; }
@@ -120,6 +130,7 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SaveItem)
             {
                 //save and continue
+                SavePop.IsOpen = !SavePop.IsOpen;
 
                 return;
             }

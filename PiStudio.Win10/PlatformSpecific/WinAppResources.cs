@@ -204,23 +204,6 @@ namespace PiStudio.Win10
             }
         }
 
-        /// <summary>
-        /// Picks file where will be final image saved and saves it into FinalStorage property
-        /// </summary>
-        public async Task PickFinalStorage()
-        {
-            var picker = new FileSavePicker();
-            picker.CommitButtonText = "Save";//TODO:
-            var loadedFile = Instance.LoadedFile;
-            picker.SuggestedFileName = loadedFile.Insert(loadedFile.LastIndexOf('.'), "(1)");
-            foreach(var item in AppSettings.Instance.SupportedImageTypes)
-                picker.FileTypeChoices.Add(item, new List<string>() { item });
-            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-
-            StorageFile file = await picker.PickSaveFileAsync();
-            Instance.FinalStorage = file;
-        }
-
         private void RegisterForSharing()
         {
             DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();

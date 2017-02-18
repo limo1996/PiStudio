@@ -32,6 +32,7 @@ namespace PiStudio.Win10
                 await SaveToStreamAsync(fileStream, obj, file.Name);
             }
 
+            await file.CopyAsync(ApplicationData.Current.LocalFolder, WinAppResources.Instance.TmpImageName, NameCollisionOption.ReplaceExisting);
             // Let Windows know that we're finished changing the file so
             // the other app can update the remote version of the file.
             // Completing updates may require Windows to ask for user input.

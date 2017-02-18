@@ -47,6 +47,11 @@ namespace PiStudio.Win10.UI.Pages
 
             await LoadItems(m_editor);
             WinAppResources.Instance.SetImageStretch(ImageContent);
+
+            SavePop.SaveableObject = m_editor;
+            SavePop.Started += (o1, args1) => Progress.IsActive = true;
+            SavePop.Completed += (o2, args2) => Progress.IsActive = false;
+
             PRing.IsActive = false;
         }
 
@@ -101,11 +106,8 @@ namespace PiStudio.Win10.UI.Pages
                 pageType = typeof(DrawingPage);
             else if (tmp == SaveItem)
             {
-                //save and continue
-                Progress.IsActive = true;
-                m_editor.SaveChanges();
-                await FileServer.SaveTempAsync(m_editor);
-                Progress.IsActive = false;
+                SavePop.IsOpen = !SavePop.IsOpen;
+
                 return;
             }
             else if(tmp == SpeakItem)
@@ -119,19 +121,7 @@ namespace PiStudio.Win10.UI.Pages
                 navigator.Share();
                 return;
             }
-            var result = await navigator.NavigateTo(pageType, parameter);
-            if (tmp != null && !result)
-                return;
-            foreach (var item in ItemsWrapper.Children)
-            {
-                var menuItem = item as MenuItem;
-                if (menuItem == null)
-                    continue;
-                if(menuItem != sender)
-                    menuItem.IsSelected = false;
-                else
-                    menuItem.IsSelected = true;
-            }
+            await navigator.NavigateTo(pageType, parameter);
         }
 
         private async void FilterGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

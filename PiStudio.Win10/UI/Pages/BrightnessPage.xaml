@@ -36,7 +36,8 @@
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
                     <local:MenuItem x:Name="SettingsItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
                                     Symbol="Setting" Text="{x:Bind Path=LanguagePack.Settings, Mode=OneWay}" IsSelectionEnabled="True" Height="50" VerticalAlignment="Bottom"/>
-
+                    <local:SavePopup x:Name="SavePop" Margin="0,300,0,0" VerticalAlignment="Top" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
+                                     Text1="Save" Text2="Save As" IsOpen="False"/>
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
