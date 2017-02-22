@@ -56,7 +56,6 @@
     <Compile Include="Commands\Prefix.cs" />
     <Compile Include="Commands\VoiceAction.cs" />
     <Compile Include="Commands\VoiceCommands.cs" />
-    <Compile Include="Cortana\CommandDefinitions.cs" />
     <Compile Include="Cortana\CortanaIngrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecognitionAndAction\SpeechNavigator.cs" />

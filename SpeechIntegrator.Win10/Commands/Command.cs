@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using PiStudio.Win10.Voice.Navigation;
+using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Commands
+namespace PiStudio.Win10.Voice.Commands
 {
     /// <summary>
     /// Required child element of the CommandSet element. Takes the Name attribute.Defines an app action that users can initiate by speaking 
@@ -51,7 +52,7 @@ namespace Resco.InAppSpeechRecognition.Commands
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="result"></param>
-        public void InvokeAction(object sender, RecognitionAndAction.SpeechRecognitionResult result)
+        public void InvokeAction(object sender, SpeechRecognitionResult result)
         {
             if (VoiceAction != null)
                 VoiceAction.Invoke(sender, result);

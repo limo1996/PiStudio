@@ -11,7 +11,7 @@ UI\Pages\HomePage.xbf
 UI\Pages\SettingsPage.xbf
 UI\Pages\WelcomePage.xbf
 UI\Styles\AutoSuggestBoxTextBoxStyle.xbf
-UI\Styles\PiComboBoxStyle.xbf
 UI\Styles\PiCheckBoxStyle.xbf
+UI\Styles\PiComboBoxStyle.xbf
 UI\Styles\PiSliderStyle.xbf
 UI\Styles\PiToggleSwitchStyle.xbf

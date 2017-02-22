@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Commands
+namespace PiStudio.Win10.Voice.Commands
 {
     /// <summary>
     /// Base class for command set prefix

@@ -18,3 +18,45 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\R
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\uploadflags.txt
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\PiStudio.Droid.dll.mdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\bin\Release\PiStudio.Droid.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PiStudio.Droid.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PiStudio.Droid.pdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\com.jakub.pistudio_droid.apk
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\com.jakub.pistudio_droid-Signed.apk
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PiStudio.Shared.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PCLStorage.Abstractions.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PCLStorage.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PiStudio.Shared.pdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PCLStorage.Abstractions.xml
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PCLStorage.xml
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\PiStudio.Droid.csprojResolveAssemblyReference.cache
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\PiStudio.Droid.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\PiStudio.Droid.pdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\bin\com.jakub.pistudio_droid.apk
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\res\layout\main.xml
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\res\values\strings.xml
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\R.cs.flag
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\uploadflags.txt
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\Java.Interop.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\Mono.Android.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\mscorlib.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PiStudio.Droid.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PiStudio.Shared.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\System.ComponentModel.Composition.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\System.Core.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\System.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\System.Net.Http.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\System.Runtime.Serialization.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\System.ServiceModel.Internals.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\System.Xml.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\Java.Interop.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\Mono.Android.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\mscorlib.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\PiStudio.Droid.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\PiStudio.Shared.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.Core.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.Runtime.Serialization.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.Xml.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\PiStudio.Droid.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\bin\Release\PiStudio.Droid.dll.mdb

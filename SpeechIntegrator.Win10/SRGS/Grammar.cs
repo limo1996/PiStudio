@@ -3,9 +3,9 @@ using System;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
-using Resco.InAppSpeechRecognition.RecognitionAndAction;
+using PiStudio.Win10.Voice.Navigation;
 
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
 	/// <summary>
 	/// Specifies the highest level container for an XML grammar definition. This element is required to make a valid grammar.

@@ -1,7 +1,7 @@
 ﻿using System.Xml.Serialization;
 using System.Collections.Generic;
 
-namespace Resco.InAppSpeechRecognition.Commands
+namespace PiStudio.Win10.Voice.Commands
 {
     /// <summary>
     /// Contains a word or phrase that your app will recognize for this command. This may include or be a reference to a PhraseList (or PhraseTopic) 

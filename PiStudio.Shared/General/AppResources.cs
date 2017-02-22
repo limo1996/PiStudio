@@ -119,5 +119,12 @@ namespace PiStudio.Shared
         /// </summary>
         /// <param name="settings"></param>
         public abstract void LoadFrom(AppSettings settings);
+
+        /// <summary>
+        /// Gets full path to given file name.
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public abstract string GetStoragePath(string file);
     }
 }

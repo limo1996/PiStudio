@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Media.SpeechRecognition;
 
-namespace Resco.InAppSpeechRecognition.RecognitionAndAction
+namespace PiStudio.Win10.Voice.Navigation
 {
 	/// <summary>
 	/// Result of speech recognition. Wrapper to <see cref="Windows.Media.SpeechRecognition.SpeechRecognitionResult"/>.

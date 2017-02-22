@@ -9,3 +9,12 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Debug\Pi
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Debug\PiStudio.Shared.pdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\obj\Debug\PiStudio.Shared.dll.mdb
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PiStudio.Shared.pdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PCLStorage.Abstractions.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PCLStorage.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PCLStorage.xml
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PCLStorage.Abstractions.xml
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\obj\Debug\PiStudio.Shared.csprojResolveAssemblyReference.cache
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\obj\Debug\PiStudio.Shared.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\obj\Debug\PiStudio.Shared.pdb

@@ -34,7 +34,7 @@ namespace PiStudio.Win10.Navigation
         /// <summary>
         /// Displays file picker and loads new image into application resources.
         /// </summary>
-        public async Task LoadNewImage()
+        public async Task LoadNewImageWithUIAsync()
         {
             if (m_editor.HasUnsavedChange)
             {

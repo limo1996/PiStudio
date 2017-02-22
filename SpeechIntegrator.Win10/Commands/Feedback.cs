@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Resco.InAppSpeechRecognition.Commands
+namespace PiStudio.Win10.Voice.Commands
 {
     /// <summary>
     /// Required child element of the Command element. Specifies the text that will be displayed and read back to the user when the command is recognized. 

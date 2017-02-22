@@ -17,7 +17,7 @@ namespace PiStudio.Shared
         /// <summary>
         /// Displays file picker and loads new image into application resources.
         /// </summary>
-        Task LoadNewImage();
+        Task LoadNewImageWithUIAsync();
 
         /// <summary>
         /// Shares currently edited image to external apps.

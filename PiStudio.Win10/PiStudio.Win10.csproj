@@ -95,6 +95,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="title.jpg" />
+    <Content Include="Voice\PiStudioVoiceCommands.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +153,8 @@
     <Compile Include="PlatformSpecific\WinBitmapEncoder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlatformSpecific\ImageEditor.cs" />
+    <Compile Include="Voice\CommandDefinitions.cs" />
+    <Compile Include="Voice\VoiceRecognizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

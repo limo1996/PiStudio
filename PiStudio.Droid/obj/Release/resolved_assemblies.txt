@@ -1,12 +1,12 @@
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\PiStudio.Droid.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\Java.Interop.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\Mono.Android.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\System.Core.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\System.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\System.Xml.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\mscorlib.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\PiStudio.Shared.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\System.Runtime.Serialization.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\System.ServiceModel.Internals.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\PCLStorage.Abstractions.dll
-C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\PiStudio.Droid\obj\Release\android\assets\PCLStorage.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\PiStudio.Droid.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\Java.Interop.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\Mono.Android.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.Core.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.Xml.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\mscorlib.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\PiStudio.Shared.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.Runtime.Serialization.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\System.ServiceModel.Internals.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\PCLStorage.Abstractions.dll
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Droid\obj\Release\android\assets\PCLStorage.dll

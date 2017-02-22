@@ -147,7 +147,7 @@ namespace PiStudio.Win10.UI.Pages
         {
             PRing.IsActive = true;
             PageNavigator nav = new PageNavigator(null, m_editor);
-            await nav.LoadNewImage();
+            await nav.LoadNewImageWithUIAsync();
             m_editor = await WinAppResources.Instance.GetImageEditorAsync();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
             WinAppResources.Instance.SetImageStretch(ImageContent);

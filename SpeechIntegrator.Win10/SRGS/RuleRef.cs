@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
 	/// <summary>
 	/// The ruleref element specifies a reference by the containing rule to another rule, either in the same grammar or in an external grammar. 

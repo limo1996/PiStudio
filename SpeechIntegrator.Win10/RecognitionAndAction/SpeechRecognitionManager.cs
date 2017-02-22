@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PiStudio.Win10.Voice.Commands;
+using PiStudio.Win10.Voice.Srgs;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,11 +9,8 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using Windows.Storage;
-using Resco.InAppSpeechRecognition.Commands;
-using System.Text.RegularExpressions;
-using Resco.InAppSpeechRecognition.Srgs;
 
-namespace Resco.InAppSpeechRecognition.RecognitionAndAction
+namespace PiStudio.Win10.Voice.Navigation
 {
     internal static class SpeechRecognitionManager
     {

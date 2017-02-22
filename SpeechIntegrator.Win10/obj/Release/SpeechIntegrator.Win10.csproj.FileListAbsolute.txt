@@ -14,3 +14,20 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\R
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\Release\qualifiers.txt
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\Release\qualifiers.txt.intermediate
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\Release\MultipleQualifiersPerDimensionFound.txt
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Release\SpeechIntegrator.dll
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Release\SpeechIntegrator.pdb
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Release\SpeechIntegrator.pri
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\SpeechIntegrator.dll
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\SpeechIntegrator.pdb
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\priconfig.xml
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\priconfig.xml.intermediate
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\layout.resfiles
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\layout.resfiles.intermediate
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\resources.resfiles
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\resources.resfiles.intermediate
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\pri.resfiles
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\pri.resfiles.intermediate
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\qualifiers.txt
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\qualifiers.txt.intermediate
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\MultipleQualifiersPerDimensionFound.txt
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Release\SpeechIntegrator.Win10.csprojResolveAssemblyReference.cache

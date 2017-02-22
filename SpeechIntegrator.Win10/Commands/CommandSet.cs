@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Commands
+namespace PiStudio.Win10.Voice.Commands
 {
     /// <summary>
     /// Required child element of the VoiceCommands element. A container for all the voice commands that an app will accept in the language specified 

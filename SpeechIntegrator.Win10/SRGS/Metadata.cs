@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
     /// <summary>
     /// Contains information about the grammar document in a metadata schema.

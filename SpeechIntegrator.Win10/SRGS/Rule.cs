@@ -2,7 +2,7 @@
 using System;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
 	/// <summary>
 	/// The rule element defines a grammar rule. A rule element contains text or XML elements that define what speakers can say, and the order in which they can say it. 

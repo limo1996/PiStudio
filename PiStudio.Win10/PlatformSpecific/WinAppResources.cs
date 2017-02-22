@@ -234,5 +234,15 @@ namespace PiStudio.Win10
                 deferral.Complete();
             }
         }
+
+        public async Task InitilizeCortanaAndSpeechRecognitionAsync()
+        {
+
+        }
+
+        public override string GetStoragePath(string name)
+        {
+            return Path.Combine(ApplicationData.Current.LocalFolder.Path, name);
+        }
     }
 }

@@ -1,0 +1,3 @@
+"/t:PiStudio.Win10.Voice.Commands.VoiceCommands,SpeechIntegrator,xml"
+"/t:PiStudio.Win10.Voice.Srgs.Grammar,SpeechIntegrator,xml"
+"/t:PiStudio.Shared.AppSettings,PiStudio.Shared,xml"

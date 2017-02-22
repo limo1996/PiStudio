@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {    
 	/// <summary>
 	/// Provides example of one possible combination in <see cref="Rule"/>

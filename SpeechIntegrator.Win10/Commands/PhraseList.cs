@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Commands
+namespace PiStudio.Win10.Voice.Commands
 {
     /// <summary>
     /// Optional child of the CommandSet element. One CommandSet element can contain no more than 2,000 Item elements, and 2,000 Item elements is the combined total limit across 

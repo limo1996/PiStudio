@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
     /// <summary>
     /// Class that usually represents word or phrase that user must say once, more times or its optional. Can have inner elements or can be tagged.

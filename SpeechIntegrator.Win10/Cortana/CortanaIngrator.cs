@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.ApplicationModel.VoiceCommands;
-using Resco.InAppSpeechRecognition.RecognitionAndAction;
+using PiStudio.Win10.Voice.Navigation;
+using PiStudio.Win10.Voice.Commands;
 
-namespace Resco.Cortana
+namespace PiStudio.Win10.Cortana
 {
 	/// <summary>
 	/// Class that manage integration with Cortana.
@@ -40,7 +41,7 @@ namespace Resco.Cortana
 			this.m_voiceCommands = SpeechRecognitionManager.LoadCommandsFromFile(commandsFilePath);
 		}
 
-		private InAppSpeechRecognition.Commands.VoiceCommands m_voiceCommands = null;
+		private VoiceCommands m_voiceCommands = null;
 
 		/// <summary>
 		/// Creates new instance of <see cref="CortanaIntegrator"/> class ans install commands into cortana.

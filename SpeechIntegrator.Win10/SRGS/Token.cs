@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
 	/// <summary>
 	/// Contains a string that a speech recognizer can use for recognition and optionally specifies the display 

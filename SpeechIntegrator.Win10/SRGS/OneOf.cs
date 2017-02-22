@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
 	/// <summary>
 	/// A <one-of> element presents a list of alternatives. Only one can match. The alternative words or phrases must be enclosed in <item> tags.

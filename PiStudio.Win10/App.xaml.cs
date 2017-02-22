@@ -1,5 +1,6 @@
 ﻿using PiStudio.Shared;
 using PiStudio.Win10.UI.Pages;
+using PiStudio.Win10.Voice;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -54,28 +55,8 @@ namespace PiStudio.Win10.UI
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-            await AppSettings.CreateAsync();
-            WinAppResources.Instance.LoadFrom(AppSettings.Instance);
-
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
-            {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
-
-                rootFrame.NavigationFailed += OnNavigationFailed;
-
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    //TODO: Load state from previously suspended application
-                }
-
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
-            }
+            await HandleLaunch();
+            Frame rootFrame = (Frame)Window.Current.Content;
 
             if (rootFrame.Content == null)
             {
@@ -84,9 +65,6 @@ namespace PiStudio.Win10.UI
                 // parameter
                 rootFrame.Navigate(typeof(WelcomePage), e.Arguments);
             }
-
-            Application.Current.Resources["ColorToBrushConverter"] = new Data.ColorToBrushConverter();
-            Application.Current.Resources["LanguageToBoolConverter"] = new Data.LanguageToBoolConverter();
 
             // Ensure the current window is active
             Window.Current.Activate();
@@ -127,20 +105,9 @@ namespace PiStudio.Win10.UI
             // TODO: Handle file activation
             // The number of files received is args.Files.Size
             // The name of the first file is args.Files[0].Name
+            await HandleLaunch();
 
-            Frame rootFrame = Window.Current.Content as Frame;
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
-            {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
-
-                rootFrame.NavigationFailed += OnNavigationFailed;
-
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
-            }
+            Frame rootFrame = (Frame)Window.Current.Content;
             if (args.Files.Count == 0)
                 rootFrame.Navigate(typeof(WelcomePage));
             else
@@ -157,12 +124,44 @@ namespace PiStudio.Win10.UI
 
                 var t = FileServer.SaveTempAsync(editor);
                 WinAppResources.Instance.LoadedFile = file.Path;
-                //await Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "6"));
                 rootFrame.Navigate(typeof(HomePage), editor);
             }
             Window.Current.Activate();
+        }
 
-            //await Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "8"));
+        protected override async void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+            await HandleLaunch();
+            if(args.Kind == ActivationKind.VoiceCommand)
+            {
+                VoiceRecognizer.Instance.HandleLaunch((VoiceCommandActivatedEventArgs)args);
+            }
+            Window.Current.Activate();
+        }
+
+        private async Task HandleLaunch()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
+            if (rootFrame == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                rootFrame = new Frame();
+
+                rootFrame.NavigationFailed += OnNavigationFailed;
+
+                // Place the frame in the current Window
+                Window.Current.Content = rootFrame;
+            }
+            await AppSettings.CreateAsync();
+            WinAppResources.Instance.LoadFrom(AppSettings.Instance);
+            //start loading
+            var recognizer = VoiceRecognizer.Instance;
+
+            Application.Current.Resources["ColorToBrushConverter"] = new Data.ColorToBrushConverter();
+            Application.Current.Resources["LanguageToBoolConverter"] = new Data.LanguageToBoolConverter();
         }
     }
 }

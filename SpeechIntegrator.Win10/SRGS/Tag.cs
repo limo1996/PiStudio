@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
-namespace Resco.InAppSpeechRecognition.Srgs
+namespace PiStudio.Win10.Voice.Srgs
 {
     /// <summary>
     /// Tag is used to return different values 

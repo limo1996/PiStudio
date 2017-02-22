@@ -114,6 +114,11 @@ namespace PiStudio.Shared
         /// </summary>
         public bool IsPredefinedTheme { get; set; }
 
+        /// <summary>
+        /// Zero means that commands were not yet installed
+        /// </summary>
+        public int CortanaVoiceCommandsVersion { get; set; }
+
         #region Colors
 
         /// <summary>

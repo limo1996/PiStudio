@@ -7,10 +7,10 @@ using Windows.Media.SpeechRecognition;
 using Windows.Media.SpeechSynthesis;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
-using Resco.InAppSpeechRecognition.Commands;
-using Resco.InAppSpeechRecognition.Srgs;
+using PiStudio.Win10.Voice.Commands;
+using PiStudio.Win10.Voice.Srgs;
 
-namespace Resco.InAppSpeechRecognition.RecognitionAndAction
+namespace PiStudio.Win10.Voice.Navigation
 {
 	/// <summary>
 	/// Class that recognizes speech commands and performs action when was command recognized.
@@ -32,8 +32,8 @@ namespace Resco.InAppSpeechRecognition.RecognitionAndAction
 		/// <param name="filepath">Path to the folder where are voice commands, and where will be compiled GRXML file stored.</param>
 		public SpeechNavigator(string filepath)
 		{
-			//m_constrainedRecognizer = new SpeechRecognizer();
-			//m_freeSpeechRecognizer = new SpeechRecognizer();
+			m_constrainedRecognizer = new SpeechRecognizer();
+			m_freeSpeechRecognizer = new SpeechRecognizer();
 			m_location = filepath;
 		}
 
@@ -268,20 +268,19 @@ namespace Resco.InAppSpeechRecognition.RecognitionAndAction
 		/// </summary>
 		/// <param name="textToSpeech">Text to be spoken</param>
 		/// <returns><see cref="Task"/></returns>
-		public static async Task SayText(string textToSpeech, object form)
+		public static async Task SayText(string textToSpeech, Grid form)
 		{
 			if (string.IsNullOrWhiteSpace(textToSpeech))
 				return;
 			using (var synthesizer = new SpeechSynthesizer())
 			{
-
 				MediaElement audioPlayer = new MediaElement();
 				var taskSource = new TaskCompletionSource<bool>();
 				synthesizer.Voice = SpeechSynthesizer.AllVoices.First(
 							i => (i.Gender == VoiceGender.Female));
 				SpeechSynthesisStream ttsStream = await synthesizer.SynthesizeTextToStreamAsync(textToSpeech);
 
-				((Grid)form).Children.Add(audioPlayer);
+				form.Children.Add(audioPlayer);
 
 				audioPlayer.MediaEnded += (o, e) => { taskSource.TrySetResult(true); };
 				audioPlayer.PartialMediaFailureDetected += (o, e) => { taskSource.TrySetResult(true); };

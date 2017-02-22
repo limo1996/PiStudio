@@ -2,8 +2,9 @@
 using System.Xml.Serialization;
 using Windows.UI.Popups;
 using System;
+using PiStudio.Win10.Voice.Navigation;
 
-namespace Resco.InAppSpeechRecognition.Commands
+namespace PiStudio.Win10.Voice.Commands
 {
     /// <summary>
     /// Base class for <see cref="VoiceCommandService"/> and <see cref="Navigate"/> classes when iteracting with cortana 
@@ -20,8 +21,8 @@ namespace Resco.InAppSpeechRecognition.Commands
         /// <summary>
         /// Event is raised when is parent <see cref="Command"/> of <see cref="VoiceAction"/> recognized by speech rec. engine
         /// </summary>
-        public event System.EventHandler<RecognitionAndAction.SpeechRecognitionResult> CommandRecognized = null;
-        public void Invoke(object sender, RecognitionAndAction.SpeechRecognitionResult result)
+        public event System.EventHandler<SpeechRecognitionResult> CommandRecognized = null;
+        public void Invoke(object sender, SpeechRecognitionResult result)
         {
              var fn = CommandRecognized;
              if (fn != null)
