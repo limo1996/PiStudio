@@ -7,7 +7,7 @@ namespace PiStudio.Shared
     /// <summary>
     /// Navigator between app screens.
     /// </summary>
-    public interface IPageNavigator
+    public interface INavigator
     {
         /// <summary>
         /// Provides intialization, shows file picker and stores image into application resources.
@@ -30,7 +30,7 @@ namespace PiStudio.Shared
         /// <param name="pageType">Type of the target page</param>
         /// <param name="args">Optional navigation parameters</param>
         /// <remarks>
-        /// <see cref="IPageNavigator"/> should be used in every navigation between pages because it handles
+        /// <see cref="INavigator"/> should be used in every navigation between pages because it handles
         /// unsaved changes as well as auto save option.
         /// </remarks>
         Task<bool> NavigateTo(Type pageType, NavigationParameter args);

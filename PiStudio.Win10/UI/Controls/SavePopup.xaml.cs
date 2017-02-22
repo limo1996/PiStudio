@@ -75,13 +75,13 @@ namespace PiStudio.Win10.UI.Controls
         private async void OnTapped(object sender, TappedRoutedEventArgs e)
         {
             if (sender == Button2 || WinAppResources.Instance.FinalStorage == null)
-                await Navigation.PageNavigator.PickFinalStorage();
+                await Navigation.Navigator.PickFinalStorage();
 
             var finalStorage = WinAppResources.Instance.FinalStorage;
             if (finalStorage == null)
                 return;
 
-            PopupBase.IsOpen = false;
+            IsOpen = false;
             Started?.Invoke(this, EventArgs.Empty);
             // write to file
             if (SaveableObject != null)

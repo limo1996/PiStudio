@@ -35,6 +35,19 @@
                 };
             }
         }
+
+        public static NavigationParameter Empty
+        {
+            get
+            {
+                return new NavigationParameter()
+                {
+                    Extra = null,
+                    PrevPage = EnumPage.AppStart,
+                    Source = NavigationSource.Click
+                };
+            }
+        }
     }
 
     /// <summary>
@@ -73,6 +86,7 @@
         FiltersPage,
         BrightnessPage,
         DrawingPage,
-        SettingsPage
+        SettingsPage,
+        AppStart
     }
 }

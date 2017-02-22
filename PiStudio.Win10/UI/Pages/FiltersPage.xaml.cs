@@ -42,7 +42,13 @@ namespace PiStudio.Win10.UI.Pages
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
 
-            m_editor = await WinAppResources.Instance.GetImageEditorAsync();
+            var param = e.Parameter as NavigationParameter;
+            if (param != null && param.Extra != null)
+                m_editor = (ImageEditor)param.Extra;
+            else
+                m_editor = await WinAppResources.Instance.GetImageEditorAsync();
+
+            Navigator.Instance.Editor = m_editor;
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
             await LoadItems(m_editor);
@@ -86,15 +92,15 @@ namespace PiStudio.Win10.UI.Pages
         private async void MenuItem_Click(object sender, System.EventArgs e)
         {
             var tmp = sender as MenuItem;
-            
+
             NavigationParameter parameter = new NavigationParameter()
             {
+                Extra = m_editor,
                 PrevPage = EnumPage.HomePage,
                 Source = NavigationSource.Click
             };
 
             Type pageType = typeof(SettingsPage);
-            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);
 
             if (tmp == HomeItem)
                 pageType = typeof(HomePage);
@@ -118,10 +124,10 @@ namespace PiStudio.Win10.UI.Pages
             }
             else if (tmp == ShareItem)
             {
-                navigator.Share();
+                Navigator.Instance.Share();
                 return;
             }
-            await navigator.NavigateTo(pageType, parameter);
+            await Navigator.Instance.NavigateTo(pageType, parameter);
         }
 
         private async void FilterGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

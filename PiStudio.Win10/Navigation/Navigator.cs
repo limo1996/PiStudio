@@ -9,26 +9,49 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace PiStudio.Win10.Navigation
 {
-    public class PageNavigator : IPageNavigator
+    public class Navigator : INavigator
     {
-        private Frame m_frame;
         private Type m_page;
         private object m_args;
         private ISaveable m_editor;
 
         /// <summary>
-        /// Creates new instance of <see cref="PageNavigator"/>
+        /// Creates new instance of <see cref="Navigator"/>
         /// </summary>
         /// <param name="frame"><see cref="Frame"/> used for navigation. If is <see cref="null"/> navigation will not be performed.</param>
         /// <param name="editor"><see cref="ISaveable"/> image editor. If is <see cref="null"/> it's state will not be saved.</param>
-        public PageNavigator(Frame frame, ISaveable editor)
+        private Navigator()
         {
-            m_frame = frame;
-            m_editor = editor;
+            Editor = null;
+        }
+
+        private static Navigator m_instance;
+
+        /// <summary>
+        /// The only instance of <see cref="Navigator"/>
+        /// </summary>
+        public static Navigator Instance
+        {
+            get
+            {
+                if (m_instance == null)
+                    m_instance = new Navigator();
+                return m_instance;
+            }
+        }
+
+        /// <summary>
+        /// <see cref="ISaveable"/> object that state can be saved during navigation if contains some unsaved changes.
+        /// </summary>
+        public ISaveable Editor
+        {
+            get { return m_editor; }
+            set { m_editor = value; }
         }
 
         /// <summary>
@@ -36,7 +59,8 @@ namespace PiStudio.Win10.Navigation
         /// </summary>
         public async Task LoadNewImageWithUIAsync()
         {
-            if (m_editor.HasUnsavedChange)
+            m_navigate = false;
+            if (m_editor != null && m_editor.HasUnsavedChange)
             {
                 if(!await CreateAndDisplayChangesDialog())
                     return;
@@ -50,7 +74,8 @@ namespace PiStudio.Win10.Navigation
         public async Task GetStartedButtonClick()
         {
             await DisplayDialogAndSaveToTmpFile();
-            m_frame.Navigate(typeof(HomePage));
+            var frame = (Frame)Window.Current.Content;
+            frame.Navigate(typeof(HomePage));
         }
 
         /// <summary>
@@ -74,9 +99,10 @@ namespace PiStudio.Win10.Navigation
         /// Navigates to given page with given navigation parameter.
         /// </summary>
         /// <param name="pageType">Type of the target page</param>
-        /// <param name="args">Optional navigation parameters</param>
-        public async Task<bool> NavigateTo(Type pageType, NavigationParameter args)
+        /// <param name="args">Optional navigation parameter</param>
+        public async Task<bool> NavigateTo(Type pageType, NavigationParameter args = null)
         {
+            m_navigate = true;
             m_page = pageType;
             m_args = args;
             if (m_editor != null && m_editor.HasUnsavedChange)
@@ -87,9 +113,21 @@ namespace PiStudio.Win10.Navigation
                     return await CreateAndDisplayChangesDialog();
             }
 
-            if (m_frame != null)
-                m_frame.Navigate(pageType, args);
+            var frame = Window.Current.Content as Frame;
+            if (frame != null)
+                frame.Navigate(pageType, args);
             return true;
+        }
+
+        /// <summary>
+        /// Navigates to given navigation string with given navigation parameter.
+        /// </summary>
+        /// <param name="navigationString">Type of the target page</param>
+        /// <param name="args">Optional navigation parameter</param>
+        /// <returns></returns>
+        public async Task<bool> NavigateTo(string navigationString, NavigationParameter args)
+        {
+            return false;
         }
 
         //decides whether store m_editor into temp file or into the one, chosen by user
@@ -103,6 +141,7 @@ namespace PiStudio.Win10.Navigation
                 await FileServer.SaveToFileAsync(file, m_editor);
         }
 
+        private bool m_navigate = true;
         /// <summary>
         /// Shares currently edited image to external apps.
         /// </summary>
@@ -111,7 +150,7 @@ namespace PiStudio.Win10.Navigation
         /// </remarks>
         public async void Share()
         {
-            m_frame = null;
+            m_navigate = false;
             if (m_editor != null && m_editor.HasUnsavedChange)
             {
                 if (!AppSettings.Instance.AutoSave)
@@ -120,8 +159,8 @@ namespace PiStudio.Win10.Navigation
                     await AutoSave();
             }
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
-            //frame will remain null because we don't have handler for end of sharing
         }
+
 
         /// <summary>
         /// Displays dialog that warns user about unsaved changes. User has 3 options: 
@@ -163,15 +202,21 @@ namespace PiStudio.Win10.Navigation
             await FileServer.SaveToFileAsync(finalStorage, m_editor);
 
             m_result = true;
-            if(m_frame != null)
-                m_frame.Navigate(m_page, m_args);
+            if (m_navigate)
+            {
+                var frame = (Frame)Window.Current.Content;
+                frame.Navigate(m_page, m_args);
+            }
         }
 
         private void DismissAndContinue(IUICommand command)
         {
             m_editor.Dismiss();
-            if(m_frame != null)
-                m_frame.Navigate(m_page, m_args);
+            if (m_navigate)
+            {
+                var frame = (Frame)Window.Current.Content;
+                frame.Navigate(m_page, m_args);
+            }
             m_result = true;
         }
 

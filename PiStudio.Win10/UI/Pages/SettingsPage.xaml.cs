@@ -80,11 +80,18 @@ namespace PiStudio.Win10.UI.Pages
             }
         }
 
+        private ImageEditor m_editor;
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            SavePop.SaveableObject = await WinAppResources.Instance.GetImageEditorAsync(); 
+            var param = e.Parameter as NavigationParameter;
+            if (param != null && param.Extra != null)
+                m_editor = (ImageEditor)param.Extra;
+            else
+                m_editor = await WinAppResources.Instance.GetImageEditorAsync();
+            Navigator.Instance.Editor = m_editor;
+            SavePop.SaveableObject = m_editor;
             SavePop.Started += (o1, args1) => Progress.IsActive = true;
             SavePop.Completed += (o2, args2) => Progress.IsActive = false;
         }
@@ -112,12 +119,12 @@ namespace PiStudio.Win10.UI.Pages
 
             NavigationParameter parameter = new NavigationParameter()
             {
+                Extra = m_editor,
                 PrevPage = EnumPage.HomePage,
                 Source = NavigationSource.Click
             };
 
             Type pageType = typeof(SettingsPage);
-            PageNavigator navigator = new PageNavigator(this.Frame, null);
 
             if (tmp == HomeItem)
                 pageType = typeof(HomePage);
@@ -142,10 +149,10 @@ namespace PiStudio.Win10.UI.Pages
             }
             else if (tmp == ShareItem)
             {
-                navigator.Share();
+                Navigator.Instance.Share();
                 return;
             }
-            await navigator.NavigateTo(pageType, parameter);
+            await Navigator.Instance.NavigateTo(pageType, parameter);
         }
 
         private void SettingsSection_Clicked(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)

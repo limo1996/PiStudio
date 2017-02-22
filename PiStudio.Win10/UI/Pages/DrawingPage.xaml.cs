@@ -45,6 +45,8 @@ namespace PiStudio.Win10.UI.Pages
             };
 
             PRing.IsActive = true;
+
+            Navigator.Instance.Editor = DrawingCanvas;
             var image = await WinAppResources.Instance.GetWorkingImage();
             ImgPresenter.Source = image;
             WinAppResources.Instance.SetImageStretch(ImgPresenter);
@@ -74,7 +76,6 @@ namespace PiStudio.Win10.UI.Pages
             };
 
             Type pageType = typeof(SettingsPage);
-            PageNavigator navigator = new PageNavigator(this.Frame, DrawingCanvas);
 
             if (tmp == HomeItem)
                 pageType = typeof(HomePage);
@@ -98,10 +99,10 @@ namespace PiStudio.Win10.UI.Pages
             }
             else if (tmp == ShareItem)
             {
-                navigator.Share();
+                Navigator.Instance.Share();
                 return;
             }
-            await navigator.NavigateTo(pageType, parameter);
+            await Navigator.Instance.NavigateTo(pageType, parameter);
         }
 
         private void Grid_SizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)

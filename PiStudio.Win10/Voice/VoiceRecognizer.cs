@@ -10,6 +10,8 @@ using PiStudio.Win10.UI;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml;
 using PiStudio.Shared;
+using PiStudio.Win10.Navigation;
+using PiStudio.Win10.UI.Pages;
 
 namespace PiStudio.Win10.Voice
 {
@@ -118,11 +120,11 @@ namespace PiStudio.Win10.Voice
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OpenLastEdited(object sender, SpeechRecognitionResult e)
+        private async void OpenLastEdited(object sender, SpeechRecognitionResult e)
         {
             var frame = Window.Current.Content as Frame;
             if (frame != null)
-                frame.Navigate(typeof(UI.Pages.HomePage));
+                await Navigator.Instance.NavigateTo(typeof(HomePage), null);
         }
 
         //reads given text

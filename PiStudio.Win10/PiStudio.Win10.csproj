@@ -125,7 +125,7 @@
     <Compile Include="UI\Controls\Toolbox.xaml.cs">
       <DependentUpon>Toolbox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Navigation\PageNavigator.cs" />
+    <Compile Include="Navigation\Navigator.cs" />
     <Compile Include="PlatformSpecific\Data\ColorToBrushConverter.cs" />
     <Compile Include="PlatformSpecific\Data\PiCanvasContentChangedEventArgs.cs" />
     <Compile Include="PlatformSpecific\Data\SVGPath.cs" />

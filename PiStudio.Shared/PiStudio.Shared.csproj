@@ -44,7 +44,7 @@
     <Compile Include="Data\ShapeType.cs" />
     <Compile Include="General\AppResources.cs" />
     <Compile Include="General\AppSettings.cs" />
-    <Compile Include="Logic\IPageNavigator.cs" />
+    <Compile Include="Logic\INavigator.cs" />
     <Compile Include="Logic\ISaveable.cs" />
     <Compile Include="Workers\BaseImageEditor.cs" />
     <Compile Include="Workers\ImageConverter.cs" />

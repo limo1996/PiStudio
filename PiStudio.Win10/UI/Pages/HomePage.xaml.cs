@@ -40,14 +40,16 @@ namespace PiStudio.Win10.UI.Pages
         {
             base.OnNavigatedTo(e);
             PRing.IsActive = true;
-            m_editor = e.Parameter as ImageEditor;
-            await System.Threading.Tasks.Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", (m_editor == null).ToString()));
-            if (m_editor == null)
-                m_editor = await WinAppResources.Instance.GetImageEditorAsync();
-            await System.Threading.Tasks.Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "9"));
-            var image = await m_editor.ApplyBrightnessAsync(0);
 
-            await System.Threading.Tasks.Task.Run(() => File.AppendAllText(ApplicationData.Current.LocalFolder.Path + "\\log.log", "10"));
+            var param = e.Parameter as NavigationParameter;
+            if (param != null && param.Extra != null)
+                m_editor = (ImageEditor)param.Extra;
+            else
+                m_editor = await WinAppResources.Instance.GetImageEditorAsync();
+
+            var image = await WinAppResources.Instance.GetWorkingImage();
+            Navigator.Instance.Editor = m_editor;
+
             PRing.IsActive = false;
             ImageContent.Source = image;
 
@@ -71,11 +73,11 @@ namespace PiStudio.Win10.UI.Pages
 
             NavigationParameter parameter = new NavigationParameter()
             {
+                Extra = m_editor,
                 PrevPage = EnumPage.HomePage,
                 Source = NavigationSource.Click
             };
-
-            PageNavigator navigator = new PageNavigator(this.Frame, m_editor);  
+            
             Type pageType = typeof(SettingsPage);
 
             if (tmp == HomeItem)
@@ -100,11 +102,11 @@ namespace PiStudio.Win10.UI.Pages
             }
             else if (tmp == ShareItem)
             {
-                navigator.Share();
+                Navigator.Instance.Share();
                 return;
             }
             
-            await navigator.NavigateTo(pageType, parameter);
+            await Navigator.Instance.NavigateTo(pageType, parameter);
         }
         
         private bool odd = true;
@@ -146,8 +148,7 @@ namespace PiStudio.Win10.UI.Pages
         private async void AddBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             PRing.IsActive = true;
-            PageNavigator nav = new PageNavigator(null, m_editor);
-            await nav.LoadNewImageWithUIAsync();
+            await Navigator.Instance.LoadNewImageWithUIAsync();
             m_editor = await WinAppResources.Instance.GetImageEditorAsync();
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
             WinAppResources.Instance.SetImageStretch(ImageContent);
