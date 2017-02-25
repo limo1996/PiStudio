@@ -403,6 +403,9 @@
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\PiStudio.xr.xml">
       <PackagePath>PiStudio.xr.xml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.xr.xml">
+      <PackagePath>SpeechIntegrator\SpeechIntegrator.xr.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>

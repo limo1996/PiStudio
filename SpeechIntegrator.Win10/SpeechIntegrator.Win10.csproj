@@ -61,6 +61,9 @@
     <Compile Include="RecognitionAndAction\SpeechNavigator.cs" />
     <Compile Include="RecognitionAndAction\SpeechRecognitionManager.cs" />
     <Compile Include="RecognitionAndAction\SpeechRecognitionResult.cs" />
+    <Compile Include="RecognitionAndAction\UI\VoiceUI.xaml.cs">
+      <DependentUpon>VoiceUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SRGS\Example.cs" />
     <Compile Include="SRGS\Grammar.cs" />
     <Compile Include="SRGS\Item.cs" />
@@ -73,7 +76,12 @@
     <Compile Include="SRGS\Token.cs" />
     <EmbeddedResource Include="Properties\SpeechIntegrator.rd.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="RecognitionAndAction\UI\VoiceUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

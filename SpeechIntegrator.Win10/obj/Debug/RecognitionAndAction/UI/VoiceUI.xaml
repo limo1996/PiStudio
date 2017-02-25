@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="SpeechIntegrator.RecognitionAndAction.UI.VoiceUI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpeechIntegrator.RecognitionAndAction.UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Storyboard x:ConnectionId='1' x:Name="Fall1" Storyboard.TargetName="InnerCircle">
+            <RepositionThemeAnimation FromVerticalOffset="-800" />
+        </Storyboard>
+        <Storyboard x:ConnectionId='2' x:Name="Fall2" Storyboard.TargetName="OuterCircle" >
+            <RepositionThemeAnimation FromVerticalOffset="-800" />
+        </Storyboard>
+        <Storyboard x:ConnectionId='3' x:Name="Launch1" Storyboard.TargetName="InnerCircle">
+            <DoubleAnimation Storyboard.TargetProperty="Height" To="50" AutoReverse="False" Duration="0:0:0.2"
+                             EnableDependentAnimation="True" BeginTime="0:0:0.2"/>
+            <DoubleAnimation Storyboard.TargetProperty="Width" To="50" AutoReverse="False" Duration="0:0:0.2"
+                             EnableDependentAnimation="True" BeginTime="0:0:0.2"/>
+        </Storyboard>
+        <Storyboard x:ConnectionId='4' x:Name="Launch2" Storyboard.TargetName="OuterCircle" >
+            <DoubleAnimation Storyboard.TargetProperty="Height" To="100" AutoReverse="False"
+                             EnableDependentAnimation="True" Duration="0:0:0.4"/>
+            <DoubleAnimation Storyboard.TargetProperty="Width" To="100" AutoReverse="False"
+                             EnableDependentAnimation="True" Duration="0:0:0.4"/>
+        </Storyboard>
+        <Storyboard x:ConnectionId='5' x:Name="InnerCircleAnimation" Storyboard.TargetName="InnerCircle">
+            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.6" 
+                             From="50" To="60" AutoReverse="True" 
+                             EnableDependentAnimation="True" SpeedRatio="1.5" RepeatBehavior="15"/>
+            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.6"
+                             From="50" To="60" AutoReverse="True" 
+                             EnableDependentAnimation="True" SpeedRatio="1.5" RepeatBehavior="15"/>
+        </Storyboard>
+        <Storyboard x:ConnectionId='6' x:Name="OuterCircleAnimation" Storyboard.TargetName="OuterCircle">
+            <DoubleAnimation Storyboard.TargetProperty="Height" Duration="0:0:0.6" 
+                             From="100" To="95" AutoReverse="True" 
+                             EnableDependentAnimation="True" SpeedRatio="1.5" RepeatBehavior="15"/>
+            <DoubleAnimation Storyboard.TargetProperty="Width" Duration="0:0:0.6" 
+                             From="100" To="95" AutoReverse="True" 
+                             EnableDependentAnimation="True" SpeedRatio="1.5" RepeatBehavior="15"/>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid x:ConnectionId='7' x:Name="Content">
+        <Ellipse x:ConnectionId='8' Name="InnerCircle" Width="25" Height="25" Fill="#E0D13438" Visibility="Collapsed"/>
+        <Ellipse x:ConnectionId='9' Name="OuterCircle" Width="50" Height="50" Fill="#90D13438" Visibility="Collapsed"/>
+        <TextBlock x:ConnectionId='10' Foreground="White" Margin="0,120,0,0" Text="Listening..." FontFamily="Segoe UI" FontSize="24" Visibility="Collapsed" x:Name="Display"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>
+

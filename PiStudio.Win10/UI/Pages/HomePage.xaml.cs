@@ -97,7 +97,9 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SpeakItem)
             {
                 //recognize and continue
-
+                VoiceAnimation.Start();
+                await System.Threading.Tasks.Task.Delay(1200);
+                await Voice.VoiceRecognizer.Instance.SayText("Listening");
                 return;
             }
             else if (tmp == ShareItem)
@@ -105,7 +107,6 @@ namespace PiStudio.Win10.UI.Pages
                 Navigator.Instance.Share();
                 return;
             }
-            
             await Navigator.Instance.NavigateTo(pageType, parameter);
         }
         

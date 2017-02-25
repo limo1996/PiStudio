@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PiStudio.Win10.UI.Controls"
+    xmlns:voice="using:SpeechIntegrator.RecognitionAndAction.UI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -29,7 +30,7 @@
                     <local:MenuItem x:Name="ShareItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
                                     Symbol="ReShare" Text="{x:Bind Path=LanguagePack.MenuItem7, Mode=OneWay}" Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:Name="SpeakItem" Click="MenuItem_Click" ApplicationTheme="{x:Bind Path=ApplicationTheme, Mode=OneWay}" 
-                                    Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" IsSelectionEnabled="False" Height="50" Margin="0,350,0,0" VerticalAlignment="Top"/>
+                                    Symbol="Microphone" Text="{x:Bind Path=LanguagePack.MenuItem6, Mode=OneWay}" Height="50" Margin="0,350,0,0" VerticalAlignment="Top"/>
                     
 
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
@@ -47,6 +48,7 @@
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+                    <voice:VoiceUI x:Name="VoiceAnimation" Grid.Row="1" Canvas.ZIndex="3"/>
                     <Grid Grid.Row="0" Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
                         <TextBlock Margin="15,0" Text="{x:Bind Path=LanguagePack.MenuItem1}"  FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 

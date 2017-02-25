@@ -132,7 +132,7 @@ namespace PiStudio.Win10.Voice
 		{
             var frame = Window.Current.Content as Frame;
             if(frame != null)
-                await SpeechNavigator.SayText(text, (Grid)frame.Content);
+                await SpeechNavigator.SayText(text, (Grid)((Page)frame.Content).Content);
         }
 
 		//recognizes and performs action. Catches exceptions...

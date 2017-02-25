@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-22T21:37:37.831</Modified>
+      <Modified>2017-02-25T23:09:27.543</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\PiStudio.exe">
       <PackagePath>entrypoint\PiStudio.exe</PackagePath>
-      <Modified>2017-02-22T21:37:35.947</Modified>
+      <Modified>2017-02-25T23:09:26.107</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\.nuget\packages\Coding4Fun.Toolkit.Controls\2.1.8\lib\netcore451\Coding4Fun.Toolkit.Controls.dll">
       <PackagePath>Coding4Fun.Toolkit.Controls.dll</PackagePath>
@@ -482,7 +482,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.dll">
       <PackagePath>SpeechIntegrator.dll</PackagePath>
-      <Modified>2017-02-22T17:08:40.497</Modified>
+      <Modified>2017-02-25T22:47:06.143</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
@@ -536,7 +536,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\PiStudio.xr.xml">
       <PackagePath>PiStudio.xr.xml</PackagePath>
-      <Modified>2017-02-21T19:01:55.133</Modified>
+      <Modified>2017-02-25T23:03:26.197</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.xr.xml">
+      <PackagePath>SpeechIntegrator\SpeechIntegrator.xr.xml</PackagePath>
+      <Modified>2017-02-25T22:33:21.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -553,11 +557,11 @@
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-22T21:37:37.493</Modified>
+      <Modified>2017-02-25T23:09:27.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe">
       <PackagePath>PiStudio.exe</PackagePath>
-      <Modified>2017-02-22T21:37:37.823</Modified>
+      <Modified>2017-02-25T23:09:27.536</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -156,7 +156,7 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[36];
+            _typeNameTable = new string[37];
             _typeNameTable[0] = "PiStudio.Win10.UI.Controls.MenuItem";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "PiStudio.Win10.Data.Theme";
@@ -189,12 +189,13 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             _typeNameTable[29] = "Windows.UI.Xaml.Controls.Panel";
             _typeNameTable[30] = "Int32";
             _typeNameTable[31] = "PiStudio.Win10.UI.Pages.FiltersPage";
-            _typeNameTable[32] = "PiStudio.Win10.UI.Pages.HomePage";
-            _typeNameTable[33] = "PiStudio.Win10.UI.Pages.SettingsPage";
-            _typeNameTable[34] = "PiStudio.Shared.AppSettings";
-            _typeNameTable[35] = "PiStudio.Win10.UI.Pages.WelcomePage";
+            _typeNameTable[32] = "SpeechIntegrator.RecognitionAndAction.UI.VoiceUI";
+            _typeNameTable[33] = "PiStudio.Win10.UI.Pages.HomePage";
+            _typeNameTable[34] = "PiStudio.Win10.UI.Pages.SettingsPage";
+            _typeNameTable[35] = "PiStudio.Shared.AppSettings";
+            _typeNameTable[36] = "PiStudio.Win10.UI.Pages.WelcomePage";
 
-            _typeTable = new global::System.Type[36];
+            _typeTable = new global::System.Type[37];
             _typeTable[0] = typeof(global::PiStudio.Win10.UI.Controls.MenuItem);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::PiStudio.Win10.Data.Theme);
@@ -227,10 +228,11 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
             _typeTable[29] = typeof(global::Windows.UI.Xaml.Controls.Panel);
             _typeTable[30] = typeof(global::System.Int32);
             _typeTable[31] = typeof(global::PiStudio.Win10.UI.Pages.FiltersPage);
-            _typeTable[32] = typeof(global::PiStudio.Win10.UI.Pages.HomePage);
-            _typeTable[33] = typeof(global::PiStudio.Win10.UI.Pages.SettingsPage);
-            _typeTable[34] = typeof(global::PiStudio.Shared.AppSettings);
-            _typeTable[35] = typeof(global::PiStudio.Win10.UI.Pages.WelcomePage);
+            _typeTable[32] = typeof(global::SpeechIntegrator.RecognitionAndAction.UI.VoiceUI);
+            _typeTable[33] = typeof(global::PiStudio.Win10.UI.Pages.HomePage);
+            _typeTable[34] = typeof(global::PiStudio.Win10.UI.Pages.SettingsPage);
+            _typeTable[35] = typeof(global::PiStudio.Shared.AppSettings);
+            _typeTable[36] = typeof(global::PiStudio.Win10.UI.Pages.WelcomePage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -277,9 +279,10 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
         private object Activate_26_DrawingPage() { return new global::PiStudio.Win10.UI.Pages.DrawingPage(); }
         private object Activate_27_Rater() { return new global::PiStudio.Win10.UI.Controls.Rater(); }
         private object Activate_31_FiltersPage() { return new global::PiStudio.Win10.UI.Pages.FiltersPage(); }
-        private object Activate_32_HomePage() { return new global::PiStudio.Win10.UI.Pages.HomePage(); }
-        private object Activate_33_SettingsPage() { return new global::PiStudio.Win10.UI.Pages.SettingsPage(); }
-        private object Activate_35_WelcomePage() { return new global::PiStudio.Win10.UI.Pages.WelcomePage(); }
+        private object Activate_32_VoiceUI() { return new global::SpeechIntegrator.RecognitionAndAction.UI.VoiceUI(); }
+        private object Activate_33_HomePage() { return new global::PiStudio.Win10.UI.Pages.HomePage(); }
+        private object Activate_34_SettingsPage() { return new global::PiStudio.Win10.UI.Pages.SettingsPage(); }
+        private object Activate_36_WelcomePage() { return new global::PiStudio.Win10.UI.Pages.WelcomePage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -506,18 +509,24 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 32:   //  PiStudio.Win10.UI.Pages.HomePage
+            case 32:   //  SpeechIntegrator.RecognitionAndAction.UI.VoiceUI
+                userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_32_VoiceUI;
+                xamlType = userType;
+                break;
+
+            case 33:   //  PiStudio.Win10.UI.Pages.HomePage
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_32_HomePage;
+                userType.Activator = Activate_33_HomePage;
                 userType.AddMemberName("ApplicationTheme");
                 userType.AddMemberName("LanguagePack");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 33:   //  PiStudio.Win10.UI.Pages.SettingsPage
+            case 34:   //  PiStudio.Win10.UI.Pages.SettingsPage
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_33_SettingsPage;
+                userType.Activator = Activate_34_SettingsPage;
                 userType.AddMemberName("ApplicationTheme");
                 userType.AddMemberName("Settings");
                 userType.AddMemberName("LanguagePack");
@@ -525,15 +534,15 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 34:   //  PiStudio.Shared.AppSettings
+            case 35:   //  PiStudio.Shared.AppSettings
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 35:   //  PiStudio.Win10.UI.Pages.WelcomePage
+            case 36:   //  PiStudio.Win10.UI.Pages.WelcomePage
                 userType = new global::PiStudio.Win10.PiStudio_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_35_WelcomePage;
+                userType.Activator = Activate_36_WelcomePage;
                 userType.AddMemberName("ApplicationTheme");
                 userType.AddMemberName("LanguagePack");
                 userType.SetIsLocalType();
@@ -553,6 +562,8 @@ namespace PiStudio.Win10.PiStudio_Win10_XamlTypeInfo
                     var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
                     provider = new global::Coding4Fun.Toolkit.Controls.Coding4Fun_Toolkit_Controls__Win8_1__XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     _otherProviders = otherProviders;
                 }

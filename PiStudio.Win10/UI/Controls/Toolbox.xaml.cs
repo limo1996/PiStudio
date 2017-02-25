@@ -29,12 +29,16 @@ namespace PiStudio.Win10.UI.Controls
         private void SizeButton_Click(object sender, RoutedEventArgs e)
         {
             SizePopup.IsOpen = !SizePopup.IsOpen;
+            if(SizePopup.IsOpen)
+                SizePopupAnimation.Begin();
             ColorPopup.IsOpen = false;
         }
 
         private void ColorButton_Click(object sender, RoutedEventArgs e)
         {
             ColorPopup.IsOpen = !ColorPopup.IsOpen;
+            if(ColorPopup.IsOpen)
+                ColorPopupAnimation.Begin();
             SizePopup.IsOpen = false;
         }
 
