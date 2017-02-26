@@ -43,12 +43,11 @@
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid>
+                <Grid x:ConnectionId='16' x:Name="Content">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <voice:VoiceUI x:ConnectionId='16' x:Name="VoiceAnimation" Grid.Row="1" Canvas.ZIndex="3"/>
                     <Grid x:ConnectionId='17' Grid.Row="0"                                                                                                                                >
                         <TextBlock x:ConnectionId='21' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      

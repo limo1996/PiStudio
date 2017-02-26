@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="SpeechIntegrator.RecognitionAndAction.UI.VoiceUI"
+    x:Class="PiStudio.Win10.Voice.UI.VoiceUI"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SpeechIntegrator.RecognitionAndAction.UI"
@@ -48,7 +48,7 @@
     <Grid x:Name="Content">
         <Ellipse Name="InnerCircle" Width="25" Height="25" Fill="#E0D13438" Visibility="Collapsed"/>
         <Ellipse Name="OuterCircle" Width="50" Height="50" Fill="#90D13438" Visibility="Collapsed"/>
-        <TextBlock Foreground="White" Margin="0,120,0,0" Text="Listening..." FontFamily="Segoe UI" FontSize="24" Visibility="Collapsed" x:Name="Display"
+        <TextBlock Foreground="White" Margin="0,120,0,0" Text="{x:Bind Text, Mode=OneWay}" FontFamily="Segoe UI" FontSize="24" Visibility="Collapsed" x:Name="Display"
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

@@ -415,7 +415,6 @@
       <RootProperty Name="RelativeSource" />
     </RootType>
     <RootType FullName="PiStudio.Win10.UI.Pages.FiltersPage" />
-    <RootType FullName="SpeechIntegrator.RecognitionAndAction.UI.VoiceUI" />
     <RootType FullName="Windows.UI.Xaml.Media.PlaneProjection" />
     <RootType FullName="PiStudio.Win10.UI.Pages.HomePage" />
     <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">

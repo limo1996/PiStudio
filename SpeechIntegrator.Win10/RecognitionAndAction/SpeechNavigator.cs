@@ -9,6 +9,9 @@ using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 using PiStudio.Win10.Voice.Commands;
 using PiStudio.Win10.Voice.Srgs;
+using Windows.UI.Xaml;
+using System.Threading;
+using Windows.UI;
 
 namespace PiStudio.Win10.Voice.Navigation
 {
@@ -24,17 +27,20 @@ namespace PiStudio.Win10.Voice.Navigation
 		private bool m_constrained = false;
 		private VoiceCommands m_voiceCommands;
 		private string m_filePath;
+        private bool m_listening = false;
+        private SemaphoreSlim m_semaphore = new SemaphoreSlim(1, 1);
 		public static readonly uint HResultPrivacyStatementDeclined = 0x80045509;
 
 		/// <summary>
 		/// Creates new instance of <see cref="SpeechNavigator"/>.
 		/// </summary>
 		/// <param name="filepath">Path to the folder where are voice commands, and where will be compiled GRXML file stored.</param>
-		public SpeechNavigator(string filepath)
+		private SpeechNavigator(string filepath)
 		{
 			m_constrainedRecognizer = new SpeechRecognizer();
 			m_freeSpeechRecognizer = new SpeechRecognizer();
 			m_location = filepath;
+            SetHypGeneratedEvent();
 		}
 
 		/// <summary>
@@ -45,8 +51,20 @@ namespace PiStudio.Win10.Voice.Navigation
 		private SpeechNavigator(string filepath, Windows.Globalization.Language language)
 		{
 			m_constrainedRecognizer = new SpeechRecognizer(language);
+            m_freeSpeechRecognizer = new SpeechRecognizer(language);
 			m_location = filepath;
+            SetHypGeneratedEvent();
 		}
+
+        private void SetHypGeneratedEvent()
+        {
+            var dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
+            m_constrainedRecognizer.HypothesisGenerated += async (o, e) =>
+            {
+                if (m_voiceUI != null)
+                   await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => m_voiceUI.Text = e.Hypothesis.Text);
+            };
+        }
 
 		/// <summary>
 		/// Initializes <see cref="SpeechNavigator"/> so it is ready to listen for user input.
@@ -172,12 +190,17 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// <returns>Returns <see cref="SpeechRecognitionResult"/></returns>
 		public async Task<SpeechRecognitionResult> RecognizeSpeechAsync()
 		{
-			var result = await m_constrainedRecognizer.RecognizeAsync();
-			if (m_constrained)
+            await m_semaphore.WaitAsync();
+            var result = await m_constrainedRecognizer.RecognizeAsync();
+            m_semaphore.Release();
+			
+            if (m_voiceUI != null)
+                m_voiceUI.Stop();
+            if (m_constrained)
 			{
 				if (result.RulePath == null || result.Confidence == SpeechRecognitionConfidence.Rejected || result.RulePath.Count == 0)
 				{
-					//nebolo nic povedane zvacsa
+                    //nebolo nic povedane zvacsa
 					return null;
 				}
 				var tmp = result.RulePath[0];
@@ -192,11 +215,34 @@ namespace PiStudio.Win10.Voice.Navigation
 				return new SpeechRecognitionResult(result);
 		}
 
-		/// <summary>
-		/// Recognizes free non constrained speech. 
-		/// </summary>
-		/// <returns><see cref="SpeechRecognitionResult"/></returns>
-		public async Task<SpeechRecognitionResult> RecognizeFreeSpeechAsync()
+        private UI.VoiceUI m_voiceUI;
+        public async Task<SpeechRecognitionResult> RecognizeSpeechWithUIAsync(Grid displayGrid, Color color,
+            int row = 0, int column = 0, int rowSpan = 1, int columnSpan = 1)
+        {
+            m_voiceUI = new UI.VoiceUI();
+            m_voiceUI.Fill = color;
+            m_voiceUI.Text = "Listening...";
+            Canvas.SetZIndex(m_voiceUI, 1000);
+            Grid.SetColumn(m_voiceUI, column);
+            Grid.SetRow(m_voiceUI, row);
+            if(columnSpan > 0)
+                Grid.SetColumnSpan(m_voiceUI, columnSpan);
+            if(rowSpan > 0)
+                Grid.SetRowSpan(m_voiceUI, rowSpan);
+            displayGrid.Children.Add(m_voiceUI);
+            m_voiceUI.Start();
+            await System.Threading.Tasks.Task.Delay(1200);
+            SayText("Listening");
+            var result = await RecognizeSpeechAsync();
+            displayGrid.Children.Remove(m_voiceUI);
+            return result;
+        }
+
+        /// <summary>
+        /// Recognizes free non constrained speech. 
+        /// </summary>
+        /// <returns><see cref="SpeechRecognitionResult"/></returns>
+        public async Task<SpeechRecognitionResult> RecognizeFreeSpeechAsync()
 		{
 			var result = await this.m_freeSpeechRecognizer.RecognizeAsync();
 			return new SpeechRecognitionResult(result);
@@ -256,19 +302,27 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// Does nothing if action was not set.
 		/// </summary>
 		/// <returns></returns>
-		public async Task RecognizeAndPerformAction()
+		public async Task RecognizeAndPerformActionAsync()
 		{
 			var result = await RecognizeSpeechAsync();
 			if (result != null)
 				PerformAction(result);
 		}
 
+        public async Task RecognizeAndPerformActionWithUIAsync(Grid displayGrid, Color fill,
+            int row = 0, int column = 0, int rowSpan = 0, int columnSpan = 0)
+        {
+            var result = await RecognizeSpeechWithUIAsync(displayGrid, fill, row, column, rowSpan, columnSpan);
+            if (result != null)
+                PerformAction(result);
+        }
+
 		/// <summary>
 		/// Speeks given text asynchronously on the backgound. Can be awaited until speaking of the text finishes.
 		/// </summary>
 		/// <param name="textToSpeech">Text to be spoken</param>
 		/// <returns><see cref="Task"/></returns>
-		public static async Task SayText(string textToSpeech, Grid form)
+		public static async Task SayTextAsync(string textToSpeech, Grid form)
 		{
 			if (string.IsNullOrWhiteSpace(textToSpeech))
 				return;

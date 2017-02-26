@@ -119,6 +119,11 @@ namespace PiStudio.Shared
         /// </summary>
         public int CortanaVoiceCommandsVersion { get; set; }
 
+        /// <summary>
+        /// Zero means that commands were not installed
+        /// </summary>
+        public int NavigatorVoiceCommandsVersion { get; set; }
+
         #region Colors
 
         /// <summary>

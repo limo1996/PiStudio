@@ -45,6 +45,9 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
-    <RootType FullName="SpeechIntegrator.RecognitionAndAction.UI.VoiceUI" />
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
+      <RootProperty Name="Mode" />
+    </RootType>
+    <RootType FullName="PiStudio.Win10.Voice.UI.VoiceUI" />
   </Roots.RootTypes>
 </Roots>

@@ -24,11 +24,11 @@
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="img">
             <uap:SupportedFileTypes>
-            <uap:FileType>.jpg</uap:FileType>
-            <uap:FileType>.png</uap:FileType>
-            <uap:FileType>.jpeg</uap:FileType>
-            <uap:FileType>.gif</uap:FileType>
-          </uap:SupportedFileTypes>
+              <uap:FileType>.jpg</uap:FileType>
+              <uap:FileType>.png</uap:FileType>
+              <uap:FileType>.jpeg</uap:FileType>
+              <uap:FileType>.gif</uap:FileType>
+            </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
       </Extensions>
@@ -36,5 +36,6 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <DeviceCapability Name="microphone" />
   </Capabilities>
 </Package>

@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SpeechIntegrator.RecognitionAndAction.UI
+namespace PiStudio.Win10.Voice.UI
 {
     public sealed partial class VoiceUI : UserControl
     {
@@ -24,6 +24,36 @@ namespace SpeechIntegrator.RecognitionAndAction.UI
         {
             this.InitializeComponent();
         }
+
+
+        private Color m_fill = Colors.Red;
+        public Color Fill
+        {
+            get { return m_fill; }
+            set
+            {
+                if(value != null)
+                {
+                    var newColor = Color.FromArgb(224, value.R, value.G, value.B);
+                    InnerCircle.Fill = new SolidColorBrush(newColor);
+                    m_fill = newColor;
+                    newColor.A = 144;
+                    OuterCircle.Fill = new SolidColorBrush(newColor);
+                }
+            }
+        }
+
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(VoiceUI), new PropertyMetadata(""));
+
+
 
         public void Stop()
         {

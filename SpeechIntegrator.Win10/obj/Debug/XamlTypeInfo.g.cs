@@ -133,13 +133,21 @@ namespace SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[2];
-            _typeNameTable[0] = "SpeechIntegrator.RecognitionAndAction.UI.VoiceUI";
+            _typeNameTable = new string[6];
+            _typeNameTable[0] = "PiStudio.Win10.Voice.UI.VoiceUI";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[2] = "Windows.UI.Color";
+            _typeNameTable[3] = "System.ValueType";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "String";
 
-            _typeTable = new global::System.Type[2];
-            _typeTable[0] = typeof(global::SpeechIntegrator.RecognitionAndAction.UI.VoiceUI);
+            _typeTable = new global::System.Type[6];
+            _typeTable[0] = typeof(global::PiStudio.Win10.Voice.UI.VoiceUI);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[2] = typeof(global::Windows.UI.Color);
+            _typeTable[3] = typeof(global::System.ValueType);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::System.String);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -174,7 +182,7 @@ namespace SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_VoiceUI() { return new global::SpeechIntegrator.RecognitionAndAction.UI.VoiceUI(); }
+        private object Activate_0_VoiceUI() { return new global::PiStudio.Win10.Voice.UI.VoiceUI(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -186,9 +194,11 @@ namespace SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  SpeechIntegrator.RecognitionAndAction.UI.VoiceUI
+            case 0:   //  PiStudio.Win10.Voice.UI.VoiceUI
                 userType = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_0_VoiceUI;
+                userType.AddMemberName("Fill");
+                userType.AddMemberName("Text");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -196,16 +206,72 @@ namespace SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo
             case 1:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
+
+            case 2:   //  Windows.UI.Color
+                userType = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 3:   //  System.ValueType
+                userType = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 4:   //  Object
+                xamlType = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  String
+                xamlType = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
             }
             return xamlType;
         }
 
 
+        private object get_0_VoiceUI_Fill(object instance)
+        {
+            var that = (global::PiStudio.Win10.Voice.UI.VoiceUI)instance;
+            return that.Fill;
+        }
+        private void set_0_VoiceUI_Fill(object instance, object Value)
+        {
+            var that = (global::PiStudio.Win10.Voice.UI.VoiceUI)instance;
+            that.Fill = (global::Windows.UI.Color)Value;
+        }
+        private object get_1_VoiceUI_Text(object instance)
+        {
+            var that = (global::PiStudio.Win10.Voice.UI.VoiceUI)instance;
+            return that.Text;
+        }
+        private void set_1_VoiceUI_Text(object instance, object Value)
+        {
+            var that = (global::PiStudio.Win10.Voice.UI.VoiceUI)instance;
+            that.Text = (global::System.String)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "PiStudio.Win10.Voice.UI.VoiceUI.Fill":
+                userType = (global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.Voice.UI.VoiceUI");
+                xamlMember = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlMember(this, "Fill", "Windows.UI.Color");
+                xamlMember.Getter = get_0_VoiceUI_Fill;
+                xamlMember.Setter = set_0_VoiceUI_Fill;
+                break;
+            case "PiStudio.Win10.Voice.UI.VoiceUI.Text":
+                userType = (global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlUserType)GetXamlTypeByName("PiStudio.Win10.Voice.UI.VoiceUI");
+                xamlMember = new global::SpeechIntegrator.SpeechIntegrator_Win10_XamlTypeInfo.XamlMember(this, "Text", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_VoiceUI_Text;
+                xamlMember.Setter = set_1_VoiceUI_Text;
+                break;
+            }
             return xamlMember;
         }
     }

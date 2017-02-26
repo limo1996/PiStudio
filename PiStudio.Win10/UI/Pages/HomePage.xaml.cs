@@ -97,9 +97,7 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SpeakItem)
             {
                 //recognize and continue
-                VoiceAnimation.Start();
-                await System.Threading.Tasks.Task.Delay(1200);
-                await Voice.VoiceRecognizer.Instance.SayText("Listening");
+                await Voice.VoiceRecognizer.Instance.RecognizeAndPerformActionWithUIAsync(Content, row: 1);
                 return;
             }
             else if (tmp == ShareItem)

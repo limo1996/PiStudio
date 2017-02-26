@@ -141,13 +141,12 @@ namespace PiStudio.Win10.UI.Pages
             else if (tmp == SaveItem)
             {
                 SavePop.IsOpen = !SavePop.IsOpen;
-
                 return;
             }
             else if (tmp == SpeakItem)
             {
                 //recognize and continue
-
+                await Voice.VoiceRecognizer.Instance.RecognizeAndPerformActionWithUIAsync(Content, row: 1, rowSpan: 2);
                 return;
             }
             else if (tmp == ShareItem)

@@ -43,12 +43,11 @@
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid>
+                <Grid x:Name="Content">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <voice:VoiceUI x:Name="VoiceAnimation" Grid.Row="1" Canvas.ZIndex="3"/>
                     <Grid Grid.Row="0" Background="{x:Bind Path=ApplicationTheme.UpperPanelBackground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
                         <TextBlock Margin="15,0" Text="{x:Bind Path=LanguagePack.MenuItem1}"  FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" 

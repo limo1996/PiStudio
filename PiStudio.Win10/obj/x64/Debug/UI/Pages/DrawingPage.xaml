@@ -31,7 +31,7 @@
                     <local:MenuItem x:ConnectionId='11' x:Name="ShareItem"                                                                                       
                                     Symbol="ReShare"                                                          Height="50" Margin="0,300,0,0" VerticalAlignment="Top"/>
                     <local:MenuItem x:ConnectionId='12' x:Name="SpeakItem"                                                                                       
-                                    Symbol="Microphone"                                                          IsSelectionEnabled="False" Height="50" Margin="0,350,0,0" VerticalAlignment="Top"/>
+                                    Symbol="Microphone"                                                          Height="50" Margin="0,350,0,0" VerticalAlignment="Top"/>
                     <ProgressRing x:ConnectionId='13' x:Name="Progress" Width="31" Height="31" Margin="10,260" VerticalAlignment="Top" HorizontalAlignment="Left"
                                                                                                                                                               />
                     <Grid Background="Gray" Height="1" VerticalAlignment="Bottom" Margin="0,0,0,50" Width="150" BorderThickness="0"/>
@@ -42,31 +42,31 @@
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid>
+                <Grid x:ConnectionId='16' x:Name="Content">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50" />
                         <RowDefinition Height="50" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ProgressRing x:ConnectionId='16'                                                                                                                            
+                    <ProgressRing x:ConnectionId='17'                                                                                                                            
                                   Name="PRing" Height="125" Width="125" VerticalAlignment="Center" HorizontalAlignment="Center"
                                   Grid.Row="2" />
-                    <Grid x:ConnectionId='17' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='23' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                    <Grid x:ConnectionId='18' Grid.Row="0"                                                                                                                                >
+                        <TextBlock x:ConnectionId='24' Margin="15,0"                                              FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <local:PiBar x:ConnectionId='24'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='25'                                                                             HorizontalAlignment="Right"
                                                                                                 x:Name="Bar" Width="277"/>
                     </Grid>
-                    <Grid x:ConnectionId='18' Height="50" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Row="1"
+                    <Grid x:ConnectionId='19' Height="50" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Row="1"
                                                                                                                                                          >
-                        <local:Toolbox x:ConnectionId='22' IsShadowEnabled="False" HorizontalAlignment="Left" x:Name="ToolBox"
+                        <local:Toolbox x:ConnectionId='23' IsShadowEnabled="False" HorizontalAlignment="Left" x:Name="ToolBox"
                                                                                                      
                                                                                               Margin="5,0,0,0"/>
                     </Grid>
-                    <Grid x:ConnectionId='19' Grid.Row="2" Margin="4"                               >
-                        <local:PiCanvas x:ConnectionId='20' x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />
-                        <Image x:ConnectionId='21' x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
+                    <Grid x:ConnectionId='20' Grid.Row="2" Margin="4"                               >
+                        <local:PiCanvas x:ConnectionId='21' x:Name="DrawingCanvas" Canvas.ZIndex="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BrushColor="Black" />
+                        <Image x:ConnectionId='22' x:Name="ImgPresenter" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform" Canvas.ZIndex="1"/>
                     </Grid>
                 </Grid>
             </SplitView.Content>
