@@ -13,6 +13,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage;
+using System.Threading;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -51,7 +52,7 @@ namespace PiStudio.Win10.UI.Pages
             Navigator.Instance.Editor = m_editor;
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
 
-            await LoadItems(m_editor);
+            LoadItems(m_editor);
             WinAppResources.Instance.SetImageStretch(ImageContent);
 
             SavePop.SaveableObject = m_editor;
@@ -59,21 +60,23 @@ namespace PiStudio.Win10.UI.Pages
             SavePop.Completed += (o2, args2) => Progress.IsActive = false;
 
             PRing.IsActive = false;
+            FiltersLoading.IsActive = true;
         }
 
-        private async Task LoadItems(ImageEditor editor)
+        private void LoadItems(ImageEditor editor)
         {
             ObservableCollection<FilterItem> items = new ObservableCollection<FilterItem>();
 
             FilterGridView.ItemsSource = items;
+            int i = 0;
+            var selectedCount = WinAppResources.Instance.Filters.Where((ee) => ee.IsEnabled == true).Count();
             foreach (var filter in WinAppResources.Instance.Filters)
             {
                 if (filter.IsEnabled == true)
                 {
-                    var item = new FilterItem();
-                    item.Text = filter.Filter.Name;
-                    item.Source = await editor.ApplyFilterAsync(filter.Filter);
-                    items.Add(item);
+                    var last = selectedCount == i + 1;
+                    AddItem(items, filter, editor, last);
+                    i++;
                 }
             }
 
@@ -82,6 +85,30 @@ namespace PiStudio.Win10.UI.Pages
                 var filterItem = (FilterItem)ee.ClickedItem;
                 ImageContent.Source = (WriteableBitmap)filterItem.Source;
             };
+        }
+
+        private SemaphoreSlim m_semaphore = new SemaphoreSlim(1, 1);
+
+        private async void AddItem(ObservableCollection<FilterItem> items, FilterSettings filter, ImageEditor editor, bool last)
+        {
+            var dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
+            await Task.Run(async () =>
+            {
+                var item = new FilterItem();
+                item.Text = filter.Filter.Name;
+                var result = ImageEditor.ApplyFilterThreadSafeAsync(editor, filter.Filter);
+                await dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                    async () =>
+                    {
+                        item.Source = await ImageEditor.CreateBitmapFromByteArrayAsync(result, (int)editor.PixelWidth, (int)editor.PixelHeight);
+                        await m_semaphore.WaitAsync();
+                        items.Add(item);
+                        m_semaphore.Release();
+                        System.Diagnostics.Debug.WriteLine(Task.CurrentId);
+                        if (last)
+                            FiltersLoading.IsActive = false;
+                    });
+            });
         }
 
         private void Hamburger_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

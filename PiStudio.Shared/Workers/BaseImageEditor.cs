@@ -70,7 +70,7 @@ namespace PiStudio.Shared
         //return whether image contains alpha color
         private bool IsAlpha()
         {
-            return !(m_bytePerPixel == 1);
+            return m_bytePerPixel != 1;
         }
 
         /// <summary>

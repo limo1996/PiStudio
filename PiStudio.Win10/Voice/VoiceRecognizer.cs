@@ -121,7 +121,11 @@ namespace PiStudio.Win10.Voice
             m_integrator.PerformAction(args.Result);
         }
 
-        //reads given text
+        /// <summary>
+        /// Reads given text. Runs asynchronously but can be awaited.
+        /// </summary>
+        /// <param name="text">Text to be read.</param>
+        /// <returns></returns>
         public async Task SayText(string text)
 		{
             var frame = Window.Current.Content as Frame;
@@ -129,7 +133,10 @@ namespace PiStudio.Win10.Voice
                 await SpeechNavigator.SayTextAsync(text, (Grid)((Page)frame.Content).Content);
         }
 
-		//recognizes and performs action. Catches exceptions...
+		/// <summary>
+        /// Immidiately starts listening to user. If microphone permission is not enabled, launches microphone settings.
+        /// </summary>
+        /// <returns></returns>
 		public async Task RecognizeAndPerformActionAsync()
 		{
 			try

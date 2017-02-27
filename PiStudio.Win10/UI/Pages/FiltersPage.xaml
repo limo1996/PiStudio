@@ -61,6 +61,9 @@
                                       Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                         <Image Margin="15,15,15,15" Name="ImageContent" Stretch="Uniform"/>
                     </Grid>
+                    <ProgressRing Name="FiltersLoading" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Height="100" Width="100" 
+                                  Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"
+                                  Canvas.ZIndex="3"/>
                     <GridView Name="FilterGridView" 
                               IsItemClickEnabled="True"
                               IsSwipeEnabled="True"

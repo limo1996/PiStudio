@@ -24,27 +24,33 @@ namespace PiStudio.Win10
         {
             await m_initTask;
             var processedBytes = this.ApplyFilter(filter);
-            return await CreateBitmapFromByteArrayAsync(processedBytes);
+            return await CreateBitmapFromByteArrayAsync(processedBytes, (int)PixelWidth, (int)PixelHeight);
+        }
+
+        public static byte[] ApplyFilterThreadSafeAsync(ImageEditor editor, Filter filter)
+        {
+            return ImageToolkit.ApplyConvolutionMatrixFilter(editor.m_workingImageInBytes, (int)editor.m_imageWidth,
+                (int)editor.m_imageHeight, filter.Matrix, editor.m_bytePerPixel, editor.m_bytePerPixel != 1, filter.Factor, filter.Bias);
         }
 
         public async Task<WriteableBitmap> RotateAsync()
         {
             await m_initTask;
             var processedBytes = this.Rotate();
-            return await CreateBitmapFromByteArrayAsync(processedBytes);
+            return await CreateBitmapFromByteArrayAsync(processedBytes, (int)PixelWidth, (int)PixelHeight);
         }
 
         public async Task<WriteableBitmap> ApplyBrightnessAsync(int brightness)
         {
             await m_initTask;
             if (brightness == 0)
-                return await CreateBitmapFromByteArrayAsync(m_workingImageInBytes);
+                return await CreateBitmapFromByteArrayAsync(m_workingImageInBytes, (int)PixelWidth, (int)PixelHeight);
             await Task.Run(() =>
             {
                 var processedBytes = this.ApplyBrightness(brightness);
                 m_unsavedImageInBytes = processedBytes;
             });
-            return await CreateBitmapFromByteArrayAsync(m_unsavedImageInBytes);
+            return await CreateBitmapFromByteArrayAsync(m_unsavedImageInBytes, (int)PixelWidth, (int)PixelHeight);
         }
 
         /// <summary>
@@ -83,9 +89,9 @@ namespace PiStudio.Win10
             return imageBytes;
         }
 
-        private async Task<WriteableBitmap> CreateBitmapFromByteArrayAsync(byte[] imagePixels)
+        public static async Task<WriteableBitmap> CreateBitmapFromByteArrayAsync(byte[] imagePixels, int pixelWidth, int pixelHeight)
         {
-            WriteableBitmap bitmap = new WriteableBitmap((int)PixelWidth, (int)PixelHeight);
+            WriteableBitmap bitmap = new WriteableBitmap(pixelWidth, pixelHeight);
 
             using (Stream stream = bitmap.PixelBuffer.AsStream())
             {
