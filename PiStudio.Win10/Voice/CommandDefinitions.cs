@@ -18,13 +18,14 @@ namespace PiStudio.Win10.Cortana
 <VoiceCommands xmlns=""http://schemas.microsoft.com/voicecommands/1.2"">
 
   <CommandSet Name=""PiStudioVoiceCommandsEnUs"" xml:lang=""en-gb"">
-    <CommandPrefix>Studio</CommandPrefix>
-    <Example>Studio open last edited file</Example>
+    <CommandPrefix></CommandPrefix>
+    <Example>Navigate to Settings page</Example>
     <Command Name=""OpenLastEdited"">
-      <Example>Studio Show me last edited image</Example>
-      <ListenFor>Whats my name</ListenFor>
-      <ListenFor>Hello world</ListenFor>
-      <Feedback>Opening last edited file</Feedback>
+      <Example>Navigate to Settings page</Example>
+      <ListenFor>Navigate to Settings page</ListenFor>
+      <ListenFor>Go to Settings page</ListenFor>
+      <ListenFor>Show [me] Settings page</ListenFor>
+      <Feedback>Opening Settings page</Feedback>
       <Navigate Target=""SettingsPage""></Navigate>
     </Command>
   </CommandSet>

@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-27T17:13:46.548</Modified>
+      <Modified>2017-02-28T22:34:37.000</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\PiStudio.exe">
       <PackagePath>entrypoint\PiStudio.exe</PackagePath>
-      <Modified>2017-02-27T13:52:00.191</Modified>
+      <Modified>2017-02-28T22:34:34.002</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\.nuget\packages\Coding4Fun.Toolkit.Controls\2.1.8\lib\netcore451\Coding4Fun.Toolkit.Controls.dll">
       <PackagePath>Coding4Fun.Toolkit.Controls.dll</PackagePath>
@@ -478,7 +478,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll">
       <PackagePath>PiStudio.Shared.dll</PackagePath>
-      <Modified>2017-02-27T13:01:53.524</Modified>
+      <Modified>2017-02-28T22:34:29.718</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.dll">
       <PackagePath>SpeechIntegrator.dll</PackagePath>
@@ -557,11 +557,11 @@
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-27T17:13:46.212</Modified>
+      <Modified>2017-02-28T22:34:36.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe">
       <PackagePath>PiStudio.exe</PackagePath>
-      <Modified>2017-02-27T17:13:46.539</Modified>
+      <Modified>2017-02-28T22:34:36.995</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
