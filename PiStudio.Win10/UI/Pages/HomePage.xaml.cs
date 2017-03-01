@@ -111,6 +111,11 @@ namespace PiStudio.Win10.UI.Pages
         private bool odd = true;
         private void RotateBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            Rotate();
+        }
+
+        public void Rotate()
+        {
             //var prev = ((Windows.UI.Xaml.Media.PlaneProjection)ImageContent.Projection);
             Storyboard rotation = new Storyboard();
             DoubleAnimation animation = new DoubleAnimation();

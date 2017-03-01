@@ -20,14 +20,38 @@ namespace PiStudio.Win10.Cortana
   <CommandSet Name=""PiStudioVoiceCommandsEnUs"" xml:lang=""en-gb"">
     <CommandPrefix></CommandPrefix>
     <Example>Navigate to Settings page</Example>
-    <Command Name=""OpenLastEdited"">
+    <Command Name=""NavigateToPage"">
       <Example>Navigate to Settings page</Example>
-      <ListenFor>Navigate to Settings page</ListenFor>
-      <ListenFor>Go to Settings page</ListenFor>
-      <ListenFor>Show [me] Settings page</ListenFor>
-      <Feedback>Opening Settings page</Feedback>
-      <Navigate Target=""SettingsPage""></Navigate>
+      <ListenFor>Navigate to {PageType}</ListenFor>
+      <ListenFor>Go to {PageType}</ListenFor>
+      <ListenFor>Show [me] {PageType}</ListenFor>
+      <Feedback>Opening {PageType}</Feedback>
+      <Navigate />
     </Command>
+
+    <Command Name=""Rotate"">
+      <Example>Rotate image</Example>
+      <ListenFor>Rotate {Image}</ListenFor>
+      <ListenFor>Spin {Image}</ListenFor>
+      <ListenFor>Rotate currently edited {Image}</ListenFor>
+      <ListenFor>Go to Home page and rotate [currently] [edited] {Image}</ListenFor>
+      <ListenFor>Navigate to Home page and rotate  [currently] [edited] {Image}</ListenFor>
+      <Feedback>Rotating image</Feedback>
+      <Navigate/>
+    </Command>
+    <PhraseList Label=""PageType"">
+      <Item>Home Page</Item>
+      <Item>Filters Page</Item>
+      <Item>Brightness Page</Item>
+      <Item>Drawing Page</Item>
+      <Item>Settings Page</Item>
+    </PhraseList>
+
+    <PhraseList Label=""Image"">
+      <Item>image</Item>
+      <Item>picture</Item>
+      <Item>photo</Item>
+    </PhraseList>
   </CommandSet>
 </VoiceCommands>
 ";

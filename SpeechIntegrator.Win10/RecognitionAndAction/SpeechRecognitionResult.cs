@@ -200,5 +200,10 @@ namespace PiStudio.Win10.Voice.Navigation
 			}
 			return alternates;
 		}
+
+        /// <summary>
+        /// Indicates whether response will be said after recognizing the command.
+        /// </summary>
+        public bool PreventFromSayingResponse { get; set; }
 	}
 }

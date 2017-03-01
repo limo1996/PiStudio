@@ -95,7 +95,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="title.jpg" />
-    <Content Include="Voice\PiStudioVoiceCommands.xml">
+    <Content Include="Voice\PiStudioCortanaVoiceCommands.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Voice\PiStudioNavigatorVoiceCommands.xml">
       <SubType>Designer</SubType>
     </Content>
     <None Include="project.json" />

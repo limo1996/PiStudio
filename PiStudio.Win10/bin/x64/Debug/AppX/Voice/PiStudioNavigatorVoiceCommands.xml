@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet Name="PiStudioVoiceCommandsEnUs=" xml:lang="en-gb">
+    <CommandPrefix></CommandPrefix>
+    <Example>Navigate to Settings page</Example>
+    <Command Name="NavigateToPage">
+      <Example>Navigate to Settings page</Example>
+      <ListenFor>Navigate to {PageType}</ListenFor>
+      <ListenFor>Go to {PageType}</ListenFor>
+      <ListenFor>Show [me] {PageType}</ListenFor>
+      <Feedback>Opening Settings page</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Rotate">
+      <Example>Rotate image</Example>
+      <ListenFor>Rotate {Image}</ListenFor>
+      <ListenFor>Spin {Image}</ListenFor>
+      <ListenFor>Rotate currently edited {Image}</ListenFor>
+      <ListenFor>Go to Home page and rotate [currently] [edited] {Image}</ListenFor>
+      <ListenFor>Navigate to Home page and rotate  [currently] [edited] {Image}</ListenFor>
+      <Feedback>Rotating image</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="Save">
+      <Example>Save image</Example>
+      <ListenFor>Save [currently] [edited] {Image}</ListenFor>
+      <ListenFor>Store [currently] [edited] {Image}</ListenFor>
+      <ListenFor>Save my work</ListenFor>
+      <Feedback>Saving image</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="SaveAs">
+      <Example>Save image as</Example>
+      <ListenFor>Save [currently] [edited] {Image} as</ListenFor>
+      <ListenFor>Store [currently] [edited] {Image} as</ListenFor>
+      <ListenFor>Save my work as</ListenFor>
+      <ListenFor>Save {Image} to [specified] location</ListenFor>
+      <Feedback>Saving image</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Share">
+      <Example>Share image</Example>
+      <ListenFor>Share [currently] [edited] {Image}</ListenFor>
+      <Feedback>Sharing currently edited image</Feedback>
+      <Navigate />
+    </Command>
+    
+    <Command Name="AddNewImage">
+      <Example>Add new image</Example>
+      <ListenFor>Add [new] {Image}</ListenFor>
+      <ListenFor>Pick [new] {Image}</ListenFor>
+      <ListenFor>Open [new] {Image}</ListenFor>
+      <Feedback>Opening new image</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="ClearCanvas">
+      <Example>Clear canvas</Example>
+      <ListenFor>Clear canvas</ListenFor>
+      <ListenFor>Undo all changes</ListenFor>
+      <ListenFor>Delete all curves</ListenFor>
+      <ListenFor>Remove all lines</ListenFor>
+      <Feedback>Clearing canvas</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Undo">
+      <Example>Undo last change</Example>
+      <ListenFor>Undo</ListenFor>
+      <ListenFor>Undo last change</ListenFor>
+      <Feedback>Sure</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="ApplyFilter">
+      <Example>Apply blur filter</Example>
+      <ListenFor>Apply {Filter} filter</ListenFor>
+      <Feedback>Applying {Filter} filter</Feedback>
+      <Navigate/>
+    </Command>
+    
+    <PhraseList Label="PageType">
+      <Item>Home Page</Item>
+      <Item>Filters Page</Item>
+      <Item>Brightness Page</Item>
+      <Item>Drawing Page</Item>
+      <Item>Settings Page</Item>
+    </PhraseList>
+    
+    <!--Clear canvas-->
+    <!--Undo-->
+    <!--Apply filter-->
+    <!--Change brighteness-->
+    <!--Settings...-->
+
+    <PhraseList Label="Filter">
+      
+    </PhraseList>
+
+    <PhraseList Label="Image">
+      <Item>image</Item>
+      <Item>picture</Item>
+      <Item>photo</Item>
+    </PhraseList>
+  </CommandSet>
+</VoiceCommands>

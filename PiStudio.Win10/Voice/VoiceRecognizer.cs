@@ -17,7 +17,7 @@ namespace PiStudio.Win10.Voice
 {
 	/*********
 	// In app speech recognition and navigation is disabled 
-	// TODO: Add some button for enabling recognition
+	// TODO: PREVENT FROM SAYING RESPONSE 
 	*********/
 
 
@@ -96,7 +96,8 @@ namespace PiStudio.Win10.Voice
         //sets voice navigator actions
         private void SetActionsForNavigator()
         {
-            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "OpenLastEdited", NavigateToSettingsPage);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "NavigateToPage", NavigateTo);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "Rotate", Rotate);
         }
 
         /// <summary>
@@ -227,6 +228,40 @@ namespace PiStudio.Win10.Voice
             var frame = Window.Current.Content as Frame;
             if (frame != null)
                 await Navigator.Instance.NavigateTo(typeof(SettingsPage), null);
+        }
+
+        private async void NavigateTo(object sender, SpeechRecognitionResult e)
+        {
+            var page = e.ReconizedPhraseListsValues["PageType"].ToLower().Replace(" ", "");
+            Type pageType = null;
+            switch (page)
+            {
+                case "homepage": pageType = typeof(HomePage);
+                    break;
+                case "filterspage": pageType = typeof(FiltersPage);
+                    break;
+                case "brightnesspage": pageType = typeof(BrightnessPage);
+                    break;
+                case "drawingpage": pageType = typeof(DrawingPage);
+                    break;
+                case "settingspage": pageType = typeof(SettingsPage);
+                    break;
+            }
+            if (pageType != null)
+                await Navigator.Instance.NavigateTo(pageType);
+        }
+
+        private async void Rotate(object sender, SpeechRecognitionResult e)
+        {
+            var frame = Window.Current.Content as Frame;
+            if(frame != null)
+            {
+                if(frame.SourcePageType != typeof(HomePage))
+                {
+                    await Navigator.Instance.NavigateTo(typeof(HomePage));
+                }
+                ((HomePage)frame.Content).Rotate();
+            }
         }
         #endregion
     }

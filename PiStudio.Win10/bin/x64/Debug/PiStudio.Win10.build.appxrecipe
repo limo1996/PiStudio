@@ -367,8 +367,11 @@
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\title.jpg">
       <PackagePath>title.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Voice\PiStudioVoiceCommands.xml">
-      <PackagePath>Voice\PiStudioVoiceCommands.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Voice\PiStudioCortanaVoiceCommands.xml">
+      <PackagePath>Voice\PiStudioCortanaVoiceCommands.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Voice\PiStudioNavigatorVoiceCommands.xml">
+      <PackagePath>Voice\PiStudioNavigatorVoiceCommands.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
