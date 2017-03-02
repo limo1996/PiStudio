@@ -58,7 +58,10 @@ namespace PiStudio.Win10.UI.Pages
             SavePop.Completed += (o2, args2) => Progress.IsActive = false;
 
             WinAppResources.Instance.SetImageStretch(ImageContent);
+            NavigationCompleted?.Invoke(this, EventArgs.Empty);
         }
+
+        public event EventHandler<EventArgs> NavigationCompleted;
 
         private void Hamburger_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

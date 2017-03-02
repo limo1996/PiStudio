@@ -256,11 +256,14 @@ namespace PiStudio.Win10.Voice
             var frame = Window.Current.Content as Frame;
             if(frame != null)
             {
-                if(frame.SourcePageType != typeof(HomePage))
+                if (frame.SourcePageType != typeof(HomePage))
                 {
                     await Navigator.Instance.NavigateTo(typeof(HomePage));
+                    var homePage = (HomePage)frame.Content;
+                    homePage.NavigationCompleted += (o, ee) => homePage.Rotate();
                 }
-                ((HomePage)frame.Content).Rotate();
+                else
+                    ((HomePage)frame.Content).Rotate();
             }
         }
         #endregion

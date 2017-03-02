@@ -281,8 +281,8 @@ namespace PiStudio.Win10.Voice.Navigation
 					dialogAction.TextToDisplay = dialogAction.TextToDisplay.Replace("{" + key + "}", recognizedValues[key]);
 			}
 
-			if(result.RecognizedCommand.Feedback != null)
-				result.RecognizedCommand.Feedback.Content = textToSpeak;
+			//if(result.RecognizedCommand.Feedback != null)
+			//	result.RecognizedCommand.Feedback.Content = textToSpeak;
 			if (customAction != null)
 				result.RecognizedCommand.VoiceAction = customAction;
 
