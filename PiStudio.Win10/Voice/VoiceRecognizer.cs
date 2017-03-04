@@ -94,10 +94,19 @@ namespace PiStudio.Win10.Voice
 		}
 
         //sets voice navigator actions
-        private void SetActionsForNavigator()
+        private async void SetActionsForNavigator()
         {
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "NavigateToPage", NavigateTo);
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "Rotate", Rotate);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "Save", Save);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "SaveAs", SaveAs);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "AddNewImage", AddNewImage);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "ClearCanvas", ClearCanvas);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "Share", Share);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "Undo", Undo);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "ApplyFilter", ApplyFilter);
+            await m_navigator.SetPhraseListAsync("PiStudioVoiceCommandsEnUs", "Filter", 
+                WinAppResources.Instance.Filters.Where(i => i.IsEnabled == true).Select(i => i.FilterName));
         }
 
         /// <summary>
@@ -166,6 +175,15 @@ namespace PiStudio.Win10.Voice
 			}
 		}
 
+        /// <summary>
+        /// Recognizes 
+        /// </summary>
+        /// <param name="mainDisplay"></param>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        /// <param name="rowSpan"></param>
+        /// <param name="columnSpan"></param>
+        /// <returns></returns>
         public async Task RecognizeAndPerformActionWithUIAsync(Grid mainDisplay, int row = 0, int column = 0, int rowSpan = 1, int columnSpan = 1)
         {
             try
@@ -264,6 +282,78 @@ namespace PiStudio.Win10.Voice
                 }
                 else
                     ((HomePage)frame.Content).Rotate();
+            }
+        }
+
+        private async void Save(object sender, SpeechRecognitionResult e)
+        {
+            await Navigator.Instance.SaveImage(false);
+        }
+
+        private async void SaveAs(object sender, SpeechRecognitionResult e)
+        {
+            await Navigator.Instance.SaveImage(true);
+        }
+
+        private void Share(object sender, SpeechRecognitionResult e)
+        {
+            Navigator.Instance.Share();
+        }
+
+        private async void AddNewImage(object sender, SpeechRecognitionResult e)
+        {
+            var frame = Window.Current.Content as Frame;
+            if (frame != null)
+            {
+                if (frame.SourcePageType != typeof(HomePage))
+                {
+                    await Navigator.Instance.NavigateTo(typeof(HomePage));
+                    var homePage = (HomePage)frame.Content;
+                    homePage.NavigationCompleted += async (o, ee) => await homePage.AddImage();
+                }
+                else
+                    await ((HomePage)frame.Content).AddImage();
+            }
+        }
+
+        private async void ClearCanvas(object sender, SpeechRecognitionResult e)
+        {
+            var frame = Window.Current.Content as Frame;
+            if (frame != null)
+            {
+                if (frame.SourcePageType != typeof(DrawingPage))
+                    await Navigator.Instance.NavigateTo(typeof(DrawingPage));
+                else
+                    ((DrawingPage)frame.Content).Canvas.Clear();
+            }
+        }
+
+        private async void Undo(object sender, SpeechRecognitionResult e)
+        {
+            var frame = Window.Current.Content as Frame;
+            if (frame != null)
+            {
+                if (frame.SourcePageType != typeof(DrawingPage))
+                    await Navigator.Instance.NavigateTo(typeof(DrawingPage));
+                else
+                    ((DrawingPage)frame.Content).Canvas.Undo();
+            }
+        }
+
+        private async void ApplyFilter(object sender, SpeechRecognitionResult e)
+        {
+            var frame = Window.Current.Content as Frame;
+            if (frame != null)
+            {
+                var filter = e.ReconizedPhraseListsValues["Filter"];
+                if (frame.SourcePageType != typeof(FiltersPage))
+                {
+                    await Navigator.Instance.NavigateTo(typeof(FiltersPage));
+                    var filtersPage = (FiltersPage)frame.Content;
+                    filtersPage.NavigationCompleted += (o, ee) => filtersPage.SelectFilter(filter);
+                }
+                else
+                    ((FiltersPage)frame.Content).SelectFilter(filter);
             }
         }
         #endregion

@@ -33,6 +33,8 @@ namespace PiStudio.Win10.UI.Pages
 
         public Theme ApplicationTheme { get; set; }
         public LanguagePack LanguagePack { get; set; }
+        
+        public PiCanvas Canvas { get { return DrawingCanvas; } }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {

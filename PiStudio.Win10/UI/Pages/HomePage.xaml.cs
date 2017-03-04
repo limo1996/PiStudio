@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.Foundation;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml;
+using System.Threading.Tasks;
 
 namespace PiStudio.Win10.UI.Pages
 {
@@ -154,9 +155,15 @@ namespace PiStudio.Win10.UI.Pages
 
         private async void AddBtn_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            await AddImage();
+        }
+
+        public async Task AddImage()
+        {
             PRing.IsActive = true;
             await Navigator.Instance.LoadNewImageWithUIAsync();
             m_editor = await WinAppResources.Instance.GetImageEditorAsync();
+            Navigator.Instance.Editor = m_editor;
             ImageContent.Source = await WinAppResources.Instance.GetWorkingImage();
             WinAppResources.Instance.SetImageStretch(ImageContent);
             PRing.IsActive = false;

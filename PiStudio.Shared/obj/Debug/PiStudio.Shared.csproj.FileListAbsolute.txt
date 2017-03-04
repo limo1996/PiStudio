@@ -18,3 +18,5 @@ C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PCLStorage.Abstra
 C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\obj\Debug\PiStudio.Shared.csprojResolveAssemblyReference.cache
 C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\obj\Debug\PiStudio.Shared.dll
 C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\obj\Debug\PiStudio.Shared.pdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\obj\Debug\PiStudio.Shared.dll.mdb
+C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll.mdb

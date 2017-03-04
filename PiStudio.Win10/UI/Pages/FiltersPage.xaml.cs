@@ -14,6 +14,8 @@ using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage;
 using System.Threading;
+using System.Collections;
+using System.Collections.Generic;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -63,6 +65,23 @@ namespace PiStudio.Win10.UI.Pages
             FiltersLoading.IsActive = true;
         }
 
+        public event EventHandler<EventArgs> NavigationCompleted;
+        public bool SelectFilter(string name)
+        {
+            var items = (IEnumerable<FilterItem>)FilterGridView.ItemsSource;
+            foreach(var item in items)
+            {
+                if (string.Equals(item.Text.Replace(" ", ""), name.Replace(" ", "")))
+                {
+                    FilterGridView.SelectedItem = item;
+                    ImageContent.Source = (WriteableBitmap)item.Source;
+                    FilterGridView_SelectionChanged(this, new SelectionChangedEventArgs(new List<object>(), new List<object>(new FilterItem[] { item })));
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void LoadItems(ImageEditor editor)
         {
             ObservableCollection<FilterItem> items = new ObservableCollection<FilterItem>();
@@ -80,11 +99,13 @@ namespace PiStudio.Win10.UI.Pages
                 }
             }
 
-            FilterGridView.ItemClick += (o, ee) =>
-            {
-                var filterItem = (FilterItem)ee.ClickedItem;
-                ImageContent.Source = (WriteableBitmap)filterItem.Source;
-            };
+            FilterGridView.ItemClick += FilterGridView_ItemClick;
+        }
+
+        private void FilterGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var filterItem = (FilterItem)e.ClickedItem;
+            ImageContent.Source = (WriteableBitmap)filterItem.Source;
         }
 
         private SemaphoreSlim m_semaphore = new SemaphoreSlim(1, 1);
@@ -106,7 +127,10 @@ namespace PiStudio.Win10.UI.Pages
                         m_semaphore.Release();
                         System.Diagnostics.Debug.WriteLine(Task.CurrentId);
                         if (last)
+                        {
                             FiltersLoading.IsActive = false;
+                            NavigationCompleted?.Invoke(this, EventArgs.Empty);
+                        }
                     });
             });
         }

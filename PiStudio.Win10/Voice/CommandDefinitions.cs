@@ -39,6 +39,71 @@ namespace PiStudio.Win10.Cortana
       <Feedback>Rotating image</Feedback>
       <Navigate/>
     </Command>
+
+    <Command Name=""Save"">
+      <Example>Save image</Example>
+      <ListenFor>Save [currently] [edited] {Image}</ListenFor>
+      <ListenFor>Store [currently] [edited] {Image}</ListenFor>
+      <ListenFor>Save my work</ListenFor>
+      <Feedback>Saving {Image}</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name=""SaveAs"">
+      <Example>Save image as</Example>
+      <ListenFor>Save [currently] [edited] {Image} as</ListenFor>
+      <ListenFor>Store [currently] [edited] {Image} as</ListenFor>
+      <ListenFor>Save my work as</ListenFor>
+      <ListenFor>Save {Image} to [specified] location</ListenFor>
+      <Feedback>Saving {Image}</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name=""Share"">
+      <Example>Share image</Example>
+      <ListenFor>Share [currently] [edited] {Image}</ListenFor>
+      <Feedback>Sharing currently edited image</Feedback>
+      <Navigate />
+    </Command>
+    
+    <Command Name=""AddNewImage"">
+      <Example>Add new image</Example>
+      <ListenFor>Add [new] {Image}</ListenFor>
+      <ListenFor>Pick [new] {Image}</ListenFor>
+      <ListenFor>Open [new] {Image}</ListenFor>
+      <Feedback>Opening new image</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name=""ClearCanvas"">
+      <Example>Clear canvas</Example>
+      <ListenFor>Clear canvas</ListenFor>
+      <ListenFor>Undo all changes</ListenFor>
+      <ListenFor>Delete all curves</ListenFor>
+      <ListenFor>Remove all lines</ListenFor>
+      <Feedback>Clearing canvas</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name=""Undo"">
+      <Example>Undo last change</Example>
+      <ListenFor>Undo</ListenFor>
+      <ListenFor>Undo last change</ListenFor>
+      <Feedback>Sure</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name=""ApplyFilter"">
+      <Example>Apply blur filter</Example>
+      <ListenFor>Apply {Filter} filter</ListenFor>
+      <Feedback>Applying {Filter} filter</Feedback>
+      <Navigate/>
+    </Command>
+
+    <PhraseList Label=""Filter"">
+      
+    </PhraseList>
+
     <PhraseList Label=""PageType"">
       <Item>Home Page</Item>
       <Item>Filters Page</Item>

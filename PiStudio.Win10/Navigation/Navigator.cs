@@ -189,7 +189,28 @@ namespace PiStudio.Win10.Navigation
 
         private async void SaveAndContinue(IUICommand command)
         {
-            if(WinAppResources.Instance.FinalStorage == null)
+            await SaveImage(false);
+
+            m_result = true;
+            if (m_navigate)
+            {
+                var frame = (Frame)Window.Current.Content;
+                frame.Navigate(m_page, m_args);
+            }
+        }
+
+        /// <summary>
+        /// Saves currently edited image.
+        /// </summary>
+        /// <param name="saveAs">Save image as option.</param>
+        /// <remarks>
+        /// If saveAs is set to <c>true</c>, then file picker dialog will be displayed and user can pick another file location.
+        /// If saveAs is set to <c>false</c>, then will be file saved to latest picked location. If user has not pick any location yet, 
+        /// file picker dialog will display.
+        /// </remarks>
+        public async Task SaveImage(bool saveAs)
+        {
+            if (WinAppResources.Instance.FinalStorage == null || saveAs)
                 await PickFinalStorage();
 
             var finalStorage = WinAppResources.Instance.FinalStorage;
@@ -200,13 +221,6 @@ namespace PiStudio.Win10.Navigation
                 await FileServer.SaveToFileAsync(finalStorage, await WinAppResources.Instance.GetImageEditorAsync());
             m_editor.SaveChanges();
             await FileServer.SaveToFileAsync(finalStorage, m_editor);
-
-            m_result = true;
-            if (m_navigate)
-            {
-                var frame = (Frame)Window.Current.Content;
-                frame.Navigate(m_page, m_args);
-            }
         }
 
         private void DismissAndContinue(IUICommand command)

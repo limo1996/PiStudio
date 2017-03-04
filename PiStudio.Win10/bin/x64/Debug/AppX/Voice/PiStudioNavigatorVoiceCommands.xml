@@ -38,14 +38,14 @@
       <ListenFor>Store [currently] [edited] {Image} as</ListenFor>
       <ListenFor>Save my work as</ListenFor>
       <ListenFor>Save {Image} to [specified] location</ListenFor>
-      <Feedback>Saving image</Feedback>
+      <Feedback>Saving {Image}</Feedback>
       <Navigate />
     </Command>
 
     <Command Name="Share">
       <Example>Share image</Example>
       <ListenFor>Share [currently] [edited] {Image}</ListenFor>
-      <Feedback>Sharing currently edited image</Feedback>
+      <Feedback>Sharing currently edited {Image}</Feedback>
       <Navigate />
     </Command>
     
@@ -54,7 +54,7 @@
       <ListenFor>Add [new] {Image}</ListenFor>
       <ListenFor>Pick [new] {Image}</ListenFor>
       <ListenFor>Open [new] {Image}</ListenFor>
-      <Feedback>Opening new image</Feedback>
+      <Feedback>Opening new {Image}</Feedback>
       <Navigate/>
     </Command>
 
@@ -90,10 +90,7 @@
       <Item>Drawing Page</Item>
       <Item>Settings Page</Item>
     </PhraseList>
-    
-    <!--Clear canvas-->
-    <!--Undo-->
-    <!--Apply filter-->
+
     <!--Change brighteness-->
     <!--Settings...-->
 

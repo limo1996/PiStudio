@@ -311,10 +311,12 @@ namespace PiStudio.Win10.Voice.Navigation
                     }
                     return item;
                 }));
+                if (oneOfList.Items.Count == 0)
+                    oneOfList.Items.Add(new Item("null"));
                 listRule.Elements.Add(oneOfList);
-                if (phraseList.Items.Count > 1)
+                if (phraseList.Items.Count > 0)
                     listRule.Examples.Add(new Example(phraseList.Items[0].Content));
-
+                
                 grammar.Rules.Add(listRule);
             }
 
@@ -598,7 +600,12 @@ namespace PiStudio.Win10.Voice.Navigation
             {
                 if (clearOldValues)
                     phraseList.Items.Clear();
-
+                else
+                {
+                    var item = phraseList.Items.First(i => i.Content.Contains("null"));
+                    if(item != null)
+                        phraseList.Items.Remove(item);
+                }
                 phraseList.Items.AddRange(values.Select(i => new ListItem(i)));
             }
             else

@@ -235,11 +235,6 @@ namespace PiStudio.Win10
             }
         }
 
-        public async Task InitilizeCortanaAndSpeechRecognitionAsync()
-        {
-
-        }
-
         public override string GetStoragePath(string name)
         {
             return Path.Combine(ApplicationData.Current.LocalFolder.Path, name);
