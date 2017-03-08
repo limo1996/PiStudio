@@ -105,6 +105,11 @@ namespace PiStudio.Win10.UI.Pages
             MainMenu.IsPaneOpen = !MainMenu.IsPaneOpen;
         }
 
+        public void EnableAutoSave(bool enable)
+        {
+            AutoSaveSwitch.IsOn = enable;
+        }
+
         private async void MenuItem_Click(object sender, System.EventArgs e)
         {
             var tmp = sender as MenuItem;

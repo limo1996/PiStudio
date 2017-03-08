@@ -82,6 +82,68 @@
       <Feedback>Applying {Filter} filter</Feedback>
       <Navigate/>
     </Command>
+
+    <Command Name="About">
+      <Example>Show me about application</Example>
+      <ListenFor>Show me about</ListenFor>
+      <ListenFor>Show me about {Me}</ListenFor>
+      <ListenFor>Navigate to about [section]</ListenFor>
+      <Feedback>Showing about section</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="EnableDark">
+      <Example>Enable dark theme</Example>
+      <ListenFor>Enable dark [theme]</ListenFor>
+      <ListenFor>Switch to dark [theme]</ListenFor>
+      <ListenFor>Change [theme] to dark</ListenFor>
+      <Feedback>Switching to dark theme</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="EnableLight">
+      <Example>Enable light theme</Example>
+      <ListenFor>Enable light [theme]</ListenFor>
+      <ListenFor>Switch to light [theme]</ListenFor>
+      <ListenFor>Change [theme] to light</ListenFor>
+      <Feedback>Switching to light theme</Feedback>
+      <Navigate/>      
+    </Command>
+
+    <Command Name="EnableAutoSave">
+      <Example>Enable auto save</Example>
+      <ListenFor>Enable auto save</ListenFor>
+      <Feedback>Enabling auto save</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="DisableAutoSave">
+      <Example>Disable auto save</Example>
+      <ListenFor>Disable auto save</ListenFor>
+      <Feedback>Disabling auto save</Feedback>
+      <Navigate/>
+    </Command>
+
+    <Command Name="ChangeLanguage">
+      <Example>Switch to Slovak Language</Example>
+      <ListenFor>Switch to {Language} language</ListenFor>
+      <ListenFor>Change language to {Language}</ListenFor>
+      <Feedback>Switching to {Language}</Feedback>
+      <Navigate/>
+    </Command>
+
+    <PhraseList Label="Language">
+      <Item>Slovak</Item>
+      <Item>English</Item>
+      <Item>German</Item>
+    </PhraseList>
+
+    <PhraseList Label="Me">
+      <Item>Application</Item>
+      <Item>App</Item>
+      <Item>Pi Studio</Item>
+      <Item>Studio</Item>
+    </PhraseList>
     
     <PhraseList Label="PageType">
       <Item>Home Page</Item>

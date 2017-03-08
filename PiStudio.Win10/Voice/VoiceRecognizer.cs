@@ -105,6 +105,12 @@ namespace PiStudio.Win10.Voice
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "Share", Share);
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "Undo", Undo);
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "ApplyFilter", ApplyFilter);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "About", About);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "EnableLight", EnableLight);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "EnableDark", EnableDark);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "EnableAutoSave", EnableAutoSave);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "DisableAutoSave", DisableAutoSave);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "ChangeLanguage", ChangeLanguage);
             await m_navigator.SetPhraseListAsync("PiStudioVoiceCommandsEnUs", "Filter", 
                 WinAppResources.Instance.Filters.Where(i => i.IsEnabled == true).Select(i => i.FilterName));
         }
@@ -355,6 +361,62 @@ namespace PiStudio.Win10.Voice
                 else
                     ((FiltersPage)frame.Content).SelectFilter(filter);
             }
+        }
+        private void ChangeLanguage(object sender, SpeechRecognitionResult e)
+        {
+            var lang = e.ReconizedPhraseListsValues["Language"];
+            var language = Shared.Data.Language.Slovensky;
+            if (lang == "English")
+                language = Shared.Data.Language.English;
+            else if (lang == "German")
+                language = Shared.Data.Language.German;
+            WinAppResources.Instance.SetLanguage(language);
+            ReloadCurrentPage();
+        }
+
+        private void DisableAutoSave(object sender, SpeechRecognitionResult e)
+        {
+            RefreshAutoSave(false);
+        }
+
+        private void RefreshAutoSave(bool enable)
+        {
+            AppSettings.Instance.AutoSave = enable;
+            var frame = (Frame)Window.Current.Content;
+            if (frame.SourcePageType == typeof(SettingsPage))
+            {
+                var page = (SettingsPage)frame.Content;
+                page.EnableAutoSave(enable);
+            }
+        }
+
+        private void EnableAutoSave(object sender, SpeechRecognitionResult e)
+        {
+            RefreshAutoSave(true);
+        }
+
+        private void EnableDark(object sender, SpeechRecognitionResult e)
+        {
+            WinAppResources.Instance.SetTheme(true);
+            ReloadCurrentPage();
+        }
+
+        private void EnableLight(object sender, SpeechRecognitionResult e)
+        {
+            WinAppResources.Instance.SetTheme(false);
+            ReloadCurrentPage();
+        }
+
+        private async void ReloadCurrentPage()
+        {
+            var frame = Window.Current.Content as Frame;
+            if (frame != null)
+                await Navigator.Instance.NavigateTo(frame.SourcePageType);
+        }
+
+        private void About(object sender, SpeechRecognitionResult e)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
