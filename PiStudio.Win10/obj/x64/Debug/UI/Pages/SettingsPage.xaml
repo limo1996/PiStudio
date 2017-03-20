@@ -49,21 +49,24 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid x:ConnectionId='17' Grid.Row="0"                                                                                                                                >
-                        <TextBlock x:ConnectionId='42' Margin="15,0"                                                          FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
+                        <TextBlock x:ConnectionId='45' Margin="15,0"                                                          FontFamily="Segoe UI" FontSize="20" VerticalAlignment="Center" 
                                                                                                                                                      
                                HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                        <local:PiBar x:ConnectionId='43'                                                                             HorizontalAlignment="Right"
+                        <local:PiBar x:ConnectionId='46'                                                                             HorizontalAlignment="Right"
                                                                                                 x:Name="Bar" Width="277"/>
                     </Grid>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
                         <Grid Width="8" />
-                        <TextBlock x:ConnectionId='39'                                                              FontSize="16" Margin="10" x:Name="General"                                 
+                        <TextBlock x:ConnectionId='41'                                                              FontSize="16" Margin="10" x:Name="General"                                 
                                                                                                        FontWeight="SemiBold"
                                                                                                                                                         />
-                        <TextBlock x:ConnectionId='40'                                                              FontSize="16" Margin="10" x:Name="Theme"                                 
+                        <TextBlock x:ConnectionId='42'                                                              FontSize="16" Margin="10" x:Name="Theme"                                 
                                                                                                       
                                                                                                                                                                  />
-                        <TextBlock x:ConnectionId='41'                                                              FontSize="16" Margin="10" x:Name="About"                                 
+                        <TextBlock x:ConnectionId='43'                                                              FontSize="16" Margin="10" x:Name="Commands"                                 
+                                                                                                      
+                                                                                                                                                                 />
+                        <TextBlock x:ConnectionId='44'                                                              FontSize="16" Margin="10" x:Name="About"                                 
                                                                                                       
                                                                                                                                                                  />
                     </StackPanel>
@@ -72,14 +75,15 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="0" />
+                            <ColumnDefinition Width="0" />
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
                             <StackPanel Orientation="Vertical" Background="Transparent" Margin="15, 0">
-                                <TextBlock x:ConnectionId='28'                                                                FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock x:ConnectionId='30'                                                                FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                                                                                                                                                  />
-                                <TextBlock x:ConnectionId='29'                                                                   FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
+                                <TextBlock x:ConnectionId='31'                                                                   FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
                                                                                                                                                                  />
-                                <ComboBox x:ConnectionId='30' Background="Transparent" FontFamily="Segoe UI" FontSize="16"
+                                <ComboBox x:ConnectionId='32' Background="Transparent" FontFamily="Segoe UI" FontSize="16"
                                                                                                                                                                
                                                                                                                                                                            
                                           Width="200" BorderThickness="2" x:Name="LanguagesBox" Style="{StaticResource PiComboBoxStyle}"
@@ -90,52 +94,57 @@
                                         <ComboBoxItem Content="German" />
                                     </ComboBox.Items>
                                 </ComboBox>
-                                <TextBlock x:ConnectionId='31'                                                                 Margin="0, 20" FontFamily="Segoe UI" FontSize="16" 
+                                <TextBlock x:ConnectionId='33'                                                                 Margin="0, 20" FontFamily="Segoe UI" FontSize="16" 
                                                                                                                                                                  />
-                                <ToggleSwitch x:ConnectionId='32' x:Name="AutoSaveSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, -20" 
+                                <ToggleSwitch x:ConnectionId='34' x:Name="AutoSaveSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, -20" 
                                                                                                                                                                    
                                                                                                  />
-                                <Grid x:ConnectionId='33' Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
+                                <Grid x:ConnectionId='35' Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
                                                                                                                                                                       />
 
-                                <TextBlock x:ConnectionId='34'                                                                FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock x:ConnectionId='36'                                                                FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                                                                                                                                                  />
-                                <TextBlock x:ConnectionId='35'                                                                     FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
+                                <TextBlock x:ConnectionId='37'                                                                     FontFamily="Segoe UI" FontSize="16" Margin="0,0,0,10"
                                                                                                                                                                  />
-                                <ComboBox x:ConnectionId='36' Background="Transparent" FontFamily="Segoe UI" FontSize="16" x:Name="FiltersBox"
+                                <ComboBox x:ConnectionId='38' Background="Transparent" FontFamily="Segoe UI" FontSize="16" x:Name="FiltersBox"
                                                                                                                                                                
                                                                                                                                                                            
                                           Width="200" BorderThickness="2" Style="{StaticResource PiComboBoxStyle}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate                              >
-                                            <CheckBox x:ConnectionId='38'                                                                                     
+                                            <CheckBox x:ConnectionId='40'                                                                                     
                                                        Style="{StaticResource PiCheckBoxStyle}" />
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                <TextBlock x:ConnectionId='37'                                                             FontFamily="Segoe UI" FontSize="8" Margin="0,5,0,0"
+                                <TextBlock x:ConnectionId='39'                                                             FontFamily="Segoe UI" FontSize="8" Margin="0,5,0,0"
                                                                                                                                                                  />
 
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="1">
                             <StackPanel Orientation="Vertical" Margin="15,0,0,0">
-                                <TextBlock x:ConnectionId='23'                                                                FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
+                                <TextBlock x:ConnectionId='25'                                                                FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,16"
                                                                                                                                                                  />
-                                <TextBlock x:ConnectionId='24'                                                                FontFamily="Segoe UI" FontSize="16" 
+                                <TextBlock x:ConnectionId='26'                                                                FontFamily="Segoe UI" FontSize="16" 
                                                                                                                                                                  />
-                                <ToggleSwitch x:ConnectionId='25' x:Name="EnableDarkSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, 5" 
+                                <ToggleSwitch x:ConnectionId='27' x:Name="EnableDarkSwitch" Style="{StaticResource PiToggleSwitchStyle}" Margin="0, 5" 
                                                                                                                                                                    
                                                                                                                                                   
                                                                                                     />
 
-                                <Grid x:ConnectionId='26' Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
+                                <Grid x:ConnectionId='28' Height="1" HorizontalAlignment="Stretch" Margin="0, 35, 0, 0"
                                                                                                                                                                       />
-                                <TextBlock x:ConnectionId='27'                                                            FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
+                                <TextBlock x:ConnectionId='29'                                                            FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
                                                                                                                                                                  />
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <ScrollViewer x:ConnectionId='23' Name="CommandsScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="20, 0, 0, 0">
+                                <StackPanel x:ConnectionId='24' x:Name="CommandsPanel"/>
+                            </ScrollViewer>
+                        </Grid>
+                        <Grid Grid.Column="3">
                             <StackPanel Orientation="Vertical" Margin="15,0,0,0">
                                 <TextBlock x:ConnectionId='19' Text="PiStudio" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
                                                                                                                                                                  />

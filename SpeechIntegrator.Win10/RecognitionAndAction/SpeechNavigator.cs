@@ -56,6 +56,14 @@ namespace PiStudio.Win10.Voice.Navigation
             SetHypGeneratedEvent();
 		}
 
+        public VoiceCommands VoiceCommands
+        {
+            get
+            {
+                return m_voiceCommands;
+            }
+        }
+
         private void SetHypGeneratedEvent()
         {
             var dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;

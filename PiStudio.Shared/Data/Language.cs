@@ -25,6 +25,7 @@ namespace PiStudio.Shared.Data
         private string m_settingsItem1;
         private string m_settingsItem2;
         private string m_settingsItem3;
+        private string m_settingsItem4;
 
         private string m_settingsOptions;
         private string m_settingsChosLang;
@@ -55,6 +56,7 @@ namespace PiStudio.Shared.Data
 
         private string m_applyingFilters;
         private string m_NoteBrightness;
+        private string m_optional;
 
         public Language Language
         {
@@ -248,6 +250,19 @@ namespace PiStudio.Shared.Data
             {
                 m_settingsItem3 = value;
                 OnPropertyChanged("SettingsItem3");
+            }
+        }
+
+        public string SettingsItem4
+        {
+            get
+            {
+                return m_settingsItem4;
+            }
+            set
+            {
+                m_settingsItem4 = value;
+                OnPropertyChanged("SettingsItem4");
             }
         }
 
@@ -550,6 +565,19 @@ namespace PiStudio.Shared.Data
             }
         }
 
+        public string Optional
+        {
+            get
+            {
+                return m_optional;
+            }
+            set
+            {
+                m_optional = value;
+                OnPropertyChanged("Optional");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propName)
         {
@@ -587,6 +615,7 @@ namespace PiStudio.Shared.Data
             pack.SettingsItem1 = this.SettingsItem1;
             pack.SettingsItem2 = this.SettingsItem2;
             pack.SettingsItem3 = this.SettingsItem3;
+            pack.SettingsItem4 = this.SettingsItem4;
             pack.SettingsNote = this.SettingsNote;
             pack.SettingsOptions = this.SettingsOptions;
             pack.ShareDescription = this.ShareDescription;
@@ -596,6 +625,7 @@ namespace PiStudio.Shared.Data
             pack.ThemePredefined = this.ThemePredefined;
             pack.ApplyingFilters = this.ApplyingFilters;
             pack.NoteBrightness = this.NoteBrightness;
+            pack.Optional = this.Optional;
         }
     }
 

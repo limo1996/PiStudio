@@ -63,13 +63,17 @@
                         <TextBlock Text="{x:Bind Path=LanguagePack.SettingsItem2, Mode=OneWay}" FontSize="16" Margin="10" x:Name="Theme" Tapped="SettingsSection_Clicked"
                                    PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited"
                                    Foreground="{x:Bind Path=ApplicationTheme.ClickableForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
-                        <TextBlock Text="{x:Bind Path=LanguagePack.SettingsItem3, Mode=OneWay}" FontSize="16" Margin="10" x:Name="About" Tapped="SettingsSection_Clicked"
+                        <TextBlock Text="{x:Bind Path=LanguagePack.SettingsItem3, Mode=OneWay}" FontSize="16" Margin="10" x:Name="Commands" Tapped="SettingsSection_Clicked"
+                                   PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited"
+                                   Foreground="{x:Bind Path=ApplicationTheme.ClickableForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                        <TextBlock Text="{x:Bind Path=LanguagePack.SettingsItem4, Mode=OneWay}" FontSize="16" Margin="10" x:Name="About" Tapped="SettingsSection_Clicked"
                                    PointerEntered="TextBlock_Entered" PointerExited="TextBlock_Exited"
                                    Foreground="{x:Bind Path=ApplicationTheme.ClickableForeground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                     </StackPanel>
                     <Grid Grid.Row="2" x:Name="MainGrid">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="0" />
                             <ColumnDefinition Width="0" />
                         </Grid.ColumnDefinitions>
@@ -136,6 +140,11 @@
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="2">
+                            <ScrollViewer Name="CommandsScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="20, 0, 0, 0">
+                                <StackPanel x:Name="CommandsPanel"/>
+                            </ScrollViewer>
+                        </Grid>
+                        <Grid Grid.Column="3">
                             <StackPanel Orientation="Vertical" Margin="15,0,0,0">
                                 <TextBlock Text="PiStudio" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />

@@ -74,6 +74,16 @@ namespace PiStudio.Win10.Voice
 			SetActionsForCortana();
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<Voice.Commands.VoiceCommands> GetVoiceCommands()
+        {
+            await m_initTask;
+            return m_navigator.VoiceCommands;
+        }
+
 		private void WriteToFileIfDoNotExists(string filepath, string contentOfFile)
 		{
 			if (!File.Exists(filepath))

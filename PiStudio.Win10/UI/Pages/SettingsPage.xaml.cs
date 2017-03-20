@@ -85,6 +85,8 @@ namespace PiStudio.Win10.UI.Pages
         {
             base.OnNavigatedTo(e);
 
+            LoadVoiceCommands();
+
             var param = e.Parameter as NavigationParameter;
             if (param != null && param.Extra != null)
                 m_editor = (ImageEditor)param.Extra;
@@ -171,6 +173,9 @@ namespace PiStudio.Win10.UI.Pages
             Theme.Foreground = new SolidColorBrush(ApplicationTheme.ClickableForeground);
             Theme.FontWeight = FontWeights.Normal;
 
+            Commands.Foreground = new SolidColorBrush(ApplicationTheme.ClickableForeground);
+            Commands.FontWeight = FontWeights.Normal;
+
             ((TextBlock)sender).Foreground = new SolidColorBrush(ApplicationTheme.Foreground);
             ((TextBlock)sender).FontWeight = FontWeights.SemiBold;
 
@@ -181,8 +186,10 @@ namespace PiStudio.Win10.UI.Pages
                 MainGrid.ColumnDefinitions[0].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
             else if (sender == Theme)
                 MainGrid.ColumnDefinitions[1].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
-            else
+            else if (sender == Commands)
                 MainGrid.ColumnDefinitions[2].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
+            else
+                MainGrid.ColumnDefinitions[3].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
         }
 
         private void TextBlock_Entered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
@@ -209,6 +216,7 @@ namespace PiStudio.Win10.UI.Pages
             if(AppSettings.Instance.IsDarkTheme != EnableDarkSwitch.IsOn)
                 SettingsSection_Clicked(Theme, null);
             AppSettings.Instance.IsDarkTheme = EnableDarkSwitch.IsOn;
+            LoadVoiceCommands();
         }
 
         private void LanguagesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -226,6 +234,74 @@ namespace PiStudio.Win10.UI.Pages
             if (lang == WinAppResources.Instance.ApplicationLanguage.Language)
                 return;
             WinAppResources.Instance.SetLanguage(lang).CopyTo(LanguagePack);
+            LoadVoiceCommands();
+        }
+
+        private async void LoadVoiceCommands()
+        {
+            CommandsPanel.Children.Clear();
+            foreach (var set in (await Voice.VoiceRecognizer.Instance.GetVoiceCommands()).CommandSets)
+            {
+                foreach (var command in set.Commands)
+                {
+                    CommandsPanel.Children.Add(new TextBlock()
+                    {
+                        Text = command.Name,
+                        Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.PanelItemFocused),
+                        FontSize = 22,
+                        Margin = new Windows.UI.Xaml.Thickness(0, 10, 0, 0)
+                    });
+
+                    foreach (var speakItem in command.ListenFor)
+                    {
+                        CommandsPanel.Children.Add(new TextBlock()
+                        {
+                            Text = speakItem.Content,
+                            Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.Foreground),
+                            FontSize = 18,
+                            Margin = new Windows.UI.Xaml.Thickness(10, 0, 0, 0)
+                        });
+                    }
+                }
+
+                CommandsPanel.Children.Add(new Grid()
+                {
+                    Height = 0.5,
+                    BorderThickness = new Windows.UI.Xaml.Thickness(0),
+                    Background = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.Foreground),
+                    Margin = new Windows.UI.Xaml.Thickness(0, 20, 30, 10)
+                });
+
+                foreach (var phraseList in set.PhraseLists)
+                {
+                    CommandsPanel.Children.Add(new TextBlock()
+                    {
+                        Text = "{" + phraseList.Label + "}:",
+                        Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.PanelItemFocused),
+                        FontSize = 22,
+                        Margin = new Windows.UI.Xaml.Thickness(0, 10, 0, 0)
+                    });
+
+                    foreach (var item in phraseList.Items)
+                    {
+                        CommandsPanel.Children.Add(new TextBlock()
+                        {
+                            Text = "-" + item.Content,
+                            Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.Foreground),
+                            FontSize = 18,
+                            Margin = new Windows.UI.Xaml.Thickness(40, 0, 0, 0)
+                        });
+                    }
+                }
+
+                CommandsPanel.Children.Add(new TextBlock()
+                {
+                    Text = "[...] - " + WinAppResources.Instance.ApplicationLanguage.Optional,
+                    Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.PanelItemFocused),
+                    FontSize = 22,
+                    Margin = new Windows.UI.Xaml.Thickness(0, 15, 0, 15)
+                });
+            }
         }
     }
 }

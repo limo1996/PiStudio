@@ -357,15 +357,17 @@
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
-      <RootProperty Name="HorizontalScrollMode" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="VerticalScrollBarVisibility" />
       <RootProperty Name="HorizontalScrollBarVisibility" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalScrollMode" />
       <RootProperty Name="IsTabStop" />
       <RootProperty Name="IsHorizontalRailEnabled" />
       <RootProperty Name="IsVerticalRailEnabled" />
       <RootProperty Name="IsDeferredScrollingEnabled" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Padding" />
-      <RootProperty Name="VerticalScrollBarVisibility" />
       <RootProperty Name="VerticalScrollMode" />
       <RootProperty Name="ZoomMode" />
       <RootProperty Name="BringIntoViewOnFocusChange" />
@@ -373,7 +375,6 @@
       <RootProperty Name="MinWidth" />
       <RootProperty Name="VerticalSnapPointsType" />
       <RootProperty Name="VerticalSnapPointsAlignment" />
-      <RootProperty Name="Content" />
       <RootMethod Name="GetHorizontalScrollBarVisibility" />
       <RootMethod Name="SetHorizontalScrollBarVisibility" />
       <RootMethod Name="GetHorizontalScrollMode" />
