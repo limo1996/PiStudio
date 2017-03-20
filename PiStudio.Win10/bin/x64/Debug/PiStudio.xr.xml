@@ -213,6 +213,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.Storyboard">
       <RootProperty Name="Children" />
+      <RootProperty Name="Duration" />
       <RootMethod Name="GetTargetName" />
       <RootMethod Name="SetTargetName" />
       <RootMethod Name="GetTargetProperty" />
@@ -301,6 +302,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
+      <RootProperty Name="Resources" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
       <RootProperty Name="Name" />
@@ -418,6 +420,11 @@
     <RootType FullName="PiStudio.Win10.UI.Pages.FiltersPage" />
     <RootType FullName="Windows.UI.Xaml.Media.PlaneProjection" />
     <RootType FullName="PiStudio.Win10.UI.Pages.HomePage" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation">
+      <RootProperty Name="FromHorizontalOffset" />
+      <RootProperty Name="SpeedRatio" />
+      <RootProperty Name="TargetName" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
       <RootProperty Name="Content" />
       <RootProperty Name="NavigateUri" />
@@ -580,10 +587,6 @@
       <RootProperty Name="GeneratedDuration" />
       <RootProperty Name="To" />
       <RootProperty Name="Storyboard" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation">
-      <RootProperty Name="FromHorizontalOffset" />
-      <RootProperty Name="TargetName" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.TranslateTransform" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Ellipse">

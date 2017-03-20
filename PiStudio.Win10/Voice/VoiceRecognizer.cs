@@ -75,9 +75,9 @@ namespace PiStudio.Win10.Voice
 		}
 
         /// <summary>
-        /// 
+        /// Gets <see cref="Commands.VoiceCommands"/> that are currently set in speech recognizer.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="Commands.VoiceCommands"/></returns>
         public async Task<Voice.Commands.VoiceCommands> GetVoiceCommands()
         {
             await m_initTask;

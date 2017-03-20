@@ -164,6 +164,10 @@ namespace PiStudio.Win10.UI.Pages
 
         private void SettingsSection_Clicked(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
+            var textBlock = (TextBlock)sender;
+            if (textBlock.FontWeight.Weight == FontWeights.SemiBold.Weight)
+                return;
+
             General.Foreground = new SolidColorBrush(ApplicationTheme.ClickableForeground);
             General.FontWeight = FontWeights.Normal;
 
@@ -176,8 +180,8 @@ namespace PiStudio.Win10.UI.Pages
             Commands.Foreground = new SolidColorBrush(ApplicationTheme.ClickableForeground);
             Commands.FontWeight = FontWeights.Normal;
 
-            ((TextBlock)sender).Foreground = new SolidColorBrush(ApplicationTheme.Foreground);
-            ((TextBlock)sender).FontWeight = FontWeights.SemiBold;
+            textBlock.Foreground = new SolidColorBrush(ApplicationTheme.Foreground);
+            textBlock.FontWeight = FontWeights.SemiBold;
 
             foreach (var column in MainGrid.ColumnDefinitions)
                 column.Width = new Windows.UI.Xaml.GridLength(0);
@@ -190,6 +194,7 @@ namespace PiStudio.Win10.UI.Pages
                 MainGrid.ColumnDefinitions[2].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
             else
                 MainGrid.ColumnDefinitions[3].Width = new Windows.UI.Xaml.GridLength(1, Windows.UI.Xaml.GridUnitType.Star);
+            SlideAnimation.Begin();
         }
 
         private void TextBlock_Entered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
@@ -237,6 +242,7 @@ namespace PiStudio.Win10.UI.Pages
             LoadVoiceCommands();
         }
 
+        //Displays all commands that can be currently used in the application 
         private async void LoadVoiceCommands()
         {
             CommandsPanel.Children.Clear();
@@ -248,7 +254,7 @@ namespace PiStudio.Win10.UI.Pages
                     {
                         Text = command.Name,
                         Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.PanelItemFocused),
-                        FontSize = 22,
+                        FontSize = 18,
                         Margin = new Windows.UI.Xaml.Thickness(0, 10, 0, 0)
                     });
 
@@ -258,7 +264,7 @@ namespace PiStudio.Win10.UI.Pages
                         {
                             Text = speakItem.Content,
                             Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.Foreground),
-                            FontSize = 18,
+                            FontSize = 16,
                             Margin = new Windows.UI.Xaml.Thickness(10, 0, 0, 0)
                         });
                     }
@@ -278,7 +284,7 @@ namespace PiStudio.Win10.UI.Pages
                     {
                         Text = "{" + phraseList.Label + "}:",
                         Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.PanelItemFocused),
-                        FontSize = 22,
+                        FontSize = 18,
                         Margin = new Windows.UI.Xaml.Thickness(0, 10, 0, 0)
                     });
 
@@ -288,7 +294,7 @@ namespace PiStudio.Win10.UI.Pages
                         {
                             Text = "-" + item.Content,
                             Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.Foreground),
-                            FontSize = 18,
+                            FontSize = 16,
                             Margin = new Windows.UI.Xaml.Thickness(40, 0, 0, 0)
                         });
                     }
@@ -298,7 +304,7 @@ namespace PiStudio.Win10.UI.Pages
                 {
                     Text = "[...] - " + WinAppResources.Instance.ApplicationLanguage.Optional,
                     Foreground = new SolidColorBrush(WinAppResources.Instance.ApplicationTheme.PanelItemFocused),
-                    FontSize = 22,
+                    FontSize = 18,
                     Margin = new Windows.UI.Xaml.Thickness(0, 15, 0, 15)
                 });
             }

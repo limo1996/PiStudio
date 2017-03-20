@@ -8,6 +8,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Storyboard x:Name="SlideAnimation" Storyboard.TargetName="MainGrid" Duration="0:0:0.07">
+            <RepositionThemeAnimation FromHorizontalOffset="50" SpeedRatio="2" />
+        </Storyboard>
+    </Page.Resources>
+
     <Grid Background="{x:Bind Path=ApplicationTheme.Background, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}">
         <SplitView Name="MainMenu" DisplayMode="CompactOverlay" IsPaneOpen="False" CompactPaneLength="50"
                    OpenPaneLength="150">

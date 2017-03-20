@@ -56,6 +56,9 @@ namespace PiStudio.Win10.Voice.Navigation
             SetHypGeneratedEvent();
 		}
 
+        /// <summary>
+        /// Gets voice commands that are currently set in speech recognizer.
+        /// </summary>
         public VoiceCommands VoiceCommands
         {
             get
