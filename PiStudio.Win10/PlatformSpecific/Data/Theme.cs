@@ -2,6 +2,9 @@
 using Windows.UI;
 namespace PiStudio.Win10.Data
 {
+    /// <summary>
+    /// Data class that contains style of the application. In other words application theme.
+    /// </summary>
     public class Theme : INotifyPropertyChanged
     {
         private Color m_foreground;
@@ -13,6 +16,9 @@ namespace PiStudio.Win10.Data
         private Color m_clickableForeground;
         private Color m_upperPanelBackground;
 
+        /// <summary>
+        /// Text color in apps content.
+        /// </summary>
         public Color Foreground
         {
             get
@@ -26,6 +32,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Background color of apps content.
+        /// </summary>
         public Color Background
         {
             get
@@ -40,6 +49,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Background of the left hamburger menu. (left panel)
+        /// </summary>
         public Color PanelBackground
         {
             get
@@ -53,6 +65,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Border color.
+        /// </summary>
         public Color Borders
         {
             get
@@ -66,6 +81,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Text and icons color that are in the left panel.
+        /// </summary>
         public Color PanelForeground
         {
             get
@@ -79,6 +97,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Application's most dominant color. Selected menu icon is indicated by this color as well as some controls and headers.
+        /// </summary>
         public Color PanelItemFocused
         {
             get
@@ -92,6 +113,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Foreground of the clickable elements.
+        /// </summary>
         public Color ClickableForeground
         {
             get
@@ -105,6 +129,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Background color of the upper panel background.
+        /// </summary>
         public Color UpperPanelBackground
         {
             get

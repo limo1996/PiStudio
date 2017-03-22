@@ -9,6 +9,9 @@ using Windows.UI.Xaml.Media;
 
 namespace PiStudio.Win10.Data
 {
+    /// <summary>
+    /// Converts color to solid color brush
+    /// </summary>
     public class ColorToBrushConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

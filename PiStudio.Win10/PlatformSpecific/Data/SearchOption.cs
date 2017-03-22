@@ -3,12 +3,18 @@ using Windows.UI.Xaml.Controls;
 
 namespace PiStudio.Win10.Data
 {
+    /// <summary>
+    /// Data class for binding data to search box
+    /// </summary>
     public class SearchOption : INotifyPropertyChanged
     {
         private string m_text;
         private Symbol m_symbol;
         private Theme m_theme;
 
+        /// <summary>
+        /// Text that will be displayed in the row
+        /// </summary>
         public string Text
         {
             get
@@ -22,6 +28,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Icon that is displayed on the left side.
+        /// </summary>
         public Symbol Symbol
         {
             get
@@ -35,6 +44,9 @@ namespace PiStudio.Win10.Data
             }
         }
 
+        /// <summary>
+        /// Style of the row.
+        /// </summary>
         public Theme ApplicationTheme
         {
             get

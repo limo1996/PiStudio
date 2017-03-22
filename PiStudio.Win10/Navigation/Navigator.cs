@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace PiStudio.Win10.Navigation
 {
+    /// <summary>
+    /// This class is responsible for all the navigation within the application. Contains methods for loading new image as well as saving.
+    /// </summary>
     public class Navigator : INavigator
     {
         private Type m_page;
@@ -69,7 +72,7 @@ namespace PiStudio.Win10.Navigation
         }
 
         /// <summary>
-        /// Provides intialization, shows file picker and stores image into application resources.
+        /// Provides initialization, shows file picker and stores image into application resources.
         /// </summary>
         public async Task GetStartedButtonClick()
         {
@@ -187,6 +190,7 @@ namespace PiStudio.Win10.Navigation
 
         private bool m_result = false;
 
+        //Saves current image and continues in navigation
         private async void SaveAndContinue(IUICommand command)
         {
             await SaveImage(false);
@@ -223,6 +227,7 @@ namespace PiStudio.Win10.Navigation
             await FileServer.SaveToFileAsync(finalStorage, m_editor);
         }
 
+        //dismiss recent changes and continues in navigation
         private void DismissAndContinue(IUICommand command)
         {
             m_editor.Dismiss();
@@ -251,6 +256,7 @@ namespace PiStudio.Win10.Navigation
             WinAppResources.Instance.FinalStorage = file;
         }
 
+        //gets default name for image that will be saved.
         private static string GetSuggestedFileName()
         {
             var loadedFile = WinAppResources.Instance.LoadedFile;
