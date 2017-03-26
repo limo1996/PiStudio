@@ -11,6 +11,9 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace PiStudio.Win10
 {
+    /// <summary>
+    /// <see cref="IBitmapDecoder"/> implementation on windows platform.
+    /// </summary>
     public class WinBitmapDecoder : IBitmapDecoder
     {
         private Windows.Graphics.Imaging.BitmapDecoder decoder;
@@ -29,6 +32,10 @@ namespace PiStudio.Win10
                                                                    ColorManagementMode.DoNotColorManage);
             m_pixelData = provider.DetachPixelData();
         }
+
+        /// <summary>
+        /// Returns pixel format of processed image.
+        /// </summary>
         public PixelFormat PixelFormat
         {
             get
@@ -37,6 +44,9 @@ namespace PiStudio.Win10
             }
         }
 
+        /// <summary>
+        /// Returns how many pixels has image in one column.
+        /// </summary>
         public uint PixelHeight
         {
             get
@@ -45,6 +55,9 @@ namespace PiStudio.Win10
             }
         }
 
+        /// <summary>
+        /// Returns how many pixels has image in one row.
+        /// </summary>
         public uint PixelWidth
         {
             get
@@ -53,6 +66,9 @@ namespace PiStudio.Win10
             }
         }
 
+        /// <summary>
+        /// Dots per pixel in X axis.
+        /// </summary>
         public double DpiX
         {
             get
@@ -61,6 +77,9 @@ namespace PiStudio.Win10
             }
         }
 
+        /// <summary>
+        /// Dots per pixel in Y axis.
+        /// </summary>
         public double DpiY
         {
             get
@@ -69,6 +88,11 @@ namespace PiStudio.Win10
             }
         }
 
+        /// <summary>
+        /// Creates new instance of <see cref="IBitmapDecoder"/> asynchronously.
+        /// </summary>
+        /// <param name="stream">Image source stream.</param>
+        /// <returns>New instance of <see cref="IBitmapDecoder"/> interface.</returns>
         public static async Task<IBitmapDecoder> CreateAsync(Stream stream)
         {
             WinBitmapDecoder decoder = new WinBitmapDecoder();
@@ -76,6 +100,9 @@ namespace PiStudio.Win10
             return decoder;
         }
 
+        /// <summary>
+        /// Asynchronously returns byte array of pixels.
+        /// </summary>
         public async Task<byte[]> GetPixelDataAsync()
         {
             return m_pixelData;

@@ -21,7 +21,7 @@ namespace PiStudio.Shared
         void SetPixelData(PixelFormat format, bool ignoreAlphaMode, uint pixelWidth, uint pixelHeight, double dpiX, double dpiY, byte[] pixels);
 
         /// <summary>
-        /// Saves encoded data into given streams
+        /// Saves encoded data into given stream.
         /// </summary>
         Task FlushAsync();
     }

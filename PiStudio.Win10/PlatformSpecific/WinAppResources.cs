@@ -22,8 +22,12 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace PiStudio.Win10
 {
+    /// <summary>
+    /// Class that has only one instance. Contains all resources that app needs during running.
+    /// </summary>
     public class WinAppResources : AppResourcesBase
     {
+        //dark theme
         private Theme m_darkTheme = new Theme()
         {
             PanelBackground = Color.FromArgb(210, 0, 0, 0),
@@ -36,6 +40,7 @@ namespace PiStudio.Win10
             UpperPanelBackground = Color.FromArgb(255, 31, 31, 31)
         };
 
+        //light theme
         private Theme m_lightTheme = new Theme()
         {
             Foreground = Colors.Black,
@@ -48,6 +53,7 @@ namespace PiStudio.Win10
             UpperPanelBackground = Color.FromArgb(255, 242, 242, 242)
         };
 
+        //private constructor. Important in singleton pattern !
         private WinAppResources() : base()
         {
             ApplicationTheme = m_lightTheme;
@@ -57,11 +63,26 @@ namespace PiStudio.Win10
             FinalStorage = null;
         }
 
+        /// <summary>
+        /// Current application theme.
+        /// </summary>
         public Theme ApplicationTheme { get; set; }
+
+        /// <summary>
+        /// Minimum allowed page size.
+        /// </summary>
         public Size MinimumPageSize { get; private set; }
+
+        /// <summary>
+        /// Location where is and will be final image stored.
+        /// </summary>
         public StorageFile FinalStorage { get; set; }
 
         private static WinAppResources m_instance;
+
+        /// <summary>
+        /// Only instance of <see cref="WinAppResources"/> class.
+        /// </summary>
         public static WinAppResources Instance
         {
             get
@@ -72,6 +93,10 @@ namespace PiStudio.Win10
             }
         }
         
+        /// <summary>
+        /// Gets image from temporary storage.
+        /// </summary>
+        /// <returns>Visual image object.</returns>
         public async Task<WriteableBitmap> GetWorkingImage()
         {
             var file = await FileServer.GetTempFileAsync();
@@ -83,6 +108,10 @@ namespace PiStudio.Win10
             }
         }
 
+        /// <summary>
+        /// Initializes and returns <see cref="ImageEditor"/> from temporary storage.
+        /// </summary>
+        /// <returns>Initialized <see cref="ImageEditor"/> object.</returns>
         public async Task<ImageEditor> GetImageEditorAsync()
         {
             ImageEditor editor;
@@ -96,6 +125,15 @@ namespace PiStudio.Win10
             return editor;
         }
         
+        /// <summary>
+        /// Sets image stretch in content area. 
+        /// </summary>
+        /// <param name="img">Image that's stretch will be set.</param>
+        /// <remarks>
+        /// Logic of stretch is as follows:
+        /// If image is bigger than available space, then stretch is set to uniform.
+        /// If image is smaller than available space, then stretch is set to none.
+        /// </remarks>
         public void SetImageStretch(Image img)
         {
             int width = (int)Window.Current.Bounds.Width - 90,  height = (int)Window.Current.Bounds.Height - 90;
@@ -107,14 +145,22 @@ namespace PiStudio.Win10
                 img.Stretch = Stretch.Uniform;
         }
 
+        /// <summary>
+        /// Sets dark or light theme.
+        /// </summary>
+        /// <param name="isDarkTheme">Whether to set dark theme. If not then light theme is set.</param>
         public void SetTheme(bool isDarkTheme)
         {
             if (isDarkTheme)
                 ApplicationTheme = m_darkTheme;
             else
                 ApplicationTheme = m_lightTheme;
+            AppSettings.Instance.IsDarkTheme = isDarkTheme;
         }
 
+        /// <summary>
+        /// Initializes current page. Should be called in constructor of every page.
+        /// </summary>
         public void InitializePage()
         {
             ApplicationView.GetForCurrentView().SetPreferredMinSize(Instance.MinimumPageSize);
@@ -165,7 +211,7 @@ namespace PiStudio.Win10
         /// <summary>
         /// Copies application state saved in instance of this class into serializable and cross-platform <see cref="AppSettings"/>
         /// </summary>
-        /// <param name="settings"></param>
+        /// <param name="settings">Single instance of <see cref="AppSettings"/>.</param>
         public override void CopyTo(AppSettings settings)
         {
             if (settings == null)
@@ -183,7 +229,7 @@ namespace PiStudio.Win10
         }
 
         /// <summary>
-        /// Loads all neccessary properties from <see cref="AppSettings"/> instance.
+        /// Loads all necessary properties from <see cref="AppSettings"/> instance.
         /// </summary>
         /// <param name="settings"></param>
         public override void LoadFrom(AppSettings settings)
@@ -235,6 +281,9 @@ namespace PiStudio.Win10
             }
         }
 
+        /// <summary>
+        /// Returns full path of given file name.
+        /// </summary>
         public override string GetStoragePath(string name)
         {
             return Path.Combine(ApplicationData.Current.LocalFolder.Path, name);

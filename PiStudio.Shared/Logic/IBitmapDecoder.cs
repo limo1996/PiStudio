@@ -12,7 +12,6 @@ namespace PiStudio.Shared
         /// <summary>
         /// Asynchronously returns byte array of pixels.
         /// </summary>
-        /// <returns></returns>
         Task<byte[]> GetPixelDataAsync();
 
         /// <summary>

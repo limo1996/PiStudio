@@ -18,8 +18,17 @@ using Windows.ApplicationModel;
 
 namespace PiStudio.Win10
 {
+    /// <summary>
+    /// Class that should be used for all operations related to temporary image stored in app's local folder.
+    /// </summary>
     public static class FileServer
     {
+        /// <summary>
+        /// Saves given object to given file thread safe.
+        /// </summary>
+        /// <param name="file">Destination <see cref="StorageFile"/></param>
+        /// <param name="obj">Object that will be saved to file by calling Save(Stream) method.</param>
+        /// <returns></returns>
         public static async Task SaveToFileAsync(StorageFile file, ISaveable obj)
         {
             await semaphore2.WaitAsync();
@@ -42,6 +51,11 @@ namespace PiStudio.Win10
 
         private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
         private static SemaphoreSlim semaphore2 = new SemaphoreSlim(1,1);
+
+        /// <summary>
+        /// Gets temp file from application's folder thread safe.
+        /// </summary>
+        /// <returns>File from local folder.</returns>
         public static async Task<StorageFile> GetTempFileAsync()
         {
             await semaphore.WaitAsync();
@@ -52,6 +66,10 @@ namespace PiStudio.Win10
             return (StorageFile)item;
         }
 
+        /// <summary>
+        /// Saves object to temp file asynchronously and overrides file if needed.
+        /// </summary>
+        /// <param name="obj">Object that will be saved.</param>
         public static async Task SaveTempAsync(ISaveable obj)
         {
             var file = await GetTempFileAsync();
@@ -63,6 +81,12 @@ namespace PiStudio.Win10
             semaphore.Release();
         }
 
+        /// <summary>
+        /// Saves given object to given stream of given file type.
+        /// </summary>
+        /// <remarks>
+        /// File type is obtained by slicing the suffix of given file name.
+        /// </remarks>
         private static async Task SaveToStreamAsync(IRandomAccessStream fileStream, ISaveable obj, string fileName)
         {
             var index = fileName.LastIndexOf(".");
@@ -72,6 +96,9 @@ namespace PiStudio.Win10
             await obj.Save(fileStream.AsStream(), suffix);
         }
 
+        /// <summary>
+        /// Gets the file containing app's logo.
+        /// </summary>
         public static async Task<StorageFile> GetLogoAsync()
         {
             return await Package.Current.InstalledLocation.GetFileAsync("Assets\\StoreLogo.png");
