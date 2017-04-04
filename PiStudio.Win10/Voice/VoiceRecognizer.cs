@@ -51,7 +51,7 @@ namespace PiStudio.Win10.Voice
 		Task m_initTask;
 		Task m_installCortanaCommandsTask;
 
-		//initialized cortana for action and navigator
+		//initialized Cortana for action and navigator
 		private async Task InitializeAsync(string navigatorCommandsPath)
 		{
 			StorageFile navigatorCommandsFile = await StorageFile.GetFileFromPathAsync(navigatorCommandsPath);
@@ -160,7 +160,7 @@ namespace PiStudio.Win10.Voice
         }
 
 		/// <summary>
-        /// Immidiately starts listening to user. If microphone permission is not enabled, launches microphone settings.
+        /// Immediately starts listening to user. If microphone permission is not enabled, launches microphone settings.
         /// </summary>
         /// <returns></returns>
 		public async Task RecognizeAndPerformActionAsync()
@@ -229,7 +229,7 @@ namespace PiStudio.Win10.Voice
             }
         }
 
-        //launches given uri in the background
+        //launches given Uri in the background
         private async void LaunchUri(Uri uri)
 		{
 			await Windows.System.Launcher.LaunchUriAsync(uri);
@@ -407,12 +407,14 @@ namespace PiStudio.Win10.Voice
 
         private void EnableDark(object sender, SpeechRecognitionResult e)
         {
+            if (AppSettings.Instance.IsDarkTheme) return;
             WinAppResources.Instance.SetTheme(true);
             ReloadCurrentPage();
         }
 
         private void EnableLight(object sender, SpeechRecognitionResult e)
         {
+            if (!AppSettings.Instance.IsDarkTheme) return;
             WinAppResources.Instance.SetTheme(false);
             ReloadCurrentPage();
         }

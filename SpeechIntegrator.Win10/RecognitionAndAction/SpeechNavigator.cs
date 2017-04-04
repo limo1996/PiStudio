@@ -109,7 +109,7 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// <summary>
 		/// Asynchronously creates new instance of <see cref="SpeechNavigator"/>.
 		/// </summary>
-		/// <returns>Refernce to new instance of <see cref="SpeechNavigator"/></returns>
+		/// <returns>Reference to new instance of <see cref="SpeechNavigator"/></returns>
 		public static async Task<SpeechNavigator> Create()
 		{
 			var navigator = new SpeechNavigator(ApplicationData.Current.LocalFolder.Path);
@@ -121,7 +121,7 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// Asynchronously creates new instance of <see cref="SpeechNavigator"/>.
 		/// </summary>
 		/// <param name="file"><see cref="StorageFile"/> where are VoiceCommands located.</param>
-		/// <returns>Refernce to new instance of <see cref="SpeechNavigator"/></returns>
+		/// <returns>Reference to new instance of <see cref="SpeechNavigator"/></returns>
 		public static async Task<SpeechNavigator> Create(StorageFile file)
 		{
 			string path = (await file.GetParentAsync()).Path;
@@ -135,7 +135,7 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// </summary>
 		/// <param name="file"><see cref="StorageFile"/> where are VoiceCommands located.</param>
 		/// <param name="language"><see cref="Windows.Globalization.Language"/> in which will user speak.</param>
-		/// <returns>Refernce to new instance of <see cref="SpeechNavigator"/></returns>
+		/// <returns>Reference to new instance of <see cref="SpeechNavigator"/></returns>
 		public static async Task<SpeechNavigator> Create(StorageFile file, Windows.Globalization.Language language)
 		{
 			string path = (await file.GetParentAsync()).Path;
@@ -155,7 +155,7 @@ namespace PiStudio.Win10.Voice.Navigation
 			m_location = (await file.GetParentAsync()).Path;
 			var commands = await SpeechRecognitionManager.LoadCommandsFromFileAsync(file);
 			if (commands == null)
-				throw new SerializationException("File content can not be deserialized ! File content is probably in bad format..");
+				throw new SerializationException("File content can not be deserialized! File content is probably in bad format..");
 			this.m_voiceCommands = commands;
 			return await CompileConstraintAsync(commands);
 		}
@@ -186,7 +186,7 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// </summary>
 		private async Task<SpeechRecognitionCompilationResult> CompileConstraintAsync(Grammar commands, string commandsName)
 		{
-			StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(m_location);
+			StorageFolder folder = /*await StorageFolder.GetFolderFromPathAsync(*/ApplicationData.Current.LocalFolder;
 			StorageFile file = await folder.CreateFileAsync(commandsName + m_commandsFilenameSuffix, CreationCollisionOption.ReplaceExisting);
 			SpeechRecognitionManager.SaveGrammarToFile(file, commands);
 
@@ -196,7 +196,7 @@ namespace PiStudio.Win10.Voice.Navigation
 		}
 
 		/// <summary>
-		/// Recognizes speech constrined by SRGS grammar created from VoiceCommands that were passes in file. 
+		/// Recognizes speech constrained by SRGS grammar created from VoiceCommands that were passes in file. 
 		/// </summary>
 		/// <returns>Returns <see cref="SpeechRecognitionResult"/></returns>
 		public async Task<SpeechRecognitionResult> RecognizeSpeechAsync()
@@ -211,7 +211,7 @@ namespace PiStudio.Win10.Voice.Navigation
 			{
 				if (result.RulePath == null || result.Confidence == SpeechRecognitionConfidence.Rejected || result.RulePath.Count == 0)
 				{
-                    //nebolo nic povedane zvacsa
+                    //nothing said usually
 					return null;
 				}
 				var tmp = result.RulePath[0];
@@ -329,7 +329,7 @@ namespace PiStudio.Win10.Voice.Navigation
         }
 
 		/// <summary>
-		/// Speeks given text asynchronously on the backgound. Can be awaited until speaking of the text finishes.
+		/// Speaks given text asynchronously on the background. Can be awaited until speaking of the text finishes.
 		/// </summary>
 		/// <param name="textToSpeech">Text to be spoken</param>
 		/// <returns><see cref="Task"/></returns>
@@ -360,7 +360,7 @@ namespace PiStudio.Win10.Voice.Navigation
 		}
 
 		/// <summary>
-		/// Speaks given text asynchronously on the backgound and can not be awaited.
+		/// Speaks given text asynchronously on the background and can not be awaited.
 		/// </summary>
 		/// <param name="textToSpeech">Text to be spoken</param>
 		public static async void SayText(string textToSpeech)
@@ -385,7 +385,7 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// <param name="commandSetName">CommandSet inside VCD voice commands.</param>
 		/// <param name="phraseListName">Name of the phraseList inside CommandSet</param>
 		/// <param name="phraseListValues">Values to be inserted into phraseList</param>
-		/// <param name="clearOldValues">Indicated wheter clear old values in PhraseList or not.</param>
+		/// <param name="clearOldValues">Indicated whether clear old values in PhraseList or not.</param>
 		/// <returns>Result of setting phrase list.</returns>
 		public async Task<SpeechRecognitionCompilationResult> SetPhraseListAsync(string commandSetName, string phraseListName, IEnumerable<string> phraseListValues, bool clearOldValues = true)
 		{

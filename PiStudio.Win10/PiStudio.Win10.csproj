@@ -94,6 +94,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Tests\Test1VCD.xml" />
+    <Content Include="Tests\Test2VCD.xml" />
     <Content Include="title.jpg" />
     <Content Include="Voice\PiStudioCortanaVoiceCommands.xml">
       <SubType>Designer</SubType>
@@ -112,6 +114,7 @@
     <Compile Include="PlatformSpecific\FileServer.cs" />
     <Compile Include="PlatformSpecific\SearchQueries.cs" />
     <Compile Include="PlatformSpecific\SVGSaver.cs" />
+    <Compile Include="Tests\CompilerTest.cs" />
     <Compile Include="UI\Controls\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>

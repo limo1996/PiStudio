@@ -151,7 +151,7 @@
                             </ScrollViewer>
                         </Grid>
                         <Grid Grid.Column="3">
-                            <StackPanel Orientation="Vertical" Margin="15,0,0,0">
+                            <StackPanel Orientation="Vertical" Margin="15,0,0,0" Name="DisplayStack">
                                 <TextBlock Text="PiStudio" FontFamily="Segoe UI" FontSize="24" Margin="0,15,0,12"
                                            Foreground="{x:Bind Path=ApplicationTheme.Foreground, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}" />
                                 <TextBlock Text="Jakub Lichman" FontFamily="Segoe UI" FontSize="14" Margin="0,15,0,5"
@@ -162,6 +162,7 @@
                                                  Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
                                 <HyperlinkButton Content="LinkedIn" NavigateUri="https://sk.linkedin.com/in/jakub-lichman-123278100" 
                                                  Foreground="{x:Bind Path=ApplicationTheme.PanelItemFocused, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}}"/>
+                                <Button Click="Button_Click" Content="Tests"/>
                             </StackPanel>
                         </Grid>
                     </Grid>

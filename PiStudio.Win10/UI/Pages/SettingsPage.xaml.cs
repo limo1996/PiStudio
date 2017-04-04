@@ -309,5 +309,11 @@ namespace PiStudio.Win10.UI.Pages
                 });
             }
         }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            CompilerTest test = new CompilerTest(DisplayStack);
+            test.Run();
+        }
     }
 }

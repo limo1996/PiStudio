@@ -12,7 +12,7 @@ using Windows.Storage;
 
 namespace PiStudio.Win10.Voice.Navigation
 {
-    internal static class SpeechRecognitionManager
+    public static class SpeechRecognitionManager
     {
         // TODO:
         // meta data serialization namespaces I DO NOT KNOW HOW TO DO IT
@@ -32,7 +32,6 @@ namespace PiStudio.Win10.Voice.Navigation
 
             foreach (var commandSet in commands.CommandSets)
             {
-
                 errors.AddRange(ValidateCommandSet(commandSet));
             }
 
@@ -392,7 +391,9 @@ namespace PiStudio.Win10.Voice.Navigation
                         }
                         else
                         {
-                            string text = tmp.Substring(0, indexOfCurlyBracket - 1);
+                            string text = null;
+                            if(indexOfCurlyBracket > 0)
+                                text = tmp.Substring(0, indexOfCurlyBracket - 1);
                             tmp = tmp.Substring(indexOfCurlyBracket + 1);
                             if (tmp.IndexOf('}') == -1)
                                 throw new GrammarException("Phrase topics or list reference was not properly closed. Missing '}'");

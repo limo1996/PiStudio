@@ -9,6 +9,8 @@ Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 PiStudio.xr.xml
 Properties\Default.rd.xml
+Tests\Test1VCD.xml
+Tests\Test2VCD.xml
 title.jpg
 Voice\PiStudioCortanaVoiceCommands.xml
 Voice\PiStudioNavigatorVoiceCommands.xml

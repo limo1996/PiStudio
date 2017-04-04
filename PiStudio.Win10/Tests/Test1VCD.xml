@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet Name="PiStudioVoiceCommandsEnUs" xml:lang="en-gb">
+    <CommandPrefix></CommandPrefix>
+    <Example>PiStudio open last edited file</Example>
+    <Command Name="OpenLastEdited">
+      <Example>PiStudio Show me last edited file</Example>
+      <ListenFor>{ActionOpen} last [edited] file</ListenFor>
+      <ListenFor>{ActionOpen} the last one</ListenFor>
+      <Feedback>Opening last edited file</Feedback>
+      <Navigate/>
+    </Command>
+
+    <PhraseList Label="ActionOpen">
+      <Item>Open</Item>
+      <Item>Show</Item>
+      <Item>Show me</Item>
+      <Item>Display</Item>
+    </PhraseList>
+  </CommandSet>
+</VoiceCommands>
