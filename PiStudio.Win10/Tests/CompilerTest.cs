@@ -43,7 +43,7 @@ namespace PiStudio.Win10
         {
             try
             {
-                var navigator = await SpeechNavigator.Create(await m_folder.GetFileAsync("Test1VCD.xml"));
+                var navigator = await SpeechNavigator.Create(await m_folder.GetFileAsync("Test1VCD.xml"), new Windows.Globalization.Language("en-us"));
             }
             catch (UnauthorizedAccessException ex) { }
             catch (Exception e)

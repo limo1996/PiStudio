@@ -22,7 +22,7 @@ namespace PiStudio.Win10.Voice
 
 
 	/// <summary>
-	/// Integrates cortana and in app speech recognition into MobileCRM
+	/// Integrates Cortana and in app speech recognition into MobileCRM
 	/// </summary>
 	public class VoiceRecognizer
 	{
@@ -47,7 +47,7 @@ namespace PiStudio.Win10.Voice
 		}
 
 		//we must save tasks because of async initialization in constructor 
-		//also when is some functions called we must ensure wait till object is asynchronously initilaized
+		//also when is some functions called we must ensure wait till object is asynchronously initialized
 		Task m_initTask;
 		Task m_installCortanaCommandsTask;
 
@@ -55,7 +55,7 @@ namespace PiStudio.Win10.Voice
 		private async Task InitializeAsync(string navigatorCommandsPath)
 		{
 			StorageFile navigatorCommandsFile = await StorageFile.GetFileFromPathAsync(navigatorCommandsPath);
-			m_navigator = await SpeechNavigator.Create(navigatorCommandsFile);
+			m_navigator = await SpeechNavigator.Create(navigatorCommandsFile, new Windows.Globalization.Language("en-gb"));
 			m_navigator.Timeouts.InitialSilenceTimeout = new TimeSpan(0, 0, 10);
             SetActionsForNavigator();
 		}
@@ -97,7 +97,7 @@ namespace PiStudio.Win10.Voice
 		}
 
 
-		//sets cortanas actions
+		//sets Cortana's actions
 		private void SetActionsForCortana()
 		{
 			m_integrator.SetAction("PiStudioVoiceCommandsEnUs", "OpenLastEdited", OpenLastEdited);

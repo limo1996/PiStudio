@@ -136,19 +136,6 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// Asynchronously creates new instance of <see cref="SpeechNavigator"/>.
 		/// </summary>
 		/// <param name="file"><see cref="StorageFile"/> where are VoiceCommands located.</param>
-		/// <returns>Reference to new instance of <see cref="SpeechNavigator"/></returns>
-		public static async Task<SpeechNavigator> Create(StorageFile file)
-		{
-			string path = (await file.GetParentAsync()).Path;
-			var navigator = new SpeechNavigator(path);
-			await navigator.Initialize(file);
-			return navigator;
-		}
-
-		/// <summary>
-		/// Asynchronously creates new instance of <see cref="SpeechNavigator"/>.
-		/// </summary>
-		/// <param name="file"><see cref="StorageFile"/> where are VoiceCommands located.</param>
 		/// <param name="language"><see cref="Windows.Globalization.Language"/> in which will user speak.</param>
 		/// <returns>Reference to new instance of <see cref="SpeechNavigator"/></returns>
 		public static async Task<SpeechNavigator> Create(StorageFile file, Windows.Globalization.Language language)
