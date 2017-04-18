@@ -9,36 +9,36 @@ using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 using PiStudio.Win10.Voice.Commands;
 using PiStudio.Win10.Voice.Srgs;
-using Windows.UI.Xaml;
 using System.Threading;
 using Windows.UI;
 
 namespace PiStudio.Win10.Voice.Navigation
 {
-	/// <summary>
-	/// Class that recognizes speech commands and performs action when was command recognized.
-	/// </summary>
-	public class SpeechNavigator
+    /// <summary>
+    /// Class that recognizes speech commands and performs action when was command recognized.
+    /// </summary>
+    public class SpeechNavigator
 	{
 		private SpeechRecognizer m_constrainedRecognizer;
 		private SpeechRecognizer m_freeSpeechRecognizer;
-		private string m_location = null; 
-		private const string m_commandsFilenameSuffix = ".grxml";
-		private bool m_constrained = false;
-		private VoiceCommands m_voiceCommands;
-		private string m_filePath;
-        private bool m_listening = false;
+        private VoiceCommands m_voiceCommands;
         private SemaphoreSlim m_semaphore = new SemaphoreSlim(1, 1);
+        private Dictionary<string, HashSet<StorageFile>> m_compiledFiles = new Dictionary<string, HashSet<StorageFile>>();
+        private Windows.Globalization.Language m_currentLanguage = new Windows.Globalization.Language("en-US");
+        private const string m_commandsFilenameSuffix = ".grxml";
+        private string m_location = null; 
+		private string m_filePath;
+        private bool m_constrained = false;
 		public static readonly uint HResultPrivacyStatementDeclined = 0x80045509;
 
 		/// <summary>
-		/// Creates new instance of <see cref="SpeechNavigator"/>.
+		/// Creates new instance of <see cref="SpeechNavigator"/>. Language of recognition is English. 
 		/// </summary>
 		/// <param name="filepath">Path to the folder where are voice commands, and where will be compiled GRXML file stored.</param>
 		private SpeechNavigator(string filepath)
 		{
-			m_constrainedRecognizer = new SpeechRecognizer();
-			m_freeSpeechRecognizer = new SpeechRecognizer();
+			m_constrainedRecognizer = new SpeechRecognizer(new Windows.Globalization.Language("en-US"));
+			m_freeSpeechRecognizer = new SpeechRecognizer(new Windows.Globalization.Language("en-US"));
 			m_location = filepath;
             SetHypGeneratedEvent();
 		}
@@ -53,6 +53,7 @@ namespace PiStudio.Win10.Voice.Navigation
 			m_constrainedRecognizer = new SpeechRecognizer(language);
             m_freeSpeechRecognizer = new SpeechRecognizer(language);
 			m_location = filepath;
+            m_currentLanguage = language;
             SetHypGeneratedEvent();
 		}
 
@@ -66,6 +67,26 @@ namespace PiStudio.Win10.Voice.Navigation
                 return m_voiceCommands;
             }
         }
+
+        public Windows.Globalization.Language CurrentLanguage
+        {
+            get
+            {
+                return m_currentLanguage;
+            }
+        }
+
+        public async Task SetLanguageAsync(Windows.Globalization.Language language)
+        {
+            m_constrainedRecognizer = new SpeechRecognizer(language);
+            m_currentLanguage = language;
+            SetHypGeneratedEvent();
+
+            await m_constrainedRecognizer.CompileConstraintsAsync();
+            var vcdFile = await StorageFile.GetFileFromPathAsync(m_filePath);
+            await CompileConstraintAsync(vcdFile);
+        }
+        
 
         private void SetHypGeneratedEvent()
         {
@@ -81,29 +102,23 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// Initializes <see cref="SpeechNavigator"/> so it is ready to listen for user input.
 		/// </summary>
 		/// <returns><see cref="SpeechRecognitionCompilationResult"/></returns>
-		private async Task<SpeechRecognitionCompilationResult> Initialize()
+		private async Task Initialize()
 		{
-			var result = await m_freeSpeechRecognizer.CompileConstraintsAsync();
-			var result2 = await m_constrainedRecognizer.CompileConstraintsAsync();
-			if (result.Status != SpeechRecognitionResultStatus.Success)
-				return result;
-			return result2;
+		    await m_freeSpeechRecognizer.CompileConstraintsAsync();
+			await m_constrainedRecognizer.CompileConstraintsAsync();
 		}
 
 		/// <summary>
-		/// Initializes <see cref="SpeechNavigator"/> so it is ready to listen for user input.
+		/// Initializes <see cref="SpeechNavigator"/> so it is ready to listen for user input. Language of recognition is English. 
+        /// All voice commands that are not in English will not be installed into recognizer.
 		/// </summary>
 		/// <param name="file">File with VoiceCommands that will constrain recognizer to specific commands.</param>
 		/// <returns><see cref="SpeechRecognitionCompilationResult"/></returns>
-		public async Task<SpeechRecognitionCompilationResult> Initialize(StorageFile file)
+		public async Task Initialize(StorageFile file)
 		{
 			var result = await m_freeSpeechRecognizer.CompileConstraintsAsync();
 			await m_constrainedRecognizer.CompileConstraintsAsync();
-			var result2 = await CompileConstraintAsync(file);
-
-			if (result.Status != SpeechRecognitionResultStatus.Success)
-				return result;
-			return result2;
+			await CompileConstraintAsync(file);
 		}
 
 		/// <summary>
@@ -149,36 +164,33 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// </summary>
 		/// <param name="file">File with commands that will constrain recognizer.</param>
 		/// <returns><see cref="SpeechRecognitionCompilationResult"/></returns>
-		public async Task<SpeechRecognitionCompilationResult> CompileConstraintAsync(StorageFile file)
+		public async Task CompileConstraintAsync(StorageFile file)
 		{
 			m_filePath = file.Path;
 			m_location = (await file.GetParentAsync()).Path;
 			var commands = await SpeechRecognitionManager.LoadCommandsFromFileAsync(file);
 			if (commands == null)
 				throw new SerializationException("File content can not be deserialized! File content is probably in bad format..");
-			this.m_voiceCommands = commands;
-			return await CompileConstraintAsync(commands);
+			await CompileConstraintAsync(commands);
 		}
 
 		/// <summary>
 		/// Gives recognizer commands and improves its recognition capabilities.
 		/// </summary>
-		/// <param name="commands">Commands that will constrain recognizer.</param>
+		/// <param name="commands">Commands that will constrain recognizer if their language matches current language.</param>
 		/// <returns><see cref="SpeechRecognitionCompilationResult"/></returns>
-		public async Task<SpeechRecognitionCompilationResult> CompileConstraintAsync(VoiceCommands commands)
+		public async Task CompileConstraintAsync(VoiceCommands commands)
 		{
 			this.m_voiceCommands = commands;
-			SpeechRecognitionCompilationResult result = null;
 			foreach (var commandSet in commands.CommandSets)
 			{
 				Grammar grammar = SpeechRecognitionManager.CompileGrammar(commandSet, true);
-				result = await CompileConstraintAsync(grammar, commandSet.Name);
-				if (result.Status != SpeechRecognitionResultStatus.Success)
-					return result;
-				else
-					m_constrained = true;
+				var result = await CompileConstraintAsync(grammar, commandSet.Name);
+                if (result.Status != SpeechRecognitionResultStatus.Success)
+                    throw new GrammarCompilationException();
+                else
+                    m_constrained = true;
 			}
-			return result;
 		}
 
 		/// <summary>
@@ -186,20 +198,50 @@ namespace PiStudio.Win10.Voice.Navigation
 		/// </summary>
 		private async Task<SpeechRecognitionCompilationResult> CompileConstraintAsync(Grammar commands, string commandsName)
 		{
-			StorageFolder folder = /*await StorageFolder.GetFolderFromPathAsync(*/ApplicationData.Current.LocalFolder;
-			StorageFile file = await folder.CreateFileAsync(commandsName + m_commandsFilenameSuffix, CreationCollisionOption.ReplaceExisting);
-			SpeechRecognitionManager.SaveGrammarToFile(file, commands);
+			StorageFolder folder = ApplicationData.Current.LocalFolder;
+			StorageFile file = await folder.CreateFileAsync(commandsName + m_commandsFilenameSuffix, CreationCollisionOption.OpenIfExists);
+            if((file.DateCreated - DateTime.Now).Milliseconds < 1000)
+			    SpeechRecognitionManager.SaveGrammarToFile(file, commands);
 
-			var grammarFileConstraint = new SpeechRecognitionGrammarFileConstraint(file, commandsName);
-			this.m_constrainedRecognizer.Constraints.Add(grammarFileConstraint);
+            if (string.Compare(m_currentLanguage.LanguageTag, commands.Language, true) == 0)
+            {
+                var grammarFileConstraint = new SpeechRecognitionGrammarFileConstraint(file, commandsName);
+                grammarFileConstraint.IsEnabled = true;
+                AddCompiledFile(file, commands.Language.ToLower());
+
+                this.m_constrainedRecognizer.Constraints.Add(grammarFileConstraint);
+            }
+
 			return await this.m_constrainedRecognizer.CompileConstraintsAsync();
 		}
 
-		/// <summary>
-		/// Recognizes speech constrained by SRGS grammar created from VoiceCommands that were passes in file. 
-		/// </summary>
-		/// <returns>Returns <see cref="SpeechRecognitionResult"/></returns>
-		public async Task<SpeechRecognitionResult> RecognizeSpeechAsync()
+        private void AddCompiledFile(StorageFile file, string lang)
+        {
+            lang = lang.ToLower();
+            if (!m_compiledFiles.ContainsKey(lang))
+                m_compiledFiles.Add(lang, new HashSet<StorageFile>(new SetComparer()));
+            m_compiledFiles[lang].Add(file);
+        }
+
+        private class SetComparer : IEqualityComparer<StorageFile>
+        {
+            public bool Equals(StorageFile x, StorageFile y)
+            {
+                return x.Path == y.Path;
+            }
+
+            public int GetHashCode(StorageFile obj)
+            {
+                return obj.GetHashCode();
+            }
+        }
+
+
+        /// <summary>
+        /// Recognizes speech constrained by SRGS grammar created from VoiceCommands that were passes in file. 
+        /// </summary>
+        /// <returns>Returns <see cref="SpeechRecognitionResult"/></returns>
+        public async Task<SpeechRecognitionResult> RecognizeSpeechAsync()
 		{
             await m_semaphore.WaitAsync();
             var result = await m_constrainedRecognizer.RecognizeAsync();
@@ -471,4 +513,14 @@ namespace PiStudio.Win10.Voice.Navigation
 			get { return m_constrainedRecognizer.Timeouts; }
 		}
 	}
+
+    /// <summary>
+    /// Indicates error in VCD commands compilation.
+    /// </summary>
+    public class GrammarCompilationException : Exception
+    {
+        public GrammarCompilationException() : base() { }
+        public GrammarCompilationException(string message) : base(message) { }
+        public GrammarCompilationException(string message, Exception inner) : base(message, inner) { }
+    }
 }

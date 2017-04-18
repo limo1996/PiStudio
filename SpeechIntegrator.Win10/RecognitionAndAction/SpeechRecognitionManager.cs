@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
@@ -291,7 +292,10 @@ namespace PiStudio.Win10.Voice.Navigation
             grammar.TagFormat = Grammar.Semantics.StandardSemanticTagFormat;
             grammar.Encoding = Encoding.UTF8;
 
-            Rule rootRule = new Rule(commands.Name);
+            var rootRuleName = commands.Name;
+            Regex rgx = new Regex("[^a-zA-Z]");
+            rootRuleName = rgx.Replace(rootRuleName, "");
+            Rule rootRule = new Rule(rootRuleName);
             rootRule.Scope = RuleScope.PublicScope;
 
             OneOf oneOfCommands = new OneOf();
@@ -364,7 +368,9 @@ namespace PiStudio.Win10.Voice.Navigation
 
                         if (indexOfSquareBracket < indexOfCurlyBracket)
                         {
-                            string text = tmp.Substring(0, indexOfSquareBracket - 1);
+                            string text = null;
+                            if(indexOfSquareBracket > 0)
+                                text = tmp.Substring(0, indexOfSquareBracket - 1);
                             tmp = tmp.Substring(indexOfSquareBracket + 1);
                             if (tmp.IndexOf(']') == -1)
                                 throw new GrammarException("Deklaration of optional word error. Missing ']'");
