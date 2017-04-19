@@ -73,7 +73,12 @@
         /// <summary>
         /// Page was loaded from cortana background task.
         /// </summary>
-        CortanaBackground
+        CortanaBackground,
+
+        /// <summary>
+        /// App was launched to open image
+        /// </summary>
+        FileOpenRequest
     }
 
     /// <summary>

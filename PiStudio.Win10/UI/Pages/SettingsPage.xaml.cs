@@ -88,7 +88,7 @@ namespace PiStudio.Win10.UI.Pages
             LoadVoiceCommands();
 
             var param = e.Parameter as NavigationParameter;
-            if (param != null && param.Extra != null)
+            if (param != null && param.Extra is ImageEditor)
                 m_editor = (ImageEditor)param.Extra;
             else
                 m_editor = await WinAppResources.Instance.GetImageEditorAsync();
@@ -96,6 +96,15 @@ namespace PiStudio.Win10.UI.Pages
             SavePop.SaveableObject = m_editor;
             SavePop.Started += (o1, args1) => Progress.IsActive = true;
             SavePop.Completed += (o2, args2) => Progress.IsActive = false;
+
+            var extra = param.Extra as string;
+            if(!string.IsNullOrEmpty(extra))
+            {
+                if (extra == "about")
+                    SettingsSection_Clicked(About, null);
+                else if (extra == "commands")
+                    SettingsSection_Clicked(Commands, null);
+            }
         }
 
         public Theme ApplicationTheme { get; set; }

@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>9C99F67EA44CAA3ABD53C95A99BA4E224C61BDC842F01DF449DE7C605E192568</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>4E33ACAB1609BC811DF4BA6B8EF55A112D324E1AD2BEDF93A8C394A858573B13</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>73888b56-348a-4ad5-98f4-bbe11ba42cd5_1.0.0.0_x64__wpx2rdvgzqs5a</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>73888b56-348a-4ad5-98f4-bbe11ba42cd5_wpx2rdvgzqs5a!App</RegisteredUserModeAppID>
     <RegisteredPackageID>73888b56-348a-4ad5-98f4-bbe11ba42cd5</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-18T17:36:15.068</Modified>
+      <Modified>2017-04-19T12:48:03.259</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\PiStudio.exe">
       <PackagePath>entrypoint\PiStudio.exe</PackagePath>
-      <Modified>2017-04-18T17:36:14.010</Modified>
+      <Modified>2017-04-19T12:48:01.092</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\.nuget\packages\Coding4Fun.Toolkit.Controls\2.1.8\lib\netcore451\Coding4Fun.Toolkit.Controls.dll">
       <PackagePath>Coding4Fun.Toolkit.Controls.dll</PackagePath>
@@ -478,15 +478,54 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Shared\bin\Debug\PiStudio.Shared.dll">
       <PackagePath>PiStudio.Shared.dll</PackagePath>
-      <Modified>2017-04-03T11:30:59.370</Modified>
+      <Modified>2017-04-19T10:45:09.014</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.dll">
       <PackagePath>SpeechIntegrator.dll</PackagePath>
-      <Modified>2017-04-18T17:36:10.731</Modified>
+      <Modified>2017-04-18T19:23:40.358</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2017-02-21T19:01:46.157</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-18T17:43:49.035</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2017-04-04T21:31:49.008</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-04T21:31:49.010</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-18T17:53:30.861</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-18T17:49:16.654</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-04T21:31:49.016</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-04T21:31:49.017</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-04-18T17:47:43.346</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Tests\Test1VCD.xml">
       <PackagePath>Tests\Test1VCD.xml</PackagePath>
@@ -502,7 +541,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Voice\PiStudioNavigatorVoiceCommands.xml">
       <PackagePath>Voice\PiStudioNavigatorVoiceCommands.xml</PackagePath>
-      <Modified>2017-03-08T20:48:32.892</Modified>
+      <Modified>2017-04-19T12:47:19.380</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -511,40 +550,6 @@
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\title.jpg">
       <PackagePath>title.jpg</PackagePath>
       <Modified>2017-02-21T19:02:00.926</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\LockScreenLogo.scale-200.png">
-      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2017-04-04T21:31:49.008</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\SplashScreen.scale-200.png">
-      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T21:31:49.010</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Square150x150Logo.scale-200.png">
-      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T21:31:49.012</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Square44x44Logo.scale-200.png">
-      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T21:31:49.014</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
-      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T21:31:49.016</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T21:31:49.017</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\Assets\Wide310x150Logo.scale-200.png">
-      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-04T21:31:49.019</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\PiStudio.xr.xml">
       <PackagePath>PiStudio.xr.xml</PackagePath>
@@ -569,11 +574,11 @@
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-18T17:36:14.800</Modified>
+      <Modified>2017-04-19T12:48:02.831</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lichm\Source\Repos\PiStudio\PiStudio.Win10\bin\x64\Debug\Core\PiStudio.exe">
       <PackagePath>PiStudio.exe</PackagePath>
-      <Modified>2017-04-18T17:36:15.062</Modified>
+      <Modified>2017-04-19T12:48:03.245</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

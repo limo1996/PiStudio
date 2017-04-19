@@ -15,10 +15,18 @@ C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\D
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\Debug\qualifiers.txt
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Jakub Lichman\Source\Repos\Bachelor-Thesis\SpeechIntegrator.Win10\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\RecognitionAndAction\UI\VoiceUI.xbf
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.xr.xml
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.dll
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.pdb
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.pri
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\SpeechIntegrator.Win10.csprojResolveAssemblyReference.cache
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.g.i.cs
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.g.cs
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.xaml
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.xbf
+C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\XamlSaveStateFile.xml
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\SpeechIntegrator.dll
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\SpeechIntegrator.pdb
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\priconfig.xml
@@ -32,11 +40,3 @@ C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\pri.resfil
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\qualifiers.txt
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\qualifiers.txt.intermediate
 C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\RecognitionAndAction\UI\VoiceUI.xbf
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\bin\Debug\SpeechIntegrator.xr.xml
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.g.i.cs
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.g.cs
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\XamlTypeInfo.g.cs
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.xaml
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\RecognitionAndAction\UI\VoiceUI.xbf
-C:\Users\lichm\Source\Repos\PiStudio\SpeechIntegrator.Win10\obj\Debug\XamlSaveStateFile.xml

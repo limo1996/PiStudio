@@ -48,7 +48,7 @@ namespace PiStudio.Win10.UI.Pages
             else
                 m_editor = await WinAppResources.Instance.GetImageEditorAsync();
 
-            var image = await WinAppResources.Instance.GetWorkingImage();
+            var image = await m_editor.ApplyBrightnessAsync(0); 
             Navigator.Instance.Editor = m_editor;
 
             PRing.IsActive = false;

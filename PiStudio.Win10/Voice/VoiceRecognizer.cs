@@ -121,9 +121,11 @@ namespace PiStudio.Win10.Voice
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "EnableAutoSave", EnableAutoSave);
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "DisableAutoSave", DisableAutoSave);
             m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "ChangeLanguage", ChangeLanguage);
+            m_navigator.SetAction("PiStudioVoiceCommandsEnUs", "WhatCanISay", WhatCanISay);
             await m_navigator.SetPhraseListAsync("PiStudioVoiceCommandsEnUs", "Filter", 
                 WinAppResources.Instance.Filters.Where(i => i.IsEnabled == true).Select(i => i.FilterName));
         }
+
 
         /// <summary>
         /// Gets the singleton <see cref="VoiceRecognizer"/> Instance
@@ -251,18 +253,6 @@ namespace PiStudio.Win10.Voice
         #endregion
 
         #region Navigator actions
-
-        /// <summary>
-        /// Navigates to settings page
-        /// </summary>
-        /// <param name="sender"><see cref="SpeechNavigator"/></param>
-        /// <param name="e">voice result</param>
-        private async void NavigateToSettingsPage(object sender, SpeechRecognitionResult e)
-        {
-            var frame = Window.Current.Content as Frame;
-            if (frame != null)
-                await Navigator.Instance.NavigateTo(typeof(SettingsPage), null);
-        }
 
         private async void NavigateTo(object sender, SpeechRecognitionResult e)
         {
@@ -426,9 +416,14 @@ namespace PiStudio.Win10.Voice
                 await Navigator.Instance.NavigateTo(frame.SourcePageType);
         }
 
-        private void About(object sender, SpeechRecognitionResult e)
+        private async void About(object sender, SpeechRecognitionResult e)
         {
-            throw new NotImplementedException();
+            await Navigator.Instance.NavigateTo(typeof(SettingsPage), new Shared.Data.NavigationParameter() { Extra = "about"});
+        }
+
+        private async void WhatCanISay(object sender, SpeechRecognitionResult e)
+        {
+            await Navigator.Instance.NavigateTo(typeof(SettingsPage), new Shared.Data.NavigationParameter() { Extra = "commands" });
         }
         #endregion
     }

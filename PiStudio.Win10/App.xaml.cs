@@ -1,4 +1,5 @@
 ﻿using PiStudio.Shared;
+using PiStudio.Shared.Data;
 using PiStudio.Win10.UI.Pages;
 using PiStudio.Win10.Voice;
 using System;
@@ -124,7 +125,13 @@ namespace PiStudio.Win10.UI
 
                 var t = FileServer.SaveTempAsync(editor);
                 WinAppResources.Instance.LoadedFile = file.Path;
-                rootFrame.Navigate(typeof(HomePage), editor);
+                var param = new NavigationParameter()
+                {
+                    Extra = editor,
+                    PrevPage = EnumPage.AppStart,
+                    Source = NavigationSource.FileOpenRequest
+                };
+                rootFrame.Navigate(typeof(HomePage), param);
             }
             Window.Current.Activate();
         }

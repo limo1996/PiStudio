@@ -109,6 +109,15 @@ namespace PiStudio.Win10.Cortana
       <Navigate/>
     </Command>
 
+    <Command Name=""WhatCanISay"">
+      <Example>What can I say</Example>
+      <ListenFor>What can I say</ListenFor>
+      <ListenFor>Show me [available] voice commands</ListenFor>
+      <ListenFor>Show me options for voice input</ListenFor>
+      <Feedback>I am listening to these commands</Feedback>
+      <Navigate/>
+    </Command>
+
     <Command Name=""EnableDark"">
       <Example>Enable dark theme</Example>
       <ListenFor>Enable dark [theme]</ListenFor>
