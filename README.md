@@ -8,9 +8,9 @@ Free, open source tool for editing photos that can be controlled by voice comman
 ## Voice control
 As mentioned above, PiStudio can be controlled by voice. Recognition starts when microphone icon on the left menu is clicked. 
 <img src="https://github.com/limo1996/PiStudio/tree/master/screenshots/speak.png" width="90%"/>
-After click, voice UI animation starts. 
+<br />After click, voice UI animation starts. 
 <img src="https://github.com/limo1996/PiStudio/tree/master/screenshots/VoiceUI.png" width="750"/>
-It looks like two red concentric circles that are growing bigger and smaller. Application says that it is listening and now you are free to speak voice commands.
+<br />It looks like two red concentric circles that are growing bigger and smaller. Application says that it is listening and now you are free to speak voice commands.
 
 ### Available voice commands
 You can view all available voice commands by speaking "What can I say ?". If you do not want to speak, then just navigate to settings page and then choose Voice Commands subpage on the top of the screen. Voice commands are grouped by action they perform.
