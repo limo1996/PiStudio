@@ -1,6 +1,8 @@
 # PiStudio
 <img src="https://ci.appveyor.com/api/projects/status/esusas0y99tn2982?svg=true" width="150"/>
 
+<img src="logo.png" alt="PiStudio logo" align="right" />
+
 Free, open source tool for editing photos that can be controlled by voice commands.
 
 *PiStudio was created as demostration for usage of SpeechIntegrator library available for UWP platform yet. You can see that library is linked to UWP project. Interaction with library is performed with classes located in [Voice](https://github.com/limo1996/PiStudio/tree/master/PiStudio.Win10/Voice) folder.*
