@@ -1,4 +1,7 @@
 # PiStudio
+
+<img src="logo.png" alt="PiStudio logo" align="right" />
+
 <img src="https://ci.appveyor.com/api/projects/status/esusas0y99tn2982?svg=true" width="150"/>
 
 Free, open source tool for editing photos that can be controlled by voice commands.
