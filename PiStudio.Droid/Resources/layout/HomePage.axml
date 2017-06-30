@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2">
+    <Button
+        android:id="@+id/OpenImage"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:text="Open Image"
+        android:layout_weight="1" />
+    <ImageView
+        android:id="@+id/ImageContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+</LinearLayout>

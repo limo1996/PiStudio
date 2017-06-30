@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;MONODROID;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
@@ -51,6 +51,9 @@
     <Compile Include="PlatformSpecific\ImageEditor.cs" />
     <Compile Include="PlatformSpecific\BitmapDecoder.cs" />
     <Compile Include="PlatformSpecific\BitmapEncoder.cs" />
+    <Compile Include="Navigation\Navigator.cs" />
+    <Compile Include="PlatformSpecific\Data\DroidAppResources.cs" />
+    <Compile Include="PlatformSpecific\Data\Theme.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -58,7 +61,7 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\HomePage.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +72,8 @@
     <Folder Include="Resources\mipmap-xxxhdpi\" />
     <Folder Include="Resources\drawable\" />
     <Folder Include="PlatformSpecific\" />
+    <Folder Include="Navigation\" />
+    <Folder Include="PlatformSpecific\Data\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PiStudio.Shared\PiStudio.Shared.csproj">
