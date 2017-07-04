@@ -5,20 +5,20 @@ namespace PiStudio.Shared
 {
 	public static class ImageToolkit
 	{
-        /// <summary>
-        /// Applies kernel matrix on pixel data.
-        /// </summary>
-        /// <param name="imageBytes">Raw pixel data.</param>
-        /// <param name="imageWidth">Image resolution in X axis.</param>
-        /// <param name="imageHeight">Image resolution in Y axis.</param>
-        /// <param name="kernelMatrix">Kernel matrix that will be applied on image pixels.</param>
-        /// <param name="bytePerPixel">Size of the one pixel.</param>
-        /// <param name="isAlpha">Specifies whether image bytes have alpha color. Alpha pixel is considered to be the last pixel.</param>
-        /// <param name="factor">Number which will be used in multiplication each pixel (except alpha) with it. </param>
-        /// <param name="bias">Number that will be added to each pixel except aplha pixel.</param>
-        /// <returns></returns>
-		public static byte[] ApplyConvolutionMatrixFilter(byte[] imageBytes, int imageWidth, int imageHeight, double[,] kernelMatrix, 
-		                                                  byte bytePerPixel, bool isAlpha, double factor = 1, double bias = 0)
+		/// <summary>
+		/// Applies kernel matrix on pixel data.
+		/// </summary>
+		/// <param name="imageBytes">Raw pixel data.</param>
+		/// <param name="imageWidth">Image resolution in X axis.</param>
+		/// <param name="imageHeight">Image resolution in Y axis.</param>
+		/// <param name="kernelMatrix">Kernel matrix that will be applied on image pixels.</param>
+		/// <param name="bytePerPixel">Size of the one pixel.</param>
+		/// <param name="isAlpha">Specifies whether image bytes have alpha color. Alpha pixel is considered to be the last pixel.</param>
+		/// <param name="factor">Number which will be used in multiplication each pixel (except alpha) with it. </param>
+		/// <param name="bias">Number that will be added to each pixel except aplha pixel.</param>
+		/// <returns></returns>
+		public static byte[] ApplyConvolutionMatrixFilter(byte[] imageBytes, int imageWidth, int imageHeight, double[,] kernelMatrix,
+														  byte bytePerPixel, bool isAlpha, double factor = 1, double bias = 0)
 		{
 			int kernelWidth = kernelMatrix.GetLength(1);
 			int kernelHeight = kernelMatrix.GetLength(0);
@@ -73,7 +73,7 @@ namespace PiStudio.Shared
 
 		public static byte ConvertBitmapPixelFormat(PixelFormat format)
 		{
-			if (format == PixelFormat.Bgra8 || format == PixelFormat.Rgba8)
+			if (format == PixelFormat.Bgra8 || format == PixelFormat.Rgba8 || format == PixelFormat.Argb8888)
 				return 4;
 			if (format == PixelFormat.Gray16)
 				return 2;
@@ -84,28 +84,28 @@ namespace PiStudio.Shared
 			return 1;
 		}
 
-        /// <summary>
-        /// Rotates given pixel data to the right.
-        /// </summary>
-        /// <param name="imageBytes">Raw pixel data.</param>
-        /// <param name="imageWidth">Image resolution in X axis.</param>
-        /// <param name="imageHeight">Image resolution in Y axis.</param>
-        /// <param name="bytePerPixel">Size of the one pixel.</param>
-        public static byte[] Rotate(byte[] imageBytes, uint imageWidth, uint imageHeight, byte bytePerPixel)
+		/// <summary>
+		/// Rotates given pixel data to the right.
+		/// </summary>
+		/// <param name="imageBytes">Raw pixel data.</param>
+		/// <param name="imageWidth">Image resolution in X axis.</param>
+		/// <param name="imageHeight">Image resolution in Y axis.</param>
+		/// <param name="bytePerPixel">Size of the one pixel.</param>
+		public static byte[] Rotate(byte[] imageBytes, uint imageWidth, uint imageHeight, byte bytePerPixel)
 		{
 			byte[] returned = new byte[imageWidth * imageHeight * bytePerPixel];
-            var i = 0;
-            for (int x = 0; x < imageWidth; ++x)
-            {
-                for (int y = (int)(imageHeight - 1); y >= 0; --y)
-                {
-                    var srcInd = y * imageWidth + x;
-                    for (int k = 0; k < bytePerPixel; k++)
-                        returned[i*bytePerPixel+k] = imageBytes[srcInd*bytePerPixel+k];
-                    i++;
-                }
-            }
-            /*for (int i = 0; i < imageHeight; i++)
+			var i = 0;
+			for (int x = 0; x < imageWidth; ++x)
+			{
+				for (int y = (int)(imageHeight - 1); y >= 0; --y)
+				{
+					var srcInd = y * imageWidth + x;
+					for (int k = 0; k < bytePerPixel; k++)
+						returned[i * bytePerPixel + k] = imageBytes[srcInd * bytePerPixel + k];
+					i++;
+				}
+			}
+			/*for (int i = 0; i < imageHeight; i++)
 			{
 				for (int j = 0; j < imageWidth ; j++)
 				{
@@ -116,28 +116,58 @@ namespace PiStudio.Shared
 			return returned;
 		}
 
-        /// <summary>
-        /// Changes brightness of the image.
-        /// </summary>
-        /// <param name="imageBytes"></param>
-        /// <param name="bytePerPixel"></param>
-        /// <param name="brightness"></param>
-        /// <returns></returns>
-        public static byte[] ApplyBrightness(byte[] imageBytes, byte bytePerPixel, bool isAplha, int brightness)
-        {
-            byte[] imageBytes2 = new byte[imageBytes.Length];
-            for (int i = 0; i < imageBytes.Length; i++)
-            {
-                if ((i + 1) % bytePerPixel != 0 || !isAplha)
-                {
-                    int tmp = imageBytes[i] + brightness;
-                    imageBytes2[i] = (byte)(Math.Min(Math.Max(tmp, 0), 255));
-                }
-                else
-                    imageBytes2[i] = imageBytes[i];
-            }
-            return imageBytes2;
-        }
+		/// <summary>
+		/// Changes brightness of the image.
+		/// </summary>
+		/// <param name="imageBytes"></param>
+		/// <param name="bytePerPixel"></param>
+		/// <param name="brightness"></param>
+		/// <returns></returns>
+		public static byte[] ApplyBrightness(byte[] imageBytes, byte bytePerPixel, bool isAplha, int brightness)
+		{
+			byte[] imageBytes2 = new byte[imageBytes.Length];
+			for (int i = 0; i < imageBytes.Length; i++)
+			{
+				if ((i + 1) % bytePerPixel != 0 || !isAplha)
+				{
+					int tmp = imageBytes[i] + brightness;
+					imageBytes2[i] = (byte)(Math.Min(Math.Max(tmp, 0), 255));
+				}
+				else
+					imageBytes2[i] = imageBytes[i];
+			}
+			return imageBytes2;
+		}
+
+		public static int[] TransformPixels(byte[] data, PixelFormat format = PixelFormat.Rgba8)
+		{
+			var indexes = new[] { 3, 2, 1, 0 };
+			if (format == PixelFormat.Argb8888)
+				indexes = new[] { 3, 0, 1, 2};
+			int[] pixels = new int[data.Length / 4];
+			for (var i = 0; i < pixels.Length; i++)
+			{
+				pixels[i] = (data[i * 4 + indexes[0]] << 24)
+						  | (data[i * 4 + indexes[1]] << 16)
+						  | (data[i * 4 + indexes[2]] << 8)
+						  | data[i * 4 + indexes[3]];
+			}
+			return pixels;
+		}
+
+		public static byte[] TransformPixelsBack(int[] data)
+		{
+			byte[] pixels = new byte[data.Length * 4];
+			for (var i = 0; i < pixels.Length; i += 4)
+			{
+				var d = data[i / 4];
+				pixels[i] = (byte)((d & 0x000000ff) >> 0); //b
+				pixels[i + 1] = (byte)((d & 0x0000ff00) >> 8); //g
+				pixels[i + 2] = (byte)((d & 0x00ff0000) >> 16); //r
+				pixels[i + 3] = (byte)((d & 0xff000000) >> 24); //a
+			}
+			return pixels;
+		}
 	}
 }
 

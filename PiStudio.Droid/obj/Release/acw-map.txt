@@ -1,4 +1,4 @@
-PiStudio.Droid.MainActivity, PiStudio.Droid;md5f068eebcc2723f09a4306e7cecf54f82.MainActivity
-PiStudio.Droid.MainActivity, PiStudio.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5f068eebcc2723f09a4306e7cecf54f82.MainActivity
-PiStudio.Droid.MainActivity;md5f068eebcc2723f09a4306e7cecf54f82.MainActivity
-pistudio.droid.MainActivity;md5f068eebcc2723f09a4306e7cecf54f82.MainActivity
+PiStudio.Droid.HomeActivity, PiStudio.Droid;md5f068eebcc2723f09a4306e7cecf54f82.HomeActivity
+PiStudio.Droid.HomeActivity, PiStudio.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5f068eebcc2723f09a4306e7cecf54f82.HomeActivity
+PiStudio.Droid.HomeActivity;md5f068eebcc2723f09a4306e7cecf54f82.HomeActivity
+pistudio.droid.HomeActivity;md5f068eebcc2723f09a4306e7cecf54f82.HomeActivity

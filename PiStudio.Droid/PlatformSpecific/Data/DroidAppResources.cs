@@ -5,6 +5,9 @@ using PiStudio.Shared;
 
 namespace PiStudio.Droid
 {
+	/// <summary>
+	/// Class that has only one instance. Contains all resources that app needs during running.
+	/// </summary>
 	public class DroidAppResources : AppResourcesBase
 	{
 		//dark theme
@@ -33,7 +36,7 @@ namespace PiStudio.Droid
 			UpperPanelBackground = new Color(242, 242, 242, 255)
 		};
 
-		public DroidAppResources()
+		private DroidAppResources() : base()
 		{
 			ApplicationTheme = m_lightTheme;
 			FinalStorage = null;
@@ -54,6 +57,9 @@ namespace PiStudio.Droid
 			}
 		}
 
+		/// <summary>
+		/// Returns full path of given file name.
+		/// </summary>
 		public override string GetStoragePath(string file)
 		{
 			return file;

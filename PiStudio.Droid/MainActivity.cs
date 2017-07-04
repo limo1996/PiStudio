@@ -5,6 +5,8 @@ using Android.Content;
 using Android.Graphics;
 using Android.Provider;
 
+using PiStudio.Shared;
+
 namespace PiStudio.Droid
 {
 	[Activity(Label = "PiStudio.Droid", MainLauncher = true)]
@@ -27,14 +29,19 @@ namespace PiStudio.Droid
 			m_openImage.Click += (sender, e) => OpenImage();
 		}
 
-		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		protected override async void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
 			System.Diagnostics.Debug.WriteLine(requestCode);
 			if (requestCode == PICK_IMAGE && resultCode != Result.Canceled)
 			{
 				Android.Net.Uri uri = data.Data;
 				Bitmap bitmap = MediaStore.Images.Media.GetBitmap(this.ContentResolver, uri);
-				m_imageContent.SetImageBitmap(bitmap);
+
+				IBitmapDecoder decoder = new DroidBitmapDecoder(bitmap);
+				var imageEditor = new ImageEditor(decoder, uri.Path);
+				var bit2 = await imageEditor.RotateAsync();
+
+				m_imageContent.SetImageBitmap(bit2);
 			}
 			base.OnActivityResult(requestCode, resultCode, data);
 		}

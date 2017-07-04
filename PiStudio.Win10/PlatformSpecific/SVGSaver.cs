@@ -63,7 +63,7 @@ namespace PiStudio.Win10
             int i = pixels.Length;
 
             double translateX = imgWidth / inkWidth, translateY = imgHeight / inkHeight;
-            var buffer = TransformPixels(pixels);
+            var buffer = ImageToolkit.TransformPixels(pixels);
             foreach (var pathInfo in paths)
             {
                 var points = pathInfo.Data;
@@ -85,7 +85,7 @@ namespace PiStudio.Win10
                 }
             }
 
-            pixels = TransformPixelsBack(buffer);
+            pixels = ImageToolkit.TransformPixelsBack(buffer);
             using (var rstream = new InMemoryRandomAccessStream())
             {
                 var encoder = await WinBitmapEncoder.CreateAsync(stream.AsStream(), suffix);
@@ -284,33 +284,6 @@ namespace PiStudio.Win10
             }
 
             return isValid;
-        }
-
-        public static int[] TransformPixels(byte[] data)
-        {
-            int[] pixels = new int[data.Length / 4];
-            for (var i = 0; i < pixels.Length; i++)
-            {
-                pixels[i] = (data[i * 4 + 3] << 24)
-                          | (data[i * 4 + 2] << 16)
-                          | (data[i * 4 + 1] << 8)
-                          | data[i * 4 + 0];
-            }
-            return pixels;
-        }
-
-        public static byte[] TransformPixelsBack(int[] data)
-        {
-            byte[] pixels = new byte[data.Length * 4];
-            for (var i = 0; i < pixels.Length; i += 4)
-            {
-                var d = data[i / 4];
-                pixels[i] = (byte)((d & 0x000000ff) >> 0); //b
-                pixels[i + 1] = (byte)((d & 0x0000ff00) >> 8); //g
-                pixels[i + 2] = (byte)((d & 0x00ff0000) >> 16); //r
-                pixels[i + 3] = (byte)((d & 0xff000000) >> 24); //a
-            }
-            return pixels;
         }
 
         public static void AAWidthLine(int width, int height, int[] buffer, float x1, float y1, float x2, float y2, float lineWidth, int color)

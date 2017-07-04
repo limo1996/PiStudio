@@ -3,7 +3,7 @@
   <!--suppress UsesMinSdkAttributes-->
   <uses-sdk android:minSdkVersion="16" />
   <application android:allowBackup="true" android:label="@string/app_name" android:name="android.app.Application">
-    <activity android:label="PiStudio.Droid" android:name="md5f068eebcc2723f09a4306e7cecf54f82.MainActivity">
+    <activity android:label="PiStudio.Droid" android:name="md5f068eebcc2723f09a4306e7cecf54f82.HomeActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
