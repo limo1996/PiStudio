@@ -43,6 +43,24 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
+      <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Design">
+      <HintPath>..\packages\Xamarin.Android.Support.Design.23.4.0.1\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -54,15 +72,80 @@
     <Compile Include="PlatformSpecific\Data\Theme.cs" />
     <Compile Include="PlatformSpecific\DroidBitmapDecoder.cs" />
     <Compile Include="PlatformSpecific\DroidBitmapEncoder.cs" />
+    <Compile Include="PlatformSpecific\SVGSaver.cs" />
+    <Compile Include="PlatformSpecific\Data\SVGPath.cs" />
+    <Compile Include="PlatformSpecific\Data\PiMenuItem.cs" />
+    <Compile Include="UI\Controls\ActionBarDrawerToggle.cs" />
+    <Compile Include="UI\Pages\MainFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\HomePage.axml" />
+    <AndroidResource Include="Resources\layout\MainPage.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\menu\piMenu.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_brightness_medium_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_create_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_filter_hdr_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_home_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_mic_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_rotate_right_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_save_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_share_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_brightness_medium_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_create_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_filter_hdr_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_home_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_mic_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_rotate_right_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_save_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_share_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_brightness_medium_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_create_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_filter_hdr_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_home_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_mic_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_rotate_right_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_save_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_settings_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_share_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_brightness_medium_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_create_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_filter_hdr_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_home_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_mic_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_rotate_right_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_save_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_share_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_brightness_medium_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_create_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_filter_hdr_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_home_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_mic_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_rotate_right_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_save_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_settings_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_share_white_24dp.png" />
+    <AndroidResource Include="Resources\menu\drawerMenu.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_add_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_add_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_add_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\layout\MainFragment.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -74,6 +157,15 @@
     <Folder Include="PlatformSpecific\" />
     <Folder Include="Navigation\" />
     <Folder Include="PlatformSpecific\Data\" />
+    <Folder Include="UI\" />
+    <Folder Include="UI\Controls\" />
+    <Folder Include="Resources\menu\" />
+    <Folder Include="Resources\drawable-mdpi\" />
+    <Folder Include="Resources\drawable-hdpi\" />
+    <Folder Include="Resources\drawable-xhdpi\" />
+    <Folder Include="Resources\drawable-xxhdpi\" />
+    <Folder Include="Resources\drawable-xxxhdpi\" />
+    <Folder Include="UI\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PiStudio.Shared\PiStudio.Shared.csproj">
@@ -82,4 +174,5 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
 </Project>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	  xmlns:app="http://schemas.android.com/apk/res-auto">
+	<item 
+		android:id="@+id/action_rotate"
+		android:icon="@drawable/ic_rotate_right_white_24dp"
+		android:title="Rotate"
+		app:showAsAction="always"/>
+	<item 
+		android:id="@+id/action_add"
+		android:icon="@drawable/ic_rotate_right_white_24dp"
+		android:title="Add"
+		app:showAsAction="never"
+		/>
+	<group android:id="@+id/group">
+        <item android:id="@+id/group_item1"
+              android:title="Hello"/>
+        <item android:id="@+id/group_item2"
+              android:title="Hello2"/>
+    </group>
+</menu>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+	<style name="PiStudioTheme" parent="Theme.AppCompat.Light">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+		<item name="colorPrimary">#2196F3</item>
+	</style>
+</resources>

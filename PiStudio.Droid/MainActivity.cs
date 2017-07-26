@@ -6,52 +6,80 @@ using Android.Graphics;
 using Android.Provider;
 
 using PiStudio.Shared;
+using System;
+using Android.Support.V7.App;
+using System.Collections.Generic;
+using Android.Views;
+using System.Linq;
+
+using Toolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Support.V4.Widget;
 
 namespace PiStudio.Droid
 {
-	[Activity(Label = "PiStudio.Droid", MainLauncher = true)]
-	public class HomeActivity : Activity
+	[Activity(Label = "PiStudio.Droid", MainLauncher = true, Theme = "@style/PiStudioTheme")]
+	public class MainActivity : AppCompatActivity
 	{
-		private static readonly int PICK_IMAGE = 123456;
-		private Button m_openImage;
-		private ImageView m_imageContent;
+		public static readonly int PICK_IMAGE = 123;
+		private Toolbar m_toolbar;
+		private DrawerLayout m_drawerLayout;
+		private PiActionBarDrawerToggle m_drawerToggle;
+		private MainFragment m_mainFragment;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			// Set our view from the "main" layout resource
-			SetContentView(Resource.Layout.HomePage);
+			SetContentView(Resource.Layout.MainPage);
 
-			m_openImage = FindViewById<Button>(Resource.Id.OpenImage);
-			m_imageContent = FindViewById<ImageView>(Resource.Id.ImageContent);
+			//sets support action bar
+			m_toolbar = FindViewById<Toolbar>(Resource.Id.PiStudioToolbar);
+			SetSupportActionBar(m_toolbar);
+			SupportActionBar.Title = "PiStudio";
 
-			m_openImage.Click += (sender, e) => OpenImage();
+			//loads home fragment
+			var trans = SupportFragmentManager.BeginTransaction();
+			m_mainFragment = new MainFragment(this);
+			trans.Add(Resource.Id.pageViewer, m_mainFragment, "MainFragment");
+			trans.Commit();
+
+			//initializes drawer menu
+			m_drawerLayout = FindViewById<DrawerLayout>(Resource.Id.piDrawerLayout);
+			m_drawerToggle = new PiActionBarDrawerToggle(this, m_drawerLayout, Resource.String.header, Resource.String.header);
+			m_drawerLayout.SetDrawerListener(m_drawerToggle);
+			SupportActionBar.SetHomeButtonEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+			m_drawerToggle.SyncState();
 		}
 
-		protected override async void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
+			base.OnActivityResult(requestCode, resultCode, data);
 			System.Diagnostics.Debug.WriteLine(requestCode);
 			if (requestCode == PICK_IMAGE && resultCode != Result.Canceled)
 			{
+				//provide data to main fragment if is active
+
 				Android.Net.Uri uri = data.Data;
-				Bitmap bitmap = MediaStore.Images.Media.GetBitmap(this.ContentResolver, uri);
-
-				IBitmapDecoder decoder = new DroidBitmapDecoder(bitmap);
-				var imageEditor = new ImageEditor(decoder, uri.Path);
-				var bit2 = await imageEditor.RotateAsync();
-
-				m_imageContent.SetImageBitmap(bit2);
+				m_mainFragment.OnImagePicked(uri);
 			}
-			base.OnActivityResult(requestCode, resultCode, data);
 		}
 
-		private void OpenImage()
+		public override bool OnCreateOptionsMenu(IMenu menu)
 		{
-			Intent intent = new Intent();
-			intent.SetType("image/*");
-			intent.SetAction(Intent.ActionGetContent);
-			StartActivityForResult(Intent.CreateChooser(intent, "Select Picture"), PICK_IMAGE);
+			MenuInflater.Inflate(Resource.Menu.piMenu, menu);
+			return base.OnCreateOptionsMenu(menu);
+		}
+
+		public override bool OnOptionsItemSelected(IMenuItem item)
+		{
+			m_drawerToggle.OnOptionsItemSelected(item);
+
+			if (item.ItemId == Resource.Id.action_rotate)
+				m_mainFragment.RotateAsync();
+			
+			return true;
 		}
 	}
 }
