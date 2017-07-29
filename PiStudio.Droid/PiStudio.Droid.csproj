@@ -61,6 +61,12 @@
     <Reference Include="Xamarin.Android.Support.Design">
       <HintPath>..\packages\Xamarin.Android.Support.Design.23.4.0.1\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v17.Leanback">
+      <HintPath>..\packages\Xamarin.Android.Support.v17.Leanback.23.4.0.1\lib\MonoAndroid50\Xamarin.Android.Support.v17.Leanback.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.CardView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -77,6 +83,9 @@
     <Compile Include="PlatformSpecific\Data\PiMenuItem.cs" />
     <Compile Include="UI\Controls\ActionBarDrawerToggle.cs" />
     <Compile Include="UI\Pages\MainFragment.cs" />
+    <Compile Include="UI\Pages\FiltersFragment.cs" />
+    <Compile Include="UI\Controls\FilterAdapter.cs" />
+    <Compile Include="UI\Controls\FilterHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -146,6 +155,8 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_white_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_white_24dp.png" />
     <AndroidResource Include="Resources\layout\MainFragment.axml" />
+    <AndroidResource Include="Resources\layout\FiltersFragment.axml" />
+    <AndroidResource Include="Resources\layout\filter_item.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />

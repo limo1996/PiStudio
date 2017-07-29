@@ -13,6 +13,8 @@
 # Build results
 PiStudio.Win10/bin/
 PiStudio.Win10/obj/
+PiStudio.Droid/bin/
+PiStudio.Droid/obj/
 
 # Visual Studio 2015 cache/options directory
 .vs/

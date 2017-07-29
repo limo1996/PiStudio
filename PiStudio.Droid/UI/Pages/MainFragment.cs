@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -27,15 +27,17 @@ namespace PiStudio.Droid
 		private ImageView m_imageContent;
 		private AppCompatActivity m_parentActivity;
 		private ImageEditor m_imageEditor;
-
+		private Action<ImageEditor> m_onImageChanged;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:PiStudio.Droid.MainFragment"/> class.
 		/// </summary>
 		/// <param name="parentActivity">Parent activity.</param>
-		public MainFragment(AppCompatActivity parentActivity)
+		public MainFragment(AppCompatActivity parentActivity, ImageEditor editor, Action<ImageEditor> onImageChanged)
 		{
 			m_parentActivity = parentActivity;
+			m_imageEditor = editor;
+			m_onImageChanged = onImageChanged;
 		}
 
 		public override void OnCreate(Bundle savedInstanceState)
@@ -52,8 +54,15 @@ namespace PiStudio.Droid
 			var view = inflater.Inflate(Resource.Layout.MainFragment, container, false);
 
 			m_openImage = view.FindViewById<FloatingActionButton>(Resource.Id.OpenImage);
-			m_imageContent = view.FindViewById<ImageView>(Resource.Id.ImageContent);
+			m_imageContent = view.FindViewById<ImageView>(Resource.Id.ImageContent1);
 
+			if (m_imageEditor != null)
+			{
+				Task.Run(async () =>
+				{
+					m_imageContent.SetImageBitmap(await m_imageEditor.ApplyBrightnessAsync(0));
+				});
+			}
 			m_openImage.Click += (sender, e) => OpenImage();
 			return view;
 		}
@@ -78,6 +87,7 @@ namespace PiStudio.Droid
 			var decoder = new DroidBitmapDecoder(bitmap);
 			m_imageEditor = new ImageEditor(decoder, uri.Path);
 			m_imageContent.SetImageBitmap(bitmap);
+			m_onImageChanged(m_imageEditor);
 		}
 
 		/// <summary>
