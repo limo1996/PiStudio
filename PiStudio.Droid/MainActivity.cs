@@ -81,7 +81,7 @@ namespace PiStudio.Droid
 			SupportActionBar.SetHomeButtonEnabled(true);
 			SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 			m_drawerToggle.SyncState();
-            SetCurrentTheme();
+			SetCurrentTheme();
 		}
 
 		//invokes when new image in main fragment is loaded.
@@ -95,7 +95,7 @@ namespace PiStudio.Droid
 		{
 			if (fragment == m_currentFragment)
 				return;
-			
+
 			var trans = SupportFragmentManager.BeginTransaction();
 
 			trans.Hide(m_currentFragment);
@@ -135,10 +135,10 @@ namespace PiStudio.Droid
 
 		public override void OnRequestPermissionsResult(int requestCode, string[] permissions)
 		{
-			if(requestCode == REQUEST_WRITE_EXTERNAL_STORAGE)
+			if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE)
 			{
-				if(permissions.Length > 0 && permissions[0] == Manifest.Permission.WriteExternalStorage)
-                    Save(m_imageEditor, DroidAppResources.Instance.LoadedFile, false);
+				if (permissions.Length > 0 && permissions[0] == Manifest.Permission.WriteExternalStorage)
+					Save(m_imageEditor, DroidAppResources.Instance.LoadedFile, false);
 			}
 
 			base.OnRequestPermissionsResult(requestCode, permissions);
@@ -152,7 +152,7 @@ namespace PiStudio.Droid
 
 		private void CreateMenuItems(string actionItemText, int iconId, string[] otherItems)
 		{
-			
+
 		}
 
 		public override bool OnOptionsItemSelected(IMenuItem item)
@@ -179,7 +179,8 @@ namespace PiStudio.Droid
 		{
 			System.Diagnostics.Debug.WriteLine(menuItem.ItemId);
 			menuItem.SetCheckable(true);
-			if (m_previousItem == menuItem)
+			if (menuItem.ItemId != Resource.Id.nav_share && menuItem.ItemId != Resource.Id.nav_save && 
+			    menuItem.ItemId != Resource.Id.nav_speak && m_previousItem == menuItem)
 				return true;
 
 			menuItem.SetChecked(true);
@@ -212,6 +213,7 @@ namespace PiStudio.Droid
 					Save(m_imageEditor, DroidAppResources.Instance.LoadedFile);
 					break;
 				case Resource.Id.nav_share:
+					Share();
 					break;
 				case Resource.Id.nav_speak:
 					break;
@@ -297,6 +299,23 @@ namespace PiStudio.Droid
 			} catch(Exception e) {
 				Toast.MakeText(this, e.Message, ToastLength.Long).Show();
 			}
+		}
+
+		private void Share()
+		{ 
+			var bitmapPath = MediaStore.Images.Media.InsertImage(ContentResolver, m_imageEditor.WorkingImage, "PiStudio", null);
+			var bitmapUri = Android.Net.Uri.Parse(bitmapPath);
+
+			var file = new File(bitmapPath);
+			var intent = new Intent();
+
+			intent.SetAction(Intent.ActionSend);
+			intent.PutExtra(Intent.ExtraStream, bitmapUri);
+			intent.SetType("image/jpeg");
+
+			Handler handler = new Handler();
+			handler.PostDelayed(() => System.Diagnostics.Debug.WriteLine("Deleted: " + file.Delete()), 1000 * 60 * 1);
+            StartActivity(Intent.CreateChooser(intent, "Image edited by PiStudio"));
 		}
 	}
 }

@@ -3342,8 +3342,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0029
 			public const int IconOnRight = 2131623977;
 			
-			// aapt resource value: 0x7f0e0105
-			public const int ImageContent1 = 2131624197;
+			// aapt resource value: 0x7f0e0106
+			public const int ImageContent1 = 2131624198;
 			
 			// aapt resource value: 0x7f0e0096
 			public const int ImageContent2 = 2131624086;
@@ -3354,20 +3354,20 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e002a
 			public const int ImageOnly = 2131623978;
 			
-			// aapt resource value: 0x7f0e0106
-			public const int OpenImage = 2131624198;
-			
 			// aapt resource value: 0x7f0e0107
-			public const int PiStudioToolbar = 2131624199;
+			public const int OpenImage = 2131624199;
+			
+			// aapt resource value: 0x7f0e0108
+			public const int PiStudioToolbar = 2131624200;
 			
 			// aapt resource value: 0x7f0e002b
 			public const int Title = 2131623979;
 			
-			// aapt resource value: 0x7f0e010b
-			public const int action0 = 2131624203;
+			// aapt resource value: 0x7f0e010c
+			public const int action0 = 2131624204;
 			
-			// aapt resource value: 0x7f0e0128
-			public const int action_add = 2131624232;
+			// aapt resource value: 0x7f0e0129
+			public const int action_add = 2131624233;
 			
 			// aapt resource value: 0x7f0e007a
 			public const int action_bar = 2131624058;
@@ -3393,17 +3393,17 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e007b
 			public const int action_context_bar = 2131624059;
 			
-			// aapt resource value: 0x7f0e010f
-			public const int action_divider = 2131624207;
+			// aapt resource value: 0x7f0e0110
+			public const int action_divider = 2131624208;
+			
+			// aapt resource value: 0x7f0e00ce
+			public const int action_fragment = 2131624142;
 			
 			// aapt resource value: 0x7f0e00cd
-			public const int action_fragment = 2131624141;
+			public const int action_fragment_background = 2131624141;
 			
 			// aapt resource value: 0x7f0e00cc
-			public const int action_fragment_background = 2131624140;
-			
-			// aapt resource value: 0x7f0e00cb
-			public const int action_fragment_root = 2131624139;
+			public const int action_fragment_root = 2131624140;
 			
 			// aapt resource value: 0x7f0e0015
 			public const int action_menu_divider = 2131623957;
@@ -3420,8 +3420,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e005c
 			public const int action_mode_close_button = 2131624028;
 			
-			// aapt resource value: 0x7f0e0127
-			public const int action_rotate = 2131624231;
+			// aapt resource value: 0x7f0e0128
+			public const int action_rotate = 2131624232;
 			
 			// aapt resource value: 0x7f0e0020
 			public const int activated = 2131623968;
@@ -3435,23 +3435,23 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0021
 			public const int always = 2131623969;
 			
-			// aapt resource value: 0x7f0e0118
-			public const int background_color = 2131624216;
+			// aapt resource value: 0x7f0e0119
+			public const int background_color = 2131624217;
 			
-			// aapt resource value: 0x7f0e00db
-			public const int background_container = 2131624155;
+			// aapt resource value: 0x7f0e00dc
+			public const int background_container = 2131624156;
+			
+			// aapt resource value: 0x7f0e011c
+			public const int background_dim = 2131624220;
 			
 			// aapt resource value: 0x7f0e011b
-			public const int background_dim = 2131624219;
+			public const int background_imagein = 2131624219;
 			
 			// aapt resource value: 0x7f0e011a
-			public const int background_imagein = 2131624218;
+			public const int background_imageout = 2131624218;
 			
-			// aapt resource value: 0x7f0e0119
-			public const int background_imageout = 2131624217;
-			
-			// aapt resource value: 0x7f0e0117
-			public const int background_theme = 2131624215;
+			// aapt resource value: 0x7f0e0118
+			public const int background_theme = 2131624216;
 			
 			// aapt resource value: 0x7f0e0054
 			public const int beginning = 2131624020;
@@ -3459,50 +3459,50 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e002d
 			public const int bottom = 2131623981;
 			
-			// aapt resource value: 0x7f0e00f2
-			public const int bottom_spacer = 2131624178;
+			// aapt resource value: 0x7f0e00f3
+			public const int bottom_spacer = 2131624179;
 			
 			// aapt resource value: 0x7f0e008a
 			public const int brightnessSlider = 2131624074;
 			
-			// aapt resource value: 0x7f0e009b
-			public const int browse_container_dock = 2131624091;
-			
-			// aapt resource value: 0x7f0e0099
-			public const int browse_dummy = 2131624089;
+			// aapt resource value: 0x7f0e009c
+			public const int browse_container_dock = 2131624092;
 			
 			// aapt resource value: 0x7f0e009a
-			public const int browse_frame = 2131624090;
+			public const int browse_dummy = 2131624090;
 			
-			// aapt resource value: 0x7f0e0102
-			public const int browse_grid = 2131624194;
+			// aapt resource value: 0x7f0e009b
+			public const int browse_frame = 2131624091;
 			
-			// aapt resource value: 0x7f0e0104
-			public const int browse_grid_dock = 2131624196;
+			// aapt resource value: 0x7f0e0103
+			public const int browse_grid = 2131624195;
 			
-			// aapt resource value: 0x7f0e00d0
-			public const int browse_headers = 2131624144;
+			// aapt resource value: 0x7f0e0105
+			public const int browse_grid_dock = 2131624197;
 			
-			// aapt resource value: 0x7f0e009c
-			public const int browse_headers_dock = 2131624092;
-			
-			// aapt resource value: 0x7f0e00cf
-			public const int browse_headers_root = 2131624143;
+			// aapt resource value: 0x7f0e00d1
+			public const int browse_headers = 2131624145;
 			
 			// aapt resource value: 0x7f0e009d
-			public const int browse_title_group = 2131624093;
+			public const int browse_headers_dock = 2131624093;
 			
-			// aapt resource value: 0x7f0e009f
-			public const int button = 2131624095;
+			// aapt resource value: 0x7f0e00d0
+			public const int browse_headers_root = 2131624144;
+			
+			// aapt resource value: 0x7f0e009e
+			public const int browse_title_group = 2131624094;
+			
+			// aapt resource value: 0x7f0e00a0
+			public const int button = 2131624096;
 			
 			// aapt resource value: 0x7f0e0064
 			public const int buttonPanel = 2131624036;
 			
-			// aapt resource value: 0x7f0e00e0
-			public const int button_start = 2131624160;
+			// aapt resource value: 0x7f0e00e1
+			public const int button_start = 2131624161;
 			
-			// aapt resource value: 0x7f0e010c
-			public const int cancel_action = 2131624204;
+			// aapt resource value: 0x7f0e010d
+			public const int cancel_action = 2131624205;
 			
 			// aapt resource value: 0x7f0e0097
 			public const int cardView = 2131624087;
@@ -3519,8 +3519,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0072
 			public const int checkbox = 2131624050;
 			
-			// aapt resource value: 0x7f0e0112
-			public const int chronometer = 2131624210;
+			// aapt resource value: 0x7f0e0113
+			public const int chronometer = 2131624211;
 			
 			// aapt resource value: 0x7f0e003f
 			public const int clip_horizontal = 2131623999;
@@ -3531,50 +3531,50 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0056
 			public const int collapseActionView = 2131624022;
 			
-			// aapt resource value: 0x7f0e00e4
-			public const int column = 2131624164;
+			// aapt resource value: 0x7f0e00e5
+			public const int column = 2131624165;
 			
-			// aapt resource value: 0x7f0e00f5
-			public const int container_list = 2131624181;
+			// aapt resource value: 0x7f0e00f6
+			public const int container_list = 2131624182;
 			
 			// aapt resource value: 0x7f0e006a
 			public const int contentPanel = 2131624042;
 			
-			// aapt resource value: 0x7f0e00dd
-			public const int content_container = 2131624157;
+			// aapt resource value: 0x7f0e00de
+			public const int content_container = 2131624158;
+			
+			// aapt resource value: 0x7f0e00cb
+			public const int content_fragment = 2131624139;
 			
 			// aapt resource value: 0x7f0e00ca
-			public const int content_fragment = 2131624138;
+			public const int content_frame = 2131624138;
 			
-			// aapt resource value: 0x7f0e00c9
-			public const int content_frame = 2131624137;
+			// aapt resource value: 0x7f0e00d6
+			public const int content_text = 2131624150;
 			
-			// aapt resource value: 0x7f0e00d5
-			public const int content_text = 2131624149;
+			// aapt resource value: 0x7f0e009f
+			public const int control_bar = 2131624095;
 			
-			// aapt resource value: 0x7f0e009e
-			public const int control_bar = 2131624094;
-			
-			// aapt resource value: 0x7f0e00e9
-			public const int control_bar_focus_wrapper = 2131624169;
-			
-			// aapt resource value: 0x7f0e00ed
-			public const int controls_card = 2131624173;
+			// aapt resource value: 0x7f0e00ea
+			public const int control_bar_focus_wrapper = 2131624170;
 			
 			// aapt resource value: 0x7f0e00ee
-			public const int controls_card_right_panel = 2131624174;
+			public const int controls_card = 2131624174;
+			
+			// aapt resource value: 0x7f0e00ef
+			public const int controls_card_right_panel = 2131624175;
+			
+			// aapt resource value: 0x7f0e00e9
+			public const int controls_container = 2131624169;
 			
 			// aapt resource value: 0x7f0e00e8
-			public const int controls_container = 2131624168;
+			public const int controls_container_focus_wrapper = 2131624168;
 			
-			// aapt resource value: 0x7f0e00e7
-			public const int controls_container_focus_wrapper = 2131624167;
+			// aapt resource value: 0x7f0e00f1
+			public const int controls_dock = 2131624177;
 			
-			// aapt resource value: 0x7f0e00f0
-			public const int controls_dock = 2131624176;
-			
-			// aapt resource value: 0x7f0e00eb
-			public const int current_time = 2131624171;
+			// aapt resource value: 0x7f0e00ec
+			public const int current_time = 2131624172;
 			
 			// aapt resource value: 0x7f0e0070
 			public const int custom = 2131624048;
@@ -3588,11 +3588,11 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0060
 			public const int default_activity_button = 2131624032;
 			
-			// aapt resource value: 0x7f0e00d9
-			public const int description = 2131624153;
+			// aapt resource value: 0x7f0e00da
+			public const int description = 2131624154;
 			
-			// aapt resource value: 0x7f0e00ef
-			public const int description_dock = 2131624175;
+			// aapt resource value: 0x7f0e00f0
+			public const int description_dock = 2131624176;
 			
 			// aapt resource value: 0x7f0e008c
 			public const int design_bottom_sheet = 2131624076;
@@ -3609,47 +3609,47 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0090
 			public const int design_navigation_view = 2131624080;
 			
-			// aapt resource value: 0x7f0e00a5
-			public const int details_fragment_root = 2131624101;
-			
-			// aapt resource value: 0x7f0e00a7
-			public const int details_frame = 2131624103;
+			// aapt resource value: 0x7f0e00a6
+			public const int details_fragment_root = 2131624102;
 			
 			// aapt resource value: 0x7f0e00a8
-			public const int details_overview = 2131624104;
-			
-			// aapt resource value: 0x7f0e00ac
-			public const int details_overview_actions = 2131624108;
-			
-			// aapt resource value: 0x7f0e00b0
-			public const int details_overview_actions_background = 2131624112;
-			
-			// aapt resource value: 0x7f0e00ab
-			public const int details_overview_description = 2131624107;
+			public const int details_frame = 2131624104;
 			
 			// aapt resource value: 0x7f0e00a9
-			public const int details_overview_image = 2131624105;
+			public const int details_overview = 2131624105;
+			
+			// aapt resource value: 0x7f0e00ad
+			public const int details_overview_actions = 2131624109;
+			
+			// aapt resource value: 0x7f0e00b1
+			public const int details_overview_actions_background = 2131624113;
+			
+			// aapt resource value: 0x7f0e00ac
+			public const int details_overview_description = 2131624108;
 			
 			// aapt resource value: 0x7f0e00aa
-			public const int details_overview_right_panel = 2131624106;
+			public const int details_overview_image = 2131624106;
 			
-			// aapt resource value: 0x7f0e00af
-			public const int details_root = 2131624111;
+			// aapt resource value: 0x7f0e00ab
+			public const int details_overview_right_panel = 2131624107;
 			
-			// aapt resource value: 0x7f0e00a6
-			public const int details_rows_dock = 2131624102;
+			// aapt resource value: 0x7f0e00b0
+			public const int details_root = 2131624112;
+			
+			// aapt resource value: 0x7f0e00a7
+			public const int details_rows_dock = 2131624103;
 			
 			// aapt resource value: 0x7f0e0049
 			public const int disableHome = 2131624009;
 			
-			// aapt resource value: 0x7f0e011c
-			public const int drawerMenuGroup1 = 2131624220;
+			// aapt resource value: 0x7f0e011d
+			public const int drawerMenuGroup1 = 2131624221;
 			
-			// aapt resource value: 0x7f0e0124
-			public const int drawerMenuGroup2 = 2131624228;
+			// aapt resource value: 0x7f0e0125
+			public const int drawerMenuGroup2 = 2131624229;
 			
-			// aapt resource value: 0x7f0e00a4
-			public const int dummy = 2131624100;
+			// aapt resource value: 0x7f0e00a5
+			public const int dummy = 2131624101;
 			
 			// aapt resource value: 0x7f0e007c
 			public const int edit_query = 2131624060;
@@ -3657,8 +3657,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e002e
 			public const int end = 2131623982;
 			
-			// aapt resource value: 0x7f0e0116
-			public const int end_padder = 2131624214;
+			// aapt resource value: 0x7f0e0117
+			public const int end_padder = 2131624215;
 			
 			// aapt resource value: 0x7f0e0033
 			public const int enterAlways = 2131623987;
@@ -3666,8 +3666,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0034
 			public const int enterAlwaysCollapsed = 2131623988;
 			
-			// aapt resource value: 0x7f0e00ad
-			public const int error_frame = 2131624109;
+			// aapt resource value: 0x7f0e00ae
+			public const int error_frame = 2131624110;
 			
 			// aapt resource value: 0x7f0e0035
 			public const int exitUntilCollapsed = 2131623989;
@@ -3681,11 +3681,11 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0023
 			public const int extra = 2131623971;
 			
-			// aapt resource value: 0x7f0e00d4
-			public const int extra_badge = 2131624148;
+			// aapt resource value: 0x7f0e00d5
+			public const int extra_badge = 2131624149;
 			
-			// aapt resource value: 0x7f0e00d1
-			public const int fade_out_edge = 2131624145;
+			// aapt resource value: 0x7f0e00d2
+			public const int fade_out_edge = 2131624146;
 			
 			// aapt resource value: 0x7f0e0041
 			public const int fill = 2131624001;
@@ -3705,83 +3705,83 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0045
 			public const int @fixed = 2131624005;
 			
-			// aapt resource value: 0x7f0e00e1
-			public const int foreground_container = 2131624161;
+			// aapt resource value: 0x7f0e00e2
+			public const int foreground_container = 2131624162;
 			
-			// aapt resource value: 0x7f0e0103
-			public const int grid_frame = 2131624195;
-			
-			// aapt resource value: 0x7f0e00b4
-			public const int guidance_breadcrumb = 2131624116;
-			
-			// aapt resource value: 0x7f0e00b1
-			public const int guidance_container = 2131624113;
+			// aapt resource value: 0x7f0e0104
+			public const int grid_frame = 2131624196;
 			
 			// aapt resource value: 0x7f0e00b5
-			public const int guidance_description = 2131624117;
+			public const int guidance_breadcrumb = 2131624117;
 			
 			// aapt resource value: 0x7f0e00b2
-			public const int guidance_icon = 2131624114;
-			
-			// aapt resource value: 0x7f0e00b3
-			public const int guidance_title = 2131624115;
-			
-			// aapt resource value: 0x7f0e00bd
-			public const int guidedactions_activator_item = 2131624125;
-			
-			// aapt resource value: 0x7f0e00b8
-			public const int guidedactions_content = 2131624120;
-			
-			// aapt resource value: 0x7f0e00c4
-			public const int guidedactions_content2 = 2131624132;
-			
-			// aapt resource value: 0x7f0e00be
-			public const int guidedactions_item_checkmark = 2131624126;
-			
-			// aapt resource value: 0x7f0e00c1
-			public const int guidedactions_item_chevron = 2131624129;
-			
-			// aapt resource value: 0x7f0e00bf
-			public const int guidedactions_item_content = 2131624127;
-			
-			// aapt resource value: 0x7f0e00c0
-			public const int guidedactions_item_description = 2131624128;
-			
-			// aapt resource value: 0x7f0e00bb
-			public const int guidedactions_item_icon = 2131624123;
-			
-			// aapt resource value: 0x7f0e00bc
-			public const int guidedactions_item_title = 2131624124;
-			
-			// aapt resource value: 0x7f0e00b9
-			public const int guidedactions_list = 2131624121;
-			
-			// aapt resource value: 0x7f0e00c5
-			public const int guidedactions_list2 = 2131624133;
-			
-			// aapt resource value: 0x7f0e00b7
-			public const int guidedactions_list_background = 2131624119;
-			
-			// aapt resource value: 0x7f0e00c3
-			public const int guidedactions_list_background2 = 2131624131;
+			public const int guidance_container = 2131624114;
 			
 			// aapt resource value: 0x7f0e00b6
-			public const int guidedactions_root = 2131624118;
+			public const int guidance_description = 2131624118;
+			
+			// aapt resource value: 0x7f0e00b3
+			public const int guidance_icon = 2131624115;
+			
+			// aapt resource value: 0x7f0e00b4
+			public const int guidance_title = 2131624116;
+			
+			// aapt resource value: 0x7f0e00be
+			public const int guidedactions_activator_item = 2131624126;
+			
+			// aapt resource value: 0x7f0e00b9
+			public const int guidedactions_content = 2131624121;
+			
+			// aapt resource value: 0x7f0e00c5
+			public const int guidedactions_content2 = 2131624133;
+			
+			// aapt resource value: 0x7f0e00bf
+			public const int guidedactions_item_checkmark = 2131624127;
 			
 			// aapt resource value: 0x7f0e00c2
-			public const int guidedactions_root2 = 2131624130;
+			public const int guidedactions_item_chevron = 2131624130;
+			
+			// aapt resource value: 0x7f0e00c0
+			public const int guidedactions_item_content = 2131624128;
+			
+			// aapt resource value: 0x7f0e00c1
+			public const int guidedactions_item_description = 2131624129;
+			
+			// aapt resource value: 0x7f0e00bc
+			public const int guidedactions_item_icon = 2131624124;
+			
+			// aapt resource value: 0x7f0e00bd
+			public const int guidedactions_item_title = 2131624125;
 			
 			// aapt resource value: 0x7f0e00ba
-			public const int guidedactions_sub_list = 2131624122;
+			public const int guidedactions_list = 2131624122;
 			
 			// aapt resource value: 0x7f0e00c6
-			public const int guidedstep_background = 2131624134;
+			public const int guidedactions_list2 = 2131624134;
 			
-			// aapt resource value: 0x7f0e00c8
-			public const int guidedstep_background_view_root = 2131624136;
+			// aapt resource value: 0x7f0e00b8
+			public const int guidedactions_list_background = 2131624120;
+			
+			// aapt resource value: 0x7f0e00c4
+			public const int guidedactions_list_background2 = 2131624132;
+			
+			// aapt resource value: 0x7f0e00b7
+			public const int guidedactions_root = 2131624119;
+			
+			// aapt resource value: 0x7f0e00c3
+			public const int guidedactions_root2 = 2131624131;
+			
+			// aapt resource value: 0x7f0e00bb
+			public const int guidedactions_sub_list = 2131624123;
 			
 			// aapt resource value: 0x7f0e00c7
-			public const int guidedstep_root = 2131624135;
+			public const int guidedstep_background = 2131624135;
+			
+			// aapt resource value: 0x7f0e00c9
+			public const int guidedstep_background_view_root = 2131624137;
+			
+			// aapt resource value: 0x7f0e00c8
+			public const int guidedstep_root = 2131624136;
 			
 			// aapt resource value: 0x7f0e0017
 			public const int home = 2131623959;
@@ -3789,8 +3789,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e004a
 			public const int homeAsUp = 2131624010;
 			
-			// aapt resource value: 0x7f0e00d8
-			public const int hovercard_panel = 2131624152;
+			// aapt resource value: 0x7f0e00d9
+			public const int hovercard_panel = 2131624153;
 			
 			// aapt resource value: 0x7f0e0062
 			public const int icon = 2131624034;
@@ -3813,17 +3813,17 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e001e
 			public const int infoUnderWithExtra = 2131623966;
 			
-			// aapt resource value: 0x7f0e00d3
-			public const int info_field = 2131624147;
+			// aapt resource value: 0x7f0e00d4
+			public const int info_field = 2131624148;
 			
 			// aapt resource value: 0x7f0e0012
 			public const int item_touch_helper_previous_elevation = 2131623954;
 			
-			// aapt resource value: 0x7f0e00a0
-			public const int label = 2131624096;
+			// aapt resource value: 0x7f0e00a1
+			public const int label = 2131624097;
 			
-			// aapt resource value: 0x7f0e0098
-			public const int lb_action_button = 2131624088;
+			// aapt resource value: 0x7f0e0099
+			public const int lb_action_button = 2131624089;
 			
 			// aapt resource value: 0x7f0e0000
 			public const int lb_control_closed_captioning = 2131623936;
@@ -3861,14 +3861,14 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e000b
 			public const int lb_control_thumbs_up = 2131623947;
 			
+			// aapt resource value: 0x7f0e00a4
+			public const int lb_details_description_body = 2131624100;
+			
 			// aapt resource value: 0x7f0e00a3
-			public const int lb_details_description_body = 2131624099;
+			public const int lb_details_description_subtitle = 2131624099;
 			
 			// aapt resource value: 0x7f0e00a2
-			public const int lb_details_description_subtitle = 2131624098;
-			
-			// aapt resource value: 0x7f0e00a1
-			public const int lb_details_description_title = 2131624097;
+			public const int lb_details_description_title = 2131624098;
 			
 			// aapt resource value: 0x7f0e000c
 			public const int lb_focus_animator = 2131623948;
@@ -3876,38 +3876,38 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e000d
 			public const int lb_guidedstep_background = 2131623949;
 			
-			// aapt resource value: 0x7f0e00fb
-			public const int lb_results_frame = 2131624187;
-			
-			// aapt resource value: 0x7f0e00f3
-			public const int lb_row_container_header_dock = 2131624179;
-			
 			// aapt resource value: 0x7f0e00fc
-			public const int lb_search_bar = 2131624188;
+			public const int lb_results_frame = 2131624188;
 			
-			// aapt resource value: 0x7f0e00f8
-			public const int lb_search_bar_badge = 2131624184;
+			// aapt resource value: 0x7f0e00f4
+			public const int lb_row_container_header_dock = 2131624180;
 			
-			// aapt resource value: 0x7f0e00f7
-			public const int lb_search_bar_items = 2131624183;
-			
-			// aapt resource value: 0x7f0e00f6
-			public const int lb_search_bar_speech_orb = 2131624182;
-			
-			// aapt resource value: 0x7f0e00fa
-			public const int lb_search_frame = 2131624186;
+			// aapt resource value: 0x7f0e00fd
+			public const int lb_search_bar = 2131624189;
 			
 			// aapt resource value: 0x7f0e00f9
-			public const int lb_search_text_editor = 2131624185;
+			public const int lb_search_bar_badge = 2131624185;
 			
-			// aapt resource value: 0x7f0e00ff
-			public const int lb_shadow_focused = 2131624191;
+			// aapt resource value: 0x7f0e00f8
+			public const int lb_search_bar_items = 2131624184;
+			
+			// aapt resource value: 0x7f0e00f7
+			public const int lb_search_bar_speech_orb = 2131624183;
+			
+			// aapt resource value: 0x7f0e00fb
+			public const int lb_search_frame = 2131624187;
+			
+			// aapt resource value: 0x7f0e00fa
+			public const int lb_search_text_editor = 2131624186;
+			
+			// aapt resource value: 0x7f0e0100
+			public const int lb_shadow_focused = 2131624192;
 			
 			// aapt resource value: 0x7f0e000e
 			public const int lb_shadow_impl = 2131623950;
 			
-			// aapt resource value: 0x7f0e00fe
-			public const int lb_shadow_normal = 2131624190;
+			// aapt resource value: 0x7f0e00ff
+			public const int lb_shadow_normal = 2131624191;
 			
 			// aapt resource value: 0x7f0e000f
 			public const int lb_slide_transition_value = 2131623951;
@@ -3915,11 +3915,11 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e002f
 			public const int left = 2131623983;
 			
-			// aapt resource value: 0x7f0e0110
-			public const int line1 = 2131624208;
+			// aapt resource value: 0x7f0e0111
+			public const int line1 = 2131624209;
 			
-			// aapt resource value: 0x7f0e0114
-			public const int line3 = 2131624212;
+			// aapt resource value: 0x7f0e0115
+			public const int line3 = 2131624213;
 			
 			// aapt resource value: 0x7f0e0047
 			public const int listMode = 2131624007;
@@ -3927,8 +3927,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0061
 			public const int list_item = 2131624033;
 			
-			// aapt resource value: 0x7f0e00e2
-			public const int logo = 2131624162;
+			// aapt resource value: 0x7f0e00e3
+			public const int logo = 2131624163;
 			
 			// aapt resource value: 0x7f0e0025
 			public const int main = 2131623973;
@@ -3936,17 +3936,17 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e001f
 			public const int mainOnly = 2131623967;
 			
-			// aapt resource value: 0x7f0e00d2
-			public const int main_image = 2131624146;
+			// aapt resource value: 0x7f0e00d3
+			public const int main_image = 2131624147;
 			
 			// aapt resource value: 0x7f0e002c
 			public const int maxLines = 2131623980;
 			
-			// aapt resource value: 0x7f0e010e
-			public const int media_actions = 2131624206;
+			// aapt resource value: 0x7f0e010f
+			public const int media_actions = 2131624207;
 			
-			// aapt resource value: 0x7f0e00ae
-			public const int message = 2131624110;
+			// aapt resource value: 0x7f0e00af
+			public const int message = 2131624111;
 			
 			// aapt resource value: 0x7f0e0055
 			public const int middle = 2131624021;
@@ -3954,47 +3954,47 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0043
 			public const int mini = 2131624003;
 			
-			// aapt resource value: 0x7f0e00ea
-			public const int more_actions_dock = 2131624170;
+			// aapt resource value: 0x7f0e00eb
+			public const int more_actions_dock = 2131624171;
 			
 			// aapt resource value: 0x7f0e004f
 			public const int multiply = 2131624015;
 			
-			// aapt resource value: 0x7f0e0126
-			public const int nav_about = 2131624230;
-			
-			// aapt resource value: 0x7f0e011f
-			public const int nav_brightness = 2131624223;
+			// aapt resource value: 0x7f0e0127
+			public const int nav_about = 2131624231;
 			
 			// aapt resource value: 0x7f0e0120
-			public const int nav_draw = 2131624224;
-			
-			// aapt resource value: 0x7f0e011e
-			public const int nav_filters = 2131624222;
-			
-			// aapt resource value: 0x7f0e011d
-			public const int nav_home = 2131624221;
+			public const int nav_brightness = 2131624224;
 			
 			// aapt resource value: 0x7f0e0121
-			public const int nav_save = 2131624225;
+			public const int nav_draw = 2131624225;
 			
-			// aapt resource value: 0x7f0e0125
-			public const int nav_settings = 2131624229;
+			// aapt resource value: 0x7f0e011f
+			public const int nav_filters = 2131624223;
+			
+			// aapt resource value: 0x7f0e011e
+			public const int nav_home = 2131624222;
 			
 			// aapt resource value: 0x7f0e0122
-			public const int nav_share = 2131624226;
+			public const int nav_save = 2131624226;
+			
+			// aapt resource value: 0x7f0e0126
+			public const int nav_settings = 2131624230;
 			
 			// aapt resource value: 0x7f0e0123
-			public const int nav_speak = 2131624227;
+			public const int nav_share = 2131624227;
 			
-			// aapt resource value: 0x7f0e010a
-			public const int navigationMenu = 2131624202;
+			// aapt resource value: 0x7f0e0124
+			public const int nav_speak = 2131624228;
+			
+			// aapt resource value: 0x7f0e010b
+			public const int navigationMenu = 2131624203;
 			
 			// aapt resource value: 0x7f0e008f
 			public const int navigation_header_container = 2131624079;
 			
-			// aapt resource value: 0x7f0e00df
-			public const int navigator_container = 2131624159;
+			// aapt resource value: 0x7f0e00e0
+			public const int navigator_container = 2131624160;
 			
 			// aapt resource value: 0x7f0e0058
 			public const int never = 2131624024;
@@ -4005,17 +4005,17 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0044
 			public const int normal = 2131624004;
 			
-			// aapt resource value: 0x7f0e00da
-			public const int onboarding_fragment_root = 2131624154;
+			// aapt resource value: 0x7f0e00db
+			public const int onboarding_fragment_root = 2131624155;
 			
-			// aapt resource value: 0x7f0e0109
-			public const int pageViewer = 2131624201;
+			// aapt resource value: 0x7f0e010a
+			public const int pageViewer = 2131624202;
 			
-			// aapt resource value: 0x7f0e00dc
-			public const int page_container = 2131624156;
+			// aapt resource value: 0x7f0e00dd
+			public const int page_container = 2131624157;
 			
-			// aapt resource value: 0x7f0e00de
-			public const int page_indicator = 2131624158;
+			// aapt resource value: 0x7f0e00df
+			public const int page_indicator = 2131624159;
 			
 			// aapt resource value: 0x7f0e0039
 			public const int parallax = 2131623993;
@@ -4023,17 +4023,20 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0066
 			public const int parentPanel = 2131624038;
 			
-			// aapt resource value: 0x7f0e0108
-			public const int piDrawerLayout = 2131624200;
+			// aapt resource value: 0x7f0e0109
+			public const int piDrawerLayout = 2131624201;
 			
-			// aapt resource value: 0x7f0e00e3
-			public const int picker = 2131624163;
+			// aapt resource value: 0x7f0e00e4
+			public const int picker = 2131624164;
 			
 			// aapt resource value: 0x7f0e003a
 			public const int pin = 2131623994;
 			
-			// aapt resource value: 0x7f0e00e6
-			public const int playback_progress = 2131624166;
+			// aapt resource value: 0x7f0e00e7
+			public const int playback_progress = 2131624167;
+			
+			// aapt resource value: 0x7f0e0098
+			public const int progressFiltersBar = 2131624088;
 			
 			// aapt resource value: 0x7f0e0018
 			public const int progress_circular = 2131623960;
@@ -4047,14 +4050,14 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0030
 			public const int right = 2131623984;
 			
-			// aapt resource value: 0x7f0e00d7
-			public const int row_content = 2131624151;
+			// aapt resource value: 0x7f0e00d8
+			public const int row_content = 2131624152;
 			
-			// aapt resource value: 0x7f0e00ce
-			public const int row_header = 2131624142;
+			// aapt resource value: 0x7f0e00cf
+			public const int row_header = 2131624143;
 			
-			// aapt resource value: 0x7f0e00f4
-			public const int scale_frame = 2131624180;
+			// aapt resource value: 0x7f0e00f5
+			public const int scale_frame = 2131624181;
 			
 			// aapt resource value: 0x7f0e0050
 			public const int screen = 2131624016;
@@ -4095,8 +4098,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0081
 			public const int search_mag_icon = 2131624065;
 			
-			// aapt resource value: 0x7f0e00fd
-			public const int search_orb = 2131624189;
+			// aapt resource value: 0x7f0e00fe
+			public const int search_orb = 2131624190;
 			
 			// aapt resource value: 0x7f0e0082
 			public const int search_plate = 2131624066;
@@ -4107,8 +4110,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0087
 			public const int search_voice_btn = 2131624071;
 			
-			// aapt resource value: 0x7f0e00f1
-			public const int secondary_controls_dock = 2131624177;
+			// aapt resource value: 0x7f0e00f2
+			public const int secondary_controls_dock = 2131624178;
 			
 			// aapt resource value: 0x7f0e0088
 			public const int select_dialog_listview = 2131624072;
@@ -4116,8 +4119,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0022
 			public const int selected = 2131623970;
 			
-			// aapt resource value: 0x7f0e00e5
-			public const int separator = 2131624165;
+			// aapt resource value: 0x7f0e00e6
+			public const int separator = 2131624166;
 			
 			// aapt resource value: 0x7f0e0073
 			public const int shortcut = 2131624051;
@@ -4158,8 +4161,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0031
 			public const int start = 2131623985;
 			
-			// aapt resource value: 0x7f0e010d
-			public const int status_bar_latest_event_content = 2131624205;
+			// aapt resource value: 0x7f0e010e
+			public const int status_bar_latest_event_content = 2131624206;
 			
 			// aapt resource value: 0x7f0e0085
 			public const int submit_area = 2131624069;
@@ -4167,32 +4170,32 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0048
 			public const int tabMode = 2131624008;
 			
-			// aapt resource value: 0x7f0e0115
-			public const int text = 2131624213;
+			// aapt resource value: 0x7f0e0116
+			public const int text = 2131624214;
 			
-			// aapt resource value: 0x7f0e0113
-			public const int text2 = 2131624211;
+			// aapt resource value: 0x7f0e0114
+			public const int text2 = 2131624212;
 			
 			// aapt resource value: 0x7f0e006d
 			public const int textSpacerNoButtons = 2131624045;
 			
-			// aapt resource value: 0x7f0e0111
-			public const int time = 2131624209;
+			// aapt resource value: 0x7f0e0112
+			public const int time = 2131624210;
 			
 			// aapt resource value: 0x7f0e0063
 			public const int title = 2131624035;
 			
-			// aapt resource value: 0x7f0e0100
-			public const int title_badge = 2131624192;
-			
 			// aapt resource value: 0x7f0e0101
-			public const int title_orb = 2131624193;
+			public const int title_badge = 2131624193;
+			
+			// aapt resource value: 0x7f0e0102
+			public const int title_orb = 2131624194;
 			
 			// aapt resource value: 0x7f0e0068
 			public const int title_template = 2131624040;
 			
-			// aapt resource value: 0x7f0e00d6
-			public const int title_text = 2131624150;
+			// aapt resource value: 0x7f0e00d7
+			public const int title_text = 2131624151;
 			
 			// aapt resource value: 0x7f0e0032
 			public const int top = 2131623986;
@@ -4200,8 +4203,8 @@ namespace PiStudio.Droid
 			// aapt resource value: 0x7f0e0067
 			public const int topPanel = 2131624039;
 			
-			// aapt resource value: 0x7f0e00ec
-			public const int total_time = 2131624172;
+			// aapt resource value: 0x7f0e00ed
+			public const int total_time = 2131624173;
 			
 			// aapt resource value: 0x7f0e008b
 			public const int touch_outside = 2131624075;

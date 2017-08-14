@@ -64,6 +64,7 @@ namespace PiStudio.Droid
 		public async Task<Bitmap> RotateAsync()
 		{
 			await m_initTask;
+			m_unsavedImageInBytes = m_workingImageInBytes;
 			var processedBytes = this.Rotate();
 			return CreateBitmapFromByteArrayAsync(processedBytes, (int)PixelWidth, (int)PixelHeight);
 		}

@@ -32,6 +32,7 @@ namespace PiStudio.Droid
 		private AppCompatActivity m_parentActivity;
 		private ImageEditor m_editor;
 		private FilterAdapter m_adapter;
+		private ProgressBar m_bar;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:PiStudio.Droid.FiltersFragment"/> class.
@@ -57,8 +58,9 @@ namespace PiStudio.Droid
 			var view = inflater.Inflate(Resource.Layout.FiltersFragment, container, false);
 
 			//get references
-			m_filtersView = (RecyclerView) view.FindViewById(Resource.Id.cardView);
+			m_filtersView = view.FindViewById<RecyclerView>(Resource.Id.cardView);
 			m_imageContent = view.FindViewById<ImageView>(Resource.Id.ImageContent2);
+			m_bar = view.FindViewById<ProgressBar>(Resource.Id.progressFiltersBar);
 
 			//set orientation of recycle view to horizontal
 			m_filtersView.HasFixedSize = true;
@@ -70,7 +72,10 @@ namespace PiStudio.Droid
 			m_filtersView.SetLayoutManager(layoutManager);
 
 			if (m_editor == null)
+			{
+				m_bar.Visibility = ViewStates.Gone;
 				return view;
+			}
 
 			//set main image
 			m_imageContent.SetImageBitmap(m_editor.WorkingImage);
@@ -82,7 +87,8 @@ namespace PiStudio.Droid
 		public override void OnViewCreated(View view, Bundle savedInstanceState)
 		{
 			int i = 0;
-
+			m_bar.IndeterminateDrawable.SetColorFilter(DroidAppResources.Instance.ApplicationTheme.PanelItemFocused, PorterDuff.Mode.SrcIn);
+			
 			//apply all filters and display them in filters view
 			foreach (var filter in DroidAppResources.Instance.Filters)
 			{
@@ -98,7 +104,7 @@ namespace PiStudio.Droid
 		/// Invoked when one of the filters is selected (clicked).
 		/// </summary>
 		/// <param name="item">Selected filter item.</param>
-		private async void FilterSelected(FilterItem item)
+		private void FilterSelected(FilterItem item)
 		{
 			m_imageContent.Post(
 				() =>
@@ -107,7 +113,9 @@ namespace PiStudio.Droid
 			});
 			var filter = DroidAppResources.Instance.Filters.First(i => i.Filter.Name == item.Text);
 			if (filter != null)
-				await m_editor.ApplyFilterAsync(filter.Filter);
+			{
+				Task.Run(async () => await m_editor.ApplyFilterAsync(filter.Filter));
+			}
 		}
 
 		//applies provided filter to image and adds it to filters view.
@@ -129,8 +137,7 @@ namespace PiStudio.Droid
 				System.Diagnostics.Debug.WriteLine(Task.CurrentId);
 				if (last)
 				{
-					//TODO: stop loading view
-					System.Diagnostics.Debug.WriteLine("parent count " + m_filtersView.ChildCount);
+					m_bar.Visibility = ViewStates.Gone;
 				}
 
 				System.Diagnostics.Debug.WriteLine(filter.FilterName + " job done");

@@ -84,6 +84,15 @@ namespace PiStudio.Shared
             return brightnessBytes;
         }
 
+		/// <summary>
+		/// Changes brightness of the image.
+		/// </summary>
+		protected byte[] ApplyBrightness(byte[] imageInBytes, int brightness)
+		{
+			var brightnessBytes = ImageToolkit.ApplyBrightness(imageInBytes, m_bytePerPixel, IsAlpha(), brightness);
+			return brightnessBytes;   
+		}
+
         /// <summary>
         /// Applies kernel matrix on pixel data.
         /// </summary>
@@ -92,12 +101,21 @@ namespace PiStudio.Shared
             byte[] tmpPixels = ImageToolkit.ApplyConvolutionMatrixFilter(this.m_workingImageInBytes, (int)this.m_imageWidth,
                (int)this.m_imageHeight, filter.Matrix, (byte)m_bytePerPixel, IsAlpha(), filter.Factor, filter.Bias);
 
-            ImageConverter converter = new ImageConverter();
-            byte[] resultPixels = tmpPixels;//converter.ConvertToRGBA(tmpPixels, this.m_pixelFormat);
+            byte[] resultPixels = tmpPixels;
             m_unsavedImageInBytes = resultPixels;
             HasUnsavedChange = false;
             return resultPixels;
         }
+
+		/// <summary>
+		/// Applies kernel matrix on pixel data.
+		/// </summary>
+		protected byte[] ApplyFilter(byte[] imageInBytes, Filter filter)
+		{
+			byte[] tmpPixels = ImageToolkit.ApplyConvolutionMatrixFilter(imageInBytes, (int)this.m_imageWidth,
+	   			(int)this.m_imageHeight, filter.Matrix, (byte)m_bytePerPixel, IsAlpha(), filter.Factor, filter.Bias);
+			return tmpPixels;   
+		}
 
         /// <summary>
         /// Rotates given pixel data to the right.

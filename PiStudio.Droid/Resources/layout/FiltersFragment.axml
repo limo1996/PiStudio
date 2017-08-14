@@ -13,21 +13,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3">
-    <!-- <HorizontalScrollView
-        android:id="@+id/horizontal_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-		android:fillViewport="true">
-        <LinearLayout
-            android:id="@+id/filtersView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" 
-			android:background="#ffffff"/>
-    </HorizontalScrollView> -->
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <ProgressBar
+                android:id="@+id/progressFiltersBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:visibility="visible" />
+        </FrameLayout>
     </LinearLayout>
 </LinearLayout>
