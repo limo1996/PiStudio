@@ -1,48 +1,57 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single" android:id="@+id/drawerMenuGroup1">
+    <group android:id="@+id/drawerMenuGroup1">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_white_24dp"
-            android:title="Home" />
+            android:title="Home" 
+			android:checkable="true"/>
         <item
             android:id="@+id/nav_filters"
             android:icon="@drawable/ic_filter_hdr_white_24dp"
-            android:title="Filters" />
+            android:title="Filters" 
+			android:checkable="true"/>
         <item
             android:id="@+id/nav_brightness"
             android:icon="@drawable/ic_brightness_medium_white_24dp"
-            android:title="Brightness" />
+            android:title="Brightness" 
+			android:checkable="true"/>
  
         <item
             android:id="@+id/nav_draw"
             android:icon="@drawable/ic_create_white_24dp"
-            android:title="Draw" />
+            android:title="Draw" 
+			android:checkable="true"/>
 
 		<item
             android:id="@+id/nav_save"
             android:icon="@drawable/ic_save_white_24dp"
-            android:title="Save" />
+            android:title="Save" 
+			android:checkable="true"/>
 
 		<item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_share_white_24dp"
-            android:title="Share" />
+            android:title="Share" 
+			android:checkable="true"/>
 
 		<item
             android:id="@+id/nav_speak"
             android:icon="@drawable/ic_mic_white_24dp"
-            android:title="Speak" />
+            android:title="Speak" 
+			android:checkable="true"/>
     </group>
  	<group android:checkableBehavior="single" android:id="@+id/drawerMenuGroup2">
-            <item
-                android:id="@+id/nav_settings"
-				android:icon="@drawable/ic_settings_white_24dp"
-                android:title="Settings" />
+        <item
+            android:id="@+id/nav_settings"
+			android:icon="@drawable/ic_settings_white_24dp"
+            android:title="Settings" 
+			android:checkable="true"/>
 
-			<item
-				android:id="@+id/nav_about"
-				android:icon="@drawable/ic_help_white_24dp"
-				android:title="About" />
+		<item
+			android:id="@+id/nav_about"
+			android:icon="@drawable/ic_help_white_24dp"
+			android:title="About" 
+			android:checkable="true"/>
 	</group>
  </menu>

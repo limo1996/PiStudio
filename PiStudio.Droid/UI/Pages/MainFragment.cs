@@ -13,6 +13,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
+using Android.Webkit;
 using Android.Widget;
 
 namespace PiStudio.Droid
@@ -58,10 +59,7 @@ namespace PiStudio.Droid
 
 			if (m_imageEditor != null)
 			{
-				Task.Run(async () =>
-				{
-					m_imageContent.SetImageBitmap(await m_imageEditor.ApplyBrightnessAsync(0));
-				});
+				m_imageContent.SetImageBitmap(m_imageEditor.WorkingImage);
 			}
 			m_openImage.Click += (sender, e) => OpenImage();
 			return view;
@@ -87,6 +85,8 @@ namespace PiStudio.Droid
 			var decoder = new DroidBitmapDecoder(bitmap);
 			m_imageEditor = new ImageEditor(decoder, uri.Path);
 			m_imageContent.SetImageBitmap(bitmap);
+			DroidAppResources.Instance.LoadedFile = GetRealPathFromURI(uri);
+			System.Diagnostics.Debug.WriteLine("Loaded file: " + DroidAppResources.Instance.LoadedFile);
 			m_onImageChanged(m_imageEditor);
 		}
 
@@ -99,6 +99,12 @@ namespace PiStudio.Droid
 			{
 				m_imageContent.SetImageBitmap(await m_imageEditor.RotateAsync());
 			}
+		}
+
+		// gets real path from uri
+		private string GetRealPathFromURI(Android.Net.Uri contentUri)
+		{
+			return MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(new Java.IO.File(contentUri.Path)).ToString());
 		}
 	}
 }

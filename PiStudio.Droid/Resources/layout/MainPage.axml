@@ -33,6 +33,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
-            app:menu="@menu/drawermenu" />
+            app:menu="@menu/drawermenu"
+            app:itemTextColor="#D13438" />
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>

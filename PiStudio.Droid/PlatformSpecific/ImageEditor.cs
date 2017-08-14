@@ -13,6 +13,8 @@ namespace PiStudio.Droid
 	public class ImageEditor : BaseImageEditor
 	{
 		private Task m_initTask = null;
+		private byte[] m_filterImageBytes;
+		private byte[] m_brightnessImageBytes;
 
 		/// <summary>
 		/// Creates new instance of <see cref="ImageEditor"/>.
@@ -22,6 +24,7 @@ namespace PiStudio.Droid
 		public ImageEditor(IBitmapDecoder decoder, string filePath) : base(filePath)
 		{
 			m_initTask = LoadFromStream(decoder);
+			Filter = null;
 		}
 
 		/// <summary>
@@ -33,7 +36,10 @@ namespace PiStudio.Droid
 		public async Task<Bitmap> ApplyFilterAsync(Filter filter)
 		{
 			await m_initTask;
-			var processedBytes = this.ApplyFilter(filter);
+			var processedBytes = this.ApplyFilter(m_filterImageBytes, filter);
+			Filter = filter;
+			m_workingImageInBytes = processedBytes;
+			m_brightnessImageBytes = processedBytes;
 			return CreateBitmapFromByteArrayAsync(processedBytes, (int)PixelWidth, (int)PixelHeight);
 		}
 
@@ -46,7 +52,7 @@ namespace PiStudio.Droid
 		/// <returns></returns>
 		public static byte[] ApplyFilterThreadSafeAsync(ImageEditor editor, Filter filter)
 		{
-			return ImageToolkit.ApplyConvolutionMatrixFilter(editor.m_workingImageInBytes, (int)editor.m_imageWidth,
+			return ImageToolkit.ApplyConvolutionMatrixFilter(editor.m_filterImageBytes, (int)editor.m_imageWidth,
 				(int)editor.m_imageHeight, filter.Matrix, editor.m_bytePerPixel, editor.m_bytePerPixel != 1, filter.Factor, filter.Bias);
 		}
 
@@ -73,16 +79,34 @@ namespace PiStudio.Droid
 		public async Task<Bitmap> ApplyBrightnessAsync(int brightness)
 		{
 			await m_initTask;
+			var processedBytes = m_workingImageInBytes;
 			if (brightness != 0)
 			{
-				await Task.Run(() =>
-				{
-					var processedBytes = this.ApplyBrightness(brightness);
-					m_unsavedImageInBytes = processedBytes;
-				});
+				processedBytes = this.ApplyBrightness(m_brightnessImageBytes, brightness);
+				m_filterImageBytes = processedBytes;
+				m_workingImageInBytes = processedBytes;
 			}
-			return CreateBitmapFromByteArrayAsync(m_unsavedImageInBytes, (int)PixelWidth, (int)PixelHeight);
+			Brightness = brightness;
+			return CreateBitmapFromByteArrayAsync(processedBytes, (int)PixelWidth, (int)PixelHeight);
 		}
+
+		/// <summary>
+		/// Gets the working image.
+		/// </summary>
+		/// <value>The working image.</value>
+		public Bitmap WorkingImage { get { return CreateBitmapFromByteArrayAsync(m_workingImageInBytes, (int)PixelWidth, (int)PixelHeight); } }
+
+		/// <summary>
+		/// Gets the current applied brightness.
+		/// </summary>
+		/// <value>The brightness.</value>
+		public int Brightness { get; private set;}
+
+		/// <summary>
+		/// Gets the current applied filter. Returns null if none.
+		/// </summary>
+		/// <value>The filter.</value>
+		public Filter Filter { get; private set; }
 
 		/// <summary>
 		/// Saves working image in a file with specified filename in a folder where original image is located.
@@ -102,14 +126,13 @@ namespace PiStudio.Droid
 		{
 			m_pixelFormat = (Shared.Data.PixelFormat)decoder.PixelFormat;
 			var imageBytes = await decoder.GetPixelDataAsync();
-			m_workingImageInBytes = m_unsavedImageInBytes = imageBytes;
+			m_workingImageInBytes = m_filterImageBytes = m_brightnessImageBytes = imageBytes;
 			m_imageHeight = decoder.PixelHeight;
 			m_imageWidth = decoder.PixelWidth;
 			m_dpiX = decoder.DpiX;
 			m_dpiY = decoder.DpiY;
 			m_bytePerPixel = ImageToolkit.ConvertBitmapPixelFormat(m_pixelFormat);
 
-			System.Diagnostics.Debug.WriteLine(m_bytePerPixel);
 			return imageBytes;
 		}
 

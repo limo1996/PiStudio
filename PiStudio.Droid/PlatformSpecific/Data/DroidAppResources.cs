@@ -38,7 +38,7 @@ namespace PiStudio.Droid
 
 		private DroidAppResources() : base()
 		{
-			ApplicationTheme = m_lightTheme;
+			ApplicationTheme = m_darkTheme;
 			FinalStorage = null;
 		}
 

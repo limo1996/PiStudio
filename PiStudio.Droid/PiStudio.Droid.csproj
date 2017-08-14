@@ -86,6 +86,8 @@
     <Compile Include="UI\Pages\FiltersFragment.cs" />
     <Compile Include="UI\Controls\FilterAdapter.cs" />
     <Compile Include="UI\Controls\FilterHolder.cs" />
+    <Compile Include="UI\Pages\BrightnessFragment.cs" />
+    <Compile Include="UI\Controls\StartPointSeekBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -157,6 +159,7 @@
     <AndroidResource Include="Resources\layout\MainFragment.axml" />
     <AndroidResource Include="Resources\layout\FiltersFragment.axml" />
     <AndroidResource Include="Resources\layout\filter_item.axml" />
+    <AndroidResource Include="Resources\layout\BrightnessFragment.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />

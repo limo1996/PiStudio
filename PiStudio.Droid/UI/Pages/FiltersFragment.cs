@@ -18,6 +18,7 @@ using System.Threading;
 using PiStudio.Shared.Data;
 using Android.Graphics;
 using Android.Support.V7.Widget;
+using Android.Graphics.Drawables;
 
 namespace PiStudio.Droid
 {
@@ -72,31 +73,41 @@ namespace PiStudio.Droid
 				return view;
 
 			//set main image
-			Task.Run(async () =>
-			{
-				var bitmap = await m_editor.ApplyFilterAsync(DroidAppResources.Instance.Filters[0].Filter);
-				m_imageContent.SetImageBitmap(bitmap);
-			});
+			m_imageContent.SetImageBitmap(m_editor.WorkingImage);
 
+			return view;
+		}
+
+		//starts applying filters and displays them
+		public override void OnViewCreated(View view, Bundle savedInstanceState)
+		{
 			int i = 0;
+
 			//apply all filters and display them in filters view
 			foreach (var filter in DroidAppResources.Instance.Filters)
 			{
 				i++;
 				System.Diagnostics.Debug.WriteLine(filter.Filter.Name);
-				AddItem(filter, DroidAppResources.Instance.Filters.Count == i);
+				AddItem(filter, DroidAppResources.Instance.Filters.Count == i);		
 			}
-
-			return view;
+				
+			base.OnViewCreated(view, savedInstanceState);
 		}
 
 		/// <summary>
 		/// Invoked when one of the filters is selected (clicked).
 		/// </summary>
 		/// <param name="item">Selected filter item.</param>
-		private void FilterSelected(FilterItem item)
+		private async void FilterSelected(FilterItem item)
 		{
-			m_imageContent.Post(() => m_imageContent.SetImageBitmap((Bitmap)item.Source));
+			m_imageContent.Post(
+				() =>
+			{
+				m_imageContent.SetImageBitmap((Bitmap)item.Source);
+			});
+			var filter = DroidAppResources.Instance.Filters.First(i => i.Filter.Name == item.Text);
+			if (filter != null)
+				await m_editor.ApplyFilterAsync(filter.Filter);
 		}
 
 		//applies provided filter to image and adds it to filters view.

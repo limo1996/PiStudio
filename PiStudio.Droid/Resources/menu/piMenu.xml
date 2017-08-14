@@ -12,10 +12,4 @@
 		android:title="Add"
 		app:showAsAction="never"
 		/>
-	<group android:id="@+id/group">
-        <item android:id="@+id/group_item1"
-              android:title="Hello"/>
-        <item android:id="@+id/group_item2"
-              android:title="Hello2"/>
-    </group>
 </menu>
